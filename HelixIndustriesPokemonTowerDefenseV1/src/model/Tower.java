@@ -13,19 +13,18 @@ import java.util.ArrayList;
  * Tower.java - Abstract class that will create the base for all towers in the game
  * 
  */
-public abstract class Tower implements Comparable<Tower>
+public abstract class Tower implements Comparable<Tower>, Clickable
 {
-	private String name = "";
-	private int height = 1;
-	private int width = 1;
-	private int buyPrice = 1;
-	private int sellPrice = 1;
-	private int upgradePrice = 1;
-	private Tower upgraded;
-	private boolean unlocked = false;
-	private ArrayList<Attack> attacks= new ArrayList<Attack>();
-	private File image;
-	private String type = "Normal";
+	private String name = "";//Name of the tower
+	private int height = 1;//How many squares the tower takes up in the y-direction
+	private int width = 1;//How many squares the tower takes up in the x-direction
+	private int buyPrice = 1;//Price to place the tower
+	private int sellPrice = 1;//Money obtained from selling the tower
+	private int upgradePrice = 1;//Cost to upgrade the tower
+	private Tower upgraded;//Reference to the upgraded form of tower
+	private ArrayList<Attack> attacks= new ArrayList<Attack>();//List of the tower's attacks
+	private File image;//Image for the tower
+	private String type = "Normal";//Tower's type
 	
 	
 	/*
@@ -87,23 +86,28 @@ public abstract class Tower implements Comparable<Tower>
 	/*
 	 * Returns whether or not this tower is unlcocked as a boolean
 	 */
-	public boolean isUnlocked()
+	public boolean isUnlocked(Player p)
 	{
+		boolean unlocked = false;
+		if(p.checkUnlocks(name))
+		{
+			unlocked = true;
+		}
 		return unlocked;
 	}
 	
 	/*
 	 * Returns whether or not the tower can be upgraded as a boolean 
 	 */
-	public boolean canUpgrade()
+	public boolean canUpgrade(Player p)
 	{
-		return upgraded.isUnlocked();
+		return p.checkUnlocks(upgraded.getName());
 	}
 	
 	/*
 	 * Returns the list of attacks as an ArrayList
 	 */
-	public ArrayList<Attack>()
+	public ArrayList<Attack> getAttacks()
 	{
 		return attacks;
 	}
@@ -119,6 +123,12 @@ public abstract class Tower implements Comparable<Tower>
 	public int compareTo(Tower t)
 	{
 		return 0;
+	}
+	
+	//Shows the Tower's information ()
+	public void showInfo()
+	{
+		
 	}
 
 }
