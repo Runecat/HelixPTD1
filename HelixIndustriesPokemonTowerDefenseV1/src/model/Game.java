@@ -1,6 +1,5 @@
 package model;
 
-public class Map 
-{
+public class Game {
 
 }

@@ -3,6 +3,8 @@ package model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import towers.Tower;
+
 public class Player implements Serializable
 {
 	
@@ -25,7 +27,7 @@ public class Player implements Serializable
 	/*
 	 * Returns whether or not a tower is unlocked based on its name, as a boolean
 	 */
-	boolean checkUnlocks(String towerName)
+	public boolean checkUnlocks(String towerName)
 	{
 		boolean hasTower = false;
 		for(String tower:towersUnlocked)

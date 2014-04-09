@@ -1,7 +1,12 @@
-package model;
+package towers;
+
 
 import java.io.File;
 import java.util.ArrayList;
+
+import model.Attack;
+import model.Clickable;
+import model.Player;
 
 /*
  * Helix Industries:
@@ -21,7 +26,7 @@ public abstract class Tower implements Comparable<Tower>, Clickable
 	private int buyPrice = 1;//Price to place the tower
 	private int sellPrice = 1;//Money obtained from selling the tower
 	private int upgradePrice = 1;//Cost to upgrade the tower
-	private Tower upgraded;//Reference to the upgraded form of tower
+	private Tower upgraded = null;//Reference to the upgraded form of tower
 	private ArrayList<Attack> attacks= new ArrayList<Attack>();//List of the tower's attacks
 	private File image;//Image for the tower
 	private String type = "Normal";//Tower's type
