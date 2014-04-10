@@ -13,5 +13,19 @@ Decide what the packages should be
 Move files into appropriate packages
 
 
-More testing
-	
+Gabe - Map, Tile, Path, associated logic
+
+Will - Menus, Basic GUI, Player, Animation (later), Sound(later)
+
+Brandon - Mob AI, Wave, Spawning, Base, Base Damage calculation, Scoring (later)
+
+Daniel - Towers, Placement, Selling (later), Attacking, Attacks
+
+Other:
+
+Saving/Loading
+Sprite Modification
+Chat Networking
+Co op Networking
+Timers 
+Logo
