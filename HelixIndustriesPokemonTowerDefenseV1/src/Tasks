@@ -9,5 +9,10 @@ Install egit - also done by: Will
 Side Node:
 	"Will was here" - Will Clement 2014
 	
+<<<<<<< HEAD
 	changing something
+=======
+Decide what the packages should be
+Move files into appropriate packages
+>>>>>>> upstream/master
 	
