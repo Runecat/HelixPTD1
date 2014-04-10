@@ -1,16 +1,6 @@
 Task List:
 
-install git - done by: Daniel
-Install egit  - done by: Daniel
-
-install git - also done by: Will
-Install egit - also done by: Will
-
-Side Node:
-	"Will was here" - Will Clement 2014
-	
-Decide what the packages should be
-Move files into appropriate packages
+Install git and set up repositories: DONE
 
 
 Gabe - Map, Tile, Path, associated logic
@@ -29,3 +19,23 @@ Chat Networking
 Co op Networking
 Timers 
 Logo
+
+
+Git BASH commands:
+
+In order to get the most recent changes -
+
+git fetch upstream
+git merge upstream/master
+
+
+In order to push your personal changes - 
+git commit -a
+
+<insert>
+Type in a description of the changes
+<esc>
+:wq
+<enter>
+
+git push origin master
