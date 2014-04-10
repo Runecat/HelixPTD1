@@ -16,6 +16,7 @@ public class Blastoise extends Tower
 	private File image;//Image for the tower
 	private String type;//Tower's type
 	
+	
 	public Blastoise(ArrayList<Attack> attacks)
 	{
 		name = "Blastoise";
