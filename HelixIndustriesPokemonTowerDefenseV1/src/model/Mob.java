@@ -11,7 +11,7 @@ public class Mob implements Clickable {
 	private int height;
 	private int width;
 	private int mobType;// Might make into enum
-	private effect status;
+	private Effect status;
 	private File image;
 
 	public Mob() {
@@ -34,11 +34,11 @@ public class Mob implements Clickable {
 
 	}
 
-	public effect getEffect() {
+	public Effect getEffect() {
 		return status;
 	}
 
-	public void setEffect(effect status) {
+	public void setEffect(Effect status) {
 		this.status = status;
 	}
 	public int getHealth() {
