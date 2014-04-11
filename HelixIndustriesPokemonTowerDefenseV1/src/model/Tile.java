@@ -9,6 +9,8 @@ public class Tile {
 	private boolean isEmpty;
 	private boolean hasEnemy;
 	private boolean canPlaceTower;
+	private boolean isWater;
+	private boolean isLand;
 	
 	public Tile(int height, int width) {
 		this.height = height;
@@ -20,7 +22,7 @@ public class Tile {
 	}
 	
 	public boolean hasTower() {
-		return hasTower();
+		return hasTower;
 	}
 	
 	public boolean isEmpty() {
@@ -33,6 +35,14 @@ public class Tile {
 	
 	public boolean canPlaceTower() {
 		return canPlaceTower;
+	}
+	
+	public boolean isWater() {
+		return isWater;
+	}
+	
+	public boolean isLand() {
+		return isLand;
 	}
 
 }
