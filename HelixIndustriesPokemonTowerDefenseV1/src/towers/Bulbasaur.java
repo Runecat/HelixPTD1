@@ -6,6 +6,16 @@ import java.util.ArrayList;
 import model.Attack;
 import model.Clickable;
 
+/*
+ * Helix Industries:
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ * Bulbasaur.java - 
+ */
+
 public class Bulbasaur extends Tower
 {
 	private String name;
@@ -22,5 +32,6 @@ public class Bulbasaur extends Tower
 		name = "Bulbasaur";
 		type = "Grass";
 		this.attacks = attacks;
+		upgraded = new Ivysaur(attacks);
 	}
 }

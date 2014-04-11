@@ -5,6 +5,16 @@ import java.util.ArrayList;
 
 import model.Attack;
 
+/*
+ * Helix Industries:
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ * Blastoise.java - 
+ */
+
 public class Blastoise extends Tower
 {
 	private String name;
@@ -22,5 +32,6 @@ public class Blastoise extends Tower
 		name = "Blastoise";
 		type = "Water";
 		this.attacks = attacks;
+		upgraded = null;
 	}
 }

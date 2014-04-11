@@ -5,6 +5,16 @@ import java.util.ArrayList;
 
 import model.Attack;
 
+/*
+ * Helix Industries:
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ * Charmander.java - 
+ */
+
 public class Charmander extends Tower
 {
 	private String name;
@@ -21,6 +31,7 @@ public class Charmander extends Tower
 		name = "Charmander";
 		type = "Fire";
 		this.attacks = attacks;
+		upgraded = new Charmeleon(attacks);
 	}
 
 }
