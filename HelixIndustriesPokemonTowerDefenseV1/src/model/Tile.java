@@ -2,8 +2,8 @@ package model;
 
 public class Tile {
 	
-	int height = 0;
-	int width = 0;
+	int height;
+	int width;
 	private boolean isOnPath;
 	private boolean hasTower;
 	private boolean isEmpty;
@@ -12,9 +12,9 @@ public class Tile {
 	private boolean isWater;
 	private boolean isLand;
 	
-	public Tile(int height, int width) {
-		this.height = height;
+	public Tile(int width, int height) {
 		this.width = width;
+		this.height = height;
 	}
 	
 	public boolean isOnPath() {
