@@ -11,10 +11,19 @@ public class Tile {
 	private boolean canPlaceTower;
 	private boolean isWater;
 	private boolean isLand;
+	Object myObject = null;
 	
 	public Tile(int width, int height) {
 		this.width = width;
 		this.height = height;
+	}
+	
+	public void setObject(Object obj) {
+		this.myObject = obj;
+	}
+	
+	public Object getObject() {
+		return this.myObject;
 	}
 	
 	public boolean isOnPath() {
