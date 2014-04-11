@@ -1,7 +1,6 @@
 package model;
 
 public class Tile {
-<<<<<<< HEAD
 	
 	int height;
 	int width;
@@ -45,7 +44,5 @@ public class Tile {
 	public boolean isLand() {
 		return isLand;
 	}
-=======
->>>>>>> upstream/master
 
 }
