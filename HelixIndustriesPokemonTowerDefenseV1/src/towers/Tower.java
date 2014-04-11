@@ -1,5 +1,4 @@
 package towers;
-//test change
 
 import java.io.File;
 import java.util.ArrayList;
@@ -16,7 +15,6 @@ import model.Player;
  * Gabriel Basadre
  * 
  * Tower.java - Abstract class that will create the base for all towers in the game
- * 
  */
 public abstract class Tower implements Comparable<Tower>, Clickable
 {

@@ -2,8 +2,17 @@ package towers;
 
 import java.io.File;
 import java.util.ArrayList;
-
 import model.Attack;
+
+/*
+ * Helix Industries:
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ * Squirtle.java - 
+ */
 
 public class Squirtle extends Tower
 {
