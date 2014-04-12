@@ -28,8 +28,7 @@ public abstract class Tower implements Comparable<Tower>, Clickable
 	private Tower upgraded = null;//Reference to the upgraded form of tower
 	private ArrayList<Attack> attacks= new ArrayList<Attack>();//List of the tower's attacks
 	private File image;//Image for the tower
-	//private String type = "Normal";//Tower's type
-	private Type type;
+	private Type type = Type.NORMAL;//Pokemon type
 	
 	
 	/*

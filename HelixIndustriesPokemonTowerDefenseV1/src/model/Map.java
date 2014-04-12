@@ -1,13 +1,12 @@
 package model;
 
-import towers.Tower;
+import towers.*;
 
 public class Map 
 {
 	int width = 800;
 	int height = 720;
 	Tile [][] grid = new Tile[height][width];
-	Tower tower = new Tower();
 	
 	public Map(int width, int height, Tile [][] grid) {
 		this.width = width;
