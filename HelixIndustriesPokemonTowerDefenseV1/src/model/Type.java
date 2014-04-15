@@ -1,16 +1,17 @@
+package model;
 
-public enum type {
+public enum Type {
 	BUG, DRAGON, ELECTRIC, FIGHTING, FIRE, FLYING, 
 	GHOST, GRASS, GROUND, ICE, NORMAL, POISON,
 	PSYCHIC, ROCK, WATER;
 	
 	// This will be the typical method used to find effectiveness
 	// Example: ELECTRIC.getEffectiveness(FLYING);
-	public double getEffectiveness(type defend){
+	public double getEffectiveness(Type defend){
 		return getEffectiveness(this, defend);
 	}
 	
-	public double getEffectiveness(type attack, type defend) {
+	public double getEffectiveness(Type attack, Type defend) {
 		
 		double superEffective = 2.0;
 		double notVeryEffective = 0.5;

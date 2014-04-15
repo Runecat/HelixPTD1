@@ -4,8 +4,8 @@ import java.io.File;
 
 public class Headquarters 
 {
-	String name = "";
-	int health = 1;
+	String name = "Poke Center";
+	public final static int health = 200;
 	File image;
 
 }

@@ -1,6 +1,6 @@
 package model;
 
-import towers.Tower;
+import towers.*;
 
 public class Map 
 {

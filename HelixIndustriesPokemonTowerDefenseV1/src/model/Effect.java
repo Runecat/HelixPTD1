@@ -1,9 +1,9 @@
 package model;
 
-public enum effect {
+public enum Effect {
 	poison, paralyze, sleep, burn, freeze, confuse;
 	
-	public void getStatuseffect(effect status, double speed, int DoT, int length){
+	public void getStatuseffect(Effect status, double speed, int DoT, int length){
 		if(status == poison){
 			speed = 0.75;
 			DoT = 5;

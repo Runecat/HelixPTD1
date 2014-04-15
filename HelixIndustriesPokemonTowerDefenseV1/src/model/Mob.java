@@ -4,15 +4,15 @@ import java.io.File;
 
 public class Mob implements Clickable {
 	// May need location variables
-	private String name;
-	private int health;
-	private int baseDamage;
-	private int moveSpeed;
-	private int height;
-	private int width;
-	private int mobType;// Might make into enum
-	private effect status;
-	private File image;
+	private String name = "";
+	private int health = 1;
+	private int baseDamage = 1;
+	private int moveSpeed = 1;
+	private int height = 1;
+	private int width = 1;
+	private int mobType = 1;// Might make into enum
+	private Effect status = null;
+	private File image = null;
 
 	public Mob() {
 		health = getHealth();
@@ -34,11 +34,11 @@ public class Mob implements Clickable {
 
 	}
 
-	public effect getEffect() {
+	public Effect getEffect() {
 		return status;
 	}
 
-	public void setEffect(effect status) {
+	public void setEffect(Effect status) {
 		this.status = status;
 	}
 	public int getHealth() {
