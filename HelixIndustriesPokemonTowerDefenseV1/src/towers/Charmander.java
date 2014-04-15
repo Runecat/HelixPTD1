@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 import model.Attack;
+import model.Tile;
 
 /*
  * Helix Industries:
@@ -25,13 +26,16 @@ public class Charmander extends Tower
 	private ArrayList<Attack> attacks= new ArrayList<Attack>();//List of the tower's attacks
 	private File image;//Image for the tower
 	private String type;//Tower's type
+	private Tile location;
 	
-	public Charmander(ArrayList<Attack> attacks)
+	public Charmander(ArrayList<Attack> attacks, Tile t)
 	{
+		super(attacks,t);
+		location = t;
 		name = "Charmander";
 		type = "Fire";
 		this.attacks = attacks;
-		upgraded = new Charmeleon(attacks);
+		upgraded = new Charmeleon(attacks,t);
 	}
 
 }

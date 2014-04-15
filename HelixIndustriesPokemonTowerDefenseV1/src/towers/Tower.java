@@ -5,7 +5,9 @@ import java.util.ArrayList;
 
 import model.Attack;
 import model.Clickable;
+import model.Mob;
 import model.Player;
+import model.Tile;
 import model.Type;
 
 /*
@@ -17,7 +19,7 @@ import model.Type;
  * 
  * Tower.java - Abstract class that will create the base for all towers in the game
  */
-public abstract class Tower implements Comparable<Tower>, Clickable
+public abstract class Tower implements Clickable
 {
 	private String name = "";//Name of the tower
 	private int height = 1;//How many squares the tower takes up in the y-direction
@@ -28,15 +30,17 @@ public abstract class Tower implements Comparable<Tower>, Clickable
 	private Tower upgraded = null;//Reference to the upgraded form of tower
 	private ArrayList<Attack> attacks= new ArrayList<Attack>();//List of the tower's attacks
 	private File image;//Image for the tower
-	private Type type = Type.NORMAL;//Pokemon type
+	private Type type = Type.NORMAL;//Tower type
+	private Tile location= null;
 	
 	
 	/*
 	 *Constructor for a Tower.   
 	 */
-	public Tower()
+	public Tower(ArrayList<Attack> a, Tile t)
 	{
-		
+		attacks = a;
+		location = t;
 	}
 	
 	/*
@@ -117,16 +121,33 @@ public abstract class Tower implements Comparable<Tower>, Clickable
 	}
 	
 	/*
-	 * Compares this tower to another tower, based on type.
-	 * Returns 1 if this Tower has a type advantage
-	 * Returns 0 if neither Tower has a type advantage
-	 * Returns -1 if the Tower t has a type advantage
-	 * 
-	 * Paramaters: Tower t - a Tower that this one will be compared to
+	 * Deals damage to a given Mob based on Tower, Attack, and Mob types
 	 */
-	public int compareTo(Tower t)
+	public void dealDamage(Attack a, Mob m)
 	{
-		return 0;
+		int damageDealt = 0;
+		boolean modifier = false;
+		
+		if(type == a.getType())
+		{
+			modifier = true;
+		}
+		damageDealt = (type.getEffectiveness(m.getMobType()))*a.getDamage();
+		
+		if(modifier)
+		{
+			damageDealt++;
+		}
+		
+		m.setHealth(m.getHealth() - damageDealt);
+	}
+	
+	public void attackEnemy(Attack a, ArrayList<Mob> inRange)
+	{
+		for(Mob m: inRange)
+		{
+			dealDamage(a,m);
+		}
 	}
 	
 	//Shows the Tower's information ()

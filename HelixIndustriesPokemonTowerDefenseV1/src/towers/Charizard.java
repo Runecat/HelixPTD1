@@ -2,7 +2,9 @@ package towers;
 
 import java.io.File;
 import java.util.ArrayList;
+
 import model.Attack;
+import model.Tile;
 
 /*
  * Helix Industries:
@@ -24,9 +26,12 @@ public class Charizard extends Tower
 	private ArrayList<Attack> attacks= new ArrayList<Attack>();//List of the tower's attacks
 	private File image;//Image for the tower
 	private String type;//Tower's type
+	private Tile location;
 	
-	public Charizard(ArrayList<Attack> attacks)
+	public Charizard(ArrayList<Attack> attacks, Tile t)
 	{
+		super(attacks,t);
+		location = t;
 		name = "Charizard";
 		type = "Fire";
 		this.attacks = attacks;

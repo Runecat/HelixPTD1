@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import model.Attack;
 import model.Clickable;
+import model.Tile;
 
 /*
  * Helix Industries:
@@ -26,9 +27,12 @@ public class Bulbasaur extends Tower
 	private ArrayList<Attack> attacks= new ArrayList<Attack>();//List of the tower's attacks
 	private File image;//Image for the tower
 	private String type;//Tower's type
+	private Tile location;
 	
-	public Bulbasaur(ArrayList<Attack> attacks)
+	public Bulbasaur(ArrayList<Attack> attacks, Tile t)
 	{
+		super(attacks,t);
+		location = t;
 		name = "Bulbasaur";
 		type = "Grass";
 		this.attacks = attacks;
