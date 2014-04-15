@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-<<<<<<< HEAD
 import java.util.List;
 
 import ObserverModel.Observable;
@@ -36,14 +35,6 @@ public class Game extends Observable {
 		return players;
 	}
 	
-=======
-import towers.*;
 
-public class Game 
-{
-	ArrayList<Tower> towers;
-	ArrayList<Mob> mobs;
-	Map map;
-//figures out which mobs are affected by which towers, contains a map
->>>>>>> upstream/master
+
 }
