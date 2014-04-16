@@ -1,7 +1,11 @@
-package model;
+package attacks;
 
 import java.io.File;
 import java.util.ArrayList;
+
+import model.Mob;
+import model.Tile;
+import model.Type;
 
 /*
  * Helix Industries:{

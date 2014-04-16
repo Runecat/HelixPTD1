@@ -2,7 +2,10 @@ package towers;
 
 import java.io.File;
 import java.util.ArrayList;
-import model.Attack;
+
+import attacks.Attack;
+import model.Tile;
+import model.Type;
 
 /*
  * Helix Industries:
@@ -23,14 +26,18 @@ public class Squirtle extends Tower
 	private Tower upgraded;//Reference to the upgraded form of tower
 	private ArrayList<Attack> attacks= new ArrayList<Attack>();//List of the tower's attacks
 	private File image;//Image for the tower
-	private String type;//Tower's type
+	private Type type;//Tower's type
+	private Tile location;//Tower's location on the map
 	
-	public Squirtle(ArrayList<Attack> attacks)
+	
+	public Squirtle(ArrayList<Attack> attacks, Tile t)
 	{
+		super(attacks,t);
+		location = t;
 		name = "Squirtle";
-		type = "Water";
+		type = Type.WATER;
 		this.attacks = attacks;
-		upgraded = new Wartortle(attacks);
+		upgraded = new Wartortle(attacks,t);
 	}
 
 }

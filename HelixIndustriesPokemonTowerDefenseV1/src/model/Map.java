@@ -4,8 +4,8 @@ import towers.*;
 
 public class Map 
 {
-	int width = 800;
-	int height = 720;
+	int width;
+	int height;
 	Tile [][] grid = new Tile[height][width];
 	
 	public Map(int width, int height, Tile [][] grid) {
@@ -53,7 +53,7 @@ public class Map
 	// 1 := right
 	// 2 := down
 	// 3 := left
-	public void setDirection(int row, int col, int direction) {
+	public void setDirection(int row, int col, Directions direction) {
 		grid[row][col].setDirection(direction);
 	}
 	
@@ -83,7 +83,7 @@ public class Map
 	
 	// Returns tower on a tile in the grid
 	public Object getObject(int row, int col) {
-		return grid[row][col].myObject;
+		return grid[row][col].getObject();
 	}
 	
 	// Set methods for enemies, path, background, frame, more

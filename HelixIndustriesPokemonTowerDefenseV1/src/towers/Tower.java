@@ -3,7 +3,7 @@ package towers;
 import java.io.File;
 import java.util.ArrayList;
 
-import model.Attack;
+import attacks.Attack;
 import model.Clickable;
 import model.Mob;
 import model.Player;
