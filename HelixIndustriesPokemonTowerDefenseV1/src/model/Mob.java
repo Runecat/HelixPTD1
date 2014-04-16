@@ -10,7 +10,7 @@ public class Mob implements Clickable {
 	private int moveSpeed = 1;
 	private int height = 1;
 	private int width = 1;
-	private int mobType = 1;// Might make into enum
+	private Type mobType = Type.NORMAL;// Might make into enum
 	private Effect status = null;
 	private File image = null;
 
@@ -57,11 +57,11 @@ public class Mob implements Clickable {
 		this.moveSpeed = moveSpeed;
 	}
 
-	public int getMobType() {
+	public Type getMobType() {
 		return mobType;
 	}
 
-	public void setMobType(int mobType) {
+	public void setMobType(Type mobType) {
 		this.mobType = mobType;
 	}
 

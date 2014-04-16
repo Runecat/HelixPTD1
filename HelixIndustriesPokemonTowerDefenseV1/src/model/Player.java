@@ -17,11 +17,16 @@ public class Player implements Serializable
 	private ArrayList<String> towersUnlocked;//List of Player's unlocked towers
 	private ArrayList<Tower> towers;//List of all a Player's Towers, may move to Game object
 	private int money = 0;//Amount of money Player has, may move to Game object
+	private String name;
 	
 	
 	public Player()
 	{
 		
+	}
+	
+	public String getName() {
+		return name;
 	}
 	
 	/*
