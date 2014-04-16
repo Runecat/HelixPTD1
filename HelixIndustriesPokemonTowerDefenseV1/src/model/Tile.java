@@ -101,7 +101,11 @@ public class Tile {
 		this.direction = direction;
 	}
 	
+
+
+
 	public Directions getDirection() {
+
 		return direction;
 	}
 	
