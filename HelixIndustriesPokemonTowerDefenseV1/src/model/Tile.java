@@ -97,7 +97,7 @@ public class Tile {
 		this.direction = direction;
 	}
 	
-	public int getDirection(int direction) {
+	public int getDirection() {
 		return direction;
 	}
 

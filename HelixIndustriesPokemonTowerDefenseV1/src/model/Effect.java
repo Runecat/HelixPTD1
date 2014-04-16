@@ -11,7 +11,7 @@ public enum Effect {
 		}
 		if(status == paralyze){
 			speed = 0;
-			DoT = 1;
+			DoT = 2;
 			length = 2;
 		}
 		if(status == sleep){
