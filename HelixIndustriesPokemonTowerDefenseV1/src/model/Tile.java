@@ -100,12 +100,8 @@ public class Tile {
 	public void setDirection(Directions direction) {
 		this.direction = direction;
 	}
-	
-
-
 
 	public Directions getDirection() {
-
 		return direction;
 	}
 	
@@ -113,8 +109,12 @@ public class Tile {
 		
 	}
 	
-	public void setNextTile() {
-		
+	public void setNextTile(Tile next) {
+		this.next = next;
+	}
+	
+	public Tile getNextTile() {
+		return next;
 	}
 	
 	// Set next tile

@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.image.BufferedImage;
+import java.util.LinkedList;
 
 import towers.*;
 
@@ -10,6 +11,7 @@ public abstract class Map
 	int height;
 	Tile [][] grid = new Tile[height][width];
 	private BufferedImage image;
+	private LinkedList<Tile> path = new LinkedList<Tile>();
 	
 	public Map(int width, int height, Tile [][] grid) {
 		this.width = width;
@@ -46,8 +48,11 @@ public abstract class Map
 		grid[row][col].setObject(mob);
 	}
 	
-	// Sets a tile equal to the path
+	// Sets a tile equal to the path, adds to path list, and sets Tile as prev Tile's next
 	public void setPath(int row, int col) {
+		path.add(grid[row][col]);
+		if (path.size() > 1)
+			path.get(path.size() - 1).setNextTile(grid[row][col]);
 		grid[row][col].setOnPath(true);
 	}
 	
