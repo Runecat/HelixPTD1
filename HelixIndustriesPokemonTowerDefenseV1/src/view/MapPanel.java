@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
@@ -16,6 +17,8 @@ public class MapPanel extends JPanel implements Observer {
 
 	private Map map;
 	private Game theGame;
+	private BufferedImage grassBackground;
+	
 	
 	public MapPanel(Game game) {
 		this.theGame = game;
@@ -28,8 +31,13 @@ public class MapPanel extends JPanel implements Observer {
 		this.add(chat, BorderLayout.NORTH);
 	}
 	
+	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+	}
+	
+	public void drawBackground(Graphics g) {
+		g.drawImage(grassBackground, 5, 5, null);
 	}
 
 	@Override
