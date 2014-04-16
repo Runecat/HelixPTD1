@@ -3,8 +3,10 @@ package towers;
 import java.io.File;
 import java.util.ArrayList;
 
-import model.Attack;
+import attacks.Attack;
+import attacks.Ember;
 import model.Tile;
+import model.Type;
 
 /*
  * Helix Industries:
@@ -25,7 +27,7 @@ public class Charmander extends Tower
 	private Tower upgraded;//Reference to the upgraded form of tower
 	private ArrayList<Attack> attacks= new ArrayList<Attack>();//List of the tower's attacks
 	private File image;//Image for the tower
-	private String type;//Tower's type
+	private Type type;//Tower's type
 	private Tile location;
 	
 	public Charmander(ArrayList<Attack> attacks, Tile t)
@@ -33,9 +35,12 @@ public class Charmander extends Tower
 		super(attacks,t);
 		location = t;
 		name = "Charmander";
-		type = "Fire";
+		type = Type.FIRE;
 		this.attacks = attacks;
 		upgraded = new Charmeleon(attacks,t);
+		
+		//REMOVE
+		attacks.set(0, new Ember());
 	}
 
 }
