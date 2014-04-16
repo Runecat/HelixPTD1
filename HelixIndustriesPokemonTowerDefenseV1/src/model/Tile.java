@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Tile {
 	
 	int height;
@@ -10,10 +12,12 @@ public class Tile {
 	private boolean hasMob;
 	private boolean isWater;
 	private boolean isLand;
-	private Directions direction;
+	private Directions direction = null;
+	private ArrayList mobList = new ArrayList<Mob>();
 	private int row;
 	private int col;
 	private Object myObject = null;
+	private Tile next;
 	
 	public Tile(int width, int height) {
 		this.width = width;
@@ -100,5 +104,16 @@ public class Tile {
 	public Directions getDirection() {
 		return direction;
 	}
+	
+	public void setMobList() {
+		
+	}
+	
+	public void setNextTile() {
+		
+	}
+	
+	// Set next tile
+	// Set MobList by adding and removing from this tile to next
 
 }

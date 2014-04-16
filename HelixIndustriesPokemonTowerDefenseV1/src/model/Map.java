@@ -1,12 +1,15 @@
 package model;
 
+import java.awt.image.BufferedImage;
+
 import towers.*;
 
-public class Map 
+public abstract class Map 
 {
 	int width;
 	int height;
 	Tile [][] grid = new Tile[height][width];
+	private BufferedImage image;
 	
 	public Map(int width, int height, Tile [][] grid) {
 		this.width = width;
