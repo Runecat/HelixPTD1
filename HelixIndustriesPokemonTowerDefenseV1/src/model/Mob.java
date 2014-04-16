@@ -35,11 +35,11 @@ public class Mob implements Clickable {
 	public void moveMob() {
 		// might move based on location variables
 		while(spawnX != HQ.spawnX && spawnY != HQ.spawnY || health == 0){
-			if(track.getTile(spawnX, spawnY).getDirection() == right)
+			if(track.getTile(spawnX, spawnY).getDirection() == Directions.Right)
 				spawnY++;
-			else if(track.getTile(spawnX, spawnY).getDirection() == up)
+			else if(track.getTile(spawnX, spawnY).getDirection() == Directions.Up)
 				spawnX++;
-			else if(track.getTile(spawnX, spawnY).getDirection() == left)
+			else if(track.getTile(spawnX, spawnY).getDirection() == Directions.Left)
 				spawnY--;
 			else
 				spawnX--;
