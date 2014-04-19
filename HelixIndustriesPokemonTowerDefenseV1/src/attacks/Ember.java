@@ -12,7 +12,7 @@ public class Ember extends Attack
 
 	private int damage = 1;
 	private int verticalRange = 1;
-	private int horizontalRange = 1;
+	private int horizontalRange = 10;
 	private Type damageType = Type.NORMAL;//May make an enum to represent types 
 	private int effect = 0;//May make an enum to represent effects
 	private File image;
@@ -32,10 +32,20 @@ public class Ember extends Attack
 		return damageType;
 	}
 	
-	public ArrayList <Mob> calculateAffected(Tile[][] tiles)
+	public int getVerticalRange()
+	{
+		return verticalRange;
+	}
+	
+	public int getHorizontalRange()
+	{
+		return horizontalRange;
+	}
+	
+	/*public ArrayList <Mob> calculateAffected(Mob[] mobs)
 	{
 		ArrayList<Mob> affectedMobs = new ArrayList<Mob>();
 		
 		return affectedMobs;
-	}
+	}*/
 }
