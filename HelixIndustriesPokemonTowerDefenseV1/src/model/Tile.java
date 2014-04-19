@@ -119,6 +119,15 @@ public class Tile {
 		return next;
 	}
 	
+	public int getRow()
+	{
+		return row;
+	}
+	
+	public int getColumn()
+	{
+		return col;
+	}
 	// Set next tile
 	// Set MobList by adding and removing from this tile to next
 

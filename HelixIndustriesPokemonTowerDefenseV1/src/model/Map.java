@@ -99,5 +99,15 @@ public abstract class Map
 	}
 	
 	// Set methods for enemies, path, background, frame, more
+	
+	public int getWidth()
+	{
+		return width;
+	}
+	
+	public int getHeight()
+	{
+		return height;
+	}
 
 }
