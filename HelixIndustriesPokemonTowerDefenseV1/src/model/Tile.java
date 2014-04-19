@@ -128,6 +128,11 @@ public class Tile {
 	{
 		return col;
 	}
+	
+	public ArrayList<Mob> getMobs()
+	{
+		return mobList;
+	}
 	// Set next tile
 	// Set MobList by adding and removing from this tile to next
 
