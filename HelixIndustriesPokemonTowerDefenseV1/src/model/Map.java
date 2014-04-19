@@ -56,6 +56,10 @@ public abstract class Map
 		grid[row][col].setOnPath(true);
 	}
 	
+	public LinkedList getPath() {
+		return path;
+	}
+	
 	// Sets direction to 0,1,2,3:
 	// 0 := up
 	// 1 := right

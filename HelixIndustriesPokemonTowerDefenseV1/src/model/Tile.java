@@ -13,11 +13,12 @@ public class Tile {
 	private boolean isWater;
 	private boolean isLand;
 	private Directions direction = null;
+	private Mob mob;
 	private ArrayList mobList = new ArrayList<Mob>();
 	private int row;
 	private int col;
 	private Object myObject = null;
-	private Tile next;
+	private Tile next;	
 	
 	public Tile(int width, int height) {
 		this.width = width;
@@ -107,6 +108,7 @@ public class Tile {
 	
 	public void setMobList() {
 		
+			
 	}
 	
 	public void setNextTile(Tile next) {
