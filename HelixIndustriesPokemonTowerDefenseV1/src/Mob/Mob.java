@@ -1,6 +1,13 @@
-package model;
+package Mob;
 
 import java.io.File;
+
+import model.Clickable;
+import model.Directions;
+import model.Effect;
+import model.Headquarters;
+import model.Map;
+import model.Type;
 
 public class Mob implements Clickable {
 	// May need location variables
@@ -13,6 +20,7 @@ public class Mob implements Clickable {
 	private Type mobType = Type.NORMAL;// Might make into enum
 	private Effect status = null;
 	private File image = null;
+	private int money = 1;
 	private Map track = null;
 	public int spawnX;
 	public int spawnY;
@@ -25,6 +33,7 @@ public class Mob implements Clickable {
 		width = getWidth();
 		mobType = getMobType();
 		status = getEffect();
+		money = getMoney();
 		image = getImage();
 	}
 	
@@ -120,5 +129,13 @@ public class Mob implements Clickable {
 
 	public void setTrack(Map track) {
 		this.track = track;
+	}
+
+	public int getMoney() {
+		return money;
+	}
+
+	public void setMoney(int money) {
+		this.money = money;
 	}
 }
