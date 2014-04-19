@@ -150,6 +150,18 @@ public abstract class Tower implements Clickable
 		}
 	}
 	
+	public int getRow()
+	{
+		return location.getRow();
+	}
+	
+	public int getColumn()
+	{
+		return location.getColumn();
+	}
+	
+	
+	
 	//Shows the Tower's information ()
 	public void showInfo()
 	{

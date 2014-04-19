@@ -3,6 +3,8 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import attacks.Attack;
+import towers.Tower;
 import ObserverModel.Observable;
 
 public class Game extends Observable {
@@ -37,7 +39,9 @@ public class Game extends Observable {
 	
 	public ArrayList<Mob> calculateRange(Tower t, Attack a)
 	{
-		ArrayList<Mob> mobs;
+		ArrayList<Mob> mobs = null;
+		ArrayList<Tile> tilesInRange = null;
+		
 		return mobs;
 	}
 	
