@@ -18,7 +18,8 @@ public class Tile {
 	private int row;
 	private int col;
 	private Object myObject = null;
-	private Tile next;	
+	private Tile next;
+	private Spawner spawner = null;
 	
 	public Tile(int width, int height) {
 		this.width = width;
@@ -132,6 +133,14 @@ public class Tile {
 	public ArrayList<Mob> getMobs()
 	{
 		return mobList;
+	}
+	
+	public void setSpawnerTile(Spawner spawner) {
+		this.spawner = spawner;
+	}
+	
+	public Spawner getSpawnerTile() {
+		return spawner;
 	}
 	// Set next tile
 	// Set MobList by adding and removing from this tile to next

@@ -21,6 +21,18 @@ public class Spawner {
 		return waves;
 	}
 	
+	public void addWave(Wave wave) {
+		waves.add(wave);
+	}
+	
+	public void sendWaves() {
+		for (int i = 0; i < waves.size(); i++) {
+			waves.get(i).sendWave();
+		}
+	}
+	
+	
+	
 	// Need to add methods and stuff
 	
 }
