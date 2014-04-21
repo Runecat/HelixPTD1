@@ -31,7 +31,13 @@ public class Spawner {
 		}
 	}
 	
+	public void setMobs(int level) {
+		mobs.add(waves.get(level).getBaddie());
+	}
 	
+	public ArrayList<Mob> getMobs() {
+		return mobs;
+	}
 	
 	// Need to add methods and stuff
 	

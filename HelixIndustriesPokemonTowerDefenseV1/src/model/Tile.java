@@ -14,7 +14,7 @@ public class Tile {
 	private boolean isLand;
 	private Directions direction = null;
 	private Mob mob;
-	private ArrayList mobList = new ArrayList<Mob>();
+	private ArrayList<Mob> mobList = new ArrayList<Mob>();
 	private int row;
 	private int col;
 	private Object myObject = null;
@@ -107,11 +107,6 @@ public class Tile {
 		return direction;
 	}
 	
-	public void setMobList() {
-		
-			
-	}
-	
 	public void setNextTile(Tile next) {
 		this.next = next;
 	}
@@ -128,6 +123,11 @@ public class Tile {
 	public int getColumn()
 	{
 		return col;
+	}
+	
+	public void setMobList() {
+		for (int i = 0; i < spawner.getMobs().size(); i++)
+			mobList.add(spawner.getMobs().get(i));
 	}
 	
 	public ArrayList<Mob> getMobs()

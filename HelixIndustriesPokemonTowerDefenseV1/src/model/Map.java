@@ -1,6 +1,7 @@
 package model;
 
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import towers.*;
@@ -12,6 +13,8 @@ public abstract class Map
 	Tile [][] grid = new Tile[height][width];
 	private BufferedImage image;
 	private LinkedList<Tile> path = new LinkedList<Tile>();
+	private ArrayList<Spawner> spawners = new ArrayList<Spawner>();
+	private Spawner spawner;
 	
 	public Map(int width, int height, Tile [][] grid) {
 		this.width = width;
@@ -108,6 +111,15 @@ public abstract class Map
 	public int getHeight()
 	{
 		return height;
+	}
+	
+	public void addSpawners(int row, int col) {
+		grid[row][col].setSpawnerTile(spawner);
+		spawners.add(grid[row][col].getSpawnerTile());
+	}
+	
+	public ArrayList<Spawner> getSpawners() {
+		return spawners;
 	}
 
 }
