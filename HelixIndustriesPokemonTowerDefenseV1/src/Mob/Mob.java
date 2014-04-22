@@ -1,5 +1,6 @@
 package Mob;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 
 import maps.Map;
@@ -19,14 +20,14 @@ public abstract class Mob implements Clickable {
 	private int width = 1;
 	private Type mobType = Type.NORMAL;// Might make into enum
 	private Effect status = null;
-	private File image = null;
+	private BufferedImage image;
 	private int money = 1;
 	private Map track = null;
 	public int spawnX;
 	public int spawnY;
 	public Headquarters HQ;
 
-	public Mob() {
+	public Mob(BufferedImage b) {
 		health = getHealth();
 		moveSpeed = getMoveSpeed();
 		height = getHeight();
@@ -34,7 +35,7 @@ public abstract class Mob implements Clickable {
 		mobType = getMobType();
 		status = getEffect();
 		money = getMoney();
-		image = getImage();
+		image = b;
 	}
 	
 	//public void spawnMob(int spawnRow, int spawnCol){
@@ -91,11 +92,11 @@ public abstract class Mob implements Clickable {
 		this.mobType = mobType;
 	}
 
-	public File getImage() {
+	public BufferedImage getImage() {
 		return image;
 	}
 
-	public void setImage(File image) {
+	public void setImage(BufferedImage image) {
 		this.image = image;
 	}
 
