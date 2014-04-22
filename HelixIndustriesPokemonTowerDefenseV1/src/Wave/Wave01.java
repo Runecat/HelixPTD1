@@ -7,7 +7,7 @@ import Mob.Pidgey;
 import Mob.Rattata;
 
 public class Wave01 extends Wave{
-	private Mob mob;
+	private int delay = 1000;
 	
 	public Wave01(){
 		super();
@@ -17,6 +17,12 @@ public class Wave01 extends Wave{
 			else
 				add(new Pidgey());
 		}
-
+	}
+	
+	public void setDelay(int delay){
+		this.delay = delay;
+	}
+	public int getDelay(){
+		return delay;
 	}
 }

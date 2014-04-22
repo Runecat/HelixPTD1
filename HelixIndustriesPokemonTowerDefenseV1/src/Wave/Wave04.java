@@ -1,21 +1,15 @@
 package Wave;
 
-import java.util.ArrayList;
-
-import Mob.Caterpie;
 import Mob.Jigglypuff;
 import Mob.Mankey;
-import Mob.Mob;
 import Mob.Pidgey;
 import Mob.Rattata;
 import Mob.Sandshrew;
 import Mob.Spearow;
-import Mob.Weedle;
 
 public class Wave04 extends Wave{
-
-	private Mob mob;
-		
+	private int delay = 1000;
+	
 	public Wave04(){
 		super();
 		for(int i = 0; i < 35; i++){
@@ -40,6 +34,13 @@ public class Wave04 extends Wave{
 			else
 				add(new Jigglypuff());
 		}
+	}
+	
+	public void setDelay(int delay){
+		this.delay = delay;
+	}
+	public int getDelay(){
+		return delay;
 	}
 }
 

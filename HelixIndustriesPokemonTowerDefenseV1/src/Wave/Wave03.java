@@ -9,8 +9,8 @@ import Mob.Rattata;
 import Mob.Weedle;
 
 public class Wave03 extends Wave{
-	private Mob mob;
-		
+	private int delay = 1000;
+
 	public Wave03(){
 		super();
 		for(int i = 0; i < 25; i++){
@@ -25,5 +25,12 @@ public class Wave03 extends Wave{
 				else
 					add(new Caterpie());
 		}
+	}
+	
+	public void setDelay(int delay){
+		this.delay = delay;
+	}
+	public int getDelay(){
+		return delay;
 	}
 }
