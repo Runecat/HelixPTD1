@@ -35,6 +35,7 @@ public class Spawner {
 	}
 	
 	public void setMobs(int level) {
+		
 		mobs.add(waves.get(level).getBaddie());
 	}
 	
