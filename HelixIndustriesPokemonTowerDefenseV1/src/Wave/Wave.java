@@ -7,7 +7,7 @@ import javax.swing.Timer;
 import Mob.Mob;
 
 
-public class Wave
+public abstract class Wave
 {
 	private ArrayList<Mob> wave;
 	private Mob baddie;
