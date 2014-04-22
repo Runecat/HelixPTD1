@@ -1,12 +1,19 @@
-package model;
+package Wave;
 
 import java.util.ArrayList;
+
+import javax.swing.Timer;
+
+import Mob.Mob;
+
 
 public class Wave
 {
 	private ArrayList<Mob> mobs;
 	private Mob baddie;
-	private int level = 0;//Level of wave
+	public int level = 1;//Level of wave
+	private int delay = 1;
+	Timer t;// = new Timer(delay, WaveStart).start();
 	
 	//Wave sends itself to attack
 	public void sendWave()
@@ -26,11 +33,5 @@ public class Wave
 		this.baddie = baddie;
 	}
 
-	public int getLevel() {
-		return level;
-	}
 
-	public void setLevel(int level) {
-		this.level = level;
-	}
 }

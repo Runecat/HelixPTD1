@@ -2,6 +2,8 @@ package model;
 
 import java.util.ArrayList;
 
+import Mob.Mob;
+
 public class Tile {
 	
 	int height;
