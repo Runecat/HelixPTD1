@@ -9,7 +9,7 @@ import Mob.Rattata;
 import Mob.Sandshrew;
 import Mob.Spearow;
 
-public class Wave04 extends Wave{
+public class Wave06 extends Wave{
 	private int delay = 1000;
 	private int level = 4;
 	
@@ -21,22 +21,22 @@ public class Wave04 extends Wave{
 	private BufferedImage jigglypuff;
 
 	
-	public Wave04(){
+	public Wave06(){
 		super();
-		for(int i = 0; i < 35; i++){
+		for(int i = 0; i < 65; i++){
 			if(i < 5){
 				if(i % 2 == 0)
 					add(new Rattata(rattata));
 				else
 					add(new Pidgey(pidgey));
 			}
-			else if (i > 5 && i < 30){
+			else if (i >= 5 && i < 45){
 				if(i % 2 == 0)
 					add(new Pidgey(pidgey));
 				else
 					add(new Spearow(spearow));
 			}
-			else if(i > 30 && i < 35){
+			else if(i >= 45 && i < 64){
 				if(i % 2 == 0)
 					add(new Mankey(mankey));
 				else

@@ -1,7 +1,6 @@
 package Wave;
 
 import java.awt.image.BufferedImage;
-
 import Mob.Diglett;
 import Mob.Geodude;
 import Mob.Onix;
@@ -25,7 +24,7 @@ public class Wave05 extends Wave{
 				else
 					add(new Sandshrew(sandshrew));
 			}
-			else if(i > 25 && i < 49){
+			else if(i >= 25 && i < 49){
 				if(i % 2 == 0)
 					add(new Diglett(diglett));
 				else
