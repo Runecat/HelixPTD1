@@ -1,5 +1,6 @@
 package maps;
 
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -22,10 +23,9 @@ public abstract class Map
 	private ArrayList<Spawner> spawners = new ArrayList<Spawner>();
 	private Spawner spawner;
 	
-	public Map(int width, int height, Tile [][] grid) {
-		this.width = width;
-		this.height = height;
-		this.grid = grid;
+	public Map() {
+		
+		this.grid = new Tile[width][height];
 		buildGrid();
 	}
 	
@@ -128,6 +128,11 @@ public abstract class Map
 		return spawners;
 	}
 	
-	public abstract void setBackground(BufferedImage image);
+	public abstract Image getBackground();
+	
+	public abstract int getGridHeight();
+	public abstract int getGridWidth();
+
+	
 
 }
