@@ -7,7 +7,7 @@ import javax.swing.Timer;
 import Mob.Mob;
 
 
-public class Wave
+public abstract class Wave
 {
 	private ArrayList<Mob> wave;
 	private Mob baddie;
@@ -39,6 +39,14 @@ public class Wave
 	
 	public void setWave(ArrayList<Mob> wave){
 		this.wave = wave;
+	}
+
+	public int getDelay() {
+		return delay;
+	}
+
+	public void setDelay(int delay) {
+		this.delay = delay;
 	}
 
 
