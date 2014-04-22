@@ -4,10 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 import Mob.Mob;
-
-=======
 import model.Effect;
-import model.Mob
 import model.Tile;
 import model.Type;
 
