@@ -4,6 +4,8 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
+import maps.Map;
+
 import attacks.Attack;
 import towers.Tower;
 import Mob.Mob;

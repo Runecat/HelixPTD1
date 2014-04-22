@@ -10,8 +10,8 @@ import javax.swing.JPanel;
 
 import ObserverModel.Observer;
 
+import maps.Map;
 import model.Game;
-import model.Map;
 
 public class MapPanel extends JPanel implements Observer {
 
@@ -26,14 +26,18 @@ public class MapPanel extends JPanel implements Observer {
 		
 		this.setBackground(Color.cyan);
 		
+		this.setPreferredSize(new Dimension(map.getHeight(), map.getWidth()));
+		
 		ChatPanel chat = new ChatPanel(theGame);
 		chat.setPreferredSize(new Dimension(150, 100));
-		this.add(chat, BorderLayout.NORTH);
+		//this.add(chat, BorderLayout.NORTH);
 	}
 	
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		
+		
 	}
 	
 	public void drawBackground(Graphics g) {
