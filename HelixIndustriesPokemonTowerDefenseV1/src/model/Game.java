@@ -18,6 +18,7 @@ public class Game extends Observable {
 	private final int spriteHeight = 10;
 	private final int spriteRows = 5;
 	private final int spriteColumns = 5;
+	private List<Map> mapList;
 	BufferedImage[] sprites = new BufferedImage[spriteRows*spriteColumns];
 	
 	
@@ -31,6 +32,11 @@ public class Game extends Observable {
 	
 	public Game() {	// added constructor.
 		// add observers and other things.
+		mapList = new ArrayList<Map>();
+	}
+	
+	public void addMap(Map input) {
+		mapList.add(input);
 	}
 	
 	public static void main(String args[])
@@ -50,7 +56,7 @@ public class Game extends Observable {
 		//Set up Timer and listeners for tower attacks.
 	}
 	
-	public Map getMap() {	// added this
+	public Map getCurrentMap() {	// added this
 		return this.currentMap;
 	}
 	

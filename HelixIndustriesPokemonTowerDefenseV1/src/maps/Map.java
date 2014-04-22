@@ -17,7 +17,7 @@ public abstract class Map
 	int width;
 	int height;
 	Tile [][] grid = new Tile[height][width];
-	private BufferedImage image;
+	private BufferedImage backgroundImage;
 	private LinkedList<Tile> path = new LinkedList<Tile>();
 	private ArrayList<Spawner> spawners = new ArrayList<Spawner>();
 	private Spawner spawner;

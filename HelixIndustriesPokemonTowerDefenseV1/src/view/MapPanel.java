@@ -22,7 +22,7 @@ public class MapPanel extends JPanel implements Observer {
 	
 	public MapPanel(Game game) {
 		this.theGame = game;
-		this.map = theGame.getMap();
+		this.map = theGame.getCurrentMap();
 		
 		this.setBackground(Color.cyan);
 		
