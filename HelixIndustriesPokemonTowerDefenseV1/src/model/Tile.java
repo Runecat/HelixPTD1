@@ -6,8 +6,7 @@ import Mob.Mob;
 
 public class Tile {
 	
-	int height;
-	int width;
+	int height, width;
 	private boolean isOnPath;
 	private boolean hasTower;
 	private boolean isEmpty;
