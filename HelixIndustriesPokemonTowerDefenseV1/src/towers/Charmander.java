@@ -1,8 +1,13 @@
 package towers;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
+
+import view.ImageLoader;
 import attacks.Attack;
 import attacks.Ember;
 import model.Tile;
@@ -26,18 +31,24 @@ public class Charmander extends Tower
 	private int upgradePrice;//Cost to upgrade the tower
 	private Tower upgraded;//Reference to the upgraded form of tower
 	private ArrayList<Attack> attacks= new ArrayList<Attack>();//List of the tower's attacks
-	private File image;//Image for the tower
+	private BufferedImage image;//Image for the tower
 	private Type type;//Tower's type
 	private Tile location;
 	
 	public Charmander(ArrayList<Attack> attacks, Tile t)
 	{
 		super(attacks,t);
+		BufferedImage newImage;
 		location = t;
 		name = "Charmander";
 		type = Type.FIRE;
 		this.attacks = attacks;
 		upgraded = new Charmeleon(attacks,t);
+		try {
+			image = ImageIO.read(new File("filePath"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		//REMOVE
 		attacks.set(0, new Ember());
