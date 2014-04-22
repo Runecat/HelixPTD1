@@ -126,9 +126,8 @@ public class Tile {
 		return col;
 	}
 	
-	public void setMobList() {
-		for (int i = 0; i < spawner.getMobs().size(); i++)
-			mobList.add(spawner.getMobs().get(i));
+	public void addMobs(Mob mob) {
+		mobList.add(mob);
 	}
 	
 	public ArrayList<Mob> getMobs()
