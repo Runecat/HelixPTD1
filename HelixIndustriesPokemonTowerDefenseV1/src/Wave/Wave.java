@@ -11,7 +11,6 @@ public abstract class Wave
 {
 	private ArrayList<Mob> wave;
 	private Mob baddie;
-	public int level = 1;//Level of wave
 	private int delay = 1;
 	Timer t;// = new Timer(delay, WaveStart).start();
 	

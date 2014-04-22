@@ -4,12 +4,16 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
+import towers.Tower;
+
 import ObserverModel.Observer;
 
+import maps.Level1;
 import maps.Map;
 import model.Game;
 
@@ -22,7 +26,10 @@ public class MapPanel extends JPanel implements Observer {
 	
 	public MapPanel(Game game) {
 		this.theGame = game;
-		this.map = theGame.getCurrentMap();
+		
+		Level1 current = new Level1();
+		this.map = current;
+		//this.map = theGame.getCurrentMap();
 		
 		this.setBackground(Color.cyan);
 		
@@ -36,7 +43,33 @@ public class MapPanel extends JPanel implements Observer {
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		g.drawImage( map.getBackground(), map.getWidth(), map.getHeight(), null);
 		
+		g.setColor(Color.green);
+		for (int i = 0; i < map.getGridWidth(); i++) {
+			g.drawLine(i*map.getGridWidth(), 0, i*map.getGridWidth(), map.getGridWidth() * map.getGridWidth());
+			
+		}
+		
+		for (int j = 0; j < map.getGridHeight(); j++) {
+			g.drawLine(0, j*map.getGridHeight(), map.getGridHeight()* map.getGridHeight(), j*map.getGridWidth());
+
+		}
+		
+		for (int i = 0; i < map.getGridWidth(); i++) {
+			for (int j = 0; j < map.getGridHeight(); j++) {
+				if (map.getGrid()[i][j].hasTower()){
+					g.setColor(Color.red);
+					g.drawOval(i*map.getGridWidth(), j*map.getGridHeight(), map.getGridWidth(), map.getGridHeight());
+				}
+				
+				if (map.getGrid()[i][j].hasMob()) {
+					g.setColor(Color.blue);
+					g.drawOval(i*map.getGridWidth(), j*map.getGridHeight(), map.getGridWidth(), map.getGridHeight());
+				}
+					
+			}
+		}
 		
 	}
 	

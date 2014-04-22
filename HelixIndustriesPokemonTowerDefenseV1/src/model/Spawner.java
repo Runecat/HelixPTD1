@@ -4,8 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+<<<<<<< HEAD
+=======
 import javax.swing.Timer;
 
+>>>>>>> upstream/master
 import Mob.Mob;
 import Wave.Wave;
 
@@ -21,14 +24,13 @@ public class Spawner {
 		this.tile = tile;
 		this.waves = waves;
 		sendMob = new SendMobListener();
-		
 	}
 	
 	private class SendMobListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			for (int i = 0; i < mobs.size(); i++) {
-				
-			}
+			setMobs(level);
+			tile.addMobs(mobs.get(0));
+			mobs.remove(0);
 		}
 	}
 	
@@ -46,7 +48,9 @@ public class Spawner {
 	}
 	
 	public void sendWave(int level) {
+		this.level = level;
 		Timer t = new Timer(getDelay(level), sendMob);
+		t.start();
 	}
 	
 	public void setMobs(int level) {
@@ -61,6 +65,10 @@ public class Spawner {
 	
 	private int getDelay(int level) {
 		return waves.get(level).getDelay();
+	}
+	
+	private int getLevel(Wave wave) {
+		return level;
 	}
 		
 }

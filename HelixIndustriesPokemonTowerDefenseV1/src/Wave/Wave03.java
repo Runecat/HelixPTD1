@@ -1,29 +1,35 @@
 package Wave;
 
-import java.util.ArrayList;
+
+import java.awt.image.BufferedImage;
 
 import Mob.Caterpie;
-import Mob.Mob;
 import Mob.Pidgey;
 import Mob.Rattata;
 import Mob.Weedle;
 
 public class Wave03 extends Wave{
 	private int delay = 1000;
+	private int level = 3;
+	
+	private BufferedImage rattata;
+	private BufferedImage pidgey;
+	private BufferedImage weedle;
+	private BufferedImage caterpie;
 
 	public Wave03(){
 		super();
 		for(int i = 0; i < 25; i++){
 			if(i < 15)
 				if(i % 2 == 0)
-					add(new Rattata());
+					add(new Rattata(rattata));
 				else
-					add(new Pidgey());
+					add(new Pidgey(pidgey));
 			else
 				if(i % 2 == 0)
-					add(new Weedle());
+					add(new Weedle(weedle));
 				else
-					add(new Caterpie());
+					add(new Caterpie(caterpie));
 		}
 	}
 	
@@ -32,5 +38,13 @@ public class Wave03 extends Wave{
 	}
 	public int getDelay(){
 		return delay;
+	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
 	}
 }
