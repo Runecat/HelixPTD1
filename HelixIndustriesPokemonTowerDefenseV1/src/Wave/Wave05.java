@@ -7,8 +7,8 @@ import Mob.Onix;
 import Mob.Sandshrew;
 
 public class Wave05 extends Wave{
-	private Mob mob;
-		
+	private int delay = 500;
+
 	public Wave05(){
 		super();
 		for(int i = 0; i < 50; i++){
@@ -27,5 +27,12 @@ public class Wave05 extends Wave{
 			else
 				add(new Onix());
 		}
+	}
+	
+	public void setDelay(int delay){
+		this.delay = delay;
+	}
+	public int getDelay(){
+		return delay;
 	}
 }

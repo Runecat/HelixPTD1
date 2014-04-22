@@ -9,7 +9,7 @@ import model.Headquarters;
 import model.Map;
 import model.Type;
 
-public class Mob implements Clickable {
+public abstract class Mob implements Clickable {
 	// May need location variables
 	private String name = "";
 	private int health = 1;
@@ -37,13 +37,13 @@ public class Mob implements Clickable {
 		image = getImage();
 	}
 	
-	public void spawnMob(int spawnRow, int spawnCol){
-		track.setMob(spawnX, spawnY, new Mob());
-	}
+	//public void spawnMob(int spawnRow, int spawnCol){
+	//	track.setMob(spawnX, spawnY, new Mob());
+	//}
 
 	public void moveMob() {
 		// might move based on location variables
-		while(spawnX != HQ.spawnX && spawnY != HQ.spawnY || health == 0){
+		while(spawnX != HQ.spawnX && spawnY != HQ.spawnY && health != 0){
 			if(track.getTile(spawnX, spawnY).getDirection() == Directions.Right)
 				spawnY++;
 			else if(track.getTile(spawnX, spawnY).getDirection() == Directions.Up)
