@@ -1,5 +1,6 @@
 package towers;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
 
@@ -30,9 +31,9 @@ public class Blastoise extends Tower
 	private Tile location;//Tower's location on the map
 	
 	
-	public Blastoise(ArrayList<Attack> attacks, Tile t)
+	public Blastoise(ArrayList<Attack> attacks, Tile t, BufferedImage b)
 	{
-		super(attacks,t);
+		super(attacks,t,b);
 		location = t;
 		name = "Blastoise";
 		type = Type.WATER;

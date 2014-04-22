@@ -1,8 +1,12 @@
-package model;
+package maps;
 
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.LinkedList;
+
+import model.Directions;
+import model.Spawner;
+import model.Tile;
 
 import Mob.Mob;
 
@@ -13,7 +17,7 @@ public abstract class Map
 	int width;
 	int height;
 	Tile [][] grid = new Tile[height][width];
-	private BufferedImage image;
+	private BufferedImage backgroundImage;
 	private LinkedList<Tile> path = new LinkedList<Tile>();
 	private ArrayList<Spawner> spawners = new ArrayList<Spawner>();
 	private Spawner spawner;
@@ -123,5 +127,7 @@ public abstract class Map
 	public ArrayList<Spawner> getSpawners() {
 		return spawners;
 	}
+	
+	public abstract void setBackground(BufferedImage image);
 
 }

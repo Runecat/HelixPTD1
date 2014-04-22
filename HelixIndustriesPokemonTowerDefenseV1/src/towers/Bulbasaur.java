@@ -1,5 +1,6 @@
 package towers;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
 
@@ -26,18 +27,19 @@ public class Bulbasaur extends Tower
 	private int upgradePrice;//Cost to upgrade the tower
 	private Tower upgraded;//Reference to the upgraded form of tower
 	private ArrayList<Attack> attacks= new ArrayList<Attack>();//List of the tower's attacks
-	private File image;//Image for the tower
+	private BufferedImage image;//Image for the tower
 	private Type type;//Tower's type
 	private Tile location;//Tower's location on the map
 	
 	
-	public Bulbasaur(ArrayList<Attack> attacks, Tile t)
+	public Bulbasaur(ArrayList<Attack> attacks, Tile t, BufferedImage b)
 	{
-		super(attacks,t);
+		super(attacks,t,b);
 		location = t;
 		name = "Bulbasaur";
 		type = Type.GRASS;
 		this.attacks = attacks;
-		upgraded = new Ivysaur(attacks,t);
+		upgraded = new Ivysaur(attacks,t, b);
+		image = b;
 	}
 }

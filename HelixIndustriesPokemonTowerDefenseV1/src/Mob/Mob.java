@@ -3,11 +3,11 @@ package Mob;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
+import maps.Map;
 import model.Clickable;
 import model.Directions;
 import model.Effect;
 import model.Headquarters;
-import model.Map;
 import model.Type;
 
 public abstract class Mob implements Clickable {

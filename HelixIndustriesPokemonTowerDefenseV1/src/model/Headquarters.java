@@ -2,6 +2,8 @@ package model;
 
 import java.io.File;
 
+import maps.Map;
+
 import Mob.Mob;
 
 import towers.Tower;

@@ -1,7 +1,10 @@
 package model;
 
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
+
+import maps.Map;
 
 import attacks.Attack;
 import towers.Tower;
@@ -11,6 +14,13 @@ import ObserverModel.Observable;
 public class Game extends Observable {
 	
 	private final int MAX_PLAYERS = 2;	// The most we can have is 2 for multiplayer. But will usually be 1.
+	private final int spriteWidth = 10;
+	private final int spriteHeight = 10;
+	private final int spriteRows = 5;
+	private final int spriteColumns = 5;
+	private List<Map> mapList;
+	BufferedImage[] sprites = new BufferedImage[spriteRows*spriteColumns];
+	
 	
 	private Map currentMap = null;		// dont know if we want this for sure. 
 	// Do we want the game class handling everything (main screen, map choice, menus) or just the actual
@@ -22,6 +32,11 @@ public class Game extends Observable {
 	
 	public Game() {	// added constructor.
 		// add observers and other things.
+		mapList = new ArrayList<Map>();
+	}
+	
+	public void addMap(Map input) {
+		mapList.add(input);
 	}
 	
 	public static void main(String args[])
@@ -30,13 +45,18 @@ public class Game extends Observable {
 		ArrayList<Mob> mobs = null;
 		for(Tower t:towers)
 		{
-			//do this
+			//attack for every mob in range once timer goes off(probably call function)
+		}
+		
+		for(Mob m:mobs)
+		{
+			//move to next tile every time the timer goes off(probably call function)
 		}
 		//Set up listeners for placing towers, 
 		//Set up Timer and listeners for tower attacks.
 	}
 	
-	public Map getMap() {	// added this
+	public Map getCurrentMap() {	// added this
 		return this.currentMap;
 	}
 	

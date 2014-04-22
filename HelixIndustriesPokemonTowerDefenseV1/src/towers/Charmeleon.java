@@ -1,5 +1,6 @@
 package towers;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
 
@@ -26,18 +27,19 @@ public class Charmeleon extends Tower
 	private int upgradePrice;//Cost to upgrade the tower
 	private Tower upgraded;//Reference to the upgraded form of tower
 	private ArrayList<Attack> attacks= new ArrayList<Attack>();//List of the tower's attacks
-	private File image;//Image for the tower
+	private BufferedImage image;//Image for the tower
 	private Type type;//Tower's type
 	private Tile location;
 	
-	public Charmeleon(ArrayList<Attack> attacks, Tile t)
+	public Charmeleon(ArrayList<Attack> attacks, Tile t, BufferedImage b)
 	{
-		super(attacks,t);
+		super(attacks,t, b);
 		location = t;
 		name = "Charmeleon";
 		type = Type.FIRE;
 		this.attacks = attacks;
-		upgraded = new Charizard(attacks,t);
+		upgraded = new Charizard(attacks,t,b);
+		image = b;
 		
 		//REMOVE
 		attacks.set(0, new Ember());

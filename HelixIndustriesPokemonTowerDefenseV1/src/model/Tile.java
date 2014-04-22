@@ -1,13 +1,16 @@
 package model;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+
+import javax.swing.Timer;
 
 import Mob.Mob;
 
 public class Tile {
 	
-	int height;
-	int width;
+	int height, width;
 	private boolean isOnPath;
 	private boolean hasTower;
 	private boolean isEmpty;
@@ -22,10 +25,30 @@ public class Tile {
 	private Object myObject = null;
 	private Tile next;
 	private Spawner spawner = null;
+	private MoveMobListener moveMob;
 	
 	public Tile(int width, int height) {
 		this.width = width;
 		this.height = height;
+		moveMob = new MoveMobListener();
+	}
+	
+	private class MoveMobListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if (next != null)
+				next.addMobs(removeMob());
+			else
+				removeMob();
+		}
+	}
+	
+	public void moveMobs() {
+		Timer t = new Timer(getMobSpeed(), moveMob);
+		t.start();
+	}
+	
+	public int getMobSpeed() {
+		return mobList.get(0).getMoveSpeed() * 1000;
 	}
 	
 	public void setLocation(int row, int col) {
@@ -96,11 +119,6 @@ public class Tile {
 		this.isLand = isLand;
 	}
 	
-	// Sets direction to 0,1,2,3:
-	// 0 := up
-	// 1 := right
-	// 2 := down
-	// 3 := left
 	public void setDirection(Directions direction) {
 		this.direction = direction;
 	}
@@ -127,9 +145,12 @@ public class Tile {
 		return col;
 	}
 	
-	public void setMobList() {
-		for (int i = 0; i < spawner.getMobs().size(); i++)
-			mobList.add(spawner.getMobs().get(i));
+	public void addMobs(Mob mob) {
+		mobList.add(mob);
+	}
+	
+	public Mob removeMob() {
+		return mobList.remove(0);
 	}
 	
 	public ArrayList<Mob> getMobs()
