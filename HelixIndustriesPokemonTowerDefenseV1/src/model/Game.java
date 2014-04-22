@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,12 @@ import ObserverModel.Observable;
 public class Game extends Observable {
 	
 	private final int MAX_PLAYERS = 2;	// The most we can have is 2 for multiplayer. But will usually be 1.
+	private final int spriteWidth = 10;
+	private final int spriteHeight = 10;
+	private final int spriteRows = 5;
+	private final int spriteColumns = 5;
+	BufferedImage[] sprites = new BufferedImage[spriteRows*spriteColumns];
+	
 	
 	private Map currentMap = null;		// dont know if we want this for sure. 
 	// Do we want the game class handling everything (main screen, map choice, menus) or just the actual
