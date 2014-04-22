@@ -1,8 +1,15 @@
-package model;
+package Mob;
 
 import java.io.File;
 
-public class Mob implements Clickable {
+import maps.Map;
+import model.Clickable;
+import model.Directions;
+import model.Effect;
+import model.Headquarters;
+import model.Type;
+
+public abstract class Mob implements Clickable {
 	// May need location variables
 	private String name = "";
 	private int health = 1;
@@ -13,6 +20,7 @@ public class Mob implements Clickable {
 	private Type mobType = Type.NORMAL;// Might make into enum
 	private Effect status = null;
 	private File image = null;
+	private int money = 1;
 	private Map track = null;
 	public int spawnX;
 	public int spawnY;
@@ -25,16 +33,17 @@ public class Mob implements Clickable {
 		width = getWidth();
 		mobType = getMobType();
 		status = getEffect();
+		money = getMoney();
 		image = getImage();
 	}
 	
-	public void spawnMob(int spawnRow, int spawnCol){
-		track.setMob(spawnX, spawnY, new Mob());
-	}
+	//public void spawnMob(int spawnRow, int spawnCol){
+	//	track.setMob(spawnX, spawnY, new Mob());
+	//}
 
 	public void moveMob() {
 		// might move based on location variables
-		while(spawnX != HQ.spawnX && spawnY != HQ.spawnY || health == 0){
+		while(spawnX != HQ.spawnX && spawnY != HQ.spawnY && health != 0){
 			if(track.getTile(spawnX, spawnY).getDirection() == Directions.Right)
 				spawnY++;
 			else if(track.getTile(spawnX, spawnY).getDirection() == Directions.Up)
@@ -120,5 +129,21 @@ public class Mob implements Clickable {
 
 	public void setTrack(Map track) {
 		this.track = track;
+	}
+
+	public int getMoney() {
+		return money;
+	}
+
+	public void setMoney(int money) {
+		this.money = money;
+	}
+
+	public int getBaseDamage() {
+		return baseDamage;
+	}
+
+	public void setBaseDamage(int baseDamage) {
+		this.baseDamage = baseDamage;
 	}
 }

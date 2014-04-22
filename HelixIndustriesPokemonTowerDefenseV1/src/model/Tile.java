@@ -2,10 +2,11 @@ package model;
 
 import java.util.ArrayList;
 
+import Mob.Mob;
+
 public class Tile {
 	
-	int height;
-	int width;
+	int height, width;
 	private boolean isOnPath;
 	private boolean hasTower;
 	private boolean isEmpty;
@@ -13,11 +14,13 @@ public class Tile {
 	private boolean isWater;
 	private boolean isLand;
 	private Directions direction = null;
-	private ArrayList mobList = new ArrayList<Mob>();
+	private Mob mob;
+	private ArrayList<Mob> mobList = new ArrayList<Mob>();
 	private int row;
 	private int col;
 	private Object myObject = null;
 	private Tile next;
+	private Spawner spawner = null;
 	
 	public Tile(int width, int height) {
 		this.width = width;
@@ -105,10 +108,6 @@ public class Tile {
 		return direction;
 	}
 	
-	public void setMobList() {
-		
-	}
-	
 	public void setNextTile(Tile next) {
 		this.next = next;
 	}
@@ -117,6 +116,32 @@ public class Tile {
 		return next;
 	}
 	
+	public int getRow()
+	{
+		return row;
+	}
+	
+	public int getColumn()
+	{
+		return col;
+	}
+	
+	public void addMobs(Mob mob) {
+		mobList.add(mob);
+	}
+	
+	public ArrayList<Mob> getMobs()
+	{
+		return mobList;
+	}
+	
+	public void setSpawnerTile(Spawner spawner) {
+		this.spawner = spawner;
+	}
+	
+	public Spawner getSpawnerTile() {
+		return spawner;
+	}
 	// Set next tile
 	// Set MobList by adding and removing from this tile to next
 

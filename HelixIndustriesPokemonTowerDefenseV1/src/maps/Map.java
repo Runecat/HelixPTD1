@@ -1,7 +1,14 @@
-package model;
+package maps;
 
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 import java.util.LinkedList;
+
+import model.Directions;
+import model.Spawner;
+import model.Tile;
+
+import Mob.Mob;
 
 import towers.*;
 
@@ -10,8 +17,10 @@ public abstract class Map
 	int width;
 	int height;
 	Tile [][] grid = new Tile[height][width];
-	private BufferedImage image;
+	private BufferedImage backgroundImage;
 	private LinkedList<Tile> path = new LinkedList<Tile>();
+	private ArrayList<Spawner> spawners = new ArrayList<Spawner>();
+	private Spawner spawner;
 	
 	public Map(int width, int height, Tile [][] grid) {
 		this.width = width;
@@ -56,6 +65,10 @@ public abstract class Map
 		grid[row][col].setOnPath(true);
 	}
 	
+	public LinkedList getPath() {
+		return path;
+	}
+	
 	// Sets direction to 0,1,2,3:
 	// 0 := up
 	// 1 := right
@@ -95,5 +108,26 @@ public abstract class Map
 	}
 	
 	// Set methods for enemies, path, background, frame, more
+	
+	public int getWidth()
+	{
+		return width;
+	}
+	
+	public int getHeight()
+	{
+		return height;
+	}
+	
+	public void addSpawners(int row, int col) {
+		grid[row][col].setSpawnerTile(spawner);
+		spawners.add(grid[row][col].getSpawnerTile());
+	}
+	
+	public ArrayList<Spawner> getSpawners() {
+		return spawners;
+	}
+	
+	public abstract void setBackground(BufferedImage image);
 
 }

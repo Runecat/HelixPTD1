@@ -3,23 +3,30 @@ package attacks;
 import java.io.File;
 import java.util.ArrayList;
 
-import model.Mob;
+import Mob.Mob;
+import model.Effect;
 import model.Tile;
 import model.Type;
 
 public class Ember extends Attack
 {
 
-	private int damage = 1;
-	private int verticalRange = 1;
-	private int horizontalRange = 1;
-	private Type damageType = Type.NORMAL;//May make an enum to represent types 
-	private int effect = 0;//May make an enum to represent effects
+	private int damage;
+	private int verticalRange;
+	private int horizontalRange;
+	private Type damageType;//May make an enum to represent types 
+	private Effect effect;//May make an enum to represent effects
 	private File image;
 	
 	public Ember()
 	{
 		// TODO Auto-generated constructor stub
+		damage = 3;
+		verticalRange = 0;
+		horizontalRange = 5;
+		damageType = Type.FIRE;
+		effect = null;
+		image = null;
 	}
 	
 	public int getDamage()
@@ -32,10 +39,20 @@ public class Ember extends Attack
 		return damageType;
 	}
 	
-	public ArrayList <Mob> calculateAffected(Tile[][] tiles)
+	public int getVerticalRange()
+	{
+		return verticalRange;
+	}
+	
+	public int getHorizontalRange()
+	{
+		return horizontalRange;
+	}
+	
+	/*public ArrayList <Mob> calculateAffected(Mob[] mobs)
 	{
 		ArrayList<Mob> affectedMobs = new ArrayList<Mob>();
 		
 		return affectedMobs;
-	}
+	}*/
 }

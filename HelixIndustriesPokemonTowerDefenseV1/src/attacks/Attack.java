@@ -3,7 +3,8 @@ package attacks;
 import java.io.File;
 import java.util.ArrayList;
 
-import model.Mob;
+import Mob.Mob;
+
 import model.Tile;
 import model.Type;
 
@@ -41,5 +42,15 @@ public abstract class Attack
 		return damageType;
 	}
 	
-	public abstract ArrayList<Mob> calculateAffected(Tile[][] t);
+	public int getVerticalRange()
+	{
+		return 0;
+	}
+	
+	public int getHorizontalRange()
+	{
+		return 0;
+	}
+	
+	//public abstract ArrayList <Mob> calculateAffected(Mob[] mobs);
 }
