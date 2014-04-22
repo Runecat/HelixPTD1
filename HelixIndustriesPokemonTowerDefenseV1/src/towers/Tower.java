@@ -10,6 +10,9 @@ import model.Player;
 import model.Tile;
 import model.Type;
 
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+
 /*
  * Helix Industries:
  * Daniel S. Luces
@@ -29,7 +32,7 @@ public abstract class Tower implements Clickable
 	private int upgradePrice = 1;//Cost to upgrade the tower
 	private Tower upgraded = null;//Reference to the upgraded form of tower
 	private ArrayList<Attack> attacks= new ArrayList<Attack>();//List of the tower's attacks
-	private File image;//Image for the tower
+	private BufferedImage image;//Image for the tower
 	private Type type = Type.NORMAL;//Tower type
 	private Tile location= null;
 	
@@ -166,6 +169,11 @@ public abstract class Tower implements Clickable
 	public void showInfo()
 	{
 		
+	}
+	
+	public void drawTower(Graphics2D g)
+	{
+		//draw image
 	}
 	
 	//get file from here or actually handle drawing from tower?
