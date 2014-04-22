@@ -10,12 +10,13 @@ public class Headquarters
 {
 	public String name = "";
 	public static int health = 1;
-	public int PokeDollar = 500;
+	public int PokeDollars = 500;
+	public long Score = 0;
 	public File image = null;
 	private Map track = null;
 	public int spawnX = 1;
 	public int spawnY = 1;
-	public Mob GaryFuckingOak;
+	public Mob Mobjects;
 	public Tower Helix;
 	
 	public Headquarters(){
@@ -26,16 +27,20 @@ public class Headquarters
 		health--;
 	}
 	
+	public void addScore(){
+		Score += Mobjects.getMoney() * 10;
+	}
+	
 	public void GETDATMONAY(){
-		PokeDollar += GaryFuckingOak.getMoney();
+		PokeDollars += Mobjects.getMoney();
 	}
 	
 	public void BuyTower(){
-		PokeDollar -= Helix.getBuy();
+		PokeDollars -= Helix.getBuy();
 	}
 	
 	public void sellTower(){
-		PokeDollar += Helix.getSell();
+		PokeDollars += Helix.getSell();
 	}
 	
 	public int setHealth(){

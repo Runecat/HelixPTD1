@@ -9,7 +9,7 @@ import Mob.Mob;
 
 public class Wave
 {
-	private ArrayList<Mob> mobs;
+	private ArrayList<Mob> wave;
 	private Mob baddie;
 	public int level = 1;//Level of wave
 	private int delay = 1;
@@ -21,8 +21,8 @@ public class Wave
 	
 	}
 	
-	public void addMobs(){
-		mobs.add(baddie);
+	public void add(Mob baddie){
+		wave.add(this.baddie);
 	}
 
 	public Mob getBaddie() {
@@ -31,6 +31,14 @@ public class Wave
 
 	public void setBaddie(Mob baddie) {
 		this.baddie = baddie;
+	}
+	
+	public ArrayList<Mob> getWave(){
+		return wave;
+	}
+	
+	public void setWave(ArrayList<Mob> wave){
+		this.wave = wave;
 	}
 
 
