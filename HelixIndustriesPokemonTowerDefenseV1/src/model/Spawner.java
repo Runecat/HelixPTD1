@@ -2,6 +2,9 @@ package model;
 
 import java.util.ArrayList;
 
+import Mob.Mob;
+import Wave.Wave;
+
 public class Spawner {
 
 	private Tile tile;

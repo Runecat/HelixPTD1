@@ -4,6 +4,8 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+import Mob.Mob;
+
 import towers.*;
 
 public abstract class Map 

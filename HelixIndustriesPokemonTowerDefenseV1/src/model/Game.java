@@ -5,6 +5,7 @@ import java.util.List;
 
 import attacks.Attack;
 import towers.Tower;
+import Mob.Mob;
 import ObserverModel.Observable;
 
 public class Game extends Observable {
@@ -29,7 +30,12 @@ public class Game extends Observable {
 		ArrayList<Mob> mobs = null;
 		for(Tower t:towers)
 		{
-			//do this
+			//attack for every mob in range once timer goes off(probably call function)
+		}
+		
+		for(Mob m:mobs)
+		{
+			//move to next tile every time the timer goes off(probably call function)
 		}
 		//Set up listeners for placing towers, 
 		//Set up Timer and listeners for tower attacks.
