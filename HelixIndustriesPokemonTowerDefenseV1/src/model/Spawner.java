@@ -39,6 +39,6 @@ public class Spawner {
 		return mobs;
 	}
 	
-	// Need to add methods and stuff
+	// Needs mob list of waves
 	
 }
