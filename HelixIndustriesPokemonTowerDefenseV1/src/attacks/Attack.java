@@ -42,5 +42,15 @@ public abstract class Attack
 		return damageType;
 	}
 	
-	public abstract ArrayList<Mob> calculateAffected(Tile[][] t);
+	public int getVerticalRange()
+	{
+		return 0;
+	}
+	
+	public int getHorizontalRange()
+	{
+		return 0;
+	}
+	
+	//public abstract ArrayList <Mob> calculateAffected(Mob[] mobs);
 }
