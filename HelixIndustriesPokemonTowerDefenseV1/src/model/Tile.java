@@ -33,6 +33,23 @@ public class Tile {
 		moveMob = new MoveMobListener();
 	}
 	
+	// Adds mob to the list of the mobs on the current tile
+	// Calls moveMobs()
+	public void addMobs(Mob mob) {
+		mobList.add(mob);
+		moveMobs();
+	}
+	
+	// Makes a timer based on the current mob's movement speed (getMobSpeed())
+	// Starts the timer and calls MoveMobListener
+	public void moveMobs() {
+		Timer t = new Timer(getMobSpeed(), moveMob);
+		t.start();
+	}
+	
+	// After time has expired, the mob will be set to the next tile's mob list
+	//   and removed from the current one
+	// If there is no more set path, the mob will only be removed from the tile's mob list
 	private class MoveMobListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			if (next != null)
@@ -40,11 +57,6 @@ public class Tile {
 			else
 				removeMob();
 		}
-	}
-	
-	public void moveMobs() {
-		Timer t = new Timer(getMobSpeed(), moveMob);
-		t.start();
 	}
 	
 	public int getMobSpeed() {
@@ -145,10 +157,6 @@ public class Tile {
 		return col;
 	}
 	
-	public void addMobs(Mob mob) {
-		mobList.add(mob);
-	}
-	
 	public Mob removeMob() {
 		return mobList.remove(0);
 	}
@@ -165,7 +173,5 @@ public class Tile {
 	public Spawner getSpawnerTile() {
 		return spawner;
 	}
-	// Set next tile
-	// Set MobList by adding and removing from this tile to next
-
+	
 }
