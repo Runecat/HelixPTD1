@@ -4,11 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-<<<<<<< HEAD
-=======
+
 import javax.swing.Timer;
 
->>>>>>> upstream/master
 import Mob.Mob;
 import Wave.Wave;
 
@@ -26,6 +24,17 @@ public class Spawner {
 		sendMob = new SendMobListener();
 	}
 	
+	// Sends the wave of the level given, goes to sendMob listener
+	public void sendWave(int level) {
+		this.level = level;
+		Timer t = new Timer(getDelay(level), sendMob);
+		t.start();
+	}
+	
+	// Called from sendWave
+	// sets the mob list to the mobs of the current level
+	// adds mobs to the spawner tile on the path --> goes to Tile's addMobs()
+	// removes mobs from the mob list
 	private class SendMobListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			setMobs(level);
@@ -34,6 +43,12 @@ public class Spawner {
 		}
 	}
 	
+	// Sets the mob list to the mobs from the current level
+	public void setMobs(int level) {
+		//mobs.clear();		// mobs SHOULD be cleared already when sent. If not, problem.
+		for (int i = 0; i < waves.get(level).getWave().size(); i++)
+			mobs.add(waves.get(level).getWave().get(i));
+	}
 	
 	public Tile getTile() {
 		return tile;
@@ -47,18 +62,6 @@ public class Spawner {
 		waves.add(wave);
 	}
 	
-	public void sendWave(int level) {
-		this.level = level;
-		Timer t = new Timer(getDelay(level), sendMob);
-		t.start();
-	}
-	
-	public void setMobs(int level) {
-		mobs.clear();
-		for (int i = 0; i < waves.get(level).getWave().size(); i++)
-			mobs.add(waves.get(level).getWave().get(i));
-	}
-	
 	public ArrayList<Mob> getMobs() {
 		return mobs;
 	}
@@ -67,8 +70,9 @@ public class Spawner {
 		return waves.get(level).getDelay();
 	}
 	
-	private int getLevel(Wave wave) {
-		return level;
-	}
+//	private int getLevel(Wave wave) {
+//		return level;
+//	}
+	// Not currently necessary
 		
 }
