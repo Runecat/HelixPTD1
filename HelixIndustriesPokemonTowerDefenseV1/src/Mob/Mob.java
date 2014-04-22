@@ -138,4 +138,12 @@ public class Mob implements Clickable {
 	public void setMoney(int money) {
 		this.money = money;
 	}
+
+	public int getBaseDamage() {
+		return baseDamage;
+	}
+
+	public void setBaseDamage(int baseDamage) {
+		this.baseDamage = baseDamage;
+	}
 }

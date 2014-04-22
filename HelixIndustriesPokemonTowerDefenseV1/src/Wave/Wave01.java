@@ -6,16 +6,16 @@ import Mob.Mob;
 import Mob.Pidgey;
 import Mob.Rattata;
 
-public class WaveOne {
-	private ArrayList<Mob> wave1;
+public class Wave01 {
+	private Wave wave1 = new Wave();
 	private Mob mob;
 	
-	public WaveOne(){
+	public Wave01(){
 		for(int i = 0; i < 10; i++){
 			if(i % 2 == 0)
-				wave1.add(i, new Rattata());
+				wave1.add(new Rattata());
 			else
-				wave1.add(i, new Pidgey());
+				wave1.add(new Pidgey());
 		}
 
 	}
