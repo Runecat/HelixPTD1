@@ -12,33 +12,33 @@ import Mob.Sandshrew;
 import Mob.Spearow;
 import Mob.Weedle;
 
-public class WaveFour {
+public class Wave04 {
 
-	private ArrayList<Mob> wave4;
+	private Wave wave4 = new Wave();
 	private Mob mob;
 		
-	public WaveFour(){
+	public Wave04(){
 		for(int i = 0; i < 35; i++){
 			if(i < 5){
 				if(i % 2 == 0)
-					wave4.add(i, new Rattata());
+					wave4.add(new Rattata());
 				else
-					wave4.add(i, new Pidgey());
+					wave4.add(new Pidgey());
 			}
 			else if (i > 5 && i < 30){
 				if(i % 2 == 0)
-					wave4.add(i, new Pidgey());
+					wave4.add(new Pidgey());
 				else
-					wave4.add(i, new Spearow());
+					wave4.add(new Spearow());
 			}
 			else if(i > 30 && i < 35){
 				if(i % 2 == 0)
-					wave4.add(i, new Mankey());
+					wave4.add(new Mankey());
 				else
-					wave4.add(i, new Sandshrew());
+					wave4.add(new Sandshrew());
 			}
 			else
-				wave4.add(i, new Jigglypuff());
+				wave4.add(new Jigglypuff());
 		}
 	}
 }
