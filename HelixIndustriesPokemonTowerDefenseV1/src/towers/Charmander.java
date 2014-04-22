@@ -35,20 +35,16 @@ public class Charmander extends Tower
 	private Type type;//Tower's type
 	private Tile location;
 	
-	public Charmander(ArrayList<Attack> attacks, Tile t)
+	public Charmander(ArrayList<Attack> attacks, Tile t, BufferedImage b)
 	{
-		super(attacks,t);
+		super(attacks,t,b);
 		BufferedImage newImage;
 		location = t;
 		name = "Charmander";
 		type = Type.FIRE;
 		this.attacks = attacks;
-		upgraded = new Charmeleon(attacks,t);
-		try {
-			image = ImageIO.read(new File("filePath"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		upgraded = new Charmeleon(attacks,t,b);
+		image = b;
 		
 		//REMOVE
 		attacks.set(0, new Ember());

@@ -40,10 +40,11 @@ public abstract class Tower implements Clickable
 	/*
 	 *Constructor for a Tower.   
 	 */
-	public Tower(ArrayList<Attack> a, Tile t)
+	public Tower(ArrayList<Attack> a, Tile t, BufferedImage b)
 	{
 		attacks = a;
 		location = t;
+		image = b;
 	}
 	
 	/*
@@ -176,6 +177,6 @@ public abstract class Tower implements Clickable
 		//draw image
 	}
 	
-	//get file from here or actually handle drawing from tower?
+	//get file from here or actually handle drawing from tower? 
 
 }
