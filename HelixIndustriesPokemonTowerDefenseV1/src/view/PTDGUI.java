@@ -22,7 +22,7 @@ public class PTDGUI extends JFrame {
 	 * 
 	 */
 	
-	MapPanel mapPanel;
+	MapPanel mapPanel; 
 	
 	BackgroundFrame background;
 	
