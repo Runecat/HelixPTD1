@@ -76,6 +76,7 @@ public class Tile {
 		return myObject;
 	}
 	
+	
 	public boolean isOnPath() {
 		return isOnPath;
 	}
