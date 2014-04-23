@@ -49,15 +49,25 @@ public class Tile {
 		t.start();
 	}
 	
+	
+	
 	// After time has expired, the mob will be set to the next tile's mob list
 	//   and removed from the current one
 	// If there is no more set path, the mob will only be removed from the tile's mob list
 	private class MoveMobListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			if (next != null)
-				next.addMobs(removeMob());
-			else
-				removeMob();
+			if (next != null) {
+				if (mobList.size() != 0)
+					next.addMobs(removeMob());
+				else
+					return;
+			}
+			else {
+				if (mobList.size() != 0)
+					removeMob();
+				else
+					return;
+			}
 		}
 	}
 	
@@ -160,7 +170,10 @@ public class Tile {
 	}
 	
 	public Mob removeMob() {
-		return mobList.remove(0);
+		if (mobList.size() != 0)
+			return mobList.remove(0);
+		else
+			return null;
 	}
 	
 	public ArrayList<Mob> getMobs()

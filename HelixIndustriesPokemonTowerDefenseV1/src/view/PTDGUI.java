@@ -4,11 +4,14 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 import model.Game;
 
@@ -18,6 +21,8 @@ public class PTDGUI extends JFrame {
 	 * This will be an observer of the Game
 	 * 
 	 */
+	
+	MapPanel mapPanel;
 	
 	BackgroundFrame background;
 	
@@ -35,11 +40,13 @@ public class PTDGUI extends JFrame {
 		background.setLayout(new BorderLayout());
 		this.add(background);
 		
-		MapPanel mapPanel = new MapPanel(game);
+		//MapPanel 
+		mapPanel = new MapPanel(game);
 		mapPanel.setPreferredSize(new Dimension(800, 720));
 		background.add(mapPanel, BorderLayout.LINE_START);
 				
 		MenuPanel menu = new MenuPanel();
+		menu = new MenuPanel();
 		menu.setPreferredSize(new Dimension(184, 720));
 		background.add(menu, BorderLayout.LINE_END);
 		
@@ -47,9 +54,22 @@ public class PTDGUI extends JFrame {
 		
 		
 		this.setVisible(true);
+		Timer time = new Timer(1, new GameTimeListener());
+		time.start();
+		
 		
 		
 
+	}
+	
+	private class GameTimeListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			mapPanel.update();
+		}
+		
+		
 	}
 	
 	

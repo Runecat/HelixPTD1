@@ -5,6 +5,12 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
+
+import Mob.Bellsprout;
+import Wave.Wave;
+import Wave.Wave01;
+import Wave.Wave02;
 
 import towers.Charmander;
 import view.ImageLoader;
@@ -44,9 +50,27 @@ public class Level1 extends Map {
 				grid[i][j] = new Tile(tileDimension, tileDimension);
 			}
 		}
+		ArrayList<Wave> waves = new ArrayList<Wave>();
+		waves.add(new Wave01());
+		waves.add(new Wave02());
 		
-		grid[5][5].setHasTower(true);
-		grid[3][6].setHasMob(true);
+		grid[3][0].setSpawnerTile(new Spawner(grid[3][0], waves));
+		
+		// TRACK NIGGA
+		grid[3][0].setNextTile(grid[3][1]);
+		grid[3][1].setNextTile(grid[3][2]);
+		grid[3][2].setNextTile(grid[3][3]);
+		grid[3][3].setNextTile(grid[3][4]);
+		grid[3][4].setNextTile(grid[3][5]);
+		grid[3][5].setNextTile(grid[3][6]);
+		grid[3][6].setNextTile(grid[3][7]);
+		grid[3][7].setNextTile(grid[3][8]);
+
+		grid[3][0].getSpawnerTile().sendWave(1);
+		// YEEEAH
+		
+		grid[5][5].setObject(new Charmander(null, grid[5][5], null));
+		//grid[3][6].addMobs(new Bellsprout(null));
 				
 	}
 	

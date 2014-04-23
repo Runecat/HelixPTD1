@@ -16,6 +16,7 @@ import ObserverModel.Observer;
 import maps.Level1;
 import maps.Map;
 import model.Game;
+import model.Spawner;
 
 public class MapPanel extends JPanel implements Observer {
 
@@ -64,7 +65,16 @@ public class MapPanel extends JPanel implements Observer {
 				}
 				
 				if (map.getGrid()[i][j].hasMob()) {
-					g.setColor(Color.blue);
+					if (map.getGrid()[i][j].getMobs().size() > 1)
+						g.setColor(Color.cyan);
+					else
+						g.setColor(Color.blue);
+					g.drawOval(i*map.getGridWidth(), j*map.getGridHeight(), map.getGridWidth(), map.getGridHeight());
+						
+				}
+				
+				if (map.getGrid()[i][j].getSpawnerTile() != null) {
+					g.setColor(Color.yellow);
 					g.drawOval(i*map.getGridWidth(), j*map.getGridHeight(), map.getGridWidth(), map.getGridHeight());
 				}
 					
@@ -80,6 +90,7 @@ public class MapPanel extends JPanel implements Observer {
 	@Override
 	public void update() {
 		// This is where we will repaint the map and other things;
+		this.repaint();
 		
 	}
 	
