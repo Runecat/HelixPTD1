@@ -20,9 +20,9 @@ import model.Type;
 
 public abstract class Attack
 {
-	private int damage = 1;
-	private int verticalRange = 1;
-	private int horizontalRange = 1;
+	private int damage = 100000;
+	private int verticalRange = 100;
+	private int horizontalRange = 100;
 	private Type damageType = Type.NORMAL;//May make an enum to represent types 
 	private int effect = 0;//May make an enum to represent effects
 	private File image;

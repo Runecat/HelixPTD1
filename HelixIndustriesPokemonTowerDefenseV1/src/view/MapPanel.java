@@ -5,10 +5,13 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
 
+import towers.Charmander;
 import towers.Tower;
 
 import ObserverModel.Observer;
@@ -28,13 +31,20 @@ public class MapPanel extends JPanel implements Observer {
 	public MapPanel(Game game) {
 		this.theGame = game;
 		
-		Level1 current = new Level1();
+		Level1 current = new Level1(theGame);
 		this.map = current;
+		
+
 		//this.map = theGame.getCurrentMap();
 		
 		this.setBackground(Color.cyan);
 		
 		this.setPreferredSize(new Dimension(map.getHeight(), map.getWidth()));
+		
+		ClickListener clicky = new ClickListener();
+		this.addMouseListener(clicky);
+		
+		
 		
 		ChatPanel chat = new ChatPanel(theGame);
 		chat.setPreferredSize(new Dimension(150, 100));
@@ -61,7 +71,7 @@ public class MapPanel extends JPanel implements Observer {
 			for (int j = 0; j < map.getGridHeight(); j++) {
 				if (map.getGrid()[i][j].hasTower()){
 					g.setColor(Color.red);
-					g.drawOval(i*map.getGridWidth(), j*map.getGridHeight(), map.getGridWidth(), map.getGridHeight());
+					g.fillOval(i*map.getGridWidth(), j*map.getGridHeight(), map.getGridWidth(), map.getGridHeight());
 				}
 				
 				if (map.getGrid()[i][j].hasMob()) {
@@ -69,13 +79,13 @@ public class MapPanel extends JPanel implements Observer {
 						g.setColor(Color.cyan);
 					else
 						g.setColor(Color.blue);
-					g.drawOval(i*map.getGridWidth(), j*map.getGridHeight(), map.getGridWidth(), map.getGridHeight());
+					g.fillOval(i*map.getGridWidth(), j*map.getGridHeight(), map.getGridWidth(), map.getGridHeight());
 						
 				}
 				
 				if (map.getGrid()[i][j].getSpawnerTile() != null) {
 					g.setColor(Color.yellow);
-					g.drawOval(i*map.getGridWidth(), j*map.getGridHeight(), map.getGridWidth(), map.getGridHeight());
+					g.fillOval(i*map.getGridWidth(), j*map.getGridHeight(), map.getGridWidth(), map.getGridHeight());
 				}
 					
 			}
@@ -94,4 +104,41 @@ public class MapPanel extends JPanel implements Observer {
 		
 	}
 	
+	private class ClickListener implements MouseListener {
+
+		@Override
+		public void mouseClicked(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			map.setTower(arg0.getX()/16, arg0.getY()/16, new Charmander(null, map.getGrid()[arg0.getX()/16][arg0.getY()/16], null));
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
+	
 }
+
+

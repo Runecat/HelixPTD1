@@ -24,17 +24,17 @@ import java.awt.image.BufferedImage;
  */
 public abstract class Tower implements Clickable
 {
-	private String name = "";//Name of the tower
-	private int height = 1;//How many squares the tower takes up in the y-direction
-	private int width = 1;//How many squares the tower takes up in the x-direction
-	private int buyPrice = 1;//Price to place the tower
-	private int sellPrice = 1;//Money obtained from selling the tower
-	private int upgradePrice = 1;//Cost to upgrade the tower
-	private Tower upgraded = null;//Reference to the upgraded form of tower
-	private ArrayList<Attack> attacks= new ArrayList<Attack>();//List of the tower's attacks
-	private BufferedImage image;//Image for the tower
-	private Type type = Type.NORMAL;//Tower type
-	private Tile location= null;
+	protected String name = "";//Name of the tower
+	protected int height;//How many squares the tower takes up in the y-direction
+	protected int width;//How many squares the tower takes up in the x-direction
+	protected int buyPrice;//Price to place the tower
+	protected int sellPrice;//Money obtained from selling the tower
+	protected int upgradePrice;//Cost to upgrade the tower
+	protected Tower upgraded;//Reference to the upgraded form of tower
+	protected ArrayList<Attack> attacks= new ArrayList<Attack>();//List of the tower's attacks
+	protected BufferedImage image;//Image for the tower
+	protected Type type;//Tower type
+	protected Tile location;
 	
 	
 	/*

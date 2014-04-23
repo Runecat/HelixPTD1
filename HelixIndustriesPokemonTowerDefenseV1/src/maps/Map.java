@@ -48,10 +48,7 @@ public abstract class Map
 	}
 	
 	// Puts tower on a tile in the grid
-	public void setTower(int row, int col, Tower tower) {
-		grid[row][col].setObject(tower);
-		grid[row][col].setHasTower(true);
-	}
+	public abstract void setTower(int row, int col, Tower tower);
 	
 	// Puts mob on a tile in the grid
 	public void setMob(int row, int col, Mob mob) {

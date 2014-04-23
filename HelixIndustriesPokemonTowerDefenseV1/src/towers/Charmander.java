@@ -40,11 +40,13 @@ public class Charmander extends Tower
 		super(attacks,t,b);
 		BufferedImage newImage;
 		location = t;
-		name = "Charmander";
-		type = Type.FIRE;
-		this.attacks = attacks;
-		upgraded = new Charmeleon(attacks,t,b);
-		image = b;
+		super.name = "Charmander";
+		super.type = Type.FIRE;
+		super.attacks = attacks;
+		super.upgraded = new Charmeleon(attacks,t,b);
+		super.image = b;
+		
+		
 		
 		//REMOVE
 		//attacks.set(0, new Ember());
