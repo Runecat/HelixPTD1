@@ -93,20 +93,20 @@ public class Tile {
 	}
 	
 	public boolean isEmpty() {
-		return isEmpty;
+		return !hasMob() && !hasTower();
 	}
 	
-	public void setIsEmpty(boolean isEmpty) {
-		this.isEmpty = isEmpty;
-	}
+//	public void setIsEmpty(boolean isEmpty) {
+//		this.isEmpty = isEmpty;
+//	}
 	
 	public boolean hasMob() {
-		return hasMob;
+		return mobList.size() != 0;
 	}
 	
-	public void setHasMob(boolean hasMob) {
-		this.hasMob = hasMob;
-	}
+//	public void setHasMob(boolean hasMob) {
+//		this.hasMob = hasMob;
+//	}
 	
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 	// Currently set so that a tower can be placed on either land or water *

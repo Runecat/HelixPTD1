@@ -50,6 +50,7 @@ public abstract class Map
 	// Puts tower on a tile in the grid
 	public void setTower(int row, int col, Tower tower) {
 		grid[row][col].setObject(tower);
+		grid[row][col].setHasTower(true);
 	}
 	
 	// Puts mob on a tile in the grid
@@ -65,7 +66,7 @@ public abstract class Map
 		grid[row][col].setOnPath(true);
 	}
 	
-	public LinkedList getPath() {
+	public LinkedList<Tile> getPath() {
 		return path;
 	}
 	
