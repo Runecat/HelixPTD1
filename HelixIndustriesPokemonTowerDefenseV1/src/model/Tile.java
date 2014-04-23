@@ -72,7 +72,7 @@ public class Tile {
 	}
 	
 	public int getMobSpeed() {
-		return mobList.get(0).getMoveSpeed() * 1000;
+		return mobList.get(0).getMoveSpeed() * 100;
 	}
 	
 	public void setLocation(int row, int col) {
