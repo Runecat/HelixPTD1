@@ -47,7 +47,7 @@ public class Charmander extends Tower
 		image = b;
 		
 		//REMOVE
-		attacks.set(0, new Ember());
+		//attacks.set(0, new Ember());
 	}
 
 }

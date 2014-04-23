@@ -9,7 +9,7 @@ import Mob.Mob;
 
 public abstract class Wave
 {
-	private ArrayList<Mob> wave;
+	private ArrayList<Mob> wave = new ArrayList<Mob>();
 	private Mob baddie;
 	private int delay = 1;
 	Timer t;// = new Timer(delay, WaveStart).start();
@@ -21,7 +21,7 @@ public abstract class Wave
 	}
 	
 	public void add(Mob baddie){
-		wave.add(this.baddie);
+		wave.add(baddie);
 	}
 
 	public Mob getBaddie() {

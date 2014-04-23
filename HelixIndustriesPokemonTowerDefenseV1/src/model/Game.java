@@ -56,6 +56,7 @@ public class Game extends Observable {
 					spriteWidth,
 					spriteHeight);
 			}
+
 		ArrayList<Tower> towers = null;
 		ArrayList<Mob> mobs = null;
 		for(Tower t:towers)

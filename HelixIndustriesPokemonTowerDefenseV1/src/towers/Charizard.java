@@ -42,6 +42,6 @@ public class Charizard extends Tower
 		image = b;
 		
 		//REMOVE
-		attacks.set(0, new Ember());
+		//attacks.set(0, new Ember());
 	}
 }
