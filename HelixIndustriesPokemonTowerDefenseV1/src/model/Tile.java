@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import javax.swing.Timer;
 
+import towers.Tower;
+
 import Mob.Mob;
 
 public class Tile {
@@ -33,6 +35,23 @@ public class Tile {
 		moveMob = new MoveMobListener();
 	}
 	
+	// Adds mob to the list of the mobs on the current tile
+	// Calls moveMobs()
+	public void addMobs(Mob mob) {
+		mobList.add(mob);
+		moveMobs();
+	}
+	
+	// Makes a timer based on the current mob's movement speed (getMobSpeed())
+	// Starts the timer and calls MoveMobListener
+	public void moveMobs() {
+		Timer t = new Timer(getMobSpeed(), moveMob);
+		t.start();
+	}
+	
+	// After time has expired, the mob will be set to the next tile's mob list
+	//   and removed from the current one
+	// If there is no more set path, the mob will only be removed from the tile's mob list
 	private class MoveMobListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			if (next != null)
@@ -40,11 +59,6 @@ public class Tile {
 			else
 				removeMob();
 		}
-	}
-	
-	public void moveMobs() {
-		Timer t = new Timer(getMobSpeed(), moveMob);
-		t.start();
 	}
 	
 	public int getMobSpeed() {
@@ -73,28 +87,28 @@ public class Tile {
 	}
 	
 	public boolean hasTower() {
-		return hasTower;
+		return myObject instanceof Tower;
 	}
 	
-	public void setHasTower(boolean hasTower) {
-		this.hasTower = hasTower;
-	}
+//	public void setHasTower(boolean hasTower) {
+//		this.hasTower = hasTower;
+//	}
 	
 	public boolean isEmpty() {
-		return isEmpty;
+		return !hasMob() && !hasTower();
 	}
 	
-	public void setIsEmpty(boolean isEmpty) {
-		this.isEmpty = isEmpty;
-	}
+//	public void setIsEmpty(boolean isEmpty) {
+//		this.isEmpty = isEmpty;
+//	}
 	
 	public boolean hasMob() {
-		return hasMob;
+		return mobList.size() != 0;
 	}
 	
-	public void setHasMob(boolean hasMob) {
-		this.hasMob = hasMob;
-	}
+//	public void setHasMob(boolean hasMob) {
+//		this.hasMob = hasMob;
+//	}
 	
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 	// Currently set so that a tower can be placed on either land or water *
@@ -145,10 +159,6 @@ public class Tile {
 		return col;
 	}
 	
-	public void addMobs(Mob mob) {
-		mobList.add(mob);
-	}
-	
 	public Mob removeMob() {
 		return mobList.remove(0);
 	}
@@ -165,7 +175,5 @@ public class Tile {
 	public Spawner getSpawnerTile() {
 		return spawner;
 	}
-	// Set next tile
-	// Set MobList by adding and removing from this tile to next
-
+	
 }
