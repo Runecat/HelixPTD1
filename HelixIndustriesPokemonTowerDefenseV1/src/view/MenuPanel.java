@@ -15,17 +15,20 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import model.Game;
+
 import ObserverModel.Observer;
 
 
 public class MenuPanel extends JPanel implements Observer {
 
 
-	
+	Game theGame;
 
-	public MenuPanel() {	// constructor for the panel. Can be used to set the border and background.
+	public MenuPanel(Game theGame) {	// constructor for the panel. Can be used to set the border and background.
 
 		this.setBackground(Color.RED);
+		this.theGame = theGame;
 		
 		ImageLoader loader = new ImageLoader();
 		SpriteSheet overworldSheet = null;
@@ -54,6 +57,9 @@ public class MenuPanel extends JPanel implements Observer {
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		
+		//g.fillOval(50, 50, 300, 300);
+		g.drawString("$: " + theGame.getPlayers().get(0).getMoney(), 50, 100);
 
 	}
 
@@ -61,7 +67,7 @@ public class MenuPanel extends JPanel implements Observer {
 	public void update() {
 		
 		// we will do updates to reflect upgrades and other things here.
-		
+		repaint();
 	}
 
 }

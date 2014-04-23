@@ -95,7 +95,7 @@ public class Level1 extends Map {
 
 		grid[5][5].setObject(chars);
 		TowerListener shittyListener = new TowerListener();
-		Timer time = new Timer(50, shittyListener);
+		Timer time = new Timer(100, shittyListener);
 		time.start();
 		
 		//grid[3][6].addMobs(new Bellsprout(null));

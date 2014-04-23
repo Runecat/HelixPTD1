@@ -80,6 +80,8 @@ public class MapPanel extends JPanel implements Observer {
 					else
 						g.setColor(Color.blue);
 					g.fillOval(i*map.getGridWidth(), j*map.getGridHeight(), map.getGridWidth(), map.getGridHeight());
+					g.setColor(Color.magenta);
+					g.drawString("" + map.getGrid()[i][j].getMobs().size(), i*map.getGridWidth(), j*map.getGridHeight());
 						
 				}
 				
