@@ -24,7 +24,7 @@ public class Game extends Observable {
 	private List<Map> mapList;
 	
 	
-	private Map currentMap = null;		// dont know if we want this for sure. 
+	private Map currentMap;		// dont know if we want this for sure. 
 	// Do we want the game class handling everything (main screen, map choice, menus) or just the actual
 	// game at hand?
 	
@@ -41,8 +41,9 @@ public class Game extends Observable {
 		mapList.add(input);
 	}
 	
-	public static void main(String args[]) throws IOException
+	public static void main(String args[]) 
 	{
+		/*
 		BufferedImage pokemonSpriteSheet = ImageIO.read(new File("Images/CondensedPokemonSprites.png"));
 		BufferedImage[] sprites = new BufferedImage[spriteRows*spriteColumns];
 		
@@ -56,7 +57,7 @@ public class Game extends Observable {
 					spriteWidth,
 					spriteHeight);
 			}
-
+	
 		ArrayList<Tower> towers = null;
 		ArrayList<Mob> mobs = null;
 		for(Tower t:towers)
@@ -71,6 +72,8 @@ public class Game extends Observable {
 		}
 		//Set up listeners for placing towers, 
 		//Set up Timer and listeners for tower attacks.
+		 * 
+		 */
 	}
 	
 	public Map getCurrentMap() {	// added this
@@ -101,7 +104,7 @@ public class Game extends Observable {
 		int xMax = t.getColumn() + a.getHorizontalRange();
 		int yMin = t.getRow() - a.getVerticalRange();
 		int yMax = t.getRow() - a.getVerticalRange();
-		
+		System.out.println(t.getColumn());
 		int x;
 		int y;
 		
@@ -115,17 +118,16 @@ public class Game extends Observable {
 			yMin = 0;
 		}
 		
-		if(xMax > currentMap.getWidth())
+		if(xMax > currentMap.getGridWidth())
 		{
-			xMax = currentMap.getWidth();
+			xMax = currentMap.getGridWidth();
 		}
 		
-		if(yMax > currentMap.getHeight())
+		if(yMax > currentMap.getGridHeight())
 		{
-			yMax = currentMap.getHeight();
+			yMax = currentMap.getGridHeight();
 		}
 		//possibly need to add -1 to the max....
-		
 		
 		for(x = xMin;x<xMax;x++)
 		{
@@ -138,9 +140,13 @@ public class Game extends Observable {
 			}
 		}
 		
-		mobs.add(tilesInRange.get(0).getMobs().get(0));//for now, just attack first mob in first tile
-		t.attackEnemy(a, mobs);
+		if (tilesInRange != null){
+			mobs.add(tilesInRange.get(0).getMobs().get(0));//for now, just attack first mob in first tile
+			t.attackEnemy(a, mobs);
+		}
 		//depending on type, add from all possible mobs the only mobs that will attack
+		 
+		 
 	}
 	
 

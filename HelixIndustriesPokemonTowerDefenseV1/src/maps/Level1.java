@@ -1,11 +1,18 @@
 package maps;
 
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+
+import javax.swing.Timer;
+
+import attacks.Attack;
+import attacks.Ember;
 
 import Mob.Bellsprout;
 import Wave.Wave;
@@ -13,8 +20,10 @@ import Wave.Wave01;
 import Wave.Wave02;
 
 import towers.Charmander;
+import towers.Tower;
 import view.ImageLoader;
 
+import model.Game;
 import model.Spawner;
 import model.Tile;
 
@@ -23,8 +32,12 @@ public class Level1 extends Map {
 	ImageLoader loader;
 	
 	
+	
+	
 	private BufferedImage background;
 	private Tile[][] grid;
+	
+	
 	
 	private final int width = 16;
 	private final int height = 16;
@@ -32,9 +45,17 @@ public class Level1 extends Map {
 	
 	private LinkedList<Tile> path;
 	private ArrayList<Spawner> spawners;
+	private Game theGame;
 	
-	public Level1() {
+	ArrayList<Attack> attacks = new ArrayList<Attack>();
+	Charmander chars;
+	
+	public Level1(Game theGame) {
 		super();
+		
+		this.theGame = theGame;
+		
+		theGame.setMap(this);
 		loader = new ImageLoader();
 		
 		try {
@@ -69,9 +90,28 @@ public class Level1 extends Map {
 		grid[3][0].getSpawnerTile().sendWave(1);
 		// YEEEAH
 		
-		grid[5][5].setObject(new Charmander(null, grid[5][5], null));
+		attacks.add(new Ember());
+		chars = new Charmander(attacks, grid[5][5], null);
+
+		grid[5][5].setObject(chars);
+		TowerListener shittyListener = new TowerListener();
+		Timer time = new Timer(50, shittyListener);
+		time.start();
+		
 		//grid[3][6].addMobs(new Bellsprout(null));
 				
+	}
+	
+	private class TowerListener implements ActionListener {
+
+		//@Override
+		public void actionPerformed(ActionEvent arg0) {
+			System.out.println("");
+			theGame.attack(chars, new Ember());
+			System.out.println("IM TRYING");
+			
+		}
+		
 	}
 	
 	public int getGridWidth() {
@@ -91,6 +131,12 @@ public class Level1 extends Map {
 
 	public Image getBackground() {
 		return this.background;
+	}
+
+	@Override
+	public void setTower(int row, int col, Tower tower) {
+		grid[row][col].setObject(tower);
+		
 	}
 	
 	

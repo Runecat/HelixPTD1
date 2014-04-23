@@ -33,7 +33,6 @@ public class PTDGUI extends JFrame {
 
 	public PTDGUI(Game game) {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setSize(1000, 720);
 		this.setTitle("Helix PTD Pre-Alpha 0.1");
 		
 		background = new BackgroundFrame();
@@ -54,7 +53,7 @@ public class PTDGUI extends JFrame {
 		
 		
 		this.setVisible(true);
-		Timer time = new Timer(1, new GameTimeListener());
+		Timer time = new Timer(10, new GameTimeListener());
 		time.start();
 		
 		

@@ -59,10 +59,16 @@ public class Tile {
 	//   and removed from the current one
 	// If there is no more set path, the mob will only be removed from the tile's mob list
 	private class MoveMobListener implements ActionListener {
+		
+		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (next != null) {
-				if (mobList.size() != 0)
-					next.addMobs(removeMob());
+				if (mobList.size() != 0) {
+					if (mobList.get(0).getHealth() <= 0)
+						removeMob();
+					else
+						next.addMobs(removeMob());
+				}
 				else
 					return;
 			}
@@ -76,7 +82,7 @@ public class Tile {
 	}
 	
 	public int getMobSpeed() {
-		return mobList.get(0).getMoveSpeed() * 100;
+		return mobList.get(0).getMoveSpeed() * 3000;
 	}
 	
 	public void setLocation(int row, int col) {
@@ -174,8 +180,10 @@ public class Tile {
 	}
 	
 	public Mob removeMob() {
-		if (mobList.size() != 0)
+		if (mobList.size() != 0){
+			System.out.println("Going ta remove da mob");
 			return mobList.remove(0);
+		}
 		else
 			return null;
 	}
