@@ -89,7 +89,7 @@ public class Game extends Observable {
 		return players;
 	}
 	
-	public ArrayList<Mob> calculateRange(Tower t, Attack a)
+	public void attack(Tower t, Attack a)
 	{
 		ArrayList<Mob> mobs = null;
 		ArrayList<Tile> tilesInRange = null;
@@ -139,9 +139,8 @@ public class Game extends Observable {
 		}
 		
 		mobs.add(tilesInRange.get(0).getMobs().get(0));//for now, just attack first mob in first tile
-		
+		t.attackEnemy(a, mobs);
 		//depending on type, add from all possible mobs the only mobs that will attack
-		return mobs;
 	}
 	
 
