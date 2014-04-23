@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import javax.swing.Timer;
 
+import towers.Tower;
+
 import Mob.Mob;
 
 public class Tile {
@@ -76,7 +78,6 @@ public class Tile {
 		return myObject;
 	}
 	
-	
 	public boolean isOnPath() {
 		return isOnPath;
 	}
@@ -86,12 +87,12 @@ public class Tile {
 	}
 	
 	public boolean hasTower() {
-		return hasTower;
+		return myObject instanceof Tower;
 	}
 	
-	public void setHasTower(boolean hasTower) {
-		this.hasTower = hasTower;
-	}
+//	public void setHasTower(boolean hasTower) {
+//		this.hasTower = hasTower;
+//	}
 	
 	public boolean isEmpty() {
 		return !hasMob() && !hasTower();
