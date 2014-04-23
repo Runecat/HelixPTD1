@@ -22,7 +22,7 @@ public class Ember extends Attack
 	{
 		// TODO Auto-generated constructor stub
 		damage = 3000;
-		verticalRange = 10;
+		verticalRange = 1;
 		horizontalRange = 10;
 		damageType = Type.FIRE;
 		effect = null;
