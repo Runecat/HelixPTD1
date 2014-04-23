@@ -56,7 +56,6 @@ public class Game extends Observable {
 					spriteWidth,
 					spriteHeight);
 			}
-		}
 		ArrayList<Tower> towers = null;
 		ArrayList<Mob> mobs = null;
 		for(Tower t:towers)
@@ -67,6 +66,7 @@ public class Game extends Observable {
 		for(Mob m:mobs)
 		{
 			//move to next tile every time the timer goes off(probably call function)
+		}
 		}
 		//Set up listeners for placing towers, 
 		//Set up Timer and listeners for tower attacks.
