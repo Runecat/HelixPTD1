@@ -106,9 +106,8 @@ public class Level1 extends Map {
 
 		//@Override
 		public void actionPerformed(ActionEvent arg0) {
-			System.out.println("");
-			theGame.attack(chars, new Ember());
-			System.out.println("IM TRYING");
+			chars.attack(theGame.getCurrentMap());
+			//System.out.println("IM TRYING");
 			
 		}
 		

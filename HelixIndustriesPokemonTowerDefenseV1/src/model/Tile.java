@@ -181,7 +181,7 @@ public class Tile {
 	
 	public Mob removeMob() {
 		if (mobList.size() != 0){
-			System.out.println("Going ta remove da mob");
+			//System.out.println("Going ta remove da mob");
 			return mobList.remove(0);
 		}
 		else
