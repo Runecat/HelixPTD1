@@ -1,11 +1,14 @@
 package model;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import maps.Map;
+import javax.imageio.ImageIO;
 
+import maps.Map;
 import attacks.Attack;
 import towers.Tower;
 import Mob.Mob;
@@ -13,13 +16,12 @@ import ObserverModel.Observable;
 
 public class Game extends Observable {
 	
-	private final int MAX_PLAYERS = 2;	// The most we can have is 2 for multiplayer. But will usually be 1.
-	private final int spriteWidth = 10;
-	private final int spriteHeight = 10;
-	private final int spriteRows = 5;
-	private final int spriteColumns = 5;
+	private final static int MAX_PLAYERS = 2;	// The most we can have is 2 for multiplayer. But will usually be 1.
+	private final static int spriteWidth = 10;
+	private final static int spriteHeight = 10;
+	private final static int spriteRows = 5;
+	private final static int spriteColumns = 5;
 	private List<Map> mapList;
-	BufferedImage[] sprites = new BufferedImage[spriteRows*spriteColumns];
 	
 	
 	private Map currentMap = null;		// dont know if we want this for sure. 
@@ -39,8 +41,22 @@ public class Game extends Observable {
 		mapList.add(input);
 	}
 	
-	public static void main(String args[])
+	public static void main(String args[]) throws IOException
 	{
+		BufferedImage pokemonSpriteSheet = ImageIO.read(new File("Images/CondensedPokemonSprites.png"));
+		BufferedImage[] sprites = new BufferedImage[spriteRows*spriteColumns];
+		
+		for(int i = 0; i<spriteColumns;i++)
+		{
+			for(int j = 0; i<spriteRows;j++)
+			{
+				sprites[(i*spriteColumns)+j] = pokemonSpriteSheet.getSubimage(
+					i*spriteWidth,
+					j*spriteHeight,
+					spriteWidth,
+					spriteHeight);
+			}
+		}
 		ArrayList<Tower> towers = null;
 		ArrayList<Mob> mobs = null;
 		for(Tower t:towers)
