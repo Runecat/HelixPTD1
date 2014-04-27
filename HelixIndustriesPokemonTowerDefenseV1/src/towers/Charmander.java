@@ -25,7 +25,7 @@ import model.Type;
 
 public class Charmander extends Tower
 {
-	private String name;
+	/*private String name;
 	private int buyPrice;//Price to place the tower
 	private int sellPrice;//Money obtained from selling the tower
 	private int upgradePrice;//Cost to upgrade the tower
@@ -33,18 +33,15 @@ public class Charmander extends Tower
 	private ArrayList<Attack> attacks= new ArrayList<Attack>();//List of the tower's attacks
 	private BufferedImage image;//Image for the tower
 	private Type type;//Tower's type
-	private Tile location;
+	private Tile location;*/
 	
-	public Charmander(ArrayList<Attack> attacks, Tile t, BufferedImage b)
+	public Charmander(ArrayList<Attack> attacks, Tile t, BufferedImage b, int height, int width)
 	{
-		super(attacks,t,b);
+		super(attacks,t,b, width, height);
 		BufferedImage newImage;
-		location = t;
-		name = "Charmander";
-		type = Type.FIRE;
-		this.attacks = attacks;
-		upgraded = new Charmeleon(attacks,t,b);
-		image = b;
+		super.name = "Charmander";
+		super.type = Type.FIRE;
+		super.upgraded = new Charmeleon(attacks,t,b, height, width);
 		
 		
 		

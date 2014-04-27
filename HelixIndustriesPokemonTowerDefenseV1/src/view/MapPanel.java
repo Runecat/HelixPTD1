@@ -69,6 +69,14 @@ public class MapPanel extends JPanel implements Observer {
 		
 		for (int i = 0; i < map.getGridWidth(); i++) {
 			for (int j = 0; j < map.getGridHeight(); j++) {
+				String count = "" + map.getGrid()[i][j].getMobs().size();
+				g.setColor(Color.black);
+				g.drawString("" + count, (i+1)*map.getGridWidth(), (j+1)*map.getGridHeight());
+			}
+		}
+		
+		for (int i = 0; i < map.getGridWidth(); i++) {
+			for (int j = 0; j < map.getGridHeight(); j++) {
 				if (map.getGrid()[i][j].hasTower()){
 					g.setColor(Color.red);
 					g.fillOval(i*map.getGridWidth(), j*map.getGridHeight(), map.getGridWidth(), map.getGridHeight());
@@ -79,15 +87,16 @@ public class MapPanel extends JPanel implements Observer {
 						g.setColor(Color.cyan);
 					else
 						g.setColor(Color.blue);
-					g.fillOval(i*map.getGridWidth(), j*map.getGridHeight(), map.getGridWidth(), map.getGridHeight());
+					//g.fillOval(i*map.getGridWidth(), j*map.getGridHeight(), map.getGridWidth(), map.getGridHeight());
 					g.setColor(Color.magenta);
-					g.drawString("" + map.getGrid()[i][j].getMobs().size(), i*map.getGridWidth(), j*map.getGridHeight());
+					//g.drawString("" + map.getGrid()[i][j].getMobs().size(), i*map.getGridWidth(), j*map.getGridHeight());
+					//System.out.println("Mobs in (" + i + ", " + j + "): " + map.getGrid()[i][j].getMobs().size());
 						
 				}
 				
 				if (map.getGrid()[i][j].getSpawnerTile() != null) {
 					g.setColor(Color.yellow);
-					g.fillOval(i*map.getGridWidth(), j*map.getGridHeight(), map.getGridWidth(), map.getGridHeight());
+					//g.fillOval(i*map.getGridWidth(), j*map.getGridHeight(), map.getGridWidth(), map.getGridHeight());
 				}
 					
 			}
@@ -111,8 +120,7 @@ public class MapPanel extends JPanel implements Observer {
 		@Override
 		public void mouseClicked(MouseEvent arg0) {
 			// TODO Auto-generated method stub
-			map.setTower(arg0.getX()/16, arg0.getY()/16, new Charmander(null, map.getGrid()[arg0.getX()/16][arg0.getY()/16], null));
-			
+			map.setTower(arg0.getX()/16, arg0.getY()/16, new Charmander(null, map.getGrid()[arg0.getX()/16][arg0.getY()/16], null, map.getHeight(), map.getWidth()));
 		}
 
 		@Override

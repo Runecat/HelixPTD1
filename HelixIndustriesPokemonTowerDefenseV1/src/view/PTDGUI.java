@@ -54,11 +54,10 @@ public class PTDGUI extends JFrame {
 		menu.setPreferredSize(new Dimension(184, 720));
 		background.add(menu, BorderLayout.LINE_END);
 		
-
 		
 		
 		this.setVisible(true);
-		Timer time = new Timer(10, new GameTimeListener());
+		Timer time = new Timer(1, new GameTimeListener());
 		time.start();
 		
 		

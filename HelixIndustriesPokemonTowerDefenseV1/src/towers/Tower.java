@@ -25,27 +25,29 @@ import java.awt.image.BufferedImage;
  */
 public abstract class Tower implements Clickable
 {
-	private String name = "";//Name of the tower
-	private int height;//How many squares the tower takes up in the y-direction
-	private int width;//How many squares the tower takes up in the x-direction
-	private int buyPrice;//Price to place the tower
-	private int sellPrice;//Money obtained from selling the tower
-	private int upgradePrice;//Cost to upgrade the tower
-	private Tower upgraded;//Reference to the upgraded form of tower
-	private ArrayList<Attack> attacks= new ArrayList<Attack>();//List of the tower's attacks
-	private BufferedImage image;//Image for the tower
-	private Type type;//Tower type
-	private Tile location;
+	protected String name = "";//Name of the tower
+	protected int height;//How many squares the tower takes up in the y-direction
+	protected int width;//How many squares the tower takes up in the x-direction
+	protected int buyPrice;//Price to place the tower
+	protected int sellPrice;//Money obtained from selling the tower
+	protected int upgradePrice;//Cost to upgrade the tower
+	protected Tower upgraded;//Reference to the upgraded form of tower
+	protected ArrayList<Attack> attacks= new ArrayList<Attack>();//List of the tower's attacks
+	protected BufferedImage image;//Image for the tower
+	protected Type type;//Tower type
+	protected Tile location;
 	
 	
 	/*
 	 *Constructor for a Tower.   
 	 */
-	public Tower(ArrayList<Attack> a, Tile t, BufferedImage b)
+	public Tower(ArrayList<Attack> a, Tile t, BufferedImage b, int height, int width)
 	{
 		attacks = a;
 		location = t;
 		image = b;
+		this.height = height;
+		this.width = width;
 	}
 	
 	/*
@@ -138,9 +140,8 @@ public abstract class Tower implements Clickable
 		{
 			modifier = true;
 		}
-		System.out.println(m.getMobType());
-		System.out.println(a.getDamage());
-		System.out.println(type);
+		System.out.println("Damage: " + a.getDamage());
+		//System.out.println(type);
 		//System.out.println((Type.getEffectiveness(type,m.getMobType());
 		damageDealt = a.getDamage();
 				//(int) Math.ceil((type.getEffectiveness(m.getMobType()))*a.getDamage());
@@ -184,6 +185,11 @@ public abstract class Tower implements Clickable
 		//draw image
 	}
 	
+	public void setRange()
+	{
+	
+	}
+	
 	public void attack(Map m)
 	{
 		System.out.println("Commencing attack, sir!");
@@ -193,11 +199,12 @@ public abstract class Tower implements Clickable
 		//grab which tiles are in range
 		//for those tiles in range, find mobs on them
 		//have tower attack those mobs if permitted to
-		int xMin = location.getColumn() - attacks.get(0).getHorizontalRange();
-		int xMax = location.getColumn() + attacks.get(0).getHorizontalRange();
-		int yMin = location.getRow() - attacks.get(0).getVerticalRange();
-		int yMax = location.getRow() + attacks.get(0).getVerticalRange();
-		//System.out.println(t.getColumn());
+		int xMin = location.getX() - attacks.get(0).getHorizontalRange();
+		int xMax = location.getX() + attacks.get(0).getHorizontalRange();
+		int yMin = location.getY() - attacks.get(0).getVerticalRange();
+		int yMax = location.getY() + attacks.get(0).getVerticalRange();
+		System.out.println("Row: " + location.getX());
+		System.out.println("Column: " + location.getY());
 		int x;
 		int y;
 		
@@ -211,22 +218,22 @@ public abstract class Tower implements Clickable
 			yMin = 0;
 		}
 		
-		if(xMax > m.getGridWidth())
+		if(xMax > width)
 		{
-			xMax = m.getGridWidth();
+			xMax = width;
 		}
 		
-		if(yMax > m.getGridHeight())
+		if(yMax > height)
 		{
-			yMax = m.getGridHeight();
+			yMax = height;
 		}
 		//possibly need to add -1 to the max....
-		System.out.println(xMin + " " + xMax + " " + yMin + " " + yMax);
+		//System.out.println(xMin + " " + xMax + " " + yMin + " " + yMax);
 		for(x = xMin;x<xMax;x++)
 		{
 			for(y = yMin;y<yMax;y++)
 			{
-				System.out.println(grid[x][y].hasMob());
+				//System.out.println(grid[x][y].hasMob());
 				if(grid[x][y].hasMob())
 				{
 					tilesInRange.add(grid[x][y]);

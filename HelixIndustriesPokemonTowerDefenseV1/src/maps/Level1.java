@@ -46,8 +46,8 @@ public class Level1 extends Map {
 	private LinkedList<Tile> path;
 	private ArrayList<Spawner> spawners;
 	private Game theGame;
-	
 	ArrayList<Attack> attacks = new ArrayList<Attack>();
+	ArrayList<Tower> towers = new ArrayList<Tower>();
 	Charmander chars;
 	
 	public Level1(Game theGame) {
@@ -68,7 +68,7 @@ public class Level1 extends Map {
 		grid = new Tile[width][height];
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < height; j++) {
-				grid[i][j] = new Tile(tileDimension, tileDimension);
+				grid[i][j] = new Tile(i, j);
 			}
 		}
 		ArrayList<Wave> waves = new ArrayList<Wave>();
@@ -91,9 +91,10 @@ public class Level1 extends Map {
 		// YEEEAH
 		
 		attacks.add(new Ember());
-		chars = new Charmander(attacks, grid[5][5], null);
+		chars = new Charmander(attacks, grid[5][5], null,height, width);
 
 		grid[5][5].setObject(chars);
+		towers.add(chars);
 		TowerListener shittyListener = new TowerListener();
 		Timer time = new Timer(100, shittyListener);
 		time.start();
@@ -106,8 +107,11 @@ public class Level1 extends Map {
 
 		//@Override
 		public void actionPerformed(ActionEvent arg0) {
-			chars.attack(theGame.getCurrentMap());
+			for(int i =0;i<towers.size();i++)
+			{	
+			towers.get(i).attack(theGame.getCurrentMap());
 			//System.out.println("IM TRYING");
+			}
 			
 		}
 		
