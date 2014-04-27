@@ -1,0 +1,66 @@
+Task List:
+H
+
+Install git and set up repositories: DONE
+
+
+Gabe - Map, Tile, Path, associated logic
+
+Will - Menus, Basic GUI, Player, Animation (later), Sound(later)
+
+Brandon - Mob AI, Wave, Spawning, Base, Base Damage calculation, Scoring (later)
+
+Daniel - Towers, Placement, Selling (later), Attacking, Attacks
+
+Other:
+
+Saving/Loading
+Sprite Modification
+Chat Networking
+Co op Networking
+Timers 
+Logo
+
+
+Git BASH commands:
+
+In order to get the most recent changes -
+
+git fetch upstream
+git merge upstream/master
+
+
+In order to push your personal changes - 
+git commit -a
+
+<insert>
+Type in a description of the changes
+<esc>
+:wq
+<enter>
+
+git push origin master
+
+
+AVAILABILITY
+
++ means after
+- means before
+~ means not
+
+	MON 			TUE 		WED 		THU 			FRI 		SAT SUN
+B - 1-3, 4+			2-7			1-3, 4:15+	2+				N/A			3-	7+
+D - 5:30+			1-3:30, 7+	5:30+		7+				10+, ~2-3	ANY	ANY
+G - 11-2, 4:15+		3+			11-2, 4:15+	12:30-, 1:45+	2-, 3+		TBA	TBA
+W - 3-, 7:30+		5+			3-, 4:15+	5+				7:30+		3+	3+
+
+
+
+
+
+
+
+
+
+
+

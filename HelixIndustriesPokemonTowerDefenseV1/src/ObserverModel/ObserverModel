@@ -1,0 +1,11 @@
+Hello friends,
+
+This is the same observable setup we used in TicTacToe. So far just the game is the observable. I dont know if we 
+want other things to be observable than that, so I am leaving it as such.
+
+Observables:
+Game.java
+
+Observers:
+MenuPanel.java
+MapPanel.java
