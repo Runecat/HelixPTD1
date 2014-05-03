@@ -21,9 +21,9 @@ public class Ember extends Attack
 	public Ember()
 	{
 		// TODO Auto-generated constructor stub
-		damage = 3;
-		verticalRange = 0;
-		horizontalRange = 5;
+		damage = 3000;
+		verticalRange = 1;
+		horizontalRange = 10;
 		damageType = Type.FIRE;
 		effect = null;
 		image = null;

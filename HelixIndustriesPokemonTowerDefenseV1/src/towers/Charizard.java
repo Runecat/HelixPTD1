@@ -31,9 +31,9 @@ public class Charizard extends Tower
 	private Type type;//Tower's type
 	private Tile location;
 	
-	public Charizard(ArrayList<Attack> attacks, Tile t, BufferedImage b)
+	public Charizard(ArrayList<Attack> attacks, Tile t, BufferedImage b, int height, int width)
 	{
-		super(attacks,t, b);
+		super(attacks,t, b, height, width);
 		location = t;
 		name = "Charizard";
 		type = Type.FIRE;

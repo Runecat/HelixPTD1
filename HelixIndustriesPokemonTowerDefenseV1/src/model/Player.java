@@ -29,6 +29,10 @@ public class Player implements Serializable
 		return name;
 	}
 	
+	public int getMoney() {
+		return money;
+	}
+	
 	/*
 	 * Returns whether or not a tower is unlocked based on its name, as a boolean
 	 */

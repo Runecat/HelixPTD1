@@ -4,9 +4,8 @@ import java.awt.image.BufferedImage;
 
 import model.Type;
 
-public class Bellsprout extends Mob{
+public class Gloom extends Mob{
 
-	
 	private String name;
 	private BufferedImage image;
 	private int health;
@@ -14,16 +13,13 @@ public class Bellsprout extends Mob{
 	private Type type;
 	private int money;
 	
-	public int spawnX = 1;
-	public int spawnY = 1;
-	
-	public Bellsprout(BufferedImage b) {
+	public Gloom(BufferedImage b) {
 		super(b);
-		name = "Bellsprout";
-		health = 40;
-		moveSpeed = 2;
-		type = Type.GRASS;
-		money = 3;
+		name = "Gloom";
+		health = 55;
+		moveSpeed = 3;
+		type = Type.POISON;
+		money = 5;
 	}
 
 }

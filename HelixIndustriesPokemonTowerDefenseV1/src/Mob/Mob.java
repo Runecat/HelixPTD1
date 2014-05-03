@@ -11,30 +11,28 @@ import model.Headquarters;
 import model.Type;
 
 public abstract class Mob implements Clickable {
+	
 	// May need location variables
-	private String name = "";
-	private int health = 1;
-	private int baseDamage = 1;
-	private int moveSpeed = 1;
-	private int height = 1;
-	private int width = 1;
-	private Type mobType = Type.NORMAL;// Might make into enum
-	private Effect status = null;
+	
+	protected String name = "";
 	private BufferedImage image;
-	private int money = 1;
+	protected int health = 1;
+	protected int moveSpeed = 1;
+	protected Type type;// Might make into enum
+
+	
+	private int baseDamage = 1;
+
+	
+	private Effect status;
+	protected int money;
 	private Map track = null;
 	public int spawnX;
 	public int spawnY;
 	public Headquarters HQ;
 
 	public Mob(BufferedImage b) {
-		health = getHealth();
-		moveSpeed = getMoveSpeed();
-		height = getHeight();
-		width = getWidth();
-		mobType = getMobType();
-		status = getEffect();
-		money = getMoney();
+		
 		image = b;
 	}
 	
@@ -85,11 +83,11 @@ public abstract class Mob implements Clickable {
 	}
 
 	public Type getMobType() {
-		return mobType;
+		return type;
 	}
 
 	public void setMobType(Type mobType) {
-		this.mobType = mobType;
+		this.type = mobType;
 	}
 
 	public BufferedImage getImage() {
@@ -100,21 +98,7 @@ public abstract class Mob implements Clickable {
 		this.image = image;
 	}
 
-	public int getHeight() {
-		return height;
-	}
-
-	public void setHeight(int height) {
-		this.height = height;
-	}
-
-	public int getWidth() {
-		return width;
-	}
-
-	public void setWidth(int width) {
-		this.width = width;
-	}
+	
 
 	public String getName() {
 		return name;

@@ -24,7 +24,7 @@ public class Game extends Observable {
 	private List<Map> mapList;
 	
 	
-	private Map currentMap = null;		// dont know if we want this for sure. 
+	private Map currentMap;		// dont know if we want this for sure. 
 	// Do we want the game class handling everything (main screen, map choice, menus) or just the actual
 	// game at hand?
 	
@@ -41,8 +41,9 @@ public class Game extends Observable {
 		mapList.add(input);
 	}
 	
-	public static void main(String args[]) throws IOException
+	public static void main(String args[]) 
 	{
+		/*
 		BufferedImage pokemonSpriteSheet = ImageIO.read(new File("Images/CondensedPokemonSprites.png"));
 		BufferedImage[] sprites = new BufferedImage[spriteRows*spriteColumns];
 		
@@ -56,7 +57,7 @@ public class Game extends Observable {
 					spriteWidth,
 					spriteHeight);
 			}
-
+	
 		ArrayList<Tower> towers = null;
 		ArrayList<Mob> mobs = null;
 		for(Tower t:towers)
@@ -71,6 +72,8 @@ public class Game extends Observable {
 		}
 		//Set up listeners for placing towers, 
 		//Set up Timer and listeners for tower attacks.
+		 * 
+		 */
 	}
 	
 	public Map getCurrentMap() {	// added this
@@ -89,60 +92,7 @@ public class Game extends Observable {
 		return players;
 	}
 	
-	public ArrayList<Mob> calculateRange(Tower t, Attack a)
-	{
-		ArrayList<Mob> mobs = null;
-		ArrayList<Tile> tilesInRange = null;
-		Tile[][] grid = currentMap.getGrid();
-		//grab which tiles are in range
-		//for those tiles in range, find mobs on them
-		//have tower attack those mobs if permitted to
-		int xMin = t.getColumn() - a.getHorizontalRange();
-		int xMax = t.getColumn() + a.getHorizontalRange();
-		int yMin = t.getRow() - a.getVerticalRange();
-		int yMax = t.getRow() - a.getVerticalRange();
-		
-		int x;
-		int y;
-		
-		if(xMin <0)
-		{
-			xMin = 0;
-		}
-		
-		if(yMin < 0)
-		{
-			yMin = 0;
-		}
-		
-		if(xMax > currentMap.getWidth())
-		{
-			xMax = currentMap.getWidth();
-		}
-		
-		if(yMax > currentMap.getHeight())
-		{
-			yMax = currentMap.getHeight();
-		}
-		//possibly need to add -1 to the max....
-		
-		
-		for(x = xMin;x<xMax;x++)
-		{
-			for(y = yMin;y<yMax;y++)
-			{
-				if(grid[x][y].hasMob())
-				{
-					tilesInRange.add(grid[x][y]);
-				}
-			}
-		}
-		
-		mobs.add(tilesInRange.get(0).getMobs().get(0));//for now, just attack first mob in first tile
-		
-		//depending on type, add from all possible mobs the only mobs that will attack
-		return mobs;
-	}
+	
 	
 
 

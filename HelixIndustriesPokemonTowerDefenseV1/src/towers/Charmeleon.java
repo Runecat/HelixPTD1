@@ -31,14 +31,14 @@ public class Charmeleon extends Tower
 	private Type type;//Tower's type
 	private Tile location;
 	
-	public Charmeleon(ArrayList<Attack> attacks, Tile t, BufferedImage b)
+	public Charmeleon(ArrayList<Attack> attacks, Tile t, BufferedImage b, int height, int width)
 	{
-		super(attacks,t, b);
+		super(attacks,t, b, height, width);
 		location = t;
 		name = "Charmeleon";
-		type = Type.FIRE;
+		type = Type.FIRE; 
 		this.attacks = attacks;
-		upgraded = new Charizard(attacks,t,b);
+		upgraded = new Charizard(attacks,t,b, height, width);
 		image = b;
 		
 		//REMOVE
