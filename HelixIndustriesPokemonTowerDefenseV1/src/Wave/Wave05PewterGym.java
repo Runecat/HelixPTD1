@@ -6,7 +6,7 @@ import Mob.Geodude;
 import Mob.Onix;
 import Mob.Sandshrew;
 
-public class Wave05 extends Wave{
+public class Wave05PewterGym extends Wave{
 	private int delay = 500;
 	private int level = 5;
 	
@@ -15,7 +15,7 @@ public class Wave05 extends Wave{
 	private BufferedImage onix;
 	private BufferedImage sandshrew;
 
-	public Wave05(){
+	public Wave05PewterGym(){
 		super();
 		for(int i = 0; i < 50; i++){
 			if(i < 25){
