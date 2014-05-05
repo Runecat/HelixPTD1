@@ -18,6 +18,7 @@ import Mob.Bellsprout;
 import Wave.Wave;
 import Wave.Wave01;
 import Wave.Wave02;
+import Wave.Wave03;
 
 import towers.Charmander;
 import towers.Tower;
@@ -74,8 +75,9 @@ public class Level1 extends Map {
 		ArrayList<Wave> waves = new ArrayList<Wave>();
 		waves.add(new Wave01());
 		waves.add(new Wave02());
+		waves.add(new Wave03());
 		
-		grid[3][0].setSpawnerTile(new Spawner(grid[3][0], waves));
+		
 		
 		// TRACK NIGGA
 		grid[3][0].setNextTile(grid[3][1]);
@@ -86,8 +88,20 @@ public class Level1 extends Map {
 		grid[3][5].setNextTile(grid[3][6]);
 		grid[3][6].setNextTile(grid[3][7]);
 		grid[3][7].setNextTile(grid[3][8]);
+		grid[3][8].setNextTile(grid[3][9]);
+		grid[3][9].setNextTile(grid[3][10]);
+		grid[3][10].setNextTile(grid[4][10]);
+		grid[4][10].setNextTile(grid[5][10]);
+		grid[5][10].setNextTile(grid[5][11]);
 
-		grid[3][0].getSpawnerTile().sendWave(1);
+		
+		
+
+		Spawner spawn = new Spawner(grid[3][0], waves);
+		grid[3][0].setSpawnerTile(spawn);
+		super.setSpawner(spawn);
+		//grid[3][0].getSpawnerTile().sendWave(1);
+		super.setLevels(waves.size());
 		// YEEEAH
 		
 		attacks.add(new Ember());
