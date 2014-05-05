@@ -46,14 +46,13 @@ public abstract class Tower implements Clickable
 	public Tower(Tile t, Map m)
 	{
 		location = t;
-		this.height = m.getHeight();
-		this.width = m.getWidth();
 	}
 	/*
 	 * Checks the all tiles within the Tower's Attack's range and adds them to a list
 	 */
 	public void setRange(Map m)
 	{
+		System.out.println("Setting Range");
 		tilesInRange = new ArrayList<Tile>();
 		Tile[][] grid = m.getGrid();
 		//grab which tiles are in range
@@ -63,39 +62,48 @@ public abstract class Tower implements Clickable
 		int yMax = location.getY() + attacks.get(0).getVerticalRange();
 		int x;
 		int y;
-		
+		System.out.println("x: " + location.getX());
+		System.out.println("x: " + location.getY());
+		System.out.println("Horizontal Range: " + attacks.get(0).getHorizontalRange());
+		System.out.println("Vertical Range: " + attacks.get(0).getVerticalRange());
 		//Calculates range boundaries, based on attack range and map boundaries
 		if(xMin <0)
 		{
+			System.out.println("xmin before: " + xMin);
 			xMin = 0;
+			System.out.println("xmin after: " + xMin);
 		}
 		
 		if(yMin < 0)
 		{
+			System.out.println("ymin before: " + yMin);
 			yMin = 0;
+			System.out.println("ymin after: " + yMin);
 		}
 		
-		if(xMax > width)
+		if(xMax > m.getWidth())
 		{
-			xMax = width;
+			System.out.println("xmax before: " + xMax);
+			xMax = m.getWidth();
+			System.out.println("xmax after: " + xMax);
 		}
 		
-		if(yMax > height)
+		if(yMax > m.getHeight())
 		{
-			yMax = height;
+			System.out.println("ymax before: " + yMax);
+			yMax = m.getHeight();
+			System.out.println("ymax after: " + yMax);
 		}
-		
 		//Adds tiles in range to the range array
 		for(x = xMin;x<xMax;x++)
 		{
 			for(y = yMin;y<yMax;y++)
 			{
-				if(grid[x][y].hasMob())
-				{
 					tilesInRange.add(grid[x][y]);
-				}
 			}
 		}
+		
+		System.out.println("Tiles in range(size): " + tilesInRange.size());
 		
 	}
 	
@@ -215,25 +223,17 @@ public abstract class Tower implements Clickable
 		ArrayList<Mob> mobs = new ArrayList<Mob>();	
 		//calculate which mobs to grab for each type
 		
-		
-		if ((tilesInRange.size()>0) && (attacks.get(0).getAttackType() == AttackType.NORMAL))
-		{	for(Tile t: tilesInRange)
+		System.out.println("attack() called"); 
+		if (attacks.get(0).getAttackType() == AttackType.NORMAL)
+		{	
+			for(Tile t: tilesInRange)
 			{	if(t.hasMob())
 				{
 					mobs.add(t.getMobs().get(0));
+					System.out.println("mob in range of Ember"); 
 					//currently adds one mob per tile in range
 					//good for line, area
 					break;//not sure if it will just break if statement
-				}
-			}
-		}
-		else if (tilesInRange.size()>0 && (attacks.get(0).getAttackType() == AttackType.HORIZONTAL))
-		{	for(Tile t: tilesInRange)
-			{	if(t.hasMob())
-				{
-					mobs.add(t.getMobs().get(0));
-					//currently adds one mob per tile in range
-					//good for line, area
 				}
 			}
 		}
@@ -242,6 +242,7 @@ public abstract class Tower implements Clickable
 			for(Tile t: tilesInRange)
 			{	if(t.hasMob())
 				{
+				System.out.println("mob in range of Fire Blast"); 
 					mobs.add(t.getMobs().get(0));
 					//currently adds one mob per tile in range
 					//good for line, area
@@ -261,7 +262,22 @@ public abstract class Tower implements Clickable
 				}
 			}
 		}
-		attackEnemy(attacks.get(0), mobs);
+		
+		else if (tilesInRange.size()>0 && (attacks.get(0).getAttackType() == AttackType.HORIZONTAL))
+		{	
+					System.out.println("");
+					for(Tile t: tilesInRange)
+					{	if(t.hasMob())
+						{
+							mobs.add(t.getMobs().get(0));
+							System.out.println("mob in range of Flamethrower"); 
+							//currently adds one mob per tile in range
+							//good for line, area
+						}
+					}
+		}
+		if(mobs.size() > 0)
+			attackEnemy(attacks.get(0), mobs);
 			
 	}
 	/*
@@ -293,6 +309,7 @@ public abstract class Tower implements Clickable
 	
 	public void attackEnemy(Attack a, ArrayList<Mob> inRange)
 	{
+		System.out.println("AttackEnemy() called");
 		for(Mob m: inRange)
 		{
 			dealDamage(a,m);

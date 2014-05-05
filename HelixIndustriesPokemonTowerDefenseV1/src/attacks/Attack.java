@@ -46,12 +46,12 @@ public abstract class Attack
 	
 	public int getVerticalRange()
 	{
-		return 0;
+		return verticalRange;
 	}
 	
 	public int getHorizontalRange()
 	{
-		return 0;
+		return horizontalRange;
 	}
 	
 	public AttackType getAttackType()

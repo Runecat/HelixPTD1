@@ -13,6 +13,7 @@ public class Flamethrower extends Attack
 	public Flamethrower()
 	{
 		// TODO Auto-generated constructor stub
+		super();
 		super.damage = 25;
 		super.verticalRange = 1;
 		super.horizontalRange = 25;
@@ -23,7 +24,7 @@ public class Flamethrower extends Attack
 		super.targets = 1;
 	}
 	
-	public int getDamage()
+	/*public int getDamage()
 	{
 		return damage;
 	}

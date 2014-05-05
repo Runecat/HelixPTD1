@@ -12,6 +12,7 @@ public class Fireblast extends Attack
 	public Fireblast()
 	{
 		// TODO Auto-generated constructor stub
+		super();
 		super.damage = 25;
 		super.verticalRange = 10;
 		super.horizontalRange = 10;
@@ -21,7 +22,7 @@ public class Fireblast extends Attack
 		super.image = null;
 		super.targets = 5;
 	}
-	
+	/*
 	public int getDamage()
 	{
 		return damage;

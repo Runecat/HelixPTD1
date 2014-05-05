@@ -12,6 +12,7 @@ public class Ember extends Attack
 	public Ember()
 	{
 		// TODO Auto-generated constructor stub
+		super();
 		super.damage = 25;
 		super.verticalRange = 5;
 		super.horizontalRange = 5;
@@ -21,7 +22,7 @@ public class Ember extends Attack
 		super.image = null;
 		super.targets = 1;
 	}
-	
+	/*
 	public int getDamage()
 	{
 		return damage;
