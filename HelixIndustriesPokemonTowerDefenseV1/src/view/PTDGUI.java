@@ -33,6 +33,7 @@ public class PTDGUI extends JFrame {
 		Player playerOne = new Player();
 		theGame.addPlayer(playerOne);
 		PTDGUI gui = new PTDGUI(theGame);
+		theGame.startTimer();
 	}
 
 	public PTDGUI(Game game) {

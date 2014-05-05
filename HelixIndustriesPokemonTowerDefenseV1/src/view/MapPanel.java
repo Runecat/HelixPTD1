@@ -14,14 +14,14 @@ import javax.swing.JPanel;
 import towers.Charmander;
 import towers.Tower;
 
-import ObserverModel.Observer;
+import ObserverModel.PanelObserver;
 
 import maps.Level1;
 import maps.Map;
 import model.Game;
 import model.Spawner;
 
-public class MapPanel extends JPanel implements Observer {
+public class MapPanel extends JPanel implements PanelObserver {
 
 	private Map map;
 	private Game theGame;

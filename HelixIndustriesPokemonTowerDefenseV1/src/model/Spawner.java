@@ -14,39 +14,35 @@ public class Spawner {
 	private Tile tile;
 	private ArrayList<Mob> mobs = new ArrayList<Mob>();
 	private ArrayList<Wave> waves = new ArrayList<Wave>();
-	private SendMobListener sendMob;
 	private int level;
 
+	// removed timer
+	
 	public Spawner(Tile tile, ArrayList<Wave> waves) {
 		this.tile = tile;
 		this.waves = waves;
-		sendMob = new SendMobListener();
 	}
 
 	// Sends the wave of the level given, goes to sendMob listener
 	public void sendWave(int level) {
-		this.level = level-1;
-		Timer t = new Timer(1000, sendMob);
-		t.start();
+		//Timer t = new Timer(5000, sendMob);
+		//t.start();
+		
+		if (level < waves.size())
+			setMobs(level);
+		while (mobs.size() != 0) {
+			tile.addMobs(mobs.get(0));
+			mobs.remove(0);
+		}
+		
+		level++;
 	}
 
 	// Called from sendWave
 	// sets the mob list to the mobs of the current level
 	// adds mobs to the spawner tile on the path --> goes to Tile's addMobs()
 	// removes mobs from the mob list
-	private class SendMobListener implements ActionListener {
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			if (level < waves.size())
-				setMobs(level);
-			while (mobs.size() != 0) {
-				tile.addMobs(mobs.get(0));
-				mobs.remove(0);
-			}
-			
-			level++;
-		}
-	}
+	
 
 	// Sets the mob list to the mobs from the current level
 	public void setMobs(int level) {

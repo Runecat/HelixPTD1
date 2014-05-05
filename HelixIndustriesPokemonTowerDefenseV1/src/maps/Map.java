@@ -19,9 +19,11 @@ public abstract class Map
 	int height;
 	Tile [][] grid = new Tile[height][width];
 	private BufferedImage backgroundImage;
-	private LinkedList<Tile> path = new LinkedList<Tile>();
 	private ArrayList<Spawner> spawners = new ArrayList<Spawner>();
 	private Spawner spawner;
+	private int levels;
+	
+	private int currentLevel = 0;
 	
 	public Map() {
 		
@@ -36,6 +38,34 @@ public abstract class Map
 			}
 		}
 	}
+	
+	public void setLevels(int levels) {
+		this.levels = levels;
+	}
+	
+	public void setSpawner(Spawner spawn) {
+		this.spawner = spawn;
+	}
+	
+	public void sendWave() {
+		
+		spawner.sendWave(currentLevel);
+		
+		// this way because current starts at 0, it will match the spawner's indexing.
+		if (currentLevel < levels)
+			currentLevel += 1;
+	}
+	
+	public void moveMobs() {
+		Tile current = spawner.getTile();
+		
+		while (current != null) {
+			current.moveMobs();
+			current = current.next();
+		}
+	}
+	
+	
 	
 	// Gets the grid
 	public Tile [][] getGrid() {
@@ -55,17 +85,7 @@ public abstract class Map
 		grid[row][col].setObject(mob);
 	}
 	
-	// Sets a tile equal to the path, adds to path list, and sets Tile as prev Tile's next
-	public void setPath(int row, int col) {
-		path.add(grid[row][col]);
-		if (path.size() > 1)
-			path.get(path.size() - 1).setNextTile(grid[row][col]);
-		grid[row][col].setOnPath(true);
-	}
-	
-	public LinkedList<Tile> getPath() {
-		return path;
-	}
+	// deleted path
 	
 	// Sets direction to 0,1,2,3:
 	// 0 := up
