@@ -321,6 +321,12 @@ public abstract class Tower implements Clickable
 		return image;
 	}
 	
+	public Tower upgradeTower()
+	{
+		return upgraded;
+	}
+	
+
 	public void printStats()
 	{
 		System.out.println("Hi!  My name is " + name + "!");

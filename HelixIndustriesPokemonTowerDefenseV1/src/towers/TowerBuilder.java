@@ -62,27 +62,39 @@ public class TowerBuilder
 		{
 			case BULBASAUR: tower = new Bulbasaur(t,m);
 							tower.setImage(sprites[1]);
+							tower.setUpgrade(new Ivysaur(t,m));
+							tower.upgradeTower().setImage(sprites[2]);
 				break;
 			case IVYSAUR: tower = new Ivysaur(t,m);
 						  tower.setImage(sprites[2]);
+						  tower.setUpgrade(new Venusaur(t,m));
+						  tower.upgradeTower().setImage(sprites[3]);
 				break;
 			case VENUSAUR: tower = new Venusaur(t,m);
 						   tower.setImage(sprites[3]);
 				break;
 			case CHARMANDER: tower = new Charmander(t,m);
 							 tower.setImage(sprites[4]);
+							 tower.setUpgrade(new Charmeleon(t,m));
+							  tower.upgradeTower().setImage(sprites[5]);
 				break;
 			case CHARMELEON: tower = new Charmeleon(t,m);
 							 tower.setImage(sprites[5]);
+							 tower.setUpgrade(new Charizard(t,m));
+							  tower.upgradeTower().setImage(sprites[6]);
 				break;
 			case CHARIZARD: tower = new Charizard(t,m);
 							tower.setImage(sprites[6]);
 				break;
 			case SQUIRTLE: tower = new Squirtle(t,m);
 						   tower.setImage(sprites[7]);
+						   tower.setUpgrade(new Wartortle(t,m));
+							  tower.upgradeTower().setImage(sprites[8]);
 				break;
 			case WARTORTLE: tower = new Wartortle(t,m);
 							tower.setImage(sprites[8]);
+							tower.setUpgrade(new Blastoise(t,m));
+							  tower.upgradeTower().setImage(sprites[9]);
 				break;
 			case BLASTOISE: tower = new Blastoise(t,m);
 							tower.setImage(sprites[9]);
@@ -96,5 +108,6 @@ public class TowerBuilder
 		}
 		return tower;
 	}
+	
 
 }
