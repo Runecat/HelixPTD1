@@ -34,6 +34,9 @@ public class Game extends PanelObservable {
 	private TowerBuilder towerBuilder;
 	private List<Tower> towerList = new ArrayList<Tower>();
 	
+	private TowerID currentTowerSelected;
+	private boolean isPlacingTower;
+	
 	private List<Map> mapList;
 	
 
@@ -89,6 +92,14 @@ public class Game extends PanelObservable {
 	public Map getCurrentMap() { // added this
 		return this.currentMap;
 	}
+	
+	public void setCurrentTowerSelected(TowerID i) {
+		currentTowerSelected = i;
+	}
+	
+	public TowerID getCurrentTowerSelected() {
+		return currentTowerSelected;
+	}
 
 	public void setMap(Map map) { // added this
 		this.currentMap = map;
@@ -105,6 +116,26 @@ public class Game extends PanelObservable {
 	public Player getPlayer(int i) {
 		return players.get(i);
 	}
+	
+	public boolean canPlaceTower(int x, int y) {
+		if (isPlacingTower == false)
+			return false;
+		else if (currentMap.getTile(x, y).canPlaceTower() == false)
+			return false;
+		
+		return true;
+	}
+	
+	public void setIsPlacingTower(boolean b) {
+		isPlacingTower = b;
+	}
+	
+	public boolean getIsPlacingTower() {
+		return isPlacingTower;
+	}
+	
+	
+	
 	
 	public void createTower(int x, int y, TowerID i) {
 		Tower t = towerBuilder.buildTower(i, currentMap.getTile(x, y), currentMap);

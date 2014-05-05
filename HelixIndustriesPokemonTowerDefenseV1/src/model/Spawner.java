@@ -21,6 +21,7 @@ public class Spawner {
 	public Spawner(Tile tile, ArrayList<Wave> waves) {
 		this.tile = tile;
 		this.waves = waves;
+		tile.setSpawnerTile(this);
 	}
 
 	// Sends the wave of the level given, goes to sendMob listener

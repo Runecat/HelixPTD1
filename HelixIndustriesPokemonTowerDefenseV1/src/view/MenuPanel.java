@@ -3,19 +3,25 @@ package view;
 import java.awt.AlphaComposite;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+
+import towers.TowerID;
 
 import model.Game;
 
@@ -32,6 +38,21 @@ public class MenuPanel extends JPanel implements PanelObserver {
 		this.setBackground(Color.RED);
 		this.setLayout(new GridLayout(4,1));
 		this.add(new JButton("Start Game!"));
+		
+		// towerSelectPanel
+		JPanel towerSelectPanel = new JPanel();
+		towerSelectPanel.setLayout(new FlowLayout());
+		TowerSelectListener buttonListener = new TowerSelectListener();
+		
+		JButton charmanderButton = new JButton("Charmander");
+		charmanderButton.addActionListener(buttonListener);
+		towerSelectPanel.add(charmanderButton);
+		
+		JButton charmeleonButton = new JButton("Charmeleon");
+		charmeleonButton.addActionListener(buttonListener);
+		towerSelectPanel.add(charmeleonButton);		
+		this.add(towerSelectPanel);
+		// end towerSelectPanel
 
 		this.theGame = theGame;
 		
@@ -51,12 +72,9 @@ public class MenuPanel extends JPanel implements PanelObserver {
 
 		//this.setBorder(BorderFactory.createMatteBorder(0, 9, 0, 9, icon));
 		this.setBorder(BorderFactory.createMatteBorder(-1, -1, -1, -1, icon));
-
-		
-		
-		
-
 	}
+	
+	
 
 	// good ol' paintComponent
 	@Override
@@ -75,4 +93,22 @@ public class MenuPanel extends JPanel implements PanelObserver {
 		repaint();
 	}
 
+	private class TowerSelectListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			JButton buttonClicked = (JButton) arg0.getSource();
+			
+			if (buttonClicked.getText().equals("Charmander")){
+				theGame.setCurrentTowerSelected(TowerID.CHARMANDER);
+			}
+			if (buttonClicked.getText().equals("Charmeleon")) {
+				theGame.setCurrentTowerSelected(TowerID.CHARMELEON);
+			}
+			
+			theGame.setIsPlacingTower(true);
+
+		}
+		
+	}
 }

@@ -54,7 +54,7 @@ public class MapPanel extends JPanel implements PanelObserver {
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		//g.drawImage( map.getBackground(), map.getWidth(), map.getHeight(), null);
+		g.drawImage(currentMap.getBackground(), currentMap.getWidth(), currentMap.getHeight(), null);
 		
 		g.setColor(Color.green);
 		for (int i = 0; i < currentMap.getGridWidth(); i++) {
@@ -70,8 +70,8 @@ public class MapPanel extends JPanel implements PanelObserver {
 		for (int i = 0; i < currentMap.getGridWidth(); i++) {
 			for (int j = 0; j < currentMap.getGridHeight(); j++) {
 				String count = "" + currentMap.getGrid()[i][j].getMobs().size();
-				g.setColor(Color.black);
-				g.drawString("" + count, (i+1)*currentMap.getGridWidth(), (j+1)*currentMap.getGridHeight());
+				g.setColor(Color.BLACK);
+				g.drawString("" + count, (i)*currentMap.getGridWidth(), (j+1)*currentMap.getGridHeight());
 			}
 		}
 		
@@ -120,7 +120,10 @@ public class MapPanel extends JPanel implements PanelObserver {
 		@Override
 		public void mouseClicked(MouseEvent arg0) {
 			// TODO Auto-generated method stub
-			currentMap.setTower(arg0.getX()/16, arg0.getY()/16, new Charmander(currentMap.getGrid()[arg0.getX()/16][arg0.getY()/16], currentMap));
+			if (theGame.canPlaceTower(arg0.getX()/16, arg0.getY()/16)){
+				theGame.createTower(arg0.getX()/16, arg0.getY()/16, theGame.getCurrentTowerSelected());
+				theGame.setIsPlacingTower(false);
+			}
 		}
 
 		@Override
