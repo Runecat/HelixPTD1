@@ -1,5 +1,5 @@
 package ObserverModel;
 
-public interface Observer {
+public interface PanelObserver {
 	public void update();
 }

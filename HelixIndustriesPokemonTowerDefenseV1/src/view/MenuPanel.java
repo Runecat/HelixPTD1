@@ -5,6 +5,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -13,14 +14,15 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import model.Game;
 
-import ObserverModel.Observer;
+import ObserverModel.PanelObserver;
 
 
-public class MenuPanel extends JPanel implements Observer {
+public class MenuPanel extends JPanel implements PanelObserver {
 
 
 	Game theGame;
@@ -28,6 +30,9 @@ public class MenuPanel extends JPanel implements Observer {
 	public MenuPanel(Game theGame) {	// constructor for the panel. Can be used to set the border and background.
 
 		this.setBackground(Color.RED);
+		this.setLayout(new GridLayout(4,1));
+		this.add(new JButton("Start Game!"));
+
 		this.theGame = theGame;
 		
 		ImageLoader loader = new ImageLoader();
