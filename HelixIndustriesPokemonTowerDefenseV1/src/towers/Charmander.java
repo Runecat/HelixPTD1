@@ -40,6 +40,7 @@ public class Charmander extends Tower
 		super.attacks.add(new Ember());
 		super.buyPrice = 100;
 		super.upgradePrice = 250;
+		super.setRange(m);
 	}
 
 }

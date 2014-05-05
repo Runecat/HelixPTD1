@@ -48,12 +48,11 @@ public abstract class Tower implements Clickable
 		location = t;
 		this.height = m.getHeight();
 		this.width = m.getWidth();
-		setRange(m);
 	}
 	/*
 	 * Checks the all tiles within the Tower's Attack's range and adds them to a list
 	 */
-	private void setRange(Map m)
+	public void setRange(Map m)
 	{
 		tilesInRange = new ArrayList<Tile>();
 		Tile[][] grid = m.getGrid();

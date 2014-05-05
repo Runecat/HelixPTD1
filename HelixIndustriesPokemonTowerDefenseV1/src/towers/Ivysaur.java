@@ -35,5 +35,6 @@ public class Ivysaur extends Tower
 		super.attacks.add(new Flamethrower());
 		super.buyPrice = 250;
 		super.upgradePrice = 450;
+		super.setRange(m);
 	}
 }
