@@ -23,6 +23,7 @@ public abstract class Map
 	private Spawner spawner;
 	private int levels;
 	
+	
 	private int currentLevel = 0;
 	
 	public Map() {
@@ -45,6 +46,11 @@ public abstract class Map
 	
 	public void setSpawner(Spawner spawn) {
 		this.spawner = spawn;
+	}
+	
+	public void createTower(int x, int y, Tower t) {
+		grid[x][y].setObject(t);
+		
 	}
 	
 	public void sendWave() {

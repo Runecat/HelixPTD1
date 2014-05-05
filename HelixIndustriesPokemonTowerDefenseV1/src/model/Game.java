@@ -7,6 +7,10 @@ import java.util.List;
 
 import javax.swing.Timer;
 
+import towers.Tower;
+import towers.TowerBuilder;
+import towers.TowerID;
+
 import maps.Map;
 
 import ObserverModel.PanelObservable;
@@ -26,8 +30,12 @@ public class Game extends PanelObservable {
 	public static Timer gameTimer;
 	private int spawnerOffset;
 	private int moveOffset;
-
+	
+	private TowerBuilder towerBuilder;
+	private List<Tower> towerList = new ArrayList<Tower>();
+	
 	private List<Map> mapList;
+	
 
 	private Map currentMap; // dont know if we want this for sure.
 	// Do we want the game class handling everything (main screen, map choice,
@@ -46,6 +54,7 @@ public class Game extends PanelObservable {
 		// add observers and other things.
 		mapList = new ArrayList<Map>();
 		gameTimer = new Timer(1, new GameTimerListener());
+		towerBuilder = new TowerBuilder();
 	}
 
 	public void startTimer() {
@@ -96,6 +105,12 @@ public class Game extends PanelObservable {
 	public Player getPlayer(int i) {
 		return players.get(i);
 	}
+	
+	public void createTower(int x, int y, TowerID i) {
+		Tower t = towerBuilder.buildTower(i, currentMap.getTile(x, y), currentMap);
+		towerList.add(t);
+		currentMap.createTower(x, y, t);
+	}
 
 	private class GameTimerListener implements ActionListener {
 
@@ -111,14 +126,16 @@ public class Game extends PanelObservable {
 
 			// spawning is synced~~~~~~~~~~
 			spawnerOffset++;
-			if (spawnerOffset > 3000) {
+			if (spawnerOffset > 2000) {
 				currentMap.sendWave();
 				spawnerOffset = 0;
 			}
 			// spawning ~~~~~~~~~~~~~~~~~~~
 
 			// sync towers in here
-
+			for (int i = 0; i < towerList.size(); i++) {
+				towerList.get(i).attack();
+			}
 			notifyObservers();
 
 		}

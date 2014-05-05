@@ -54,7 +54,7 @@ public class MapPanel extends JPanel implements PanelObserver {
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.drawImage( map.getBackground(), map.getWidth(), map.getHeight(), null);
+		//g.drawImage( map.getBackground(), map.getWidth(), map.getHeight(), null);
 		
 		g.setColor(Color.green);
 		for (int i = 0; i < map.getGridWidth(); i++) {
