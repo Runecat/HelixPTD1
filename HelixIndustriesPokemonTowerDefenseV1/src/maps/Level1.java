@@ -91,7 +91,7 @@ public class Level1 extends Map {
 		
 		
 		// spawner will be declared for each map specifically.
-		Spawner spawn = new Spawner(grid[3][0], waves);
+		Spawner spawn = new Spawner(grid[3][3], waves);
 		
 		// test creating tower
 		theGame.createTower(5, 5, TowerID.CHARMELEON);

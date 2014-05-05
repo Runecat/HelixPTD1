@@ -140,7 +140,7 @@ public class Tile {
 	// Currently set so that a tower can be placed on either land or water *
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 	public boolean canPlaceTower() {
-		return (isLand || isWater) && (isOnPath() == false);
+		return  (isOnPath == false && myObject == null && !isSpawner());
 	}
 
 	public boolean isWater() {
@@ -169,6 +169,7 @@ public class Tile {
 
 	public void setNextTile(Tile next) {
 		this.next = next;
+		
 	}
 
 	public Tile getNextTile() {
@@ -197,6 +198,10 @@ public class Tile {
 
 	public Spawner getSpawnerTile() {
 		return spawner;
+	}
+	
+	public boolean isSpawner() {
+		return spawner != null;
 	}
 
 	public int getX() {
