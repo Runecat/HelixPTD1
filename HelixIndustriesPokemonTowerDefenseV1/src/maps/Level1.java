@@ -105,7 +105,7 @@ public class Level1 extends Map {
 		// YEEEAH
 		
 		attacks.add(new Ember());
-		chars = new Charmander(attacks, grid[5][5], null,height, width);
+		chars = new Charmander(grid[5][5],this);
 
 		grid[5][5].setObject(chars);
 		towers.add(chars);
@@ -123,7 +123,7 @@ public class Level1 extends Map {
 		public void actionPerformed(ActionEvent arg0) {
 			for(int i =0;i<towers.size();i++)
 			{	
-			towers.get(i).attack(theGame.getCurrentMap());
+			towers.get(i).attack();
 			//System.out.println("IM TRYING");
 			}
 			

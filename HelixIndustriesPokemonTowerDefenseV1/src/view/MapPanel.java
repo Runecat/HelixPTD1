@@ -120,7 +120,7 @@ public class MapPanel extends JPanel implements PanelObserver {
 		@Override
 		public void mouseClicked(MouseEvent arg0) {
 			// TODO Auto-generated method stub
-			map.setTower(arg0.getX()/16, arg0.getY()/16, new Charmander(null, map.getGrid()[arg0.getX()/16][arg0.getY()/16], null, map.getHeight(), map.getWidth()));
+			map.setTower(arg0.getX()/16, arg0.getY()/16, new Charmander(map.getGrid()[arg0.getX()/16][arg0.getY()/16], map));
 		}
 
 		@Override
