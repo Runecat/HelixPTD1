@@ -17,25 +17,25 @@ public class Spawner {
 	private int level;
 
 	// removed timer
-	
+
 	public Spawner(Tile tile, ArrayList<Wave> waves) {
 		this.tile = tile;
 		this.waves = waves;
-		tile.setSpawnerTile(this);
+		tile.setSpawner(this);
 	}
 
 	// Sends the wave of the level given, goes to sendMob listener
 	public void sendWave(int level) {
-		//Timer t = new Timer(5000, sendMob);
-		//t.start();
-		
+		// Timer t = new Timer(5000, sendMob);
+		// t.start();
+
 		if (level < waves.size())
 			setMobs(level);
 		while (mobs.size() != 0) {
 			tile.addMobs(mobs.get(0));
 			mobs.remove(0);
 		}
-		
+
 		level++;
 	}
 
@@ -43,14 +43,15 @@ public class Spawner {
 	// sets the mob list to the mobs of the current level
 	// adds mobs to the spawner tile on the path --> goes to Tile's addMobs()
 	// removes mobs from the mob list
-	
 
 	// Sets the mob list to the mobs from the current level
 	public void setMobs(int level) {
 		// mobs.clear(); // mobs SHOULD be cleared already when sent. If not,
 		// problem.
-		for (int i = 0; i < waves.get(level).getWave().size(); i++)
+		for (int i = 0; i < waves.get(level).getWave().size(); i++) {
 			mobs.add(waves.get(level).getWave().get(i));
+			mobs.get(i).setCurrentTile(this.getTile());
+		}
 	}
 
 	public Tile getTile() {

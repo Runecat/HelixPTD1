@@ -13,6 +13,8 @@ import javax.swing.JPanel;
 
 import towers.Charmander;
 import towers.Tower;
+import towers.TowerBuilder;
+import towers.TowerID;
 
 import ObserverModel.PanelObserver;
 
@@ -20,6 +22,7 @@ import maps.Level1;
 import maps.Map;
 import model.Game;
 import model.Spawner;
+import model.Tile;
 
 public class MapPanel extends JPanel implements PanelObserver {
 
@@ -80,7 +83,12 @@ public class MapPanel extends JPanel implements PanelObserver {
 				if (currentMap.getGrid()[i][j].hasTower()){
 					g.setColor(Color.red);
 					g.fillOval(i*currentMap.getGridWidth(), j*currentMap.getGridHeight(), currentMap.getGridWidth(), currentMap.getGridHeight());
+					Tower currentTower = (Tower) currentMap.getGrid()[i][j].getObject();
+					//g.drawImage(currentTower.getImage(), i*currentMap.getGridWidth(), j*currentMap.getGridHeight(), currentMap.getGridWidth(), currentMap.getGridHeight(), null);
+					//g.drawImage(currentTower.getImage(), 200, 200, 600, 600, null);
+
 				}
+				
 				
 				if (currentMap.getGrid()[i][j].hasMob()) {
 					if (currentMap.getGrid()[i][j].getMobs().size() > 1)
@@ -90,8 +98,11 @@ public class MapPanel extends JPanel implements PanelObserver {
 					//g.fillOval(i*map.getGridWidth(), j*map.getGridHeight(), map.getGridWidth(), map.getGridHeight());
 					g.setColor(Color.magenta);
 					//g.drawString("" + map.getGrid()[i][j].getMobs().size(), i*map.getGridWidth(), j*map.getGridHeight());
-					//System.out.println("Mobs in (" + i + ", " + j + "): " + map.getGrid()[i][j].getMobs().size());
-						
+					//System.out.println("Mobs in (" + i + ", " + j + "): " + map.getGrid()[i][j].getMobs().size());]
+					//TowerBuilder tb = new TowerBuilder();
+					//Tile ti = new Tile(0,0,0);
+					//Tower tow = tb.buildTower(TowerID.CHARMANDER,ti,currentMap);
+					//g.drawImage(tow.getImage(), 0, 0, 10000, 10000,null);
 				}
 				
 				if (currentMap.getGrid()[i][j].getSpawnerTile() != null) {

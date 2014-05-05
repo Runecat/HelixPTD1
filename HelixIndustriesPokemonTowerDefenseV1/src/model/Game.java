@@ -167,6 +167,11 @@ public class Game extends PanelObservable {
 			for (int i = 0; i < towerList.size(); i++) {
 				towerList.get(i).attack();
 			}
+			
+			// mob deaths
+			//for (int i = 0; i < currentMap.getPath().size(); i++) {
+			//	players.get(0).addMoney(currentMap.getPath().get(i).checkDeaths());
+			//}
 			notifyObservers();
 
 		}

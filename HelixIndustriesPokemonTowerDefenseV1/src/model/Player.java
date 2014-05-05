@@ -50,5 +50,9 @@ public class Player implements Serializable
 		
 		return hasTower;
 	}
+	
+	public void addMoney(int money) {
+		this.money += money;
+	}
 
 }

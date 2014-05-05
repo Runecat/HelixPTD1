@@ -4,6 +4,7 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 import model.Directions;
 import model.Spawner;
@@ -23,11 +24,21 @@ public abstract class Map
 	private ArrayList<Spawner> spawners = new ArrayList<Spawner>();
 	private Spawner spawner;
 	private int levels;
-	
+	private List<Tile> path = new ArrayList<Tile>();
 	
 	private int currentLevel = 0;
 	
+	public void buildPath() {
+		Tile curr = spawner.getTile();
+		while (curr != null) {
+			path.add(curr);
+			curr = curr.next();
+		}
+	}
 	
+	public List<Tile> getPath() {
+		return path;
+	}
 	
 	public void buildGrid(int width, int height, int tileLength) {
 		grid = new Tile[width][width];
@@ -142,7 +153,7 @@ public abstract class Map
 	}
 	
 	public void addSpawners(int row, int col) {
-		grid[row][col].setSpawnerTile(spawner);
+		grid[row][col].setSpawner(spawner);
 		spawners.add(grid[row][col].getSpawnerTile());
 	}
 	

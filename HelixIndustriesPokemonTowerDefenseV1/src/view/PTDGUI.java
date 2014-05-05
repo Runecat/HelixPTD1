@@ -13,6 +13,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import towers.Charmeleon;
+import towers.Tower;
+import towers.TowerBuilder;
+
 import model.Game;
 import model.Player;
 
@@ -101,6 +105,7 @@ public class PTDGUI extends JFrame {
 					
 				}
 			}
+			
 			
 		}
 	}

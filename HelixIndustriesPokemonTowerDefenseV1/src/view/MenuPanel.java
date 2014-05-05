@@ -19,6 +19,7 @@ import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import towers.TowerID;
@@ -37,13 +38,14 @@ public class MenuPanel extends JPanel implements PanelObserver {
 
 		this.setBackground(Color.RED);
 		this.setLayout(new GridLayout(4,1));
-		this.add(new JButton("Start Game!"));
 		
 		// towerSelectPanel
 		JPanel towerSelectPanel = new JPanel();
 		towerSelectPanel.setLayout(new FlowLayout());
 		TowerSelectListener buttonListener = new TowerSelectListener();
 		
+		JLabel money = new JLabel( "Moneys: $" + theGame.getPlayer(0).getMoney());
+		towerSelectPanel.add(money);
 		JButton charmanderButton = new JButton("Charmander");
 		charmanderButton.addActionListener(buttonListener);
 		towerSelectPanel.add(charmanderButton);
@@ -83,6 +85,7 @@ public class MenuPanel extends JPanel implements PanelObserver {
 		
 		//g.fillOval(50, 50, 300, 300);
 		g.drawString("$: " + theGame.getPlayers().get(0).getMoney(), 50, 100);
+		
 
 	}
 

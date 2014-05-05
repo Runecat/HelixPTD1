@@ -74,19 +74,19 @@ public class Level1 extends Map {
 		grid = super.grid;
 		
 		// TRACK NIGGA (defined specifically in each map)
-		grid[3][0].setNextTile(grid[3][1]);
-		grid[3][1].setNextTile(grid[3][2]);
-		grid[3][2].setNextTile(grid[3][3]);
-		grid[3][3].setNextTile(grid[3][4]);
-		grid[3][4].setNextTile(grid[3][5]);
-		grid[3][5].setNextTile(grid[3][6]);
-		grid[3][6].setNextTile(grid[3][7]);
-		grid[3][7].setNextTile(grid[3][8]);
-		grid[3][8].setNextTile(grid[3][9]);
-		grid[3][9].setNextTile(grid[3][10]);
-		grid[3][10].setNextTile(grid[4][10]);
-		grid[4][10].setNextTile(grid[5][10]);
-		grid[5][10].setNextTile(grid[5][11]);
+		grid[3][0].setNextPathTile(grid[3][1]);
+		grid[3][1].setNextPathTile(grid[3][2]);
+		grid[3][2].setNextPathTile(grid[3][3]);
+		grid[3][3].setNextPathTile(grid[3][4]);
+		grid[3][4].setNextPathTile(grid[3][5]);
+		grid[3][5].setNextPathTile(grid[3][6]);
+		grid[3][6].setNextPathTile(grid[3][7]);
+		grid[3][7].setNextPathTile(grid[3][8]);
+		grid[3][8].setNextPathTile(grid[3][9]);
+		grid[3][9].setNextPathTile(grid[3][10]);
+		grid[3][10].setNextPathTile(grid[4][10]);
+		grid[4][10].setNextPathTile(grid[5][10]);
+		grid[5][10].setNextPathTile(grid[5][11]);
 
 		
 		
@@ -98,6 +98,7 @@ public class Level1 extends Map {
 		
 		
 		super.setSpawner(spawn);
+		super.buildPath();
 		super.setLevels(waves.size());
 				
 	}

@@ -49,8 +49,10 @@ public class Tile {
 		if (next != null) {
 			if (mobList.size() > 0) {
 				for (int i = 0; i < mobList.size(); i++) {
+					mobList.get(i).setCurrentTile(next);
+
 					if (mobList.get(i).getHealth() <= 0) {
-						// player.addMoney(removeMob(i).getMoney());
+						//player.addMoney(removeMob(i).getMoney());
 						System.out.println("Keeled one!");
 						removeMob(i);
 					} else {
@@ -167,8 +169,9 @@ public class Tile {
 		return direction;
 	}
 
-	public void setNextTile(Tile next) {
+	public void setNextPathTile(Tile next) {
 		this.next = next;
+		next.setOnPath(true);
 		
 	}
 
@@ -187,12 +190,15 @@ public class Tile {
 	public Mob removeMob(int i) {
 		return mobList.remove(i);
 	}
+	
+	
 
 	public ArrayList<Mob> getMobs() {
 		return mobList;
 	}
 
-	public void setSpawnerTile(Spawner spawner) {
+	public void setSpawner(Spawner spawner) {
+		this.isOnPath = true;
 		this.spawner = spawner;
 	}
 
@@ -214,6 +220,18 @@ public class Tile {
 
 	public Tile next() {
 		return next;
+	}
+
+	public int checkDeaths() {
+		int cash = 0;
+		for (int i = 0; i < mobList.size(); i++) {
+			if (mobList.get(i).getHealth() < 1){
+				cash += mobList.get(i).getMoney();
+				mobList.remove(i);
+			}
+			
+		}
+		return cash;
 	}
 
 }
