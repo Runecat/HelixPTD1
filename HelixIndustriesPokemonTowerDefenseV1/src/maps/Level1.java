@@ -33,30 +33,31 @@ public class Level1 extends Map {
 	
 	ImageLoader loader;
 	
-	
-	
-	
 	private BufferedImage background;
 	
 	
 	
-	private final int width = 16;
-	private final int height = 16;
-	private final int tileDimension = 8;
+	private final int WIDTH = 16;
+	private final int HEIGHT = 16;
+	private final int TILE_LENGTH = 16;
 	
 	private LinkedList<Tile> path;
 	private ArrayList<Spawner> spawners;
 	private Game theGame;
 	ArrayList<Attack> attacks = new ArrayList<Attack>();
 	ArrayList<Tower> towers = new ArrayList<Tower>();
+	private Tile[][] grid;
 	
 	public Level1(Game theGame) {
 		super();
-		
+		super.height = HEIGHT;
+		super.width = WIDTH;
+		super.tileLength = TILE_LENGTH;
 		this.theGame = theGame;
 		
 		theGame.setMap(this);
 		loader = new ImageLoader();
+		buildGrid(WIDTH, HEIGHT, TILE_LENGTH);
 		
 		try {
 			this.background = loader.loadImage("Images/Route5.png");
@@ -65,20 +66,14 @@ public class Level1 extends Map {
 			e.printStackTrace();
 		}
 		
-		grid = new Tile[width][height];
-		for (int i = 0; i < width; i++) {
-			for (int j = 0; j < height; j++) {
-				grid[i][j] = new Tile(i, j);
-			}
-		}
 		ArrayList<Wave> waves = new ArrayList<Wave>();
 		waves.add(new Wave01());
 		waves.add(new Wave02());
 		waves.add(new Wave03());
 		
+		grid = super.grid;
 		
-		
-		// TRACK NIGGA
+		// TRACK NIGGA (defined specifically in each map)
 		grid[3][0].setNextTile(grid[3][1]);
 		grid[3][1].setNextTile(grid[3][2]);
 		grid[3][2].setNextTile(grid[3][3]);
@@ -95,37 +90,19 @@ public class Level1 extends Map {
 
 		
 		
-
+		// spawner will be declared for each map specifically.
 		Spawner spawn = new Spawner(grid[3][0], waves);
-		grid[3][0].setSpawnerTile(spawn);
-		super.setSpawner(spawn);
-		//grid[3][0].getSpawnerTile().sendWave(1);
-		super.setLevels(waves.size());
-		// YEEEAH
 		
+		// test creating tower
 		theGame.createTower(5, 5, TowerID.CHARMELEON);
 		
-		TowerListener shittyListener = new TowerListener();
-		Timer time = new Timer(100, shittyListener);
-		time.start();
 		
-		//grid[3][6].addMobs(new Bellsprout(null));
+		super.setSpawner(spawn);
+		super.setLevels(waves.size());
 				
 	}
 	
-	private class TowerListener implements ActionListener {
-
-		//@Override
-		public void actionPerformed(ActionEvent arg0) {
-			for(int i =0;i<towers.size();i++)
-			{	
-			towers.get(i).attack();
-			//System.out.println("IM TRYING");
-			}
-			
-		}
-		
-	}
+	
 	
 	public int getGridWidth() {
 		return grid.length;

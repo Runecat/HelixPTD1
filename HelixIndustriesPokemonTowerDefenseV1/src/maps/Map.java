@@ -15,9 +15,10 @@ import towers.*;
 
 public abstract class Map 
 {
-	int width;
-	int height;
-	Tile [][] grid = new Tile[height][width];
+	protected int width;
+	protected int height;
+	protected int tileLength;
+	Tile [][] grid;
 	private BufferedImage backgroundImage;
 	private ArrayList<Spawner> spawners = new ArrayList<Spawner>();
 	private Spawner spawner;
@@ -26,16 +27,13 @@ public abstract class Map
 	
 	private int currentLevel = 0;
 	
-	public Map() {
-		
-		this.grid = new Tile[width][height];
-		buildGrid();
-	}
 	
-	public void buildGrid() {
+	
+	public void buildGrid(int width, int height, int tileLength) {
+		grid = new Tile[width][width];
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
-				grid[i][j] = new Tile(height, width);
+				grid[i][j] = new Tile(i, j, tileLength);
 			}
 		}
 	}

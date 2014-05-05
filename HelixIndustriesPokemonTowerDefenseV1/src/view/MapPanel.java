@@ -23,7 +23,7 @@ import model.Spawner;
 
 public class MapPanel extends JPanel implements PanelObserver {
 
-	private Map map;
+	private Map currentMap;
 	private Game theGame;
 	private BufferedImage grassBackground;
 	
@@ -32,14 +32,14 @@ public class MapPanel extends JPanel implements PanelObserver {
 		this.theGame = game;
 		
 		Level1 current = new Level1(theGame);
-		this.map = current;
+		this.currentMap = current;
 		
 
 		//this.map = theGame.getCurrentMap();
 		
 		this.setBackground(Color.cyan);
 		
-		this.setPreferredSize(new Dimension(map.getHeight(), map.getWidth()));
+		this.setPreferredSize(new Dimension(currentMap.getHeight(), currentMap.getWidth()));
 		
 		ClickListener clicky = new ClickListener();
 		this.addMouseListener(clicky);
@@ -57,33 +57,33 @@ public class MapPanel extends JPanel implements PanelObserver {
 		//g.drawImage( map.getBackground(), map.getWidth(), map.getHeight(), null);
 		
 		g.setColor(Color.green);
-		for (int i = 0; i < map.getGridWidth(); i++) {
-			g.drawLine(i*map.getGridWidth(), 0, i*map.getGridWidth(), map.getGridWidth() * map.getGridWidth());
+		for (int i = 0; i < currentMap.getGridWidth(); i++) {
+			g.drawLine(i*currentMap.getGridWidth(), 0, i*currentMap.getGridWidth(), currentMap.getGridWidth() * currentMap.getGridWidth());
 			
 		}
 		
-		for (int j = 0; j < map.getGridHeight(); j++) {
-			g.drawLine(0, j*map.getGridHeight(), map.getGridHeight()* map.getGridHeight(), j*map.getGridWidth());
+		for (int j = 0; j < currentMap.getGridHeight(); j++) {
+			g.drawLine(0, j*currentMap.getGridHeight(), currentMap.getGridHeight()* currentMap.getGridHeight(), j*currentMap.getGridWidth());
 
 		}
 		
-		for (int i = 0; i < map.getGridWidth(); i++) {
-			for (int j = 0; j < map.getGridHeight(); j++) {
-				String count = "" + map.getGrid()[i][j].getMobs().size();
+		for (int i = 0; i < currentMap.getGridWidth(); i++) {
+			for (int j = 0; j < currentMap.getGridHeight(); j++) {
+				String count = "" + currentMap.getGrid()[i][j].getMobs().size();
 				g.setColor(Color.black);
-				g.drawString("" + count, (i+1)*map.getGridWidth(), (j+1)*map.getGridHeight());
+				g.drawString("" + count, (i+1)*currentMap.getGridWidth(), (j+1)*currentMap.getGridHeight());
 			}
 		}
 		
-		for (int i = 0; i < map.getGridWidth(); i++) {
-			for (int j = 0; j < map.getGridHeight(); j++) {
-				if (map.getGrid()[i][j].hasTower()){
+		for (int i = 0; i < currentMap.getGridWidth(); i++) {
+			for (int j = 0; j < currentMap.getGridHeight(); j++) {
+				if (currentMap.getGrid()[i][j].hasTower()){
 					g.setColor(Color.red);
-					g.fillOval(i*map.getGridWidth(), j*map.getGridHeight(), map.getGridWidth(), map.getGridHeight());
+					g.fillOval(i*currentMap.getGridWidth(), j*currentMap.getGridHeight(), currentMap.getGridWidth(), currentMap.getGridHeight());
 				}
 				
-				if (map.getGrid()[i][j].hasMob()) {
-					if (map.getGrid()[i][j].getMobs().size() > 1)
+				if (currentMap.getGrid()[i][j].hasMob()) {
+					if (currentMap.getGrid()[i][j].getMobs().size() > 1)
 						g.setColor(Color.cyan);
 					else
 						g.setColor(Color.blue);
@@ -94,7 +94,7 @@ public class MapPanel extends JPanel implements PanelObserver {
 						
 				}
 				
-				if (map.getGrid()[i][j].getSpawnerTile() != null) {
+				if (currentMap.getGrid()[i][j].getSpawnerTile() != null) {
 					g.setColor(Color.yellow);
 					//g.fillOval(i*map.getGridWidth(), j*map.getGridHeight(), map.getGridWidth(), map.getGridHeight());
 				}
@@ -120,7 +120,7 @@ public class MapPanel extends JPanel implements PanelObserver {
 		@Override
 		public void mouseClicked(MouseEvent arg0) {
 			// TODO Auto-generated method stub
-			map.setTower(arg0.getX()/16, arg0.getY()/16, new Charmander(map.getGrid()[arg0.getX()/16][arg0.getY()/16], map));
+			currentMap.setTower(arg0.getX()/16, arg0.getY()/16, new Charmander(currentMap.getGrid()[arg0.getX()/16][arg0.getY()/16], currentMap));
 		}
 
 		@Override

@@ -13,6 +13,7 @@ import Mob.Mob;
 public class Tile {
 
 	int x, y;
+	int tileLength;
 	private boolean isOnPath;
 	private boolean hasTower;
 	private boolean isEmpty;
@@ -28,9 +29,10 @@ public class Tile {
 	private Tile next;
 	private Spawner spawner = null;
 
-	public Tile(int x, int y) {
+	public Tile(int x, int y, int tileLength) {
 		this.x = x;
 		this.y = y;
+		this.tileLength = tileLength;
 	}
 
 	// Adds mob to the list of the mobs on the current tile
