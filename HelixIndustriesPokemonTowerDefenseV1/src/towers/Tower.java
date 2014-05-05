@@ -316,6 +316,11 @@ public abstract class Tower implements Clickable
 		}
 	}
 	
+	public BufferedImage getImage()
+	{
+		return image;
+	}
+	
 	public void printStats()
 	{
 		System.out.println("Hi!  My name is " + name + "!");

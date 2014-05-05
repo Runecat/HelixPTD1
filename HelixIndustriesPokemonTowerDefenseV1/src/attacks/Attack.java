@@ -59,5 +59,4 @@ public abstract class Attack
 		return attackType;
 	}
 	
-	//public abstract ArrayList <Mob> calculateAffected(Mob[] mobs);
 }
