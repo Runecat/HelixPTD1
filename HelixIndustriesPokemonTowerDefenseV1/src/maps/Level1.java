@@ -20,8 +20,9 @@ import Wave.Wave01;
 import Wave.Wave02;
 import Wave.Wave03;
 
-import towers.Charmander;
+
 import towers.Tower;
+import towers.TowerID;
 import view.ImageLoader;
 
 import model.Game;
@@ -36,7 +37,6 @@ public class Level1 extends Map {
 	
 	
 	private BufferedImage background;
-	private Tile[][] grid;
 	
 	
 	
@@ -49,7 +49,6 @@ public class Level1 extends Map {
 	private Game theGame;
 	ArrayList<Attack> attacks = new ArrayList<Attack>();
 	ArrayList<Tower> towers = new ArrayList<Tower>();
-	Charmander chars;
 	
 	public Level1(Game theGame) {
 		super();
@@ -104,11 +103,8 @@ public class Level1 extends Map {
 		super.setLevels(waves.size());
 		// YEEEAH
 		
-		attacks.add(new Ember());
-		chars = new Charmander(grid[5][5],this);
-
-		grid[5][5].setObject(chars);
-		towers.add(chars);
+		theGame.createTower(5, 5, TowerID.CHARMELEON);
+		
 		TowerListener shittyListener = new TowerListener();
 		Timer time = new Timer(100, shittyListener);
 		time.start();
