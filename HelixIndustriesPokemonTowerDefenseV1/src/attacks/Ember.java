@@ -4,29 +4,22 @@ import java.io.File;
 import java.util.ArrayList;
 
 import Mob.Mob;
-import model.Effect;
 import model.Tile;
 import model.Type;
 
 public class Ember extends Attack
 {
-
-	private int damage;
-	private int verticalRange;
-	private int horizontalRange;
-	private Type damageType;//May make an enum to represent types 
-	private Effect effect;//May make an enum to represent effects
-	private File image;
-	
 	public Ember()
 	{
 		// TODO Auto-generated constructor stub
-		damage = 3000;
-		verticalRange = 1;
-		horizontalRange = 10;
-		damageType = Type.FIRE;
-		effect = null;
-		image = null;
+		super.damage = 25;
+		super.verticalRange = 5;
+		super.horizontalRange = 5;
+		super.damageType = Type.FIRE;
+		super.effect = Effect.burn;
+		super.attackType = AttackType.NORMAL;
+		super.image = null;
+		super.targets = 1;
 	}
 	
 	public int getDamage()

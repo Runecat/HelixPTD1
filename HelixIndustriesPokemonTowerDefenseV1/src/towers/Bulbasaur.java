@@ -5,6 +5,9 @@ import java.io.File;
 import java.util.ArrayList;
 
 import attacks.Attack;
+import attacks.Ember;
+import attacks.Flamethrower;
+import maps.Map;
 import model.Clickable;
 import model.Tile;
 import model.Type;
@@ -21,25 +24,16 @@ import model.Type;
 
 public class Bulbasaur extends Tower
 {
-	private String name;
-	private int buyPrice;//Price to place the tower
-	private int sellPrice;//Money obtained from selling the tower
-	private int upgradePrice;//Cost to upgrade the tower
-	private Tower upgraded;//Reference to the upgraded form of tower
-	private ArrayList<Attack> attacks= new ArrayList<Attack>();//List of the tower's attacks
-	private BufferedImage image;//Image for the tower
-	private Type type;//Tower's type
-	private Tile location;//Tower's location on the map
-	
-	
-	public Bulbasaur(ArrayList<Attack> attacks, Tile t, BufferedImage b)
+	public Bulbasaur(Tile t,Map m)
 	{
-		super(attacks,t,b);
-		location = t;
-		name = "Bulbasaur";
-		type = Type.GRASS;
-		this.attacks = attacks;
-		upgraded = new Ivysaur(attacks,t, b);
-		image = b;
+		super(t,m);
+		super.name = "Bulbasaur";
+		super.type = Type.GRASS;
+		ArrayList<Attack> a = new ArrayList<Attack>();
+		a.add(new Flamethrower());
+		super.upgraded = new Ivysaur(t,m);
+		super.attacks.add(new Ember());
+		super.buyPrice = 100;
+		super.upgradePrice = 250;
 	}
 }

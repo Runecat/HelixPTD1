@@ -20,12 +20,14 @@ import model.Type;
 
 public abstract class Attack
 {
-	private int damage = 100000;
-	private int verticalRange = 100;
-	private int horizontalRange = 100;
-	private Type damageType = Type.NORMAL;//May make an enum to represent types 
-	private int effect = 0;//May make an enum to represent effects
-	private File image;
+	protected int damage;
+	protected int verticalRange;
+	protected int horizontalRange;
+	protected Type damageType;//May make an enum to represent types 
+	protected Effect effect;//May make an enum to represent effects
+	protected AttackType attackType;
+	protected int targets;
+	protected File image;
 	
 	public Attack()
 	{
@@ -50,6 +52,11 @@ public abstract class Attack
 	public int getHorizontalRange()
 	{
 		return 0;
+	}
+	
+	public AttackType getAttackType()
+	{
+		return attackType;
 	}
 	
 	//public abstract ArrayList <Mob> calculateAffected(Mob[] mobs);

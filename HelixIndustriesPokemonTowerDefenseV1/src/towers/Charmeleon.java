@@ -6,6 +6,9 @@ import java.util.ArrayList;
 
 import attacks.Attack;
 import attacks.Ember;
+import attacks.Fireblast;
+import attacks.Flamethrower;
+import maps.Map;
 import model.Tile;
 import model.Type;
 
@@ -21,27 +24,17 @@ import model.Type;
 
 public class Charmeleon extends Tower
 {
-	private String name;
-	private int buyPrice;//Price to place the tower
-	private int sellPrice;//Money obtained from selling the tower
-	private int upgradePrice;//Cost to upgrade the tower
-	private Tower upgraded;//Reference to the upgraded form of tower
-	private ArrayList<Attack> attacks= new ArrayList<Attack>();//List of the tower's attacks
-	private BufferedImage image;//Image for the tower
-	private Type type;//Tower's type
-	private Tile location;
 	
-	public Charmeleon(ArrayList<Attack> attacks, Tile t, BufferedImage b, int height, int width)
+	public Charmeleon(Tile t, Map m)
 	{
-		super(attacks,t, b, height, width);
-		location = t;
-		name = "Charmeleon";
-		type = Type.FIRE; 
-		this.attacks = attacks;
-		upgraded = new Charizard(attacks,t,b, height, width);
-		image = b;
-		
-		//REMOVE
-		//attacks.set(0, new Ember());
+		super(t,m);
+		super.name = "Charmeleon";
+		super.type = Type.FIRE;
+		ArrayList<Attack> a = new ArrayList<Attack>();
+		a.add(new Fireblast());
+		super.upgraded = new Charizard(t,m);
+		super.attacks.add(new Flamethrower());
+		super.buyPrice = 250;
+		super.upgradePrice = 450;
 	}
 }

@@ -4,21 +4,25 @@ H
 Install git and set up repositories: DONE
 
 
-Gabe - Map, Tile, Path, associated logic
-
-Will - Menus, Basic GUI, Player, Animation (later), Sound(later)
-
-Brandon - Mob AI, Wave, Spawning, Base, Base Damage calculation, Scoring (later)
-
-Daniel - Towers, Placement, Selling (later), Attacking, Attacks
+Need done:
+-Animations
+-Saving/Loading
+-Tower Timers
+-Attacks
+-Mob send timers
+-Increment money
+-Tower lists,Mob lists, Tile lists in game
+-Tower list holding examples of each tower type?  (at least hold initializing variables)
+-Scoring
+-Upgrade Tower in game (just switch out towers and graphics)
 
 Other:
 
-Saving/Loading
-Sprite Modification
-Chat Networking
+Saving/Loading - NEED
+Sprite ModificationXXX
+Chat NetworkingXXXX
 Co op Networking
-Timers 
+Timers - towers individual
 Logo
 
 

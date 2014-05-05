@@ -1,4 +1,4 @@
-package model;
+package attacks;
 
 public enum Effect {
 	poison, paralyze, sleep, burn, freeze, confuse;

@@ -6,6 +6,9 @@ import java.util.ArrayList;
 
 import attacks.Attack;
 import attacks.Ember;
+import attacks.Fireblast;
+import attacks.Flamethrower;
+import maps.Map;
 import model.Tile;
 import model.Type;
 
@@ -21,27 +24,15 @@ import model.Type;
 
 public class Charizard extends Tower
 {
-	private String name;
-	private int buyPrice;//Price to place the tower
-	private int sellPrice;//Money obtained from selling the tower
-	private int upgradePrice;//Cost to upgrade the tower
-	private Tower upgraded;//Reference to the upgraded form of tower
-	private ArrayList<Attack> attacks= new ArrayList<Attack>();//List of the tower's attacks
-	private BufferedImage image;//Image for the tower
-	private Type type;//Tower's type
-	private Tile location;
 	
-	public Charizard(ArrayList<Attack> attacks, Tile t, BufferedImage b, int height, int width)
+	public Charizard(Tile t, Map m)
 	{
-		super(attacks,t, b, height, width);
-		location = t;
-		name = "Charizard";
-		type = Type.FIRE;
-		this.attacks = attacks;
-		upgraded = null;
-		image = b;
-		
-		//REMOVE
-		//attacks.set(0, new Ember());
+		super(t,m);
+		super.name = "Charizard";
+		super.type = Type.FIRE;
+		super.upgraded = null;
+		super.attacks.add(new Fireblast());
+		super.buyPrice = 450;
+		super.upgradePrice = 0;
 	}
 }

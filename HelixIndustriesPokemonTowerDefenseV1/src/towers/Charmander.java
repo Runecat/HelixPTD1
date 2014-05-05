@@ -10,6 +10,8 @@ import javax.imageio.ImageIO;
 import view.ImageLoader;
 import attacks.Attack;
 import attacks.Ember;
+import attacks.Flamethrower;
+import maps.Map;
 import model.Tile;
 import model.Type;
 
@@ -25,28 +27,19 @@ import model.Type;
 
 public class Charmander extends Tower
 {
-	/*private String name;
-	private int buyPrice;//Price to place the tower
-	private int sellPrice;//Money obtained from selling the tower
-	private int upgradePrice;//Cost to upgrade the tower
-	private Tower upgraded;//Reference to the upgraded form of tower
-	private ArrayList<Attack> attacks= new ArrayList<Attack>();//List of the tower's attacks
-	private BufferedImage image;//Image for the tower
-	private Type type;//Tower's type
-	private Tile location;*/
 	
-	public Charmander(ArrayList<Attack> attacks, Tile t, BufferedImage b, int height, int width)
+	public Charmander(Tile t,Map m)
 	{
-		super(attacks,t,b, width, height);
+		super(t,m);
 		BufferedImage newImage;
 		super.name = "Charmander";
 		super.type = Type.FIRE;
-		super.upgraded = new Charmeleon(attacks,t,b, height, width);
-		
-		
-		
-		//REMOVE
-		//attacks.set(0, new Ember());
+		ArrayList<Attack> a = new ArrayList<Attack>();
+		a.add(new Flamethrower());
+		super.upgraded = new Charmeleon(t,m);
+		super.attacks.add(new Ember());
+		super.buyPrice = 100;
+		super.upgradePrice = 250;
 	}
 
 }

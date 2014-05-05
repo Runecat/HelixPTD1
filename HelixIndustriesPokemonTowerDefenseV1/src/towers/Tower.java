@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import Mob.Mob;
 import attacks.Attack;
+import attacks.AttackType;
 import maps.Map;
 import model.Clickable;
 import model.Player;
@@ -33,22 +34,72 @@ public abstract class Tower implements Clickable
 	protected int upgradePrice;//Cost to upgrade the tower
 	protected Tower upgraded;//Reference to the upgraded form of tower
 	protected ArrayList<Attack> attacks= new ArrayList<Attack>();//List of the tower's attacks
-	protected BufferedImage image;//Image for the tower
 	protected Type type;//Tower type
 	protected Tile location;
+	ArrayList<Tile> tilesInRange; 
 	
+	protected BufferedImage image;//Image for the tower
 	
 	/*
 	 *Constructor for a Tower.   
 	 */
-	public Tower(ArrayList<Attack> a, Tile t, BufferedImage b, int height, int width)
+	public Tower(Tile t, Map m)
 	{
-		attacks = a;
 		location = t;
-		image = b;
-		this.height = height;
-		this.width = width;
+		this.height = m.getHeight();
+		this.width = m.getWidth();
+		setRange(m);
 	}
+	/*
+	 * Checks the all tiles within the Tower's Attack's range and adds them to a list
+	 */
+	private void setRange(Map m)
+	{
+		tilesInRange = new ArrayList<Tile>();
+		Tile[][] grid = m.getGrid();
+		//grab which tiles are in range
+		int xMin = location.getX() - attacks.get(0).getHorizontalRange();
+		int xMax = location.getX() + attacks.get(0).getHorizontalRange();
+		int yMin = location.getY() - attacks.get(0).getVerticalRange();
+		int yMax = location.getY() + attacks.get(0).getVerticalRange();
+		int x;
+		int y;
+		
+		//Calculates range boundaries, based on attack range and map boundaries
+		if(xMin <0)
+		{
+			xMin = 0;
+		}
+		
+		if(yMin < 0)
+		{
+			yMin = 0;
+		}
+		
+		if(xMax > width)
+		{
+			xMax = width;
+		}
+		
+		if(yMax > height)
+		{
+			yMax = height;
+		}
+		
+		//Adds tiles in range to the range array
+		for(x = xMin;x<xMax;x++)
+		{
+			for(y = yMin;y<yMax;y++)
+			{
+				if(grid[x][y].hasMob())
+				{
+					tilesInRange.add(grid[x][y]);
+				}
+			}
+		}
+		
+	}
+	
 	
 	/*
 	 * Returns the name of the tower as a String
@@ -127,6 +178,93 @@ public abstract class Tower implements Clickable
 		return attacks;
 	}
 	
+
+	public int getRow()
+	{
+		return location.getRow();
+	}
+	
+	public int getColumn()
+	{
+		return location.getColumn();
+	}
+	
+	//Shows the Tower's information ()
+	public void showInfo()
+	{
+		
+	}
+	
+	public void drawTower(Graphics2D g)
+	{
+		//draw image
+	}
+	
+	
+	public void setImage(BufferedImage b)
+	{
+		this.image = b;
+	}
+	
+	public void setUpgrade(Tower t)
+	{
+		upgraded = t;
+	}
+	
+	public void attack()//Map m
+	{
+		ArrayList<Mob> mobs = new ArrayList<Mob>();	
+		//calculate which mobs to grab for each type
+		
+		
+		if ((tilesInRange.size()>0) && (attacks.get(0).getAttackType() == AttackType.NORMAL))
+		{	for(Tile t: tilesInRange)
+			{	if(t.hasMob())
+				{
+					mobs.add(t.getMobs().get(0));
+					//currently adds one mob per tile in range
+					//good for line, area
+					break;//not sure if it will just break if statement
+				}
+			}
+		}
+		else if (tilesInRange.size()>0 && (attacks.get(0).getAttackType() == AttackType.HORIZONTAL))
+		{	for(Tile t: tilesInRange)
+			{	if(t.hasMob())
+				{
+					mobs.add(t.getMobs().get(0));
+					//currently adds one mob per tile in range
+					//good for line, area
+				}
+			}
+		}
+		else if(attacks.get(0).getAttackType() == AttackType.AREA)
+		{
+			for(Tile t: tilesInRange)
+			{	if(t.hasMob())
+				{
+					mobs.add(t.getMobs().get(0));
+					//currently adds one mob per tile in range
+					//good for line, area
+				}
+			}
+		}
+		
+		else if(attacks.get(0).getAttackType() == AttackType.TILE)
+		{
+			for(Tile t: tilesInRange)
+			{	if(t.hasMob())
+				{
+					for(Mob m:t.getMobs())
+						mobs.add(m);
+					//adds all mobs in every tile in range
+					break;//might need to change placement
+				}
+			}
+		}
+		attackEnemy(attacks.get(0), mobs);
+			
+	}
 	/*
 	 * Deals damage to a given Mob based on Tower, Attack, and Mob types
 	 */
@@ -135,16 +273,16 @@ public abstract class Tower implements Clickable
 		System.out.println("Dealing damage, sir!");
 		int damageDealt = 0;
 		boolean modifier = false;
+		//Type t = new Type();
 		
 		if(type == a.getType())
 		{
 			modifier = true;
 		}
-		System.out.println("Damage: " + a.getDamage());
-		//System.out.println(type);
-		//System.out.println((Type.getEffectiveness(type,m.getMobType());
-		damageDealt = a.getDamage();
-				//(int) Math.ceil((type.getEffectiveness(m.getMobType()))*a.getDamage());
+		
+		//damageDealt = a.getDamage();
+		damageDealt = (int) Math.ceil((type.getEffectiveness(m.getMobType()))*a.getDamage());//Calculate effectiveness, may need to change
+		System.out.println("Damage: " + damageDealt);
 				
 		if(modifier)
 		{
@@ -162,94 +300,11 @@ public abstract class Tower implements Clickable
 		}
 	}
 	
-	public int getRow()
+	public void printStats()
 	{
-		return location.getRow();
+		System.out.println("Hi!  My name is " + name + "!");
+		System.out.println("I am located at grid [" + location.getX()+"]["+location.getY()+"]");
 	}
-	
-	public int getColumn()
-	{
-		return location.getColumn();
-	}
-	
-	
-	
-	//Shows the Tower's information ()
-	public void showInfo()
-	{
-		
-	}
-	
-	public void drawTower(Graphics2D g)
-	{
-		//draw image
-	}
-	
-	public void setRange()
-	{
-	
-	}
-	
-	public void attack(Map m)
-	{
-		System.out.println("Commencing attack, sir!");
-		ArrayList<Mob> mobs = new ArrayList<Mob>();
-		ArrayList<Tile> tilesInRange = new ArrayList<Tile>();
-		Tile[][] grid = m.getGrid();
-		//grab which tiles are in range
-		//for those tiles in range, find mobs on them
-		//have tower attack those mobs if permitted to
-		int xMin = location.getX() - attacks.get(0).getHorizontalRange();
-		int xMax = location.getX() + attacks.get(0).getHorizontalRange();
-		int yMin = location.getY() - attacks.get(0).getVerticalRange();
-		int yMax = location.getY() + attacks.get(0).getVerticalRange();
-		System.out.println("Row: " + location.getX());
-		System.out.println("Column: " + location.getY());
-		int x;
-		int y;
-		
-		if(xMin <0)
-		{
-			xMin = 0;
-		}
-		
-		if(yMin < 0)
-		{
-			yMin = 0;
-		}
-		
-		if(xMax > width)
-		{
-			xMax = width;
-		}
-		
-		if(yMax > height)
-		{
-			yMax = height;
-		}
-		//possibly need to add -1 to the max....
-		//System.out.println(xMin + " " + xMax + " " + yMin + " " + yMax);
-		for(x = xMin;x<xMax;x++)
-		{
-			for(y = yMin;y<yMax;y++)
-			{
-				//System.out.println(grid[x][y].hasMob());
-				if(grid[x][y].hasMob())
-				{
-					tilesInRange.add(grid[x][y]);
-				}
-			}
-		}
-		
-		if (tilesInRange.size()>0){
-			mobs.add(tilesInRange.get(0).getMobs().get(0));//for now, just attack first mob in first tile
-			attackEnemy(attacks.get(0), mobs);
-		}
-		//depending on type, add from all possible mobs the only mobs that will attack
-		 
-		 
-	}
-	
 	//get file from here or actually handle drawing from tower? 
 
 }

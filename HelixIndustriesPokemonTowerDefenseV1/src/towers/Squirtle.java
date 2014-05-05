@@ -5,6 +5,9 @@ import java.io.File;
 import java.util.ArrayList;
 
 import attacks.Attack;
+import attacks.Ember;
+import attacks.Flamethrower;
+import maps.Map;
 import model.Tile;
 import model.Type;
 
@@ -20,25 +23,17 @@ import model.Type;
 
 public class Squirtle extends Tower
 {
-	private String name;
-	private int buyPrice;//Price to place the tower
-	private int sellPrice;//Money obtained from selling the tower
-	private int upgradePrice;//Cost to upgrade the tower
-	private Tower upgraded;//Reference to the upgraded form of tower
-	private ArrayList<Attack> attacks= new ArrayList<Attack>();//List of the tower's attacks
-	private BufferedImage image;//Image for the tower
-	private Type type;//Tower's type
-	private Tile location;//Tower's location on the map
-	
-	
-	public Squirtle(ArrayList<Attack> attacks, Tile t, BufferedImage b)
+	public Squirtle(Tile t,Map m)
 	{
-		super(attacks,t, b);
-		location = t;
-		name = "Squirtle";
-		type = Type.WATER;
-		this.attacks = attacks;
-		upgraded = new Wartortle(attacks,t, b);
+		super(t,m);
+		super.name = "Squirtle";
+		super.type = Type.WATER;
+		ArrayList<Attack> a = new ArrayList<Attack>();
+		a.add(new Flamethrower());
+		super.upgraded = new Wartortle(t,m);
+		super.attacks.add(new Ember());
+		super.buyPrice = 100;
+		super.upgradePrice = 250;
 	}
 
 }
