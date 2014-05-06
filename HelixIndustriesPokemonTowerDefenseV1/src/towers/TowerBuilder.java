@@ -46,8 +46,8 @@ public class TowerBuilder
 	  		for(int j = 0; j<spriteRows;j++)
 	  		{
 	  			sprites[(i*spriteRows)+j] = pokemonSpriteSheet.getSubimage(
-		  				i*spriteWidth,
-		  				j*spriteHeight+offset,
+		  				j*spriteWidth,
+		  				i*spriteHeight+offset,
 		  				spriteWidth,
 		  				spriteHeight);
 	  			System.out.println(i*spriteRows+j +","+ i*spriteWidth + "," + ((j*spriteHeight)+offset) + "," + spriteWidth + "," + spriteHeight);
@@ -64,43 +64,49 @@ public class TowerBuilder
 		switch(i)
 		{
 			case BULBASAUR: tower = new Bulbasaur(t,m);
-							tower.setImage(sprites[20]);
+							tower.setImage(sprites[2]);
 							tower.setUpgrade(new Ivysaur(t,m));
-							tower.upgradeTower().setImage(sprites[30]);
+							tower.upgradeTower().setImage(sprites[3]);
+							tower.upgradeTower().upgradeTower().setUpgrade(new Venusaur(t,m));
+							tower.upgradeTower().upgradeTower().setImage(sprites[4]);
 				break;
 			case IVYSAUR: tower = new Ivysaur(t,m);
-						  tower.setImage(sprites[30]);
+						  tower.setImage(sprites[3]);
 						  tower.setUpgrade(new Venusaur(t,m));
-						  tower.upgradeTower().setImage(sprites[40]);
+						  tower.upgradeTower().setImage(sprites[4]);
 				break;
 			case VENUSAUR: tower = new Venusaur(t,m);
-						   tower.setImage(sprites[40]);
+						   tower.setImage(sprites[4]);
 				break;
 			case CHARMANDER: tower = new Charmander(t,m);
-							 tower.setImage(sprites[50]);
+							 tower.setImage(sprites[5]);
 							 tower.setUpgrade(new Charmeleon(t,m));
-							  tower.upgradeTower().setImage(sprites[60]);
+							  tower.upgradeTower().setImage(sprites[6]);
+							  tower.upgradeTower().upgradeTower().setUpgrade(new Charizard(t,m));
+								tower.upgradeTower().upgradeTower().setImage(sprites[7]);
 				break;
 			case CHARMELEON: tower = new Charmeleon(t,m);
-							 tower.setImage(sprites[60]);
+							 tower.setImage(sprites[6]);
 							 tower.setUpgrade(new Charizard(t,m));
-							  tower.upgradeTower().setImage(sprites[70]);
+							  tower.upgradeTower().setImage(sprites[7]);
 				break;
 			case CHARIZARD: tower = new Charizard(t,m);
-							tower.setImage(sprites[70]);
+							tower.setImage(sprites[7]);
 				break;
 			case SQUIRTLE: tower = new Squirtle(t,m);
-						   tower.setImage(sprites[80]);
+						   tower.setImage(sprites[8]);
 						   tower.setUpgrade(new Wartortle(t,m));
-							  tower.upgradeTower().setImage(sprites[90]);
+							  tower.upgradeTower().setImage(sprites[9]);
+							  tower.upgradeTower().upgradeTower().setUpgrade(new Blastoise(t,m));
+								tower.upgradeTower().upgradeTower().setImage(sprites[9]);
 				break;
 			case WARTORTLE: tower = new Wartortle(t,m);
-							tower.setImage(sprites[90]);
+							tower.setImage(sprites[9]);
 							tower.setUpgrade(new Blastoise(t,m));
-							  tower.upgradeTower().setImage(sprites[90]);
+							  tower.upgradeTower().setImage(sprites[9]);
 				break;
 			case BLASTOISE: tower = new Blastoise(t,m);
-							tower.setImage(sprites[90]);
+							tower.setImage(sprites[9]);
 				break;
 			//case PIKACHU: tower = new Pikachu(t,m);
 			//	break;
