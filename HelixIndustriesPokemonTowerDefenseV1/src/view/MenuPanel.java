@@ -37,16 +37,33 @@ public class MenuPanel extends JPanel implements PanelObserver {
 	JPanel towerSelectPanel;
 	JLabel money;
 
+	JPanel startStopPanel;
+	JLabel time;
+	
+	TowerSelectListener buttonListener;
+
 	public MenuPanel(Game theGame) { // constructor for the panel. Can be used
 										// to set the border and background.
 		this.theGame = theGame;
 		this.setBackground(Color.RED);
 		this.setLayout(new GridLayout(4, 1));
 
+		buttonListener = new TowerSelectListener();
+		
 		// towerSelectPanel
 		buildTowerSelectPanel();
 		this.add(towerSelectPanel);
 		// end towerSelectPanel
+		
+		// startStopPanel
+		startStopPanel = new JPanel();
+		JButton startButton = new JButton("Start Game!");
+		startButton.addActionListener(buttonListener);
+		startStopPanel.add(startButton);
+		time = new JLabel();
+		startStopPanel.add(time);
+		this.add(startStopPanel);
+		// end startStopPanel
 
 		ImageLoader loader = new ImageLoader();
 		SpriteSheet overworldSheet = null;
@@ -73,10 +90,11 @@ public class MenuPanel extends JPanel implements PanelObserver {
 	public void buildTowerSelectPanel() {
 		towerSelectPanel = new JPanel();
 		towerSelectPanel.setLayout(new FlowLayout());
-		TowerSelectListener buttonListener = new TowerSelectListener();
+		
 
 		money = new JLabel("Moneys: $" + theGame.getPlayer(0).getMoney());
 		towerSelectPanel.add(money);
+		
 		JButton charmanderButton = new JButton("Charmander");
 		charmanderButton.addActionListener(buttonListener);
 		towerSelectPanel.add(charmanderButton);
@@ -84,10 +102,13 @@ public class MenuPanel extends JPanel implements PanelObserver {
 		JButton charmeleonButton = new JButton("Charmeleon");
 		charmeleonButton.addActionListener(buttonListener);
 		towerSelectPanel.add(charmeleonButton);
+		
+		
 	}
 
-	public void towerSelectPanelUpdate() {
+	public void menuPanelUpdate() {
 		money.setText("Moneys: $" + theGame.getPlayer(0).getMoney());
+		time.setText("Time: " + theGame.getTime());
 	}
 
 	// good ol' paintComponent
@@ -104,7 +125,7 @@ public class MenuPanel extends JPanel implements PanelObserver {
 	public void update() {
 
 		// we will do updates to reflect upgrades and other things here.
-		towerSelectPanelUpdate();
+		menuPanelUpdate();
 		repaint();
 
 	}
@@ -130,6 +151,10 @@ public class MenuPanel extends JPanel implements PanelObserver {
 				}
 				else
 					JOptionPane.showMessageDialog(new Frame(), "Can't Afford That!");
+			}
+			
+			if (buttonClicked.getText().equals("Start Game!")) {
+				theGame.startTimer();
 			}
 
 

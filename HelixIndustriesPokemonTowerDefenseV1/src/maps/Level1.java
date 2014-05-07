@@ -37,8 +37,8 @@ public class Level1 extends Map {
 	
 	
 	
-	private final int WIDTH = 16;
-	private final int HEIGHT = 16;
+	private final int WIDTH = 20;
+	private final int HEIGHT = 20;
 	private final int TILE_LENGTH = 16;
 	
 	private LinkedList<Tile> path;
@@ -95,7 +95,8 @@ public class Level1 extends Map {
 		Spawner spawn = new Spawner(grid[3][3], waves);
 		
 		// test creating tower
-		theGame.createTower(5, 5, TowerID.CHARMANDER);
+		// his name is Chars.
+		//theGame.createTower(5, 5, TowerID.CHARMANDER);
 		
 		
 		super.setSpawner(spawn);
