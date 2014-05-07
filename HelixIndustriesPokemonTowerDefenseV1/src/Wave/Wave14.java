@@ -16,7 +16,7 @@ import Mob.Poliwag;
 public class Wave14 extends Wave{
 
 	private int delay = 750;
-	private int level = 13;
+	private int level = 14;
 	
 	private BufferedImage oddish;
 	private BufferedImage bellsprout;

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package maps;
 
 import java.awt.Image;
@@ -137,7 +136,6 @@ public abstract class Map
 	
 
 }
-=======
 package maps;
 
 import java.awt.Image;
@@ -274,4 +272,3 @@ public abstract class Map
 	
 
 }
->>>>>>> upstream/master

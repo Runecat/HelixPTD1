@@ -7,19 +7,14 @@ import model.Type;
 
 public class Caterpie extends Mob{
 
-	private String name;
-	private BufferedImage image;
-	private int health;
-	private int moveSpeed;
-	private Type type;
-	private int money;
+
 	
 	public Caterpie(BufferedImage b){
 		super(b);
-		name = "Caterpie";
-		health = 15;
-		moveSpeed = 1;
-		type = Type.BUG;
-		money = 1;
+		super.name = "Caterpie";
+		super.health = 15;
+		super.moveSpeed = 1;
+		super.type = Type.BUG;
+		super.money = 1;
 	}
 }

@@ -16,6 +16,7 @@ public class Wave13 extends Wave{
 	private BufferedImage machop;
 	
 	public Wave13(){
+		super();
 		for(int i = 0; i < 250; i++){
 			if(i % 5 == 0)
 				add(new Machop(machop));

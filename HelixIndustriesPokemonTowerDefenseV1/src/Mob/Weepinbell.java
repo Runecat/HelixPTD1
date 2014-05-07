@@ -6,20 +6,13 @@ import model.Type;
 
 public class Weepinbell extends Mob{
 
-	private String name;
-	private BufferedImage image;
-	private int health;
-	private int moveSpeed;
-	private Type type;
-	private int money;
-	
 	public Weepinbell(BufferedImage b) {
 		super(b);
-		name = "Weepinbell";
-		health = 65;
-		moveSpeed = 3;
-		type = Type.GRASS;
-		money = 5;
+		super.name = "Weepinbell";
+		super.health = 65;
+		super.moveSpeed = 3;
+		super.type = Type.GRASS;
+		super.money = 5;
 	}
 
 }
