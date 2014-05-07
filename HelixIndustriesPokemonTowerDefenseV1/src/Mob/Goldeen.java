@@ -6,19 +6,12 @@ import model.Type;
 
 public class Goldeen extends Mob{
 
-	private String name;
-	private BufferedImage image;
-	private int health;
-	private int moveSpeed;
-	private Type type;
-	private int money;
-	
 	public Goldeen(BufferedImage b){
 		super(b);
-		name = "Goldeen";
-		health = 30;
-		moveSpeed = 4;
-		type = Type.WATER;
-		money = 3;
+		super.name = "Goldeen";
+		super.health = 30;
+		super.moveSpeed = 4;
+		super.type = Type.WATER;
+		super.money = 3;
 	}
 }

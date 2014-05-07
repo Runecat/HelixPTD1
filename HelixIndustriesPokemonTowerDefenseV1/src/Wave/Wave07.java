@@ -11,7 +11,7 @@ import Mob.Spearow;
 
 public class Wave07 extends Wave{
 	private int delay = 1000;
-	private int level = 4;
+	private int level = 7;
 	
 	private BufferedImage rattata;
 	private BufferedImage pidgey;

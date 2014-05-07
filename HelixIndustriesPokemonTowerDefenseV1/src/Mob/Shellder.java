@@ -6,19 +6,12 @@ import model.Type;
 
 public class Shellder extends Mob{
 
-	private String name;
-	private BufferedImage image;
-	private int health;
-	private int moveSpeed;
-	private Type type;
-	private int money;
-	
 	public Shellder(BufferedImage b) {
 		super(b);
-		name = "Shellder";
-		health = 55;
-		moveSpeed = 2;
-		type = Type.WATER;
-		money = 4;
+		super.name = "Shellder";
+		super.health = 55;
+		super.moveSpeed = 2;
+		super.type = Type.WATER;
+		super.money = 4;
 	}
 }

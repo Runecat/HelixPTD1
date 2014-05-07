@@ -13,6 +13,7 @@ public class Wave02 extends Wave{
 	private BufferedImage pidgey;
 
 	public Wave02(){
+		super();
 		for(int i = 0; i < 15; i++){
 			if(i % 2 == 0)
 				add(new Rattata(rattata));

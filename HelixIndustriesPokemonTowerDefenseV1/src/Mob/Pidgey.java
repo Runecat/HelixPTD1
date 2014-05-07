@@ -7,19 +7,12 @@ import model.Type;
 
 public class Pidgey extends Mob{
 
-	private String name;
-	private BufferedImage image;
-	private int health;
-	private int moveSpeed;
-	private Type type;
-	private int money;
-	
 	public Pidgey(BufferedImage b){
 		super(b);
-		name = "Pidgey";
-		health = 20;
-		moveSpeed = 2;
-		type = Type.FLYING;
-		money = 2;
+		super.name = "Pidgey";
+		super.health = 20;
+		super.moveSpeed = 2;
+		super.type = Type.FLYING;
+		super.money = 2;
 	}
 }
