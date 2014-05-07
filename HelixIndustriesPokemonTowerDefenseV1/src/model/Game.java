@@ -55,9 +55,20 @@ public class Game extends PanelObservable {
 
 	public Game() { // added constructor.
 		// add observers and other things.
+		Player thisPlayer = new Player();
+		thisPlayer.addMoney(200);
+		this.addPlayer(thisPlayer);
+		
 		mapList = new ArrayList<Map>();
 		gameTimer = new Timer(1, new GameTimerListener());
 		towerBuilder = new TowerBuilder();
+	}
+	
+	
+	public void setCurrentMap(int i) {		// this will be changed to an ID enum system
+		currentMap = mapList.get(i);
+		currentMap.setGame(this);
+		
 	}
 
 	public void startTimer() {
@@ -68,26 +79,7 @@ public class Game extends PanelObservable {
 		mapList.add(input);
 	}
 
-	public static void main(String[] args) {
-		/*
-		 * BufferedImage pokemonSpriteSheet = ImageIO.read(new
-		 * File("Images/CondensedPokemonSprites.png")); BufferedImage[] sprites
-		 * = new BufferedImage[spriteRows*spriteColumns];
-		 * 
-		 * for(int i = 0; i<spriteColumns;i++) { for(int j = 0;
-		 * i<spriteRows;j++) { sprites[(i*spriteColumns)+j] =
-		 * pokemonSpriteSheet.getSubimage( i*spriteWidth, j*spriteHeight,
-		 * spriteWidth, spriteHeight); }
-		 * 
-		 * ArrayList<Tower> towers = null; ArrayList<Mob> mobs = null; for(Tower
-		 * t:towers) { //attack for every mob in range once timer goes
-		 * off(probably call function) }
-		 * 
-		 * for(Mob m:mobs) { //move to next tile every time the timer goes
-		 * off(probably call function) } } //Set up listeners for placing
-		 * towers, //Set up Timer and listeners for tower attacks.
-		 */
-	}
+	
 
 	public Map getCurrentMap() { // added this
 		return this.currentMap;
@@ -140,6 +132,7 @@ public class Game extends PanelObservable {
 	public void createTower(int x, int y, TowerID i) {
 		Tower t = towerBuilder.buildTower(i, currentMap.getTile(x, y), currentMap);
 		towerList.add(t);
+		players.get(0).addMoney(-1 * t.getBuy());
 		currentMap.createTower(x, y, t);
 	}
 
@@ -157,7 +150,7 @@ public class Game extends PanelObservable {
 
 			// spawning is synced~~~~~~~~~~
 			spawnerOffset++;
-			if (spawnerOffset > 2000) {
+			if (spawnerOffset > 1000) {
 				currentMap.sendWave();
 				spawnerOffset = 0;
 			}
