@@ -34,8 +34,8 @@ public class PTDGUI extends JFrame {
 	
 	public static void main(String[] args) {
 		Game theGame = new Game();
-		Player playerOne = new Player();
-		theGame.addPlayer(playerOne);
+		//Player playerOne = new Player();
+		//theGame.addPlayer(playerOne);
 		PTDGUI gui = new PTDGUI(theGame);
 		theGame.startTimer();
 	}
@@ -52,10 +52,12 @@ public class PTDGUI extends JFrame {
 		
 		//MapPanel 
 		mapPanel = new MapPanel(game);
+		game.addObserver(mapPanel);
 		mapPanel.setPreferredSize(new Dimension(800, 720));
 		background.add(mapPanel, BorderLayout.LINE_START);
 				
 		menu = new MenuPanel(game);
+		game.addObserver(menu);
 		menu.setPreferredSize(new Dimension(184, 720));
 		background.add(menu, BorderLayout.LINE_END);
 		

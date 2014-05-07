@@ -86,7 +86,7 @@ public class MapPanel extends JPanel implements PanelObserver {
 
 
 					Tower temp = (Tower)currentMap.getGrid()[i][j].getObject();//possible problems
-					g.drawImage(temp.getImage(),i*currentMap.getGridWidth(), j*currentMap.getGridHeight(), currentMap.getGridWidth(), currentMap.getGridHeight(),this);
+					g.drawImage(temp.getImage(),i*currentMap.getGridWidth()-10, j*currentMap.getGridHeight()-10, currentMap.getGridWidth()+20, currentMap.getGridHeight()+20,this);
 					//g.setColor(Color.red);
 					//g.fillOval(i*currentMap.getGridWidth(), j*currentMap.getGridHeight(), currentMap.getGridWidth(), currentMap.getGridHeight());
 
@@ -134,8 +134,11 @@ public class MapPanel extends JPanel implements PanelObserver {
 		@Override
 		public void mouseClicked(MouseEvent arg0) {
 			// TODO Auto-generated method stub
-			if (theGame.canPlaceTower(arg0.getX()/16, arg0.getY()/16)){
-				theGame.createTower(arg0.getX()/16, arg0.getY()/16, theGame.getCurrentTowerSelected());
+			int x = arg0.getX()/16;
+			int y = arg0.getY()/16;
+			if (theGame.canPlaceTower(x, y)){
+				theGame.createTower(x, y, theGame.getCurrentTowerSelected());
+				
 				theGame.setIsPlacingTower(false);
 			}
 		}

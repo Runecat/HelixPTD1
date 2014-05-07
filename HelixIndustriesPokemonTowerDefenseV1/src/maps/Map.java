@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import model.Directions;
+import model.Game;
 import model.Spawner;
 import model.Tile;
 
@@ -25,8 +26,13 @@ public abstract class Map
 	private Spawner spawner;
 	private int levels;
 	private List<Tile> path = new ArrayList<Tile>();
+	private Game theGame;
 	
 	private int currentLevel = 0;
+	
+	public void setGame(Game theGame) {
+		this.theGame = theGame;
+	}
 	
 	public void buildPath() {
 		Tile curr = spawner.getTile();
@@ -45,6 +51,7 @@ public abstract class Map
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
 				grid[i][j] = new Tile(i, j, tileLength);
+				grid[i][j].setPlayer(theGame.getPlayer(0));
 			}
 		}
 	}

@@ -50,6 +50,7 @@ public class Level1 extends Map {
 	
 	public Level1(Game theGame) {
 		super();
+		super.setGame(theGame);
 		super.height = HEIGHT;
 		super.width = WIDTH;
 		super.tileLength = TILE_LENGTH;
@@ -94,7 +95,7 @@ public class Level1 extends Map {
 		Spawner spawn = new Spawner(grid[3][3], waves);
 		
 		// test creating tower
-		theGame.createTower(5, 5, TowerID.CHARMELEON);
+		theGame.createTower(5, 5, TowerID.CHARMANDER);
 		
 		
 		super.setSpawner(spawn);

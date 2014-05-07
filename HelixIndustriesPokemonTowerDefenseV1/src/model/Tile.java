@@ -28,6 +28,7 @@ public class Tile {
 	private Object myObject = null;
 	private Tile next;
 	private Spawner spawner = null;
+	private Player myPlayer;
 
 	public Tile(int x, int y, int tileLength) {
 		this.x = x;
@@ -42,6 +43,13 @@ public class Tile {
 		//moveMobs();
 	}
 
+	public void setPlayer(Player playa) {
+		this.myPlayer = playa;
+	}
+	
+	public Player getPlayer() {
+		return myPlayer;
+	}
 	// Makes a timer based on the current mob's movement speed (getMobSpeed())
 	// Starts the timer and calls MoveMobListener
 	public void moveMobs() {
@@ -52,9 +60,9 @@ public class Tile {
 					mobList.get(i).setCurrentTile(next);
 
 					if (mobList.get(i).getHealth() <= 0) {
-						//player.addMoney(removeMob(i).getMoney());
 						System.out.println("Keeled one!");
-						removeMob(i);
+						myPlayer.addMoney(removeMob(i).getMoney());
+						//removeMob(i);
 					} else {
 						if (mobList.size() == 0) {
 							return;
