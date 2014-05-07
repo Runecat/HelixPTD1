@@ -28,7 +28,8 @@ public class Game extends PanelObservable {
 	private final static int spriteColumns = 5;
 
 	public static Timer gameTimer;
-	private int spawnerOffset;
+	private int timeElapsed = 0;
+	private int spawnerOffset = -1;
 	private int moveOffset;
 	
 	private TowerBuilder towerBuilder;
@@ -56,12 +57,16 @@ public class Game extends PanelObservable {
 	public Game() { // added constructor.
 		// add observers and other things.
 		Player thisPlayer = new Player();
-		thisPlayer.addMoney(200);
+		thisPlayer.addMoney(1000);
 		this.addPlayer(thisPlayer);
 		
 		mapList = new ArrayList<Map>();
-		gameTimer = new Timer(1, new GameTimerListener());
+		gameTimer = new Timer(10, new GameTimerListener());
 		towerBuilder = new TowerBuilder();
+	}
+	
+	public int getTime() {
+		return timeElapsed/100;
 	}
 	
 	
@@ -141,16 +146,17 @@ public class Game extends PanelObservable {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 
+			timeElapsed++;
 			// moving mobs is synced with timer
 			moveOffset++;
-			if (moveOffset > 600) {
+			if (moveOffset > 120) {
 				currentMap.moveMobs();
 				moveOffset = 0;
 			}
 
 			// spawning is synced~~~~~~~~~~
 			spawnerOffset++;
-			if (spawnerOffset > 1000) {
+			if (spawnerOffset > 500 || spawnerOffset == 0) {
 				currentMap.sendWave();
 				spawnerOffset = 0;
 			}
