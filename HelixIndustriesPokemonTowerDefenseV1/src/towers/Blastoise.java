@@ -31,5 +31,7 @@ public class Blastoise extends Tower
 		super.attacks.add(new Fireblast());
 		super.buyPrice = 450;
 		super.upgradePrice = 0;
+		if(t!=null)
+			super.setRange(m);
 	}
 }

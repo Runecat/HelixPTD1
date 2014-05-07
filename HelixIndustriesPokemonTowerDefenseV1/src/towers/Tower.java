@@ -229,23 +229,37 @@ public abstract class Tower implements Clickable
 			for(Tile t: tilesInRange)
 			{	if(t.hasMob())
 				{
-					mobs.add(t.getMobs().get(0));
+					for(int i = 0;i<t.getMobs().size();i++)
+					{
+						if(t.getMobs().get(i).getHealth()>0)
+						{
+							mobs.add(t.getMobs().get(i));
+							break;
+						}	
+					}
 					System.out.println("mob in range of Ember"); 
 					//currently adds one mob per tile in range
-					//good for line, area
-					break;//not sure if it will just break if statement
+					break;
 				}
 			}
 		}
 		else if(attacks.get(0).getAttackType() == AttackType.AREA)
 		{
 			for(Tile t: tilesInRange)
-			{	if(t.hasMob())
+			{
+				if(t.hasMob())
 				{
-				System.out.println("mob in range of Fire Blast"); 
-					mobs.add(t.getMobs().get(0));
+
+					for(int i = 0;i<t.getMobs().size();i++)
+					{
+						if(t.getMobs().get(i).getHealth()>0)
+						{
+							mobs.add(t.getMobs().get(i));
+							break;
+						}
+					}
 					//currently adds one mob per tile in range
-					//good for line, area
+					break;
 				}
 			}
 		}
@@ -256,7 +270,10 @@ public abstract class Tower implements Clickable
 			{	if(t.hasMob())
 				{
 					for(Mob m:t.getMobs())
-						mobs.add(m);
+					{
+						if(m.getHealth()>0)
+							mobs.add(m);
+					}
 					//adds all mobs in every tile in range
 					break;//might need to change placement
 				}
@@ -265,14 +282,21 @@ public abstract class Tower implements Clickable
 		
 		else if (tilesInRange.size()>0 && (attacks.get(0).getAttackType() == AttackType.HORIZONTAL))
 		{	
-					System.out.println("");
 					for(Tile t: tilesInRange)
-					{	if(t.hasMob())
+					{
+						if(t.hasMob())
 						{
-							mobs.add(t.getMobs().get(0));
-							System.out.println("mob in range of Flamethrower"); 
+
+							for(int i = 0;i<t.getMobs().size();i++)
+							{
+								if(t.getMobs().get(i).getHealth()>0)
+								{
+									mobs.add(t.getMobs().get(i));
+									break;
+								}
+							}
 							//currently adds one mob per tile in range
-							//good for line, area
+							break;
 						}
 					}
 		}
@@ -325,13 +349,5 @@ public abstract class Tower implements Clickable
 	{
 		return upgraded;
 	}
-	
-
-	public void printStats()
-	{
-		System.out.println("Hi!  My name is " + name + "!");
-		System.out.println("I am located at grid [" + location.getX()+"]["+location.getY()+"]");
-	}
-	//get file from here or actually handle drawing from tower? 
 
 }

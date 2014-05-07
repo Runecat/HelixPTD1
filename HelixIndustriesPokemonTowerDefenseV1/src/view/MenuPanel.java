@@ -4,6 +4,7 @@ import java.awt.AlphaComposite;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
@@ -20,6 +21,7 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import towers.TowerBuilder;
@@ -114,16 +116,22 @@ public class MenuPanel extends JPanel implements PanelObserver {
 			JButton buttonClicked = (JButton) arg0.getSource();
 
 			if (buttonClicked.getText().equals("Charmander")) {
-				//if (canAfford(TowerID.CHARMANDER))
+				if (canAfford(TowerID.CHARMANDER)){
 					theGame.setCurrentTowerSelected(TowerID.CHARMANDER);
-				//else
-				//	System.out.println("CANT AFFORD");
+					theGame.setIsPlacingTower(true);
+				}
+				else
+					JOptionPane.showMessageDialog(new Frame(), "Can't Afford That!");
 			}
 			if (buttonClicked.getText().equals("Charmeleon")) {
-				theGame.setCurrentTowerSelected(TowerID.CHARMELEON);
+				if (canAfford(TowerID.CHARMELEON)){
+					theGame.setCurrentTowerSelected(TowerID.CHARMELEON);
+					theGame.setIsPlacingTower(true);
+				}
+				else
+					JOptionPane.showMessageDialog(new Frame(), "Can't Afford That!");
 			}
 
-			theGame.setIsPlacingTower(true);
 
 		}
 

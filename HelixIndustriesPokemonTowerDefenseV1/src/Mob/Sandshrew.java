@@ -6,19 +6,13 @@ import java.io.File;
 import model.Type;
 
 public class Sandshrew extends Mob{
-	private String name;
-	private BufferedImage image;
-	private int health;
-	private int moveSpeed;
-	private Type type;
-	private int money;
-	
+
 	public Sandshrew(BufferedImage b){
 		super(b);
-		name = "Sandshrew";
-		health = 35;
-		moveSpeed = 2;
-		type = Type.GROUND;
-		money = 4;
+		super.name = "Sandshrew";
+		super.health = 35;
+		super.moveSpeed = 2;
+		super.type = Type.GROUND;
+		super.money = 4;
 	}
 }

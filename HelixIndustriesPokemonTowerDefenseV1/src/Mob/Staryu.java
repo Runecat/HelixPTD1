@@ -6,19 +6,12 @@ import model.Type;
 
 public class Staryu extends Mob{
 
-	private String name;
-	private BufferedImage image;
-	private int health;
-	private int moveSpeed;
-	private Type type;
-	private int money;
-	
 	public Staryu(BufferedImage b) {
 		super(b);
-		name = "Staryu";
-		health = 40;
-		moveSpeed = 6;
-		type = Type.WATER;
-		money = 4;
+		super.name = "Staryu";
+		super.health = 40;
+		super.moveSpeed = 6;
+		super.type = Type.WATER;
+		super.money = 4;
 	}
 }

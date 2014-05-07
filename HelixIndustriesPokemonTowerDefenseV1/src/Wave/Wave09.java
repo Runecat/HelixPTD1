@@ -11,7 +11,7 @@ import Mob.Spearow;
 public class Wave09 extends Wave{
 
 	private int delay = 1000;
-	private int level = 4;
+	private int level = 9;
 	
 	private BufferedImage poliwag;
 	private BufferedImage psyduck;

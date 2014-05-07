@@ -7,19 +7,13 @@ import model.Type;
 
 public class Spearow extends Mob{
 
-	private String name;
-	private BufferedImage image;
-	private int health;
-	private int moveSpeed;
-	private Type type;
-	private int money;
-	
+
 	public Spearow(BufferedImage b){
 		super(b);
-		name = "Spearow";
-		health = 20;
-		moveSpeed = 5;
-		type = Type.FLYING;
-		money = 4;
+		super.name = "Spearow";
+		super.health = 20;
+		super.moveSpeed = 5;
+		super.type = Type.FLYING;
+		super.money = 4;
 	}
 }

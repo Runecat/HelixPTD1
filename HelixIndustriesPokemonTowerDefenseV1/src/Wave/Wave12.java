@@ -9,14 +9,12 @@ import Mob.Venonat;
 import Mob.Pidgeotto;
 import Mob.Weedle;
 import Mob.Caterpie;
-import Mob.Pidgey;
-import Mob.Mankey;
 
 
 public class Wave12 extends Wave{
 
 	private int delay = 1000;
-	private int level = 4;
+	private int level = 12;
 	
 	private BufferedImage oddish;
 	private BufferedImage bellsprout;

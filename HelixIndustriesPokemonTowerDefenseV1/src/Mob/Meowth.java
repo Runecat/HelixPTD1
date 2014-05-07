@@ -7,19 +7,12 @@ import model.Type;
 
 public class Meowth extends Mob{
 
-	private String name;
-	private BufferedImage image;
-	private int health;
-	private int moveSpeed;
-	private Type type;
-	private int money;
-	
 	public Meowth(BufferedImage b) {
 		super(b);
-		name = "Meowth";
-		health = 45;
-		moveSpeed = 5;
-		type = Type.NORMAL;
-		money = 20;
+		super.name = "Meowth";
+		super.health = 45;
+		super.moveSpeed = 5;
+		super.type = Type.NORMAL;
+		super.money = 20;
 	}
 }

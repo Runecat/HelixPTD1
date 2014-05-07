@@ -7,19 +7,12 @@ import model.Type;
 
 public class Weedle extends Mob{
 
-	private String name;
-	private BufferedImage image;
-	private int health;
-	private int moveSpeed;
-	private Type type;
-	private int money;
-	
 	public Weedle(BufferedImage b){
 		super(b);
-		name = "Weedle";
-		health = 15;
-		moveSpeed = 1;
-		type = Type.POISON;
-		money = 1;
+		super.name = "Weedle";
+		super.health = 15;
+		super.moveSpeed = 1;
+		super.type = Type.POISON;
+		super.money = 1;
 	}
 }

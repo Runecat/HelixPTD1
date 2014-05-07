@@ -12,7 +12,7 @@ import Mob.Pidgey;
 public class Wave11 extends Wave{
 
 	private int delay = 1000;
-	private int level = 4;
+	private int level = 11;
 	
 	private BufferedImage oddish;
 	private BufferedImage bellsprout;

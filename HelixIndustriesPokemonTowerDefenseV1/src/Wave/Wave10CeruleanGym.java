@@ -7,9 +7,9 @@ import Mob.Starmie;
 import Mob.Staryu;
 import Mob.Goldeen;
 
-public class Wave10 extends Wave{
+public class Wave10CeruleanGym extends Wave{
 	private int delay = 500;
-	private int level = 4;
+	private int level = 10;
 	
 	private BufferedImage shellder;
 	private BufferedImage horsea;
@@ -17,7 +17,7 @@ public class Wave10 extends Wave{
 	private BufferedImage staryu;
 	private BufferedImage goldeen;
 	
-	public Wave10(){
+	public Wave10CeruleanGym(){
 		super();
 		for(int i = 0; i < 125; i++){
 			if(i < 55){
