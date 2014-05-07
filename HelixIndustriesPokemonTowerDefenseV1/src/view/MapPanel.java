@@ -81,11 +81,14 @@ public class MapPanel extends JPanel implements PanelObserver {
 		for (int i = 0; i < currentMap.getGridWidth(); i++) {
 			for (int j = 0; j < currentMap.getGridHeight(); j++) {
 				if (currentMap.getGrid()[i][j].hasTower()){
-					g.setColor(Color.red);
-					g.fillOval(i*currentMap.getGridWidth(), j*currentMap.getGridHeight(), currentMap.getGridWidth(), currentMap.getGridHeight());
-					Tower currentTower = (Tower) currentMap.getGrid()[i][j].getObject();
-					//g.drawImage(currentTower.getImage(), i*currentMap.getGridWidth(), j*currentMap.getGridHeight(), currentMap.getGridWidth(), currentMap.getGridHeight(), null);
-					//g.drawImage(currentTower.getImage(), 200, 200, 600, 600, null);
+
+					
+
+
+					Tower temp = (Tower)currentMap.getGrid()[i][j].getObject();//possible problems
+					g.drawImage(temp.getImage(),i*currentMap.getGridWidth(), j*currentMap.getGridHeight(), currentMap.getGridWidth(), currentMap.getGridHeight(),this);
+					//g.setColor(Color.red);
+					//g.fillOval(i*currentMap.getGridWidth(), j*currentMap.getGridHeight(), currentMap.getGridWidth(), currentMap.getGridHeight());
 
 				}
 				
