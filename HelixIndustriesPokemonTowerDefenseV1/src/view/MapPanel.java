@@ -43,7 +43,8 @@ public class MapPanel extends JPanel implements PanelObserver {
 
 		// this.map = theGame.getCurrentMap();
 
-		this.setBackground(Color.cyan);
+		//this.setBackground(Color.cyan);
+		this.setOpaque(false);
 
 		this.setPreferredSize(new Dimension(currentMap.getHeight(), currentMap
 				.getWidth()));
