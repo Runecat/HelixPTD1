@@ -31,6 +31,7 @@ public class Venusaur extends Tower
 		super.attacks.add(new Fireblast());
 		super.buyPrice = 450;
 		super.upgradePrice = 0;
-		super.setRange(m);
+		if(t!=null)
+			super.setRange(m);
 	}
 }

@@ -35,5 +35,7 @@ public class Bulbasaur extends Tower
 		super.attacks.add(new Ember());
 		super.buyPrice = 100;
 		super.upgradePrice = 250;
+		if(t!=null)
+			super.setRange(m);
 	}
 }
