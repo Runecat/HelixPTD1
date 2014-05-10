@@ -198,7 +198,18 @@ public class MenuPanel extends JPanel implements PanelObserver {
 			}
 
 			if (buttonClicked.getText().equals("Evolve!")) {
-				theGame.getCurrentTowerInfo().upgradeTower();
+				if (theGame.getPlayer(0).getMoney() >= theGame
+						.getCurrentTowerInfo().getUpgraded().getBuy()) {
+					theGame.getPlayer(0).addMoney(
+							-1
+									* theGame.getCurrentTowerInfo()
+											.getUpgraded().getBuy());
+					theGame.setCurrentTowerInfo(theGame.getCurrentTowerInfo().getUpgraded());
+					theGame.getCurrentTowerInfo().upgradeTower();
+					theGame.notifyObservers();
+				}
+				else
+					JOptionPane.showMessageDialog(new Frame(),"Can't Afford That!");
 			}
 
 		}
