@@ -8,6 +8,7 @@ import attacks.Attack;
 import attacks.Ember;
 import attacks.Fireblast;
 import attacks.Flamethrower;
+import attacks.Vinewhip;
 import maps.Map;
 import model.Tile;
 import model.Type;
@@ -31,8 +32,7 @@ public class Ivysaur extends Tower
 		super.type = Type.GRASS;
 		ArrayList<Attack> a = new ArrayList<Attack>();
 		a.add(new Fireblast());
-		super.upgraded = new Venusaur(t,m);
-		super.attacks.add(new Flamethrower());
+		super.attacks.add(new Vinewhip());
 		super.buyPrice = 250;
 		super.upgradePrice = 450;
 		if(t!=null)

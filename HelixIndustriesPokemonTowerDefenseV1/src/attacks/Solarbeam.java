@@ -17,20 +17,20 @@ import model.Type;
  * Fireblast.java - Class for the Fireblast attack
  */
 
-public class Fireblast extends Attack
+public class Solarbeam extends Attack
 {
-	public Fireblast()
+	public Solarbeam()
 	{
 		super();
-		super.name = "Fire Blast";
-		super.damage = 15;
-		super.verticalRange = 3;
-		super.horizontalRange = 3;
-		super.damageType = Type.FIRE;
-		super.effect = Effect.burn;
-		super.rangeType = RangeType.AREA;
+		super.name = "Solar Beam";
+		super.damage = 20;
+		super.verticalRange = 2;
+		super.horizontalRange = 2;
+		super.damageType = Type.GRASS;
+		super.effect = Effect.none;
+		super.rangeType = RangeType.TILE;
 		super.image = null;//unimplemented
-		super.targets = 24;//unimplemented
+		super.targets = 100;//unimplemented
 	}
 }
 

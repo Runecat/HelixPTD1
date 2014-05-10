@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import attacks.Attack;
 import attacks.Fireblast;
+import attacks.Solarbeam;
 import maps.Map;
 import model.Tile;
 import model.Type;
@@ -28,7 +29,7 @@ public class Venusaur extends Tower
 		super.name = "Venusaur";
 		super.type = Type.GRASS;
 		super.upgraded = null;
-		super.attacks.add(new Fireblast());
+		super.attacks.add(new Solarbeam());
 		super.buyPrice = 450;
 		super.upgradePrice = 0;
 		if(t!=null)

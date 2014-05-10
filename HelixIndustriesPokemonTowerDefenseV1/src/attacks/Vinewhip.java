@@ -15,20 +15,20 @@ import model.Type;
  * Brandon Brown
  * Gabriel Basadre
  * 
- * Flamethrower.java - Class for the Flamethrower attack
+ * Vinewhip.java - Class for the Flamethrower attack
  */
 
-public class Flamethrower extends Attack
+public class Vinewhip extends Attack
 {
-	public Flamethrower()
+	public Vinewhip()
 	{
 		super();
-		super.name = "Flamethrower";
-		super.damage = 10;
+		super.name = "Vine Whip";
+		super.damage = 12;
 		super.verticalRange = 1;
 		super.horizontalRange = 6;
-		super.damageType = Type.FIRE;
-		super.effect = Effect.burn;
+		super.damageType = Type.GRASS;
+		super.effect = Effect.none;
 		super.rangeType = RangeType.HORIZONTAL;
 		super.image = null;
 		super.targets = 12;

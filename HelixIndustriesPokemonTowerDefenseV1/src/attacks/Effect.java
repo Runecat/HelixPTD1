@@ -1,7 +1,7 @@
 package attacks;
 
 public enum Effect {
-	poison, paralyze, sleep, burn, freeze, confuse;
+	poison, paralyze, sleep, burn, freeze, confuse,none;
 	
 	public void getStatuseffect(Effect status, double speed, int DoT, int length){
 		if(status == poison){

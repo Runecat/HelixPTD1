@@ -32,7 +32,6 @@ public class Charmeleon extends Tower
 		super.type = Type.FIRE;
 		ArrayList<Attack> a = new ArrayList<Attack>();
 		a.add(new Fireblast());
-		super.upgraded = new Charizard(t,m);
 		super.attacks.add(new Flamethrower());
 		super.buyPrice = 250;
 		super.upgradePrice = 450;

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import attacks.Attack;
 import attacks.Ember;
 import attacks.Flamethrower;
+import attacks.Leechseed;
 import maps.Map;
 import model.Clickable;
 import model.Tile;
@@ -31,8 +32,7 @@ public class Bulbasaur extends Tower
 		super.type = Type.GRASS;
 		ArrayList<Attack> a = new ArrayList<Attack>();
 		a.add(new Flamethrower());
-		super.upgraded = new Ivysaur(t,m);
-		super.attacks.add(new Ember());
+		super.attacks.add(new Leechseed());
 		super.buyPrice = 100;
 		super.upgradePrice = 250;
 		if(t!=null)
