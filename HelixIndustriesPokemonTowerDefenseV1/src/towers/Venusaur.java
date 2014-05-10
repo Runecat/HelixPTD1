@@ -33,6 +33,7 @@ public class Venusaur extends Tower
 		super.upgraded = new Ivysaur(t,m);
 		super.buyPrice = 450;
 		super.upgradePrice = 0;
+		super.delay = 16;
 		if(t!=null)
 			super.setRange(m);
 	}

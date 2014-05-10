@@ -30,12 +30,11 @@ public class Ivysaur extends Tower
 		super(t,m);
 		super.name = "Ivysaur";
 		super.type = Type.GRASS;
-		ArrayList<Attack> a = new ArrayList<Attack>();
-		a.add(new Fireblast());
 		super.attacks.add(new Vinewhip());
 		super.upgraded = new Venusaur(t,m);
 		super.buyPrice = 250;
 		super.upgradePrice = 450;
+		super.delay = 4;
 		if(t!=null)
 			super.setRange(m);;
 	}

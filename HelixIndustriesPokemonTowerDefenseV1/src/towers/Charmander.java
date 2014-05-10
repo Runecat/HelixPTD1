@@ -33,8 +33,6 @@ public class Charmander extends Tower
 		super(t,m);
 		super.name = "Charmander";
 		super.type = Type.FIRE;
-		ArrayList<Attack> a = new ArrayList<Attack>();
-		a.add(new Flamethrower());
 		super.attacks.add(new Ember());
 		super.upgraded = new Charmeleon(t,m);
 		super.buyPrice = 100;

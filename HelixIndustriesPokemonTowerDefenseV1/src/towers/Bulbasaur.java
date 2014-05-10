@@ -34,6 +34,7 @@ public class Bulbasaur extends Tower
 		super.upgraded = new Ivysaur(t,m);
 		super.buyPrice = 100;
 		super.upgradePrice = 250;
+		super.delay = 1;
 		if(t!=null)
 			super.setRange(m);
 	}
