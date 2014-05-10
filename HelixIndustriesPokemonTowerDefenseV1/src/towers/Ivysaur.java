@@ -33,6 +33,7 @@ public class Ivysaur extends Tower
 		ArrayList<Attack> a = new ArrayList<Attack>();
 		a.add(new Fireblast());
 		super.attacks.add(new Vinewhip());
+		super.upgraded = new Venusaur(t,m);
 		super.buyPrice = 250;
 		super.upgradePrice = 450;
 		if(t!=null)
