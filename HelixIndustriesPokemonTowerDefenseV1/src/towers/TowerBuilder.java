@@ -67,7 +67,7 @@ public class TowerBuilder
 							tower.setImage(sprites[2]);
 							tower.setUpgrade(new Ivysaur(t,m));
 							tower.getUpgraded().setImage(sprites[3]);
-							tower.getUpgraded().getUpgraded().setUpgrade(new Venusaur(t,m));
+							tower.getUpgraded().setUpgrade(new Venusaur(t,m));
 							tower.getUpgraded().getUpgraded().setImage(sprites[4]);
 				break;
 			case IVYSAUR: tower = new Ivysaur(t,m);
@@ -82,7 +82,7 @@ public class TowerBuilder
 							 tower.setImage(sprites[5]);
 							 tower.setUpgrade(new Charmeleon(t,m));
 							  tower.getUpgraded().setImage(sprites[6]);
-							  tower.getUpgraded().getUpgraded().setUpgrade(new Charizard(t,m));
+							  tower.getUpgraded().setUpgrade(new Charizard(t,m));
 								tower.getUpgraded().getUpgraded().setImage(sprites[7]);
 				break;
 			case CHARMELEON: tower = new Charmeleon(t,m);
@@ -97,7 +97,7 @@ public class TowerBuilder
 						   tower.setImage(sprites[8]);
 						   tower.setUpgrade(new Wartortle(t,m));
 							  tower.getUpgraded().setImage(sprites[9]);
-							  tower.getUpgraded().getUpgraded().setUpgrade(new Blastoise(t,m));
+							  tower.getUpgraded().setUpgrade(new Blastoise(t,m));
 								tower.getUpgraded().getUpgraded().setImage(sprites[9]);
 				break;
 			case WARTORTLE: tower = new Wartortle(t,m);
@@ -108,10 +108,14 @@ public class TowerBuilder
 			case BLASTOISE: tower = new Blastoise(t,m);
 							tower.setImage(sprites[9]);
 				break;
-			//case PIKACHU: tower = new Pikachu(t,m);
-			//	break;
-			//case RAICHU: tower = new Raichu(t,m);
-			//	break;
+			case PIKACHU: tower = new Pikachu(t,m);
+			    		  tower.setImage(sprites[11]);
+			    		  tower.setUpgrade(new Wartortle(t,m));
+			    		  tower.getUpgraded().setImage(sprites[12]);
+				break;
+			case RAICHU: tower = new Raichu(t,m);
+						 tower.setImage(sprites[12]);
+				break;
 			default: tower = null;
 				break;
 		}

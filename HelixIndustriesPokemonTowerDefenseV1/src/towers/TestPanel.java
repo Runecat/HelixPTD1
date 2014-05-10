@@ -82,8 +82,8 @@ public class TestPanel extends JFrame
 		  				spriteWidth,
 		  				spriteHeight);*/
 		  			sprites[(i*spriteRows)+j] = pokemonSpriteSheet.getSubimage(
-			  				i*spriteWidth,
-			  				j*spriteHeight+offset,
+			  				j*spriteWidth,
+			  				i*spriteHeight+offset,
 			  				spriteWidth,
 			  				spriteHeight);
 		  			//System.out.println(i*spriteRows+j +","+ i*spriteWidth + "," + ((j*spriteHeight)+offset) + "," + spriteWidth + "," + spriteHeight);
