@@ -49,19 +49,7 @@ public abstract class Mob implements Clickable {
 		return currentTile;
 	}
 	
-	public void moveMob() {
-		// might move based on location variables
-		while(spawnX != HQ.spawnX && spawnY != HQ.spawnY && health != 0){
-			if(track.getTile(spawnX, spawnY).getDirection() == Directions.Right)
-				spawnY++;
-			else if(track.getTile(spawnX, spawnY).getDirection() == Directions.Up)
-				spawnX++;
-			else if(track.getTile(spawnX, spawnY).getDirection() == Directions.Left)
-				spawnY--;
-			else
-				spawnX--;
-		}
-	}
+	
 
 	// Shows the Mob's information ()
 	public void showInfo() {

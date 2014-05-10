@@ -12,38 +12,41 @@ import Mob.Mob;
 
 public class Tile {
 
-	int x, y;
-	int tileLength;
+	private int x, y;
+	private int row;
+	private int col;
+	private final int TILE_LENGTH = 16;
+	
 	private boolean isOnPath;
 	private boolean hasTower;
 	private boolean isEmpty;
 	private boolean hasMob;
-	private boolean isWater;
-	private boolean isLand;
-	private Directions direction = null;
-	private Mob mob;
-	private ArrayList<Mob> mobList = new ArrayList<Mob>();
-	private int row;
-	private int col;
-	private Object myObject = null;
 	private Tile next;
+	
+	private ArrayList<Mob> mobList = new ArrayList<Mob>();
+	
+	private Object myObject = null;
 	private Spawner spawner = null;
+	private Player myPlayer;
 
-	public Tile(int x, int y, int tileLength) {
+	public Tile(int x, int y) {
 		this.x = x;
 		this.y = y;
-		this.tileLength = tileLength;
 	}
 
 	// Adds mob to the list of the mobs on the current tile
-	// Calls moveMobs()
 	public void addMobs(Mob mob) {
 		mobList.add(mob);
-		//moveMobs();
 	}
 
-	// Makes a timer based on the current mob's movement speed (getMobSpeed())
-	// Starts the timer and calls MoveMobListener
+	public void setPlayer(Player playa) {
+		this.myPlayer = playa;
+	}
+	
+	public Player getPlayer() {
+		return myPlayer;
+	}
+	
 	public void moveMobs() {
 
 		if (next != null) {
@@ -52,9 +55,8 @@ public class Tile {
 					mobList.get(i).setCurrentTile(next);
 
 					if (mobList.get(i).getHealth() <= 0) {
-						//player.addMoney(removeMob(i).getMoney());
 						System.out.println("Keeled one!");
-						removeMob(i);
+						myPlayer.addMoney(removeMob(i).getMoney());
 					} else {
 						if (mobList.size() == 0) {
 							return;
@@ -75,8 +77,6 @@ public class Tile {
 			else
 				return;
 		}
-
-		
 	}
 
 	// After time has expired, the mob will be set to the next tile's mob list
@@ -143,31 +143,7 @@ public class Tile {
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 	public boolean canPlaceTower() {
 		return  (isOnPath == false && myObject == null && !isSpawner());
-	}
-
-	public boolean isWater() {
-		return isWater;
-	}
-
-	public void setIsWater(boolean isWater) {
-		this.isWater = isWater;
-	}
-
-	public boolean isLand() {
-		return isLand;
-	}
-
-	public void setIsLand(boolean isLand) {
-		this.isLand = isLand;
-	}
-
-	public void setDirection(Directions direction) {
-		this.direction = direction;
-	}
-
-	public Directions getDirection() {
-		return direction;
-	}
+	}	
 
 	public void setNextPathTile(Tile next) {
 		this.next = next;

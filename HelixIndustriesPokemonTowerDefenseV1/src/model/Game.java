@@ -28,7 +28,8 @@ public class Game extends PanelObservable {
 	private final static int spriteColumns = 5;
 
 	public static Timer gameTimer;
-	private int spawnerOffset;
+	private int timeElapsed = 0;
+	private int spawnerOffset = -1;
 	private int moveOffset;
 	
 	private TowerBuilder towerBuilder;
@@ -55,9 +56,24 @@ public class Game extends PanelObservable {
 
 	public Game() { // added constructor.
 		// add observers and other things.
+		Player thisPlayer = new Player("Chars");
+		thisPlayer.addMoney(1000);
+		this.addPlayer(thisPlayer);
+		
 		mapList = new ArrayList<Map>();
-		gameTimer = new Timer(1, new GameTimerListener());
+		gameTimer = new Timer(10, new GameTimerListener());
 		towerBuilder = new TowerBuilder();
+	}
+	
+	public int getTime() {
+		return timeElapsed/100;
+	}
+	
+	
+	public void setCurrentMap(int i) {		// this will be changed to an ID enum system
+		currentMap = mapList.get(i);
+		currentMap.setGame(this);
+		
 	}
 
 	public void startTimer() {
@@ -68,26 +84,7 @@ public class Game extends PanelObservable {
 		mapList.add(input);
 	}
 
-	public static void main(String[] args) {
-		/*
-		 * BufferedImage pokemonSpriteSheet = ImageIO.read(new
-		 * File("Images/CondensedPokemonSprites.png")); BufferedImage[] sprites
-		 * = new BufferedImage[spriteRows*spriteColumns];
-		 * 
-		 * for(int i = 0; i<spriteColumns;i++) { for(int j = 0;
-		 * i<spriteRows;j++) { sprites[(i*spriteColumns)+j] =
-		 * pokemonSpriteSheet.getSubimage( i*spriteWidth, j*spriteHeight,
-		 * spriteWidth, spriteHeight); }
-		 * 
-		 * ArrayList<Tower> towers = null; ArrayList<Mob> mobs = null; for(Tower
-		 * t:towers) { //attack for every mob in range once timer goes
-		 * off(probably call function) }
-		 * 
-		 * for(Mob m:mobs) { //move to next tile every time the timer goes
-		 * off(probably call function) } } //Set up listeners for placing
-		 * towers, //Set up Timer and listeners for tower attacks.
-		 */
-	}
+	
 
 	public Map getCurrentMap() { // added this
 		return this.currentMap;
@@ -140,7 +137,9 @@ public class Game extends PanelObservable {
 	public void createTower(int x, int y, TowerID i) {
 		Tower t = towerBuilder.buildTower(i, currentMap.getTile(x, y), currentMap);
 		towerList.add(t);
+		players.get(0).addMoney(-1 * t.getBuy());
 		currentMap.createTower(x, y, t);
+		notifyObservers();
 	}
 
 	private class GameTimerListener implements ActionListener {
@@ -148,16 +147,17 @@ public class Game extends PanelObservable {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 
+			timeElapsed++;
 			// moving mobs is synced with timer
 			moveOffset++;
-			if (moveOffset > 600) {
+			if (moveOffset > 120) {
 				currentMap.moveMobs();
 				moveOffset = 0;
 			}
 
 			// spawning is synced~~~~~~~~~~
 			spawnerOffset++;
-			if (spawnerOffset > 2000) {
+			if (spawnerOffset > 500 || spawnerOffset == 0) {
 				currentMap.sendWave();
 				spawnerOffset = 0;
 			}

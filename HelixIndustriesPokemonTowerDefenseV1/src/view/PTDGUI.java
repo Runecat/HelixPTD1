@@ -34,10 +34,10 @@ public class PTDGUI extends JFrame {
 	
 	public static void main(String[] args) {
 		Game theGame = new Game();
-		Player playerOne = new Player();
-		theGame.addPlayer(playerOne);
+		//Player playerOne = new Player();
+		//theGame.addPlayer(playerOne);
 		PTDGUI gui = new PTDGUI(theGame);
-		theGame.startTimer();
+		//theGame.startTimer();
 	}
 
 	public PTDGUI(Game game) {
@@ -45,6 +45,8 @@ public class PTDGUI extends JFrame {
 		this.setTitle("Helix PTD Pre-Alpha 0.1");
 		
 		this.setSize(new Dimension(1000, 720));
+		//this.setSize(new Dimension(778, 720));
+
 		
 		background = new BackgroundFrame();
 		background.setLayout(new BorderLayout());
@@ -52,10 +54,13 @@ public class PTDGUI extends JFrame {
 		
 		//MapPanel 
 		mapPanel = new MapPanel(game);
+		game.addObserver(mapPanel);
 		mapPanel.setPreferredSize(new Dimension(800, 720));
 		background.add(mapPanel, BorderLayout.LINE_START);
+
 				
 		menu = new MenuPanel(game);
+		game.addObserver(menu);
 		menu.setPreferredSize(new Dimension(184, 720));
 		background.add(menu, BorderLayout.LINE_END);
 		

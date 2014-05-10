@@ -61,7 +61,7 @@ public class ChatPanel extends JPanel {
 					// We append the text from the user
 					if (theGame.getPlayers().size() != 0)
 						text.append("\n"
-								+ theGame.getPlayers().get(0).getName()
+								+ theGame.getPlayers().get(0).getName() + ": "
 								+ fromUser);
 					else
 						text.append("\nNoPlayers: " + fromUser);
