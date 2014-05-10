@@ -7,46 +7,29 @@ import Mob.Mob;
 import model.Tile;
 import model.Type;
 
+/*
+ * Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ * Ember.java - Class for the Ember attack
+ */
+
 public class Ember extends Attack
 {
 	public Ember()
 	{
-		// TODO Auto-generated constructor stub
 		super();
-		super.damage = 25;
-		super.verticalRange = 5;
-		super.horizontalRange = 5;
+		super.name = "Ember";
+		super.damage = 5;
+		super.verticalRange = 2;
+		super.horizontalRange = 2;
 		super.damageType = Type.FIRE;
 		super.effect = Effect.burn;
-		super.attackType = AttackType.NORMAL;
-		super.image = null;
-		super.targets = 1;
+		super.rangeType = RangeType.NORMAL;
+		super.image = null;//unimplemented
+		super.targets = 1;//unimplemented
 	}
-	/*
-	public int getDamage()
-	{
-		return damage;
-	}
-	
-	public Type getType()
-	{
-		return damageType;
-	}
-	
-	public int getVerticalRange()
-	{
-		return verticalRange;
-	}
-	
-	public int getHorizontalRange()
-	{
-		return horizontalRange;
-	}
-	
-	/*public ArrayList <Mob> calculateAffected(Mob[] mobs)
-	{
-		ArrayList<Mob> affectedMobs = new ArrayList<Mob>();
-		
-		return affectedMobs;
-	}*/
 }

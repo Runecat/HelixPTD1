@@ -7,47 +7,29 @@ import Mob.Mob;
 import model.Tile;
 import model.Type;
 
+/*
+ * Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ * Fireblast.java - Class for the Fireblast attack
+ */
+
 public class Fireblast extends Attack
 {
 	public Fireblast()
 	{
-		// TODO Auto-generated constructor stub
 		super();
-		super.damage = 25;
-		super.verticalRange = 10;
-		super.horizontalRange = 10;
+		super.damage = 15;
+		super.verticalRange = 3;
+		super.horizontalRange = 3;
 		super.damageType = Type.FIRE;
 		super.effect = Effect.burn;
-		super.attackType = AttackType.AREA;
-		super.image = null;
-		super.targets = 5;
+		super.rangeType = RangeType.AREA;
+		super.image = null;//unimplemented
+		super.targets = 24;//unimplemented
 	}
-	/*
-	public int getDamage()
-	{
-		return damage;
-	}
-	
-	public Type getType()
-	{
-		return damageType;
-	}
-	
-	public int getVerticalRange()
-	{
-		return verticalRange;
-	}
-	
-	public int getHorizontalRange()
-	{
-		return horizontalRange;
-	}
-	
-	/*public ArrayList <Mob> calculateAffected(Mob[] mobs)
-	{
-		ArrayList<Mob> affectedMobs = new ArrayList<Mob>();
-		
-		return affectedMobs;
-	}*/
 }
 

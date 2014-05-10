@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import Mob.Mob;
 import attacks.Attack;
-import attacks.AttackType;
+import attacks.RangeType;
 import maps.Map;
 import model.Clickable;
 import model.Player;
@@ -36,6 +36,8 @@ public abstract class Tower implements Clickable
 	protected ArrayList<Attack> attacks= new ArrayList<Attack>();//List of the tower's attacks
 	protected Type type;//Tower type
 	protected Tile location;
+	protected int delay;
+	private int currentDelay = -1;
 	ArrayList<Tile> tilesInRange; 
 	
 	protected BufferedImage image;//Image for the tower
@@ -224,10 +226,10 @@ public abstract class Tower implements Clickable
 		//calculate which mobs to grab for each type
 		
 		System.out.println("attack() called"); 
-		if (attacks.get(0).getAttackType() == AttackType.NORMAL)
+		if (attacks.get(0).getRangeType() == RangeType.NORMAL)
 		{	
 			for(Tile t: tilesInRange)
-			{	if(t.hasMob())
+			{	if(t.hasMob() && (mobs.size()<attacks.get(0).getTargets()))
 				{
 					for(int i = 0;i<t.getMobs().size();i++)
 					{
@@ -243,11 +245,11 @@ public abstract class Tower implements Clickable
 				}
 			}
 		}
-		else if(attacks.get(0).getAttackType() == AttackType.AREA)
+		else if(attacks.get(0).getRangeType() == RangeType.AREA)
 		{
 			for(Tile t: tilesInRange)
 			{
-				if(t.hasMob())
+				if(t.hasMob() && (mobs.size()<attacks.get(0).getTargets()))
 				{
 
 					for(int i = 0;i<t.getMobs().size();i++)
@@ -264,10 +266,10 @@ public abstract class Tower implements Clickable
 			}
 		}
 		
-		else if(attacks.get(0).getAttackType() == AttackType.TILE)
+		else if(attacks.get(0).getRangeType() == RangeType.TILE)
 		{
 			for(Tile t: tilesInRange)
-			{	if(t.hasMob())
+			{	if(t.hasMob() && (mobs.size()<attacks.get(0).getTargets()))
 				{
 					for(Mob m:t.getMobs())
 					{
@@ -280,11 +282,11 @@ public abstract class Tower implements Clickable
 			}
 		}
 		
-		else if (tilesInRange.size()>0 && (attacks.get(0).getAttackType() == AttackType.HORIZONTAL))
+		else if (tilesInRange.size()>0 && (attacks.get(0).getRangeType() == RangeType.HORIZONTAL))
 		{	
 					for(Tile t: tilesInRange)
 					{
-						if(t.hasMob())
+						if(t.hasMob() && (mobs.size()<attacks.get(0).getTargets()))
 						{
 
 							for(int i = 0;i<t.getMobs().size();i++)
@@ -300,7 +302,7 @@ public abstract class Tower implements Clickable
 						}
 					}
 		}
-		if(mobs.size() > 0)
+		if(mobs.size() > 0 && attackDelay(currentDelay))
 			attackEnemy(attacks.get(0), mobs);
 			
 	}
@@ -345,9 +347,35 @@ public abstract class Tower implements Clickable
 		return image;
 	}
 	
-	public Tower upgradeTower()
+	public void upgradeTower()
+	{
+		location.setObject((Object)upgraded);
+	}
+	
+	public Tower getUpgraded()
 	{
 		return upgraded;
+	}
+	
+	private void setDelay(int delay)
+	{
+		currentDelay = delay;
+	}
+	
+	private boolean attackDelay(int delay)
+	{
+		if(currentDelay == -1)
+			currentDelay=0;
+		if(currentDelay==delay)
+		{
+			currentDelay = 0;
+			return true;
+		}
+		else
+		{
+			currentDelay+=1;
+			return false;
+		}
 	}
 
 }

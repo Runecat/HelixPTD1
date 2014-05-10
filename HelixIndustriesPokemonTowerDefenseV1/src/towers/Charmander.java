@@ -31,7 +31,6 @@ public class Charmander extends Tower
 	public Charmander(Tile t,Map m)
 	{
 		super(t,m);
-		BufferedImage newImage;
 		super.name = "Charmander";
 		super.type = Type.FIRE;
 		ArrayList<Attack> a = new ArrayList<Attack>();
@@ -40,6 +39,7 @@ public class Charmander extends Tower
 		super.attacks.add(new Ember());
 		super.buyPrice = 100;
 		super.upgradePrice = 250;
+		super.delay = 2;
 		if(t!=null)
 			super.setRange(m);
 	}

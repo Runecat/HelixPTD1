@@ -36,6 +36,7 @@ public class Charmeleon extends Tower
 		super.attacks.add(new Flamethrower());
 		super.buyPrice = 250;
 		super.upgradePrice = 450;
+		super.delay = 4;
 		if(t!=null)
 			super.setRange(m);
 	}

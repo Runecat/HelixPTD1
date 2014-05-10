@@ -34,6 +34,7 @@ public class Charizard extends Tower
 		super.attacks.add(new Fireblast());
 		super.buyPrice = 450;
 		super.upgradePrice = 0;
+		super.delay = 8;
 		if(t!=null)
 			super.setRange(m);
 	}

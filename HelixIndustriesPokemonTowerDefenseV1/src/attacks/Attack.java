@@ -1,11 +1,6 @@
 package attacks;
 
 import java.io.File;
-import java.util.ArrayList;
-
-import Mob.Mob;
-
-import model.Tile;
 import model.Type;
 
 /*
@@ -20,43 +15,60 @@ import model.Type;
 
 public abstract class Attack
 {
-	protected int damage;
-	protected int verticalRange;
-	protected int horizontalRange;
-	protected Type damageType;//May make an enum to represent types 
-	protected Effect effect;//May make an enum to represent effects
-	protected AttackType attackType;
-	protected int targets;
-	protected File image;
+	protected String name;
+	protected int damage;//Damage attack deals to each target
+	protected int verticalRange;//Attack's vertical range
+	protected int horizontalRange;//Attack's horitzontal range
+	protected Type damageType;//Elemental Type of Attack 
+	protected Effect effect;//Type of Effect Attack has
+	protected RangeType rangeType;//Type of Attack in terms of Range
+	protected int targets;//Number of Targets the attack can hit - currently unused
+	protected File image;//Image for attack - currently unused
 	
 	public Attack()
 	{
 		
 	}
 	
+	//Returns damage that attack deals to an enemy
 	public int getDamage()
 	{
 		return damage;
 	}
 	
+	//returns elemental type of attack
 	public Type getType()
 	{
 		return damageType;
 	}
 	
+	//returns vertical range of attack
 	public int getVerticalRange()
 	{
 		return verticalRange;
 	}
 	
+	//Returns horizontal range of attack
 	public int getHorizontalRange()
 	{
 		return horizontalRange;
 	}
 	
-	public AttackType getAttackType()
+	//Returns attack type for range calculation
+	public RangeType getRangeType()
 	{
-		return attackType;
+		return rangeType;
 	}
 	
+	//Returns max number of targets attack can hit
+	public int getTargets()
+	{
+		return targets;
+	}
+	
+	//Returns attack's name
+	public String getName()
+	{
+		return name;
+	}
 }

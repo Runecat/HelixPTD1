@@ -8,47 +8,29 @@ import Mob.Mob;
 import model.Tile;
 import model.Type;
 
+/*
+ * Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ * Flamethrower.java - Class for the Flamethrower attack
+ */
+
 public class Flamethrower extends Attack
 {
 	public Flamethrower()
 	{
-		// TODO Auto-generated constructor stub
 		super();
-		super.damage = 25;
+		super.damage = 10;
 		super.verticalRange = 1;
-		super.horizontalRange = 25;
+		super.horizontalRange = 6;
 		super.damageType = Type.FIRE;
 		super.effect = Effect.burn;
-		super.attackType = AttackType.HORIZONTAL;
+		super.rangeType = RangeType.HORIZONTAL;
 		super.image = null;
-		super.targets = 1;
+		super.targets = 12;
 	}
-	
-	/*public int getDamage()
-	{
-		return damage;
-	}
-	
-	public Type getType()
-	{
-		return damageType;
-	}
-	
-	public int getVerticalRange()
-	{
-		return verticalRange;
-	}
-	
-	public int getHorizontalRange()
-	{
-		return horizontalRange;
-	}
-	
-	/*public ArrayList <Mob> calculateAffected(Mob[] mobs)
-	{
-		ArrayList<Mob> affectedMobs = new ArrayList<Mob>();
-		
-		return affectedMobs;
-	}*/
 }
 
