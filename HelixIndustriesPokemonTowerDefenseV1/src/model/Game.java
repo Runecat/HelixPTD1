@@ -40,6 +40,8 @@ public class Game extends PanelObservable {
 	
 	private List<Map> mapList;
 	
+	private Tower currentTowerInfo;
+	
 
 	private Map currentMap; // dont know if we want this for sure.
 	// Do we want the game class handling everything (main screen, map choice,
@@ -65,6 +67,14 @@ public class Game extends PanelObservable {
 		towerBuilder = new TowerBuilder();
 	}
 	
+	public void setCurrentTowerInfo(Tower t) {
+		currentTowerInfo = t;
+	}
+	
+	public Tower getCurrentTowerInfo() {
+		return currentTowerInfo;
+	}
+	
 	public int getTime() {
 		return timeElapsed/100;
 	}
@@ -78,6 +88,10 @@ public class Game extends PanelObservable {
 
 	public void startTimer() {
 		gameTimer.start();
+	}
+	
+	public void stopTimer() {
+		gameTimer.stop();
 	}
 
 	public void addMap(Map input) {

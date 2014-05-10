@@ -143,6 +143,10 @@ public class MapPanel extends JPanel implements PanelObserver {
 
 				theGame.setIsPlacingTower(false);
 			}
+			else {
+				theGame.setCurrentTowerInfo((Tower) currentMap.getObject(x, y));
+				theGame.notifyObservers();
+			}
 		}
 
 		@Override

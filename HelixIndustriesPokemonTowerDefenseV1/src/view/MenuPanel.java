@@ -1,30 +1,24 @@
 package view;
 
-import java.awt.AlphaComposite;
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.GridLayout;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
-import javax.imageio.ImageIO;
-import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
+import towers.Tower;
 import towers.TowerBuilder;
 import towers.TowerID;
 
@@ -35,12 +29,19 @@ import ObserverModel.PanelObserver;
 public class MenuPanel extends JPanel implements PanelObserver {
 
 	Game theGame;
+
+	JPanel infoPanel;
+	JTextArea info;
+	JButton evolveButton;
+
 	JPanel towerSelectPanel;
 	JLabel money;
 
 	JPanel startStopPanel;
+	JButton startButton = new JButton("Start Game!");
+	JButton pauseButton = new JButton("   Pause   ");
 	JLabel time;
-	
+
 	TowerSelectListener buttonListener;
 
 	public MenuPanel(Game theGame) { // constructor for the panel. Can be used
@@ -50,22 +51,21 @@ public class MenuPanel extends JPanel implements PanelObserver {
 		this.setLayout(new GridLayout(4, 1));
 
 		buttonListener = new TowerSelectListener();
-		
+
+		// infoPanel
+		buildInfoPanel();
+		this.add(infoPanel);
+
 		// towerSelectPanel
 		buildTowerSelectPanel();
 		this.add(towerSelectPanel);
 		// end towerSelectPanel
-		
+
 		// startStopPanel
-		startStopPanel = new JPanel();
-		JButton startButton = new JButton("Start Game!");
-		startButton.addActionListener(buttonListener);
-		startStopPanel.add(startButton);
-		time = new JLabel("Time: " + theGame.getTime());
-		startStopPanel.add(time);
+		buildStartStopPanel();
 		this.add(startStopPanel);
 		// end startStopPanel
-		
+
 		ChatPanel chat = new ChatPanel(this.theGame);
 		chat.setPreferredSize(new Dimension(150, 100));
 		this.add(chat);
@@ -92,14 +92,23 @@ public class MenuPanel extends JPanel implements PanelObserver {
 		this.setBorder(BorderFactory.createMatteBorder(-1, -1, -1, -1, icon));
 	}
 
+	public void buildInfoPanel() {
+		infoPanel = new JPanel();
+		info = new JTextArea();
+		info.setEditable(false);
+		infoPanel.add(new JLabel("Info:\n"));
+		infoPanel.add(info);
+		evolveButton = new JButton("Evolve!");
+		evolveButton.addActionListener(buttonListener);
+	}
+
 	public void buildTowerSelectPanel() {
 		towerSelectPanel = new JPanel();
 		towerSelectPanel.setLayout(new FlowLayout());
-		
 
 		money = new JLabel("Moneys: $" + theGame.getPlayer(0).getMoney());
 		towerSelectPanel.add(money);
-		
+
 		JButton charmanderButton = new JButton("Charmander");
 		charmanderButton.addActionListener(buttonListener);
 		towerSelectPanel.add(charmanderButton);
@@ -107,13 +116,32 @@ public class MenuPanel extends JPanel implements PanelObserver {
 		JButton charmeleonButton = new JButton("Charmeleon");
 		charmeleonButton.addActionListener(buttonListener);
 		towerSelectPanel.add(charmeleonButton);
-		
-		
+	}
+
+	private void buildStartStopPanel() {
+		startStopPanel = new JPanel();
+		pauseButton.addActionListener(buttonListener);
+		startButton.addActionListener(buttonListener);
+		startStopPanel.add(startButton);
+		time = new JLabel("Time: " + theGame.getTime());
+		startStopPanel.add(time);
 	}
 
 	public void menuPanelUpdate() {
 		money.setText("Moneys: $" + theGame.getPlayer(0).getMoney());
 		time.setText("Time: " + theGame.getTime());
+		if (theGame.getCurrentTowerInfo() != null) {
+			info.setText("  "
+					+ theGame.getCurrentTowerInfo().getName()
+					+ "  "
+					+ "\n"
+					+ "Attacks: "
+					+ theGame.getCurrentTowerInfo().getAttacks().get(0)
+							.getName());
+			if (theGame.getCurrentTowerInfo().getUpgraded() != null) {
+				infoPanel.add(evolveButton);
+			}
+		}
 	}
 
 	// good ol' paintComponent
@@ -132,6 +160,7 @@ public class MenuPanel extends JPanel implements PanelObserver {
 		// we will do updates to reflect upgrades and other things here.
 		menuPanelUpdate();
 		repaint();
+		startStopPanel.repaint();
 
 	}
 
@@ -142,26 +171,46 @@ public class MenuPanel extends JPanel implements PanelObserver {
 			JButton buttonClicked = (JButton) arg0.getSource();
 
 			if (buttonClicked.getText().equals("Charmander")) {
-				if (canAfford(TowerID.CHARMANDER)){
+				if (canAfford(TowerID.CHARMANDER)) {
 					theGame.setCurrentTowerSelected(TowerID.CHARMANDER);
 					theGame.setIsPlacingTower(true);
-				}
-				else
-					JOptionPane.showMessageDialog(new Frame(), "Can't Afford That!");
+				} else
+					JOptionPane.showMessageDialog(new Frame(),
+							"Can't Afford That!");
 			}
 			if (buttonClicked.getText().equals("Charmeleon")) {
-				if (canAfford(TowerID.CHARMELEON)){
+				if (canAfford(TowerID.CHARMELEON)) {
 					theGame.setCurrentTowerSelected(TowerID.CHARMELEON);
 					theGame.setIsPlacingTower(true);
-				}
-				else
-					JOptionPane.showMessageDialog(new Frame(), "Can't Afford That!");
+				} else
+					JOptionPane.showMessageDialog(new Frame(),
+							"Can't Afford That!");
 			}
-			
+
 			if (buttonClicked.getText().equals("Start Game!")) {
+				switchButtons(buttonClicked.getText());
 				theGame.startTimer();
 			}
-			
+
+			if (buttonClicked.getText().equals("   Pause   ")) {
+				switchButtons(buttonClicked.getText());
+				theGame.stopTimer();
+			}
+
+			if (buttonClicked.getText().equals("Evolve!")) {
+				if (theGame.getPlayer(0).getMoney() >= theGame
+						.getCurrentTowerInfo().getUpgraded().getBuy()) {
+					theGame.getPlayer(0).addMoney(
+							-1
+									* theGame.getCurrentTowerInfo()
+											.getUpgraded().getBuy());
+					theGame.setCurrentTowerInfo(theGame.getCurrentTowerInfo().getUpgraded());
+					theGame.getCurrentTowerInfo().upgradeTower();
+					theGame.notifyObservers();
+				}
+				else
+					JOptionPane.showMessageDialog(new Frame(),"Can't Afford That!");
+			}
 
 		}
 
@@ -173,6 +222,22 @@ public class MenuPanel extends JPanel implements PanelObserver {
 			else
 				return true;
 
+		}
+
+	}
+
+	public void switchButtons(String button) {
+		if (button == "Start Game!") {
+			startStopPanel.remove(startButton);
+			startStopPanel.remove(time);
+			startStopPanel.add(pauseButton);
+			startStopPanel.add(time);
+		} else {
+			startStopPanel.remove(pauseButton);
+			startStopPanel.remove(time);
+			startStopPanel.add(startButton);
+			startStopPanel.add(time);
+			startStopPanel.repaint();
 		}
 
 	}
