@@ -56,7 +56,7 @@ public class Game extends PanelObservable {
 
 	public Game() { // added constructor.
 		// add observers and other things.
-		Player thisPlayer = new Player();
+		Player thisPlayer = new Player("Chars");
 		thisPlayer.addMoney(1000);
 		this.addPlayer(thisPlayer);
 		
@@ -139,6 +139,7 @@ public class Game extends PanelObservable {
 		towerList.add(t);
 		players.get(0).addMoney(-1 * t.getBuy());
 		currentMap.createTower(x, y, t);
+		notifyObservers();
 	}
 
 	private class GameTimerListener implements ActionListener {

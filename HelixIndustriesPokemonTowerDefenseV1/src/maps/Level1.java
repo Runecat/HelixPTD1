@@ -34,31 +34,21 @@ public class Level1 extends Map {
 	ImageLoader loader;
 	
 	private BufferedImage background;
-	
-	
+	private String backgroundImageURL = "Images/Route5.png";
 	
 	private final int WIDTH = 20;
-	private final int HEIGHT = 20;
-	private final int TILE_LENGTH = 16;
-	
-	private LinkedList<Tile> path;
-	private ArrayList<Spawner> spawners;
-	private Game theGame;
-	ArrayList<Attack> attacks = new ArrayList<Attack>();
-	ArrayList<Tower> towers = new ArrayList<Tower>();
-	private Tile[][] grid;
+	private final int HEIGHT = 26;
+		
 	
 	public Level1(Game theGame) {
 		super();
 		super.setGame(theGame);
 		super.height = HEIGHT;
 		super.width = WIDTH;
-		super.tileLength = TILE_LENGTH;
-		this.theGame = theGame;
 		
 		theGame.setMap(this);
 		loader = new ImageLoader();
-		buildGrid(WIDTH, HEIGHT, TILE_LENGTH);
+		buildGrid(WIDTH, HEIGHT);
 		
 		try {
 			this.background = loader.loadImage("Images/Route5.png");
@@ -72,8 +62,10 @@ public class Level1 extends Map {
 		waves.add(new Wave02());
 		waves.add(new Wave03());
 		
-		grid = super.grid;
-		
+		// spawner will be declared for each map specifically.
+		Spawner spawn = new Spawner(grid[3][3], waves);
+		super.setSpawner(spawn);
+				
 		// TRACK NIGGA (defined specifically in each map)
 		grid[3][0].setNextPathTile(grid[3][1]);
 		grid[3][1].setNextPathTile(grid[3][2]);
@@ -88,59 +80,15 @@ public class Level1 extends Map {
 		grid[3][10].setNextPathTile(grid[4][10]);
 		grid[4][10].setNextPathTile(grid[5][10]);
 		grid[5][10].setNextPathTile(grid[5][11]);
-
-		
-		
-		// spawner will be declared for each map specifically.
-		Spawner spawn = new Spawner(grid[3][3], waves);
-		
-		// test creating tower
-		// his name is Chars.
-		//theGame.createTower(5, 5, TowerID.CHARMANDER);
-		
-		
-		super.setSpawner(spawn);
 		super.buildPath();
 		super.setLevels(waves.size());
-				
-	}
-	
-	
-	
-	public int getGridWidth() {
-		return grid.length;
-	}
-	
-	public int getGridHeight() {
-		return grid[0].length;
-	}
-	
-	public Tile[][] getGrid() {
-		return grid;
-	}
-	
-	
-	
+		
+		
+		// RIP IN PEACE CHARS
 
+	}
+	
 	public Image getBackground() {
 		return this.background;
 	}
-
-	@Override
-	public void setTower(int row, int col, Tower tower) {
-		grid[row][col].setObject(tower);
-		
-	}
-	
-	
-	
-
-	
-	
-	
-
-	
-
-	
-	
 }
