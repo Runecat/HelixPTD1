@@ -26,8 +26,7 @@ public class Spawner {
 
 	// Sends the wave of the level given, goes to sendMob listener
 	public void sendWave(int level) {
-		// Timer t = new Timer(5000, sendMob);
-		// t.start();
+		
 
 		if (level < waves.size())
 			setMobs(level);
@@ -36,7 +35,7 @@ public class Spawner {
 			mobs.remove(0);
 		}
 
-		level++;
+		this.level++;
 	}
 
 	// Called from sendWave

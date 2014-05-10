@@ -3,6 +3,7 @@ package view;
 import java.awt.AlphaComposite;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Frame;
 import java.awt.Graphics;
@@ -60,10 +61,14 @@ public class MenuPanel extends JPanel implements PanelObserver {
 		JButton startButton = new JButton("Start Game!");
 		startButton.addActionListener(buttonListener);
 		startStopPanel.add(startButton);
-		time = new JLabel();
+		time = new JLabel("Time: " + theGame.getTime());
 		startStopPanel.add(time);
 		this.add(startStopPanel);
 		// end startStopPanel
+		
+		ChatPanel chat = new ChatPanel(this.theGame);
+		chat.setPreferredSize(new Dimension(150, 100));
+		this.add(chat);
 
 		ImageLoader loader = new ImageLoader();
 		SpriteSheet overworldSheet = null;
@@ -156,7 +161,7 @@ public class MenuPanel extends JPanel implements PanelObserver {
 			if (buttonClicked.getText().equals("Start Game!")) {
 				theGame.startTimer();
 			}
-
+			
 
 		}
 
