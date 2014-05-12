@@ -11,6 +11,7 @@ import view.ImageLoader;
 import attacks.Attack;
 import attacks.Ember;
 import attacks.Flamethrower;
+import attacks.Thundershock;
 import maps.Map;
 import model.Tile;
 import model.Type;
@@ -34,8 +35,7 @@ public class Pikachu extends Tower
 		super.name = "Pikachu";
 		super.type = Type.ELECTRIC;
 		ArrayList<Attack> a = new ArrayList<Attack>();
-		a.add(new Flamethrower());
-		super.attacks.add(new Ember());
+		super.attacks.add(new Thundershock());
 		super.upgraded = new Raichu(t,m);
 		super.buyPrice = 150;
 		super.upgradePrice = 350;

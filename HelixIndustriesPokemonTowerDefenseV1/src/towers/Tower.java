@@ -11,6 +11,7 @@ import model.Clickable;
 import model.Player;
 import model.Tile;
 import model.Type;
+import attacks.Effect;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -331,6 +332,27 @@ public abstract class Tower implements Clickable
 		}
 		
 		m.setHealth(m.getHealth() - damageDealt);
+		
+		if(m.getHealth() > 0){
+			double random = Math.round(Math.random() * 100);
+			switch(attacks.get(0).getEffect()){
+			
+			case burn:
+				if(random <= 10){
+					m.setEffect(Effect.burn);
+					System.out.println("SWEET JESUS IM ON FIRE");
+				}
+				break;
+				
+			case paralyze:
+				if(random <= 200){
+					m.setEffect(Effect.paralyze);
+					System.out.println("VEGETABLE STATUS");
+				}
+				break;
+			default:break;
+			}
+		}
 	}
 	
 	public void attackEnemy(Attack a, ArrayList<Mob> inRange)
