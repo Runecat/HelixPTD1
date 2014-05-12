@@ -6,7 +6,7 @@ import model.Type;
 
 public class Vulpix extends Mob{
 
-	public Vulpix(BufferedImage b) {
+	public Vulpix(BufferedImage[] b) {
 		super(b);
 		super.name = "Vulpix";
 		super.health = 45;

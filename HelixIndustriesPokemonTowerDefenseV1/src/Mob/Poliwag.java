@@ -6,7 +6,7 @@ import model.Type;
 
 public class Poliwag extends Mob{
 
-	public Poliwag(BufferedImage b){
+	public Poliwag(BufferedImage[] b){
 		super(b);
 		super.name = "Poliwag";
 		super.health = 35;

@@ -6,7 +6,7 @@ import model.Type;
 
 public class Gyarados extends Mob{
 
-	public Gyarados(BufferedImage b) {
+	public Gyarados(BufferedImage[] b) {
 		super(b);
 		super.name = "Dragonite";
 		super.health = 800;

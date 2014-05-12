@@ -6,7 +6,7 @@ import model.Type;
 
 public class Lickitung extends Mob{
 
-	public Lickitung(BufferedImage b) {
+	public Lickitung(BufferedImage[] b) {
 		super(b);
 		super.name = "Lickitung";
 		super.health = 100;

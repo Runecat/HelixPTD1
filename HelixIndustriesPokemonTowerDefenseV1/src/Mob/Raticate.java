@@ -6,7 +6,7 @@ import model.Type;
 
 public class Raticate extends Mob{
 
-	public Raticate(BufferedImage b) {
+	public Raticate(BufferedImage[] b) {
 		super(b);
 		super.name = "Raticate";
 		super.health = 30;

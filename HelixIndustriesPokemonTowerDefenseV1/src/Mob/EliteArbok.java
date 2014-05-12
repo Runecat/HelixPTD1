@@ -6,7 +6,7 @@ import model.Type;
 
 public class EliteArbok extends Mob{
 
-	public EliteArbok(BufferedImage b) {
+	public EliteArbok(BufferedImage[] b) {
 		super(b);
 		super.name = "Arbok";
 		super.health = 350;

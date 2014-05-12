@@ -6,7 +6,7 @@ import model.Type;
 
 public class BlastoiseMob extends Mob{
 
-	public BlastoiseMob(BufferedImage b) {
+	public BlastoiseMob(BufferedImage[] b) {
 		super(b);
 		super.name = "Blastoise";
 		super.health = 600;

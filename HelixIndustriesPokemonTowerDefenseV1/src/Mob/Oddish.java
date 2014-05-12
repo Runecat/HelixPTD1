@@ -5,7 +5,7 @@ import model.Type;
 
 public class Oddish extends Mob{
 
-	public Oddish(BufferedImage b) {
+	public Oddish(BufferedImage[] b) {
 		super(b);
 		super.name = "Oddish";
 		super.health = 30;

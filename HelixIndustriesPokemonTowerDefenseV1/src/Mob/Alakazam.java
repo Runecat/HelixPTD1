@@ -6,7 +6,7 @@ import model.Type;
 
 public class Alakazam extends Mob{
 
-	public Alakazam(BufferedImage b) {
+	public Alakazam(BufferedImage[] b) {
 		super(b);
 		super.name = "Alakazam";
 		super.health = 60;

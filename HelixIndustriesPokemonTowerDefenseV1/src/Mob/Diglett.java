@@ -8,7 +8,7 @@ import model.Type;
 public class Diglett extends Mob{
 
 	
-	public Diglett(BufferedImage b){
+	public Diglett(BufferedImage[] b){
 		super(b);
 		super.name = "Diglett";
 		super.health = 15;

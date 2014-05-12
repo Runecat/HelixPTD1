@@ -6,7 +6,7 @@ import model.Type;
 
 public class Ponyta extends Mob{
 
-	public Ponyta(BufferedImage b) {
+	public Ponyta(BufferedImage[] b) {
 		super(b);
 		super.name = "Ponyta";
 		super.health = 60;

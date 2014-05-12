@@ -6,7 +6,7 @@ import model.Type;
 
 public class Magnemite extends Mob{
 
-	public Magnemite(BufferedImage b) {
+	public Magnemite(BufferedImage[] b) {
 		super(b);
 		super.name = "Magnemite";
 		super.health = 15;

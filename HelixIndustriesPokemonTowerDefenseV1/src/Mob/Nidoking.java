@@ -6,7 +6,7 @@ import model.Type;
 
 public class Nidoking extends Mob{
 
-	public Nidoking(BufferedImage b) {
+	public Nidoking(BufferedImage[] b) {
 		super(b);
 		super.name = "Nidoking";
 		super.health = 150;

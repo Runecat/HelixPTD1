@@ -6,7 +6,7 @@ import model.Type;
 
 public class Psyduck extends Mob{
 
-	public Psyduck(BufferedImage b){
+	public Psyduck(BufferedImage[] b){
 		super(b);
 		super.name = "Psyduck";
 		super.health = 35;

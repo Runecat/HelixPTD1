@@ -6,7 +6,7 @@ import model.Type;
 
 public class Marowak extends Mob{
 
-	public Marowak(BufferedImage b) {
+	public Marowak(BufferedImage[] b) {
 		super(b);
 		super.name = "Articuno";
 		super.health = 80;

@@ -6,7 +6,7 @@ import model.Type;
 
 public class Articuno extends Mob{
 
-	public Articuno(BufferedImage b) {
+	public Articuno(BufferedImage[] b) {
 		super(b);
 		super.name = "Articuno";
 		super.health = 200;

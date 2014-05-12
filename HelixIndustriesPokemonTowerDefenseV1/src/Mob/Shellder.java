@@ -6,7 +6,7 @@ import model.Type;
 
 public class Shellder extends Mob{
 
-	public Shellder(BufferedImage b) {
+	public Shellder(BufferedImage[] b) {
 		super(b);
 		super.name = "Shellder";
 		super.health = 55;

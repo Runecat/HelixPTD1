@@ -6,7 +6,7 @@ import model.Type;
 
 public class Moltres extends Mob{
 
-	public Moltres(BufferedImage b) {
+	public Moltres(BufferedImage[] b) {
 		super(b);
 		super.name = "Moltres";
 		super.health = 200;

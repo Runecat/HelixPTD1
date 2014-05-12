@@ -6,7 +6,7 @@ import model.Type;
 
 public class Zubat extends Mob{
 
-	public Zubat(BufferedImage b){
+	public Zubat(BufferedImage[] b){
 		super(b);
 		super.name = "Zubat";
 		super.health = 10;

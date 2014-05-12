@@ -6,7 +6,7 @@ import model.Type;
 
 public class Ninetales extends Mob{
 
-	public Ninetales(BufferedImage b) {
+	public Ninetales(BufferedImage[] b) {
 		super(b);
 		super.name = "Ninetales";
 		super.health = 65;

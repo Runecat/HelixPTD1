@@ -6,7 +6,7 @@ import model.Type;
 
 public class Seel extends Mob{
 
-	public Seel(BufferedImage b) {
+	public Seel(BufferedImage[] b) {
 		super(b);
 		super.name = "Dewgong";
 		super.health = 60;

@@ -6,7 +6,7 @@ import model.Type;
 
 public class EliteOnix extends Mob{
 
-	public EliteOnix(BufferedImage b) {
+	public EliteOnix(BufferedImage[] b) {
 		super(b);
 		super.name = "Onix";
 		super.health = 500;

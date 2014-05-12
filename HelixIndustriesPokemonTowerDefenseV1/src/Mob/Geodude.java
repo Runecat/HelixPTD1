@@ -7,7 +7,7 @@ import model.Type;
 
 public class Geodude extends Mob{
 
-	public Geodude(BufferedImage b){
+	public Geodude(BufferedImage[] b){
 		super(b);
 		super.name = "Geodude";
 		super.health = 75;

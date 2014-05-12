@@ -6,7 +6,7 @@ import model.Type;
 
 public class Cloyster extends Mob{
 
-	public Cloyster(BufferedImage b) {
+	public Cloyster(BufferedImage[] b) {
 		super(b);
 		super.name = "Cloyster";
 		super.health = 400;

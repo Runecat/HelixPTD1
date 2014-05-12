@@ -6,7 +6,7 @@ import model.Type;
 
 public class Voltorb extends Mob{
 
-	public Voltorb(BufferedImage b) {
+	public Voltorb(BufferedImage[] b) {
 		super(b);
 		super.name = "Voltorb";
 		super.health = 20;

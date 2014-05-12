@@ -6,7 +6,7 @@ import model.Type;
 
 public class Venonat extends Mob{
 
-	public Venonat(BufferedImage b) {
+	public Venonat(BufferedImage[] b) {
 		super(b);
 		super.name = "Venonat";
 		super.health = 45;

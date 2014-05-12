@@ -6,7 +6,7 @@ import model.Type;
 
 public class RaichuMob extends Mob{
 
-	public RaichuMob(BufferedImage b){
+	public RaichuMob(BufferedImage[] b){
 		super(b);
 		super.name = "Raichu";
 		super.health = 60;

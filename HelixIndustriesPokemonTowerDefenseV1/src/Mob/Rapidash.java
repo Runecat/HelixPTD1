@@ -6,7 +6,7 @@ import model.Type;
 
 public class Rapidash extends Mob{
 
-	public Rapidash(BufferedImage b) {
+	public Rapidash(BufferedImage[] b) {
 		super(b);
 		super.name = "Ponyta";
 		super.health = 75;

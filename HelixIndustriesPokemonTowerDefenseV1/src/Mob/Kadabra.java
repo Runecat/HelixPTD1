@@ -6,7 +6,7 @@ import model.Type;
 
 public class Kadabra extends Mob{
 
-	public Kadabra(BufferedImage b) {
+	public Kadabra(BufferedImage[] b) {
 		super(b);
 		super.name = "Kadabra";
 		super.health = 40;

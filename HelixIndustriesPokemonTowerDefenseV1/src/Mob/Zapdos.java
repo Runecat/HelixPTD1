@@ -6,7 +6,7 @@ import model.Type;
 
 public class Zapdos extends Mob{
 
-	public Zapdos(BufferedImage b) {
+	public Zapdos(BufferedImage[] b) {
 		super(b);
 		super.name = "Zapdos";
 		super.health = 200;

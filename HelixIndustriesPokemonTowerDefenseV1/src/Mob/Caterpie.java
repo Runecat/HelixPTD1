@@ -9,7 +9,7 @@ public class Caterpie extends Mob{
 
 
 	
-	public Caterpie(BufferedImage b){
+	public Caterpie(BufferedImage[] b){
 		super(b);
 		super.name = "Caterpie";
 		super.health = 15;
