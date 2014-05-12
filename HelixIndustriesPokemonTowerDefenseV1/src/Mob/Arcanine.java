@@ -6,7 +6,7 @@ import model.Type;
 
 public class Arcanine extends Mob{
 
-	public Arcanine(BufferedImage b) {
+	public Arcanine(BufferedImage[] b) {
 		super(b);
 		super.name = "Arcanine";
 		super.health = 75;

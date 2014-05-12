@@ -6,7 +6,7 @@ import model.Type;
 
 public class CharizardMob extends Mob{
 
-	public CharizardMob(BufferedImage b) {
+	public CharizardMob(BufferedImage[] b) {
 		super(b);
 		super.name = "Charizard";
 		super.health = 600;

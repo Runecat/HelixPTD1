@@ -6,7 +6,7 @@ import model.Type;
 
 public class Dragonite extends Mob{
 
-	public Dragonite(BufferedImage b) {
+	public Dragonite(BufferedImage[] b) {
 		super(b);
 		super.name = "Dragonite";
 		super.health = 700;

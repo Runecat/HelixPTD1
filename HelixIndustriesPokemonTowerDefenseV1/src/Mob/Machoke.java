@@ -6,7 +6,7 @@ import model.Type;
 
 public class Machoke extends Mob{
 
-	public Machoke(BufferedImage b) {
+	public Machoke(BufferedImage[] b) {
 		super(b);
 		super.name = "Machoke";
 		super.health = 80;

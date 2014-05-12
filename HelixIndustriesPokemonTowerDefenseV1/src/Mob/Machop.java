@@ -6,7 +6,7 @@ import model.Type;
 
 public class Machop extends Mob{
 
-	public Machop(BufferedImage b) {
+	public Machop(BufferedImage[] b) {
 		super(b);
 		super.name = "Machop";
 		super.health = 60;

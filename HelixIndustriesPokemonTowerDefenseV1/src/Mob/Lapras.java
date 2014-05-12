@@ -6,7 +6,7 @@ import model.Type;
 
 public class Lapras extends Mob{
 
-	public Lapras(BufferedImage b) {
+	public Lapras(BufferedImage[] b) {
 		super(b);
 		super.name = "Lapras";
 		super.health = 800;

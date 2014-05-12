@@ -338,14 +338,14 @@ public abstract class Tower implements Clickable
 			switch(attacks.get(0).getEffect()){
 			
 			case burn:
-				if(random <= 10){
+				if(random <= 1){
 					m.setEffect(Effect.burn);
 					System.out.println("SWEET JESUS IM ON FIRE");
 				}
 				break;
 				
 			case paralyze:
-				if(random <= 200){
+				if(random <= 2){
 					m.setEffect(Effect.paralyze);
 					System.out.println("VEGETABLE STATUS");
 				}

@@ -16,16 +16,14 @@ public abstract class Mob implements Clickable {
 	// May need location variables
 	
 	protected String name;
-	private BufferedImage image;
+	private BufferedImage[] image = new BufferedImage [6];
 	protected int health;
 	protected int moveSpeed;
 	protected Type type;// Might make into enum
 	protected int delay;
 
-	
 	private int baseDamage = 1;
 
-	
 	private Effect status;
 	protected int money;
 	private Map track = null;
@@ -34,9 +32,8 @@ public abstract class Mob implements Clickable {
 	public Headquarters HQ;
 	public Tile currentTile;
 
-	public Mob(BufferedImage b) {
+	public Mob(BufferedImage[] b) {
 		image = b;
-		delay = 0;
 	}
 	
 	//public void spawnMob(int spawnRow, int spawnCol){
@@ -94,11 +91,11 @@ public abstract class Mob implements Clickable {
 		this.type = mobType;
 	}
 
-	public BufferedImage getImage() {
+	public BufferedImage[] getImage() {
 		return image;
 	}
 
-	public void setImage(BufferedImage image) {
+	public void setImage(BufferedImage[] image) {
 		this.image = image;
 	}
 

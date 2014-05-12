@@ -6,7 +6,7 @@ import model.Type;
 
 public class GravelerMob extends Mob{
 
-	public GravelerMob(BufferedImage b) {
+	public GravelerMob(BufferedImage[] b) {
 		super(b);
 		super.name = "Articuno";
 		super.health = 200;

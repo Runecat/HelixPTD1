@@ -8,7 +8,7 @@ import model.Type;
 public class Spearow extends Mob{
 
 
-	public Spearow(BufferedImage b){
+	public Spearow(BufferedImage[] b){
 		super(b);
 		super.name = "Spearow";
 		super.health = 20;

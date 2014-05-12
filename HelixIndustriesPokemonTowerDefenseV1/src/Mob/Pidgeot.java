@@ -6,7 +6,7 @@ import model.Type;
 
 public class Pidgeot extends Mob{
 
-	public Pidgeot(BufferedImage b) {
+	public Pidgeot(BufferedImage[] b) {
 		super(b);
 		super.name = "Pidgeot";
 		super.health = 500;

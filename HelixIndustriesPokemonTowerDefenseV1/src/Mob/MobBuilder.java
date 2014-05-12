@@ -91,7 +91,7 @@ public class MobBuilder {
 			break;
 
 		case ARCANINE:
-			mob = new Arcanine(mobSprites[7]);
+			mob = new Arcanine({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
 			break;
 
 		case ARTICUNO:
@@ -219,7 +219,7 @@ public class MobBuilder {
 			break;
 
 		case GROWLITHE:
-			mob = new Growlithe(mobSprites[7]);
+			mob = new Growlithe({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
 			break;
 
 		case GYARADOS:
@@ -227,7 +227,7 @@ public class MobBuilder {
 			break;
 
 		case HAUNTER:
-			mob = new Haunter(mobSprites[1]);
+			mob = new Haunter({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
 			break;
 
 		case HITMONCHAN:
@@ -247,7 +247,7 @@ public class MobBuilder {
 			break;
 
 		case JIGGLYPUFF:
-			mob = new Jigglypuff(mobSprites[1]);
+			mob = new Jigglypuff({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
 			break;
 
 		case JYNX:
@@ -323,7 +323,7 @@ public class MobBuilder {
 			break;
 
 		case NINETALES:
-			mob = new Ninetales(mobSprites[7]);
+			mob = new Ninetales({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
 			break;
 
 		case ODDISH:
@@ -351,7 +351,7 @@ public class MobBuilder {
 			break;
 
 		case PIKACHU:
-			mob = new PikachuMob(mobSprites[1]);
+			mob = new PikachuMob({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
 			break;
 
 		case POLIWAG:
@@ -359,7 +359,7 @@ public class MobBuilder {
 			break;
 
 		case PONYTA:
-			mob = new Ponyta(mobSprites[7]);
+			mob = new Ponyta({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
 			break;
 
 		case PSYDUCK:
@@ -367,19 +367,19 @@ public class MobBuilder {
 			break;
 
 		case RAICHU:
-			mob = new RaichuMob(mobSprites[1]);
+			mob = new RaichuMob({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
 			break;
 
 		case RAPIDASH:
-			mob = new Rapidash(mobSprites[7]);
+			mob = new Rapidash({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
 			break;
 
 		case RATICATE:
-			mob = new Raticate(mobSprites[7]);
+			mob = new Raticate({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
 			break;
 
 		case RATTATA:
-			mob = new Rattata(mobSprites[7]);
+			mob = new Rattata({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
 			break;
 
 		case RHYDON:
@@ -387,11 +387,11 @@ public class MobBuilder {
 			break;
 
 		case RHYHORN:
-			mob = new Rhyhorn(mobSprites[7]);
+			mob = new Rhyhorn({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
 			break;
 
 		case SANDSHREW:
-			mob = new Sandshrew(mobSprites[1]);
+			mob = new Sandshrew({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
 			break;
 
 		case SEEL:
@@ -407,7 +407,7 @@ public class MobBuilder {
 			break;
 
 		case SLOWPOKE:
-			mob = new Slowpoke(mobSprites[7]);
+			mob = new Slowpoke({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
 			break;
 
 		case SNORLAX:
@@ -431,7 +431,7 @@ public class MobBuilder {
 			break;
 
 		case TAUROS:
-			mob = new Tauros(mobSprites[7]);
+			mob = new Tauros({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
 			break;
 
 		case TENTACOOL:
@@ -467,7 +467,7 @@ public class MobBuilder {
 			break;
 
 		case VULPIX:
-			mob = new Vulpix(mobSprites[7]);
+			mob = new Vulpix({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
 			break;
 
 		case WEEDLE:

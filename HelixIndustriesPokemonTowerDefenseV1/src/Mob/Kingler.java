@@ -6,7 +6,7 @@ import model.Type;
 
 public class Kingler extends Mob{
 
-	public Kingler(BufferedImage b) {
+	public Kingler(BufferedImage[] b) {
 		super(b);
 		super.name = "Kingler";
 		super.health = 100;

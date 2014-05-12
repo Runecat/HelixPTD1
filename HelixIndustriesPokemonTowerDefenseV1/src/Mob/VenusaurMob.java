@@ -6,7 +6,7 @@ import model.Type;
 
 public class VenusaurMob extends Mob{
 
-	public VenusaurMob(BufferedImage b) {
+	public VenusaurMob(BufferedImage[] b) {
 		super(b);
 		super.name = "Venasaur";
 		super.health = 600;

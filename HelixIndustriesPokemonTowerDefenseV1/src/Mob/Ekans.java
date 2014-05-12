@@ -6,7 +6,7 @@ import model.Type;
 
 public class Ekans extends Mob{
 
-	public Ekans(BufferedImage b){
+	public Ekans(BufferedImage[] b){
 		super(b);
 		super.name = "Ekans";
 		super.health = 25;

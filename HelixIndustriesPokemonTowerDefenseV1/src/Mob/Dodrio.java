@@ -6,7 +6,7 @@ import model.Type;
 
 public class Dodrio extends Mob{
 
-	public Dodrio(BufferedImage b) {
+	public Dodrio(BufferedImage[] b) {
 		super(b);
 		super.name = "Dodrio";
 		super.health = 60;

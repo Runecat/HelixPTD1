@@ -8,7 +8,7 @@ import Mob.Mob;
 
 public class Vileplume extends Mob{
 
-	public Vileplume(BufferedImage b) {
+	public Vileplume(BufferedImage[] b) {
 		super(b);
 		super.name = "Vileplume";
 		super.health = 85;

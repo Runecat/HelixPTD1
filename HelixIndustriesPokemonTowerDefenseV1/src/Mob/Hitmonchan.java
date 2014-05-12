@@ -6,7 +6,7 @@ import model.Type;
 
 public class Hitmonchan extends Mob{
 
-	public Hitmonchan(BufferedImage b) {
+	public Hitmonchan(BufferedImage[] b) {
 		super(b);
 		super.name = "Hitmonchan";
 		super.health = 350;

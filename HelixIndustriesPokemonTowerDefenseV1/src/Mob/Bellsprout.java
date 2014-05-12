@@ -7,7 +7,7 @@ import model.Type;
 public class Bellsprout extends Mob{
 
 	
-	public Bellsprout(BufferedImage b) {
+	public Bellsprout(BufferedImage[] b) {
 		super(b);
 		super.name = "Bellsprout";
 		super.health = 40;

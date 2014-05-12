@@ -6,7 +6,7 @@ import model.Type;
 
 public class Growlithe extends Mob{
 
-	public Growlithe(BufferedImage b) {
+	public Growlithe(BufferedImage[] b) {
 		super(b);
 		super.name = "Growlithe";
 		super.health = 50;

@@ -6,7 +6,7 @@ import model.Type;
 
 public class Weezing extends Mob{
 
-	public Weezing(BufferedImage b) {
+	public Weezing(BufferedImage[] b) {
 		super(b);
 		super.name = "Weezing";
 		super.health = 80;

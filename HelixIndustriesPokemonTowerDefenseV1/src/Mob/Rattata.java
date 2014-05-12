@@ -13,7 +13,7 @@ public class Rattata extends Mob{
 	private Type type;
 	private int money;
 	*/
-	public Rattata(BufferedImage b){
+	public Rattata(BufferedImage[] b){
 		super(b);
 		super.name = "Rattata";
 		super.health = 15;

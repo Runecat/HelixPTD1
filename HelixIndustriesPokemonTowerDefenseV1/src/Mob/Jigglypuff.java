@@ -7,7 +7,7 @@ import model.Type;
 
 public class Jigglypuff extends Mob{
 
-	public Jigglypuff(BufferedImage b){
+	public Jigglypuff(BufferedImage[] b){
 		super(b);
 		super.name = "Jigglypuff";
 		super.health = 50;

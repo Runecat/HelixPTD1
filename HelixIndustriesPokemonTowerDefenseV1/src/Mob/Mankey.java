@@ -7,7 +7,7 @@ import model.Type;
 
 public class Mankey extends Mob{
 
-	public Mankey(BufferedImage b){
+	public Mankey(BufferedImage[] b){
 		super(b);
 		super.name = "Mankey";
 		super.health = 20;

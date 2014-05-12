@@ -7,7 +7,7 @@ import model.Type;
 
 public class Sandshrew extends Mob{
 
-	public Sandshrew(BufferedImage b){
+	public Sandshrew(BufferedImage[] b){
 		super(b);
 		super.name = "Sandshrew";
 		super.health = 35;

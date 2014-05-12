@@ -6,7 +6,7 @@ import model.Type;
 
 public class MrMime extends Mob{
 
-	public MrMime(BufferedImage b) {
+	public MrMime(BufferedImage[] b) {
 		super(b);
 		super.name = "Mr. Mime";
 		super.health = 60;

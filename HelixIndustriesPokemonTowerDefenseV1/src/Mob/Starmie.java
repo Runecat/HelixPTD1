@@ -6,7 +6,7 @@ import model.Type;
 
 public class Starmie extends Mob{
 
-	public Starmie(BufferedImage b) {
+	public Starmie(BufferedImage[] b) {
 		super(b);
 		super.name = "Starmie";
 		super.health = 50;

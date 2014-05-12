@@ -6,7 +6,7 @@ import model.Type;
 
 public class Slowpoke extends Mob{
 
-	public Slowpoke(BufferedImage b) {
+	public Slowpoke(BufferedImage[] b) {
 		super(b);
 		super.name = "Slowpoke";
 		super.health = 120;

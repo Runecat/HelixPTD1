@@ -6,7 +6,7 @@ import model.Type;
 
 public class Muk extends Mob{
 
-	public Muk(BufferedImage b) {
+	public Muk(BufferedImage[] b) {
 		super(b);
 		super.name = "Muk";
 		super.health = 120;

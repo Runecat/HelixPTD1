@@ -6,7 +6,7 @@ import model.Type;
 
 public class Koffing extends Mob{
 
-	public Koffing(BufferedImage b) {
+	public Koffing(BufferedImage[] b) {
 		super(b);
 		super.name = "Koffing";
 		super.health = 60;

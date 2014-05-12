@@ -7,7 +7,7 @@ import model.Type;
 
 public class Meowth extends Mob{
 
-	public Meowth(BufferedImage b) {
+	public Meowth(BufferedImage[] b) {
 		super(b);
 		super.name = "Meowth";
 		super.health = 45;

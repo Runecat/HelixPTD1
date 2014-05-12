@@ -6,7 +6,7 @@ import model.Type;
 
 public class Exeggcute extends Mob{
 
-	public Exeggcute(BufferedImage b) {
+	public Exeggcute(BufferedImage[] b) {
 		super(b);
 		super.name = "Exeggcute";
 		super.health = 80;

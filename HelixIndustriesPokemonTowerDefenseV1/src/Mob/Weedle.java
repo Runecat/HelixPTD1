@@ -7,7 +7,7 @@ import model.Type;
 
 public class Weedle extends Mob{
 
-	public Weedle(BufferedImage b){
+	public Weedle(BufferedImage[] b){
 		super(b);
 		super.name = "Weedle";
 		super.health = 15;
