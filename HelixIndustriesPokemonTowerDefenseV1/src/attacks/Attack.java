@@ -42,6 +42,10 @@ public abstract class Attack
 		return damageType;
 	}
 	
+	public Effect getEffect(){
+		return effect;
+	}
+	
 	//returns vertical range of attack
 	public int getVerticalRange()
 	{

@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import javax.swing.Timer;
 
+import attacks.Effect;
+
 import towers.Tower;
 
 import Mob.Mob;
@@ -61,7 +63,11 @@ public class Tile {
 						if (mobList.size() == 0) {
 							return;
 						} else {
-							if (mobList.get(i).getHealth() > 0) {
+							if ((mobList.get(i).getHealth() > 0) && (mobList.get(i).getEffect() == Effect.paralyze)) {
+								if(mobList.get(i).getEffect() == Effect.burn){
+									mobList.get(i).setHealth(mobList.get(i).getHealth() - 2);//set image to fire if health  < 0 
+								}
+								mobList.get(i).setEffect(Effect.none);
 								Mob temp = removeMob(i);
 								next.addMobs(temp);
 							}

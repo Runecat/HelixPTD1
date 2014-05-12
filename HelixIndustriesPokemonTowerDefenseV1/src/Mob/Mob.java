@@ -15,11 +15,12 @@ public abstract class Mob implements Clickable {
 	
 	// May need location variables
 	
-	protected String name = "";
+	protected String name;
 	private BufferedImage image;
-	protected int health = 1;
-	protected int moveSpeed = 1;
+	protected int health;
+	protected int moveSpeed;
 	protected Type type;// Might make into enum
+	protected int delay;
 
 	
 	private int baseDamage = 1;
@@ -35,6 +36,7 @@ public abstract class Mob implements Clickable {
 
 	public Mob(BufferedImage b) {
 		image = b;
+		delay = 0;
 	}
 	
 	//public void spawnMob(int spawnRow, int spawnCol){
@@ -49,6 +51,9 @@ public abstract class Mob implements Clickable {
 		return currentTile;
 	}
 	
+	public void setDelay(int i){
+		delay = i;
+	}
 	
 
 	// Shows the Mob's information ()
@@ -96,8 +101,6 @@ public abstract class Mob implements Clickable {
 	public void setImage(BufferedImage image) {
 		this.image = image;
 	}
-
-	
 
 	public String getName() {
 		return name;

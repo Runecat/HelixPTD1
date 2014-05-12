@@ -11,6 +11,7 @@ import view.ImageLoader;
 import attacks.Attack;
 import attacks.Ember;
 import attacks.Flamethrower;
+import attacks.Thunder;
 import maps.Map;
 import model.Tile;
 import model.Type;
@@ -34,8 +35,7 @@ public class Raichu extends Tower
 		super.name = "Raichu";
 		super.type = Type.ELECTRIC;
 		ArrayList<Attack> a = new ArrayList<Attack>();
-		a.add(new Flamethrower());
-		super.attacks.add(new Ember());
+		super.attacks.add(new Thunder());
 		super.upgraded = null;
 		super.buyPrice = 350;
 		super.upgradePrice = 0;
