@@ -4,6 +4,8 @@ import java.awt.image.BufferedImage;
 
 import Mob.Arcanine;
 import Mob.Growlithe;
+import Mob.MobBuilder;
+import Mob.MobID;
 import Mob.Ninetales;
 import Mob.Ponyta;
 import Mob.Rapidash;
@@ -14,37 +16,31 @@ public class Wave35CinnabarGym extends Wave{
 	private int delay = 250;
 	private int level = 35;
 	
-	private BufferedImage rapidash;
-	private BufferedImage growlithe;
-	private BufferedImage vulpix;
-	private BufferedImage ninetales;
-	private BufferedImage ponyta;
-	private BufferedImage arcanine;
-	
 	public Wave35CinnabarGym(){
 		super();
+		MobBuilder m = super.mobBuilder;
 		for(int i = 0; i < 1700; i++){
 			if(i < 2000){
 				if(i % 17 == 0)
-					add(new Rapidash(rapidash));
+					add(m.buildMob(MobID.RAPIDASH));
 				else if(i % 11 == 0)
-					add(new Ninetales(ninetales));
+					add(m.buildMob(MobID.NINETALES));
 				else if(1 % 3 == 0)
-					add(new Vulpix(vulpix));
+					add(m.buildMob(MobID.VULPIX));
 				else if(i % 2 == 0)
-					add(new Ponyta(ponyta));
+					add(m.buildMob(MobID.PONYTA));
 				else
-					add(new Growlithe(growlithe));
+					add(m.buildMob(MobID.GROWLITHE));
 			}
 			else{
 				if(i % 4 == 0)
-					add(new Growlithe(growlithe));
+					add(m.buildMob(MobID.GROWLITHE));
 				else if(i % 3 == 0)
-					add(new Ponyta(ponyta));
+					add(m.buildMob(MobID.PONYTA));
 				else if(i % 2 == 0)
-					add(new Rapidash(rapidash));
+					add(m.buildMob(MobID.RAPIDASH)));
 				else
-					add(new Arcanine(arcanine));
+					add(m.buildMob(MobID.ARCANINE));
 			}
 		}
 	}

@@ -7,28 +7,26 @@ import Mob.Dewgong;
 import Mob.EliteOnix;
 import Mob.Hitmonlee;
 import Mob.Machamp;
+import Mob.MobBuilder;
+import Mob.MobID;
 
 public class Wave47EliteBruno extends Wave{
 
 	private int delay = 444;
 	private int level = 47;
 	
-	private BufferedImage eliteOnix;
-	private BufferedImage hitmonlee;
-	private BufferedImage hitmonchan;
-	private BufferedImage machamp;
-	
 	public Wave47EliteBruno(){
 		super();
+		MobBuilder m = super.mobBuilder;
 		for(int i = 0; i < 4000; i++){
 			if(i % 4 == 0)
-				add(new Hitmonlee(hitmonlee));
+				add(m.buildMob(MobID.HITMONLEE));
 			else if(i % 3 == 0)
-				add(new Hitmonchan(hitmonchan));
+				add(m.buildMob(MobID.HITMONCHAN));
 			else if(i % 2 == 0)
-				add(new Machamp(machamp));
+				add(m.buildMob(MobID.MACHAMP));
 			else
-				add(new EliteOnix(eliteOnix));
+				add(m.buildMob(ModID.ELITE_ONIX));
 		}
 	}
 }

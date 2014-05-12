@@ -6,6 +6,8 @@ import Mob.Cloyster;
 import Mob.Dewgong;
 import Mob.Jynx;
 import Mob.Lapras;
+import Mob.MobBuilder;
+import Mob.MobID;
 import Mob.Slowbro;
 
 public class Wave46EliteLorelei extends Wave{
@@ -13,26 +15,20 @@ public class Wave46EliteLorelei extends Wave{
 	private int delay = 444;
 	private int level = 46;
 	
-	private BufferedImage lapras;
-	private BufferedImage cloyster;
-	private BufferedImage dewgong;
-	private BufferedImage slowbro;
-	private BufferedImage jynx;
-
-
 	public Wave46EliteLorelei(){
 		super();
+		MobBuilder m = super.mobBuilder;
 		for(int i = 0; i < 4000; i++){
 			if(i % 5 == 0)
-				add(new Jynx(jynx));
+				add(m.buildMob(MobID.JYNX));
 			else if(i % 4 == 0)
-				add(new Lapras(lapras));
+				add(m.buildMob(MobID.LAPRAS));
 			else if(i % 3 == 0)
-				add(new Cloyster(cloyster));
+				add(m.buildMob(MobID.CLOYSTER));
 			else if(i % 2 == 0)
-				add(new Slowbro(slowbro));
+				add(m.buildMob(MobID.DEWGONG));
 			else
-				add(new Dewgong(dewgong));
+				add(m.buildMob(MobID.SLOWBRO));
 		}
 	}
 }

@@ -8,6 +8,8 @@ import Mob.EliteAlakazam;
 import Mob.EliteExeggutor;
 import Mob.EliteRhydon;
 import Mob.Gyarados;
+import Mob.MobBuilder;
+import Mob.MobID;
 import Mob.Pidgeot;
 import Mob.VenusaurMob;
 
@@ -16,34 +18,28 @@ public class Wave50ChampionBlue extends Wave{
 	private int delay = 444;
 	private int level = 46;
 	
-	private BufferedImage gyarados;
-	private BufferedImage pidgeot;
-	private BufferedImage eliteAlakazam;
-	private BufferedImage eliteExeggutor;
-	private BufferedImage eliteRhydon;
-	private BufferedImage blastoise;
-	private BufferedImage venusaur;
-	private BufferedImage charizard;
+	
 
 	public Wave50ChampionBlue(){
 		super();
+		MobBuilder m = super.mobBuilder;
 		for(int i = 0; i < 4500; i++){
 			if(i % 8 == 0)
-				add(new Gyarados(gyarados));
+				add(m.buildMob(MobID.GYARADOS));
 			else if(i % 8 == 0)
-				add(new Pidgeot(pidgeot));
+				add(m.buildMob(MobID.PIDGEOT));
 			else if(i % 6 == 0)
-				add(new CharizardMob(charizard));
+				add(m.buildMob(MobID.CHARIZARD));
 			else if(i % 5 == 0)
-				add(new EliteAlakazam(eliteAlakazam));
+				add(m.buildMob(MobID.ELITE_ALAKAZAM));
 			else if(i % 4 == 0)
-				add(new VenusaurMob(venusaur));
+				add(m.buildMob(MobID.VENASAUR));
 			else if(i % 3 == 0)
-				add(new BlastoiseMob(blastoise));
+				add(m.buildMob(MobID.BLASTOISE));
 			else if(i % 2 == 0)
-				add(new EliteRhydon(eliteRhydon));
+				add(m.buildMob(MobID.ELITE_RHYDON));
 			else
-				add(new EliteExeggutor(eliteExeggutor));
+				add(m.buildMob(MobID.ELITE_EXEGGUTOR));
 		}
 	}
 }
