@@ -6,28 +6,26 @@ import Mob.Gyarados;
 import Mob.Dragonite;
 import Mob.Dragonair;
 import Mob.Aerodactyl;
+import Mob.MobBuilder;
+import Mob.MobID;
 
 public class Wave49EliteLance extends Wave{
 
 	private int delay = 444;
 	private int level = 49;
-	
-	private BufferedImage dragonair;
-	private BufferedImage dragonite;
-	private BufferedImage gyarados;
-	private BufferedImage aerodactyl;
-	
+
 	public Wave49EliteLance(){
 		super();
+		MobBuilder m = super.mobBuilder;
 		for(int i = 0; i < 4000; i++){
 			if(i % 4 == 0)
-				add(new Dragonite(dragonite));
+				add(m.buildMob(MobID.DRAGONITE));
 			else if(i % 3 == 0)
-				add(new Gyarados(gyarados));
+				add(m.buildMob(MobID.GYARADOS));
 			else if(i % 2 == 0)
-				add(new Aerodactyl(aerodactyl));
+				add(m.buildMob(MobID.AERODACTYL));
 			else
-				add(new Dragonair(dragonair));
+				add(m.buildMob(MobID.DRAGONAIR));
 		}
 	}
 }

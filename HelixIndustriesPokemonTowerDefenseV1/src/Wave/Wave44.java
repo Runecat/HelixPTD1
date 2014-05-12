@@ -5,6 +5,8 @@ import java.awt.image.BufferedImage;
 import Mob.GravelerMob;
 import Mob.Machop;
 import Mob.Marowak;
+import Mob.MobBuilder;
+import Mob.MobID;
 import Mob.Onix;
 import Mob.Zubat;
 
@@ -13,25 +15,21 @@ public class Wave44 extends Wave{
 	private int delay = 400;
 	private int level = 44;
 	
-	private BufferedImage onix;
-	private BufferedImage zubat;
-	private BufferedImage machop;
-	private BufferedImage graveler;
-	private BufferedImage marowak;
-	
+
 	public Wave44(){
 		super();
+		MobBuilder m = super.mobBuilder;
 		for(int i = 0; i < 3000; i++){
 			if(i % 8 == 0)
-				add(new Onix(onix));
+				add(m.buildMob(MobID.ONIX));
 			else if(i % 7 == 0)
-				add(new Machop(machop));
+				add(m.buildMob(MobID.MACHOP));
 			else if(i % 6 == 0)
-				add(new GravelerMob(graveler));
+				add(m.buildMob(MobID.GRAVELER));
 			else if(i % 5 == 0)
-				add(new Marowak(marowak));
+				add(m.buildMob(MobID.MAROWAK));
 			else
-				add(new Zubat(zubat));
+				add(m.buildMob(MobID.ZUBAT));
 		}
 	}
 
