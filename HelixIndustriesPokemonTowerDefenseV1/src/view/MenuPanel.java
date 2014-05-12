@@ -116,6 +116,12 @@ public class MenuPanel extends JPanel implements PanelObserver {
 		JButton bulbasaurButton = new JButton("Bulbasaur");
 		bulbasaurButton.addActionListener(buttonListener);
 		towerSelectPanel.add(bulbasaurButton);
+		
+		JButton pikachuButton = new JButton("Pikachu");
+		pikachuButton.addActionListener(buttonListener);
+		towerSelectPanel.add(pikachuButton);
+		
+		
 	}
 
 	private void buildStartStopPanel() {
@@ -141,6 +147,12 @@ public class MenuPanel extends JPanel implements PanelObserver {
 			if (theGame.getCurrentTowerInfo().getUpgraded() != null) {
 				infoPanel.add(evolveButton);
 			}
+			else
+				infoPanel.remove(evolveButton);
+		}
+		else{
+			info.setText("");
+			infoPanel.remove(evolveButton);
 		}
 	}
 
@@ -181,6 +193,15 @@ public class MenuPanel extends JPanel implements PanelObserver {
 			if (buttonClicked.getText().equals("Bulbasaur")) {
 				if (canAfford(TowerID.BULBASAUR)) {
 					theGame.setCurrentTowerSelected(TowerID.BULBASAUR);
+					theGame.setIsPlacingTower(true);
+				} else
+					JOptionPane.showMessageDialog(new Frame(),
+							"Can't Afford That!");
+			}
+			
+			if (buttonClicked.getText().equals("Pikachu")) {
+				if (canAfford(TowerID.PIKACHU)) {
+					theGame.setCurrentTowerSelected(TowerID.PIKACHU);
 					theGame.setIsPlacingTower(true);
 				} else
 					JOptionPane.showMessageDialog(new Frame(),

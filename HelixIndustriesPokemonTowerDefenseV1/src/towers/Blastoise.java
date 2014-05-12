@@ -29,7 +29,7 @@ public class Blastoise extends Tower
 		super.type = Type.WATER;
 		super.upgraded = null;
 		super.attacks.add(new Fireblast());
-		super.buyPrice = 450;
+		super.buyPrice = 999999;
 		super.upgradePrice = 0;
 		if(t!=null)
 			super.setRange(m);

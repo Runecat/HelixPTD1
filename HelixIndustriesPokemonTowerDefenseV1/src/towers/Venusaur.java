@@ -30,7 +30,7 @@ public class Venusaur extends Tower
 		super.type = Type.GRASS;
 		super.upgraded = null;
 		super.attacks.add(new Solarbeam());
-		super.upgraded = new Ivysaur(t,m);
+		super.upgraded = null;
 		super.buyPrice = 450;
 		super.upgradePrice = 0;
 		super.delay = 16;
