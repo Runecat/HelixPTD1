@@ -30,12 +30,16 @@ public class Spawner {
 
 		if (level < waves.size())
 			setMobs(level);
-		while (mobs.size() != 0) {
-			tile.addMobs(mobs.get(0));
-			mobs.remove(0);
+		if (mobs.size() != 0) {
+			sendMob();
 		}
 
 		this.level++;
+	}
+	
+	public void sendMob() {
+		tile.addMobs(mobs.get(0));
+		mobs.remove(0);
 	}
 
 	// Called from sendWave

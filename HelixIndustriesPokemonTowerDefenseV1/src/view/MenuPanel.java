@@ -14,6 +14,7 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -206,11 +207,13 @@ public class MenuPanel extends JPanel implements PanelObserver {
 			}
 
 			if (buttonClicked.getText().equals("Start Game!")) {
+				theGame.setMidRound(false);
 				switchButtons(buttonClicked.getText());
 				theGame.startTimer();
 			}
 
 			if (buttonClicked.getText().equals("   Pause   ")) {
+				theGame.setMidRound(true);
 				switchButtons(buttonClicked.getText());
 				theGame.stopTimer();
 			}

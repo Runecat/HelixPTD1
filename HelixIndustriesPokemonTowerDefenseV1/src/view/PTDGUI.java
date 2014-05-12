@@ -10,6 +10,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -53,7 +54,6 @@ public class PTDGUI extends JFrame {
 		background.setLayout(new BorderLayout());
 		this.add(background);
 		
-		//background.add(new MapPanel(game));
 		
 		//MapPanel 
 		mapPanel = new MapPanel(game);
@@ -66,8 +66,7 @@ public class PTDGUI extends JFrame {
 		game.addObserver(menu);
 		menu.setPreferredSize(new Dimension(184, 720));
 		background.add(menu, BorderLayout.LINE_END);
-		
-		
+	
 		
 		this.setVisible(true);
 		Timer time = new Timer(1, new GameTimeListener());
@@ -90,7 +89,7 @@ public class PTDGUI extends JFrame {
 	
 	
 	
-	private class BackgroundFrame extends JLayeredPane {
+	private class BackgroundFrame extends JPanel {
 		ImageLoader loader = new ImageLoader();
 		BufferedImage grass;
 		

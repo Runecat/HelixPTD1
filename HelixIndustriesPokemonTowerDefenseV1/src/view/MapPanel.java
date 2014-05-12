@@ -9,7 +9,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 import towers.Charmander;
 import towers.Tower;
@@ -31,6 +33,14 @@ public class MapPanel extends JPanel implements PanelObserver {
 	private BufferedImage grassBackground;
 	Image background;
 	private final int TILE_DIMENSION = 24;
+	
+	JPanel pausePanel = new JPanel();
+	JTextArea pause = new JTextArea("PAUSED\n" +
+			"aasdfasdfasdfasdfasdfasdfsadfsa\n" +
+			"asdfasdfasdfasdfasdfasdfsa\n" +
+			"asdfasdfasdfasdfasdfasdfsdfsa" +
+			"asdfasdfsadfasdfsadfsadfsdf");
+	
 
 	public MapPanel(Game game) {
 		this.theGame = game;
@@ -39,6 +49,10 @@ public class MapPanel extends JPanel implements PanelObserver {
 		this.currentMap = current;
 
 		background = currentMap.getBackground().getScaledInstance(480, -1, -1);
+		
+		pausePanel.add(pause);
+		pause.setOpaque(true);
+		pausePanel.setSize(new Dimension(300,300));
 
 		this.setOpaque(false);
 
@@ -116,12 +130,21 @@ public class MapPanel extends JPanel implements PanelObserver {
 
 			}
 		}
+		
+		
+		if (theGame.isPaused()) {
+			this.add(pausePanel);
+		}
+		else
+			this.remove(pausePanel);
+		
 
 	}
 
 	public void drawBackground(Graphics g) {
 		g.drawImage(grassBackground, 5, 5, null);
 	}
+	
 
 	@Override
 	public void update() {
@@ -141,7 +164,7 @@ public class MapPanel extends JPanel implements PanelObserver {
 			int y = arg0.getY() / TILE_DIMENSION;
 			if (theGame.canPlaceTower(x, y) && theGame.getIsPlacingTower()) {
 				theGame.createTower(x, y, theGame.getCurrentTowerSelected());
-
+				theGame.setCurrentTowerInfo((Tower) currentMap.getObject(x, y));
 				theGame.setIsPlacingTower(false);
 			}
 			else if (theGame.getIsPlacingTower() == false && theGame.canPlaceTower(x, y)){
