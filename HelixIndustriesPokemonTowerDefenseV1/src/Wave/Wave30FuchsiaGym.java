@@ -8,6 +8,7 @@ import Mob.Hypno;
 import Mob.Kadabra;
 import Mob.Koffing;
 import Mob.Muk;
+import Mob.Venomoth;
 import Mob.Weezing;
 
 public class Wave30FuchsiaGym extends Wave{
@@ -22,6 +23,7 @@ public class Wave30FuchsiaGym extends Wave{
 	private BufferedImage koffing;
 	private BufferedImage weezing;
 	private BufferedImage muk;
+	private BufferedImage venomoth;
 	
 	public Wave30FuchsiaGym(){
 		super();
@@ -39,8 +41,10 @@ public class Wave30FuchsiaGym extends Wave{
 			else{
 				if (i % 5 == 0)
 					add(new Muk(muk));
-				else if(i % 4 ==0)
+				else if(i % 4 == 0)
 					add(new Weezing(weezing));
+				else if(i % 3 == 0)
+					add(new Venomoth(venomoth));
 				else
 					add(new Koffing(koffing));
 			}	
