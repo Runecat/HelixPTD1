@@ -113,9 +113,9 @@ public class MenuPanel extends JPanel implements PanelObserver {
 		charmanderButton.addActionListener(buttonListener);
 		towerSelectPanel.add(charmanderButton);
 
-		JButton charmeleonButton = new JButton("Charmeleon");
-		charmeleonButton.addActionListener(buttonListener);
-		towerSelectPanel.add(charmeleonButton);
+		JButton bulbasaurButton = new JButton("Bulbasaur");
+		bulbasaurButton.addActionListener(buttonListener);
+		towerSelectPanel.add(bulbasaurButton);
 	}
 
 	private void buildStartStopPanel() {
@@ -178,9 +178,9 @@ public class MenuPanel extends JPanel implements PanelObserver {
 					JOptionPane.showMessageDialog(new Frame(),
 							"Can't Afford That!");
 			}
-			if (buttonClicked.getText().equals("Charmeleon")) {
-				if (canAfford(TowerID.CHARMELEON)) {
-					theGame.setCurrentTowerSelected(TowerID.CHARMELEON);
+			if (buttonClicked.getText().equals("Bulbasaur")) {
+				if (canAfford(TowerID.BULBASAUR)) {
+					theGame.setCurrentTowerSelected(TowerID.BULBASAUR);
 					theGame.setIsPlacingTower(true);
 				} else
 					JOptionPane.showMessageDialog(new Frame(),
@@ -204,8 +204,9 @@ public class MenuPanel extends JPanel implements PanelObserver {
 							-1
 									* theGame.getCurrentTowerInfo()
 											.getUpgraded().getBuy());
-					theGame.setCurrentTowerInfo(theGame.getCurrentTowerInfo().getUpgraded());
+					Tower temp = theGame.getCurrentTowerInfo().getUpgraded();
 					theGame.getCurrentTowerInfo().upgradeTower();
+					theGame.setCurrentTowerInfo(temp);
 					theGame.notifyObservers();
 				}
 				else
