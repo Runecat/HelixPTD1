@@ -26,7 +26,7 @@ public class Wave47EliteBruno extends Wave{
 			else if(i % 2 == 0)
 				add(m.buildMob(MobID.MACHAMP));
 			else
-				add(m.buildMob(ModID.ELITE_ONIX));
+				add(m.buildMob(MobID.ELITE_ONIX));
 		}
 	}
 }

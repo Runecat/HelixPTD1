@@ -38,7 +38,7 @@ public class Wave35CinnabarGym extends Wave{
 				else if(i % 3 == 0)
 					add(m.buildMob(MobID.PONYTA));
 				else if(i % 2 == 0)
-					add(m.buildMob(MobID.RAPIDASH)));
+					add(m.buildMob(MobID.RAPIDASH));
 				else
 					add(m.buildMob(MobID.ARCANINE));
 			}
