@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import javax.swing.Timer;
 
 import Mob.Mob;
+import Mob.MobBuilder;
+import Mob.MobID;
 
 
 public abstract class Wave
@@ -13,7 +15,12 @@ public abstract class Wave
 	private Mob baddie;
 	private int delay = 1;
 	Timer t;// = new Timer(delay, WaveStart).start();
+	protected MobBuilder mobBuilder;
 	
+	public Wave()
+	{
+		mobBuilder = new MobBuilder();
+	}
 	//Wave sends itself to attack
 	public void sendWave()
 	{

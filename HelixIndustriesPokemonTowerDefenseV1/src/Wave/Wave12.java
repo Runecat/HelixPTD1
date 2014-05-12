@@ -15,19 +15,10 @@ public class Wave12 extends Wave{
 
 	private int delay = 1000;
 	private int level = 12;
-	
-	private BufferedImage oddish;
-	private BufferedImage bellsprout;
-	private BufferedImage venonat;
-	private BufferedImage pidgeotto;
-	private BufferedImage weedle;
-	private BufferedImage caterpie;
-	private BufferedImage pidgey;
-	private BufferedImage mankey;
-	private BufferedImage meowth;
 
 	public Wave12(){
 		super();
+		MobBuilder m = super.mobBuilder;
 		for(int i = 0; i < 180; i++){
 			if(i % 49 == 0)
 				add(new Meowth(meowth));

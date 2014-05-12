@@ -1,6 +1,9 @@
 package Wave;
 
 import java.awt.image.BufferedImage;
+
+import Mob.MobBuilder;
+import Mob.MobID;
 import Mob.Oddish;
 import Mob.Bellsprout;
 import Mob.Venonat;
@@ -14,39 +17,32 @@ public class Wave11 extends Wave{
 	private int delay = 1000;
 	private int level = 11;
 	
-	private BufferedImage oddish;
-	private BufferedImage bellsprout;
-	private BufferedImage venonat;
-	private BufferedImage pidgeotto;
-	private BufferedImage weedle;
-	private BufferedImage caterpie;
-	private BufferedImage pidgey;
-	
 	public Wave11(){
 		super();
+		MobBuilder m = super.mobBuilder;
 		for(int i = 0; i < 150; i++){
 			if(i < 25){
 				if(i % 2 == 0)
-					add(new Caterpie(caterpie));
+					add(m.buildMob(MobID.CATERPIE));
 				else
-					add(new Weedle(weedle));
+					add(m.buildMob(MobID.WEEDLE));
 			}
 			else if(i > 25 && i < 75){
 				if(i % 2 == 0)
-					add(new Oddish(oddish));
+					add(m.buildMob(MobID.ODDISH));
 				else
-					add(new Bellsprout(bellsprout));
+					add(m.buildMob(MobID.BELLSPROUT));
 			}
 			else if(i > 75 && i < 145){
 				if(i % 2 == 0)
-					add(new Venonat(venonat));
+					add(m.buildMob(MobID.VENONAT));
 				if(i % 3 == 0)
-					add(new Oddish(oddish));
+					add(m.buildMob(MobID.ODDISH));
 				else
-					add(new Bellsprout(bellsprout));
+					add(m.buildMob(MobID.BELLSPROUT));
 			}
 			else
-				add(new Pidgeotto(pidgeotto));
+				add(m.buildMob(MobID.PIDGEOTTO));
 		}
 	}
 }

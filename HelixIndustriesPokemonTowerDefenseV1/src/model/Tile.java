@@ -62,9 +62,13 @@ public class Tile {
 					} else {
 						if (mobList.size() == 0) {
 							return;
-						} else {
-							if ((mobList.get(i).getHealth() > 0) && (mobList.get(i).getEffect() == Effect.paralyze)) {
-								if(mobList.get(i).getEffect() == Effect.burn){
+						} 
+						else 
+						{
+							if ((mobList.get(i).getHealth() > 0) && (mobList.get(i).getEffect() != Effect.paralyze)) 
+							{
+								if(mobList.get(i).getEffect() == Effect.burn)
+								{
 									mobList.get(i).setHealth(mobList.get(i).getHealth() - 2);//set image to fire if health  < 0 
 								}
 								mobList.get(i).setEffect(Effect.none);

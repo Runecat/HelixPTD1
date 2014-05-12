@@ -2,6 +2,8 @@ package Wave;
 
 import java.awt.image.BufferedImage;
 
+import Mob.MobBuilder;
+import Mob.MobID;
 import Mob.Pidgey;
 import Mob.Rattata;
 
@@ -9,16 +11,17 @@ public class Wave01 extends Wave{
 	private int delay = 1000;
 	private int level = 1;
 	
-	private BufferedImage rattata;
-	private BufferedImage pidgey;
-	
-	public Wave01(){
+	public Wave01()
+	{
 		super();
-		for(int i = 0; i < 10; i++){
+		//MobBuilder m  = new MobBuilder();
+		MobBuilder m = super.mobBuilder;
+		for(int i = 0; i < 10; i++)
+		{
 			if(i % 2 == 0)
-				add(new Rattata(rattata));
+				add(m.buildMob(MobID.RATTATA));
 			else
-				add(new Pidgey(pidgey));
+				add(m.buildMob(MobID.PIDGEY));
 		}
 	}
 	

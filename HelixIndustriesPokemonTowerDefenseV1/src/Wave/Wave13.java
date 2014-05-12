@@ -11,12 +11,9 @@ public class Wave13 extends Wave{
 	private int delay = 250;
 	private int level = 13;
 	
-	private BufferedImage voltorb;
-	private BufferedImage magnemite;
-	private BufferedImage machop;
-	
 	public Wave13(){
 		super();
+		MobBuilder m = super.mobBuilder;
 		for(int i = 0; i < 250; i++){
 			if(i % 5 == 0)
 				add(new Machop(machop));

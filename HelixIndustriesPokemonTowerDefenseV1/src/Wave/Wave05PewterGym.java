@@ -1,37 +1,36 @@
 package Wave;
 
 import java.awt.image.BufferedImage;
+
 import Mob.Diglett;
 import Mob.Geodude;
+import Mob.MobBuilder;
+import Mob.MobID;
 import Mob.Onix;
 import Mob.Sandshrew;
 
 public class Wave05PewterGym extends Wave{
 	private int delay = 500;
 	private int level = 5;
-	
-	private BufferedImage diglett;
-	private BufferedImage geodude;
-	private BufferedImage onix;
-	private BufferedImage sandshrew;
 
 	public Wave05PewterGym(){
 		super();
+		MobBuilder m = super.mobBuilder;
 		for(int i = 0; i < 50; i++){
 			if(i < 25){
 				if(i % 2 == 0)
-					add(new Diglett(diglett));
+					add(m.buildMob(MobID.DIGLETT));
 				else
-					add(new Sandshrew(sandshrew));
+					add(m.buildMob(MobID.SANDSHREW));
 			}
 			else if(i >= 25 && i < 49){
 				if(i % 2 == 0)
-					add(new Diglett(diglett));
+					add(m.buildMob(MobID.DIGLETT));
 				else
-					add(new Geodude(geodude));
+					add(m.buildMob(MobID.GEODUDE));
 			}
 			else
-				add(new Onix(onix));
+				add(m.buildMob(MobID.ONIX));
 		}
 	}
 	

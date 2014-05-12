@@ -1,6 +1,9 @@
 package Wave;
 
 import java.awt.image.BufferedImage;
+
+import Mob.MobBuilder;
+import Mob.MobID;
 import Mob.Shellder;
 import Mob.Horsea;
 import Mob.Starmie;
@@ -11,32 +14,27 @@ public class Wave10CeruleanGym extends Wave{
 	private int delay = 500;
 	private int level = 10;
 	
-	private BufferedImage shellder;
-	private BufferedImage horsea;
-	private BufferedImage starmie;
-	private BufferedImage staryu;
-	private BufferedImage goldeen;
-	
 	public Wave10CeruleanGym(){
 		super();
+		MobBuilder m = super.mobBuilder;
 		for(int i = 0; i < 125; i++){
 			if(i < 55){
 				if(i % 2 == 0)
-					add(new Shellder(shellder));
+					add(m.buildMob(MobID.SHELLDER));
 				else
-					add(new Horsea(horsea));
+					add(m.buildMob(MobID.HORSEA));
 			}
 			else if(i >= 55 && i < 60)
-				add(new Goldeen(goldeen));
+				add(m.buildMob(MobID.GOLDEEN));
 			else{
 				if(i >= 60 && i < 120){
 					if(i % 3 == 0)
-						add(new Goldeen(goldeen));
+						add(m.buildMob(MobID.GOLDEEN));
 					else
-						add(new Staryu(staryu));
+						add(m.buildMob(MobID.STARYU));
 				}
 			else
-				add(new Starmie(starmie));
+				add(m.buildMob(MobID.STARMIE));
 			}
 		}
 	}

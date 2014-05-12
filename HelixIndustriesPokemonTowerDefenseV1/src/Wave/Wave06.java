@@ -4,6 +4,8 @@ import java.awt.image.BufferedImage;
 
 import Mob.Jigglypuff;
 import Mob.Mankey;
+import Mob.MobBuilder;
+import Mob.MobID;
 import Mob.Pidgey;
 import Mob.Rattata;
 import Mob.Sandshrew;
@@ -12,38 +14,32 @@ import Mob.Spearow;
 public class Wave06 extends Wave{
 	private int delay = 1000;
 	private int level = 6;
-	
-	private BufferedImage rattata;
-	private BufferedImage pidgey;
-	private BufferedImage spearow;
-	private BufferedImage sandshrew;
-	private BufferedImage mankey;
-	private BufferedImage jigglypuff;
 
 	
 	public Wave06(){
 		super();
+		MobBuilder m = super.mobBuilder;
 		for(int i = 0; i < 65; i++){
 			if(i < 5){
 				if(i % 2 == 0)
-					add(new Rattata(rattata));
+					add(m.buildMob(MobID.RATTATA));
 				else
-					add(new Pidgey(pidgey));
+					add(m.buildMob(MobID.PIDGEY));
 			}
 			else if (i >= 5 && i < 45){
 				if(i % 2 == 0)
-					add(new Pidgey(pidgey));
+					add(m.buildMob(MobID.PIDGEY));
 				else
-					add(new Spearow(spearow));
+					add(m.buildMob(MobID.SPEAROW));
 			}
 			else if(i >= 45 && i < 64){
 				if(i % 2 == 0)
-					add(new Mankey(mankey));
+					add(m.buildMob(MobID.MANKEY));
 				else
-					add(new Sandshrew(sandshrew));
+					add(m.buildMob(MobID.SANDSHREW));
 			}
 			else
-				add(new Jigglypuff(jigglypuff));
+				add(m.buildMob(MobID.JIGGLYPUFF));
 		}
 	}
 	

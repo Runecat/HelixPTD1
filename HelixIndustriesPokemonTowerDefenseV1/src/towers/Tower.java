@@ -399,5 +399,10 @@ public abstract class Tower implements Clickable
 			return false;
 		}
 	}
-
+	
+	public ArrayList<Tile> getRange()
+	{
+		return tilesInRange;
+	}
+		
 }

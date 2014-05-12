@@ -12,14 +12,9 @@ public class Wave15VermillionGym extends Wave {
 
 	private int delay = 500;
 	private int level = 15;
-	
-	private BufferedImage voltorb;
-	private BufferedImage magnemite;
-	private BufferedImage pikachu;
-	private BufferedImage raichu;
-	
 	public Wave15VermillionGym(){
 		super();
+		MobBuilder m = super.mobBuilder;
 		for(int i = 0; i < 275; i++){
 			if(i < 175){
 				if(i % 2 == 0)

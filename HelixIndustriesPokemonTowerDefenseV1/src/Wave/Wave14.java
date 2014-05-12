@@ -18,19 +18,9 @@ public class Wave14 extends Wave{
 	private int delay = 750;
 	private int level = 14;
 	
-	private BufferedImage oddish;
-	private BufferedImage bellsprout;
-	private BufferedImage pidgey;
-	private BufferedImage venonat;
-	private BufferedImage gloom;
-	private BufferedImage pidgeotto;
-	private BufferedImage weepinbell;
-	private BufferedImage goldeen;
-	private BufferedImage horsea;
-	private BufferedImage poliwag;
-	
 	public Wave14(){
 		super();
+		MobBuilder m = super.mobBuilder;
 		for(int i = 0; i < 250; i++){
 			if(i < 50){
 				if(i % 3 == 0)
