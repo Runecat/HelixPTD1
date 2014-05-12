@@ -79,415 +79,416 @@ public class MobBuilder {
 		switch (i) {
 
 		case AERODACTYL:
-			mob = new Aerodactyl(mobSprites[4]);
+			mob = new Aerodactyl(new BufferedImage[]{mobSprites[28], mobSprites[29], mobSprites[30], mobSprites[31], mobSprites[32], mobSprites[33]});
 			break;
 
 		case ALAKAZAM:
-			mob = new Alakazam(mobSprites[3]);
+			mob = new Alakazam(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case ARBOK:
-			mob = new Arbok(mobSprites[9]);
+			mob = new Arbok(new BufferedImage[]{mobSprites[63], mobSprites[64], mobSprites[65], mobSprites[66], mobSprites[67], mobSprites[68]});
 			break;
 
 		case ARCANINE:
-			mob = new Arcanine({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
+			
+			mob = new Arcanine(new BufferedImage[]{mobSprites[7], mobSprites[8],mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12]});
 			break;
 
 		case ARTICUNO:
-			mob = new Articuno(sprites[88]);
+			mob = new Articuno(new BufferedImage[] {sprites[88], sprites[88], sprites[88],sprites[88],sprites[88], sprites[88]});
 			break;
 
 		case BELLSPROUT:
-			mob = new Bellsprout(mobSprites[8]);
+			mob = new Bellsprout(new BufferedImage[] {mobSprites[56], mobSprites[57], mobSprites[58], mobSprites[59], mobSprites[60], mobSprites[61]});
 			break;
 
 		case BLASTOISE:
-			mob = new BlastoiseMob(mobSprites[2]);
+			mob = new BlastoiseMob(new BufferedImage[] {mobSprites[14], mobSprites[15], mobSprites[16], mobSprites[17], mobSprites[18], mobSprites[19]});
 			break;
 
 		case CATERPIE:
-			mob = new Caterpie(mobSprites[14]);
+			mob = new Caterpie(new BufferedImage[] {mobSprites[98], mobSprites[99], mobSprites[100], mobSprites[101], mobSprites[102], mobSprites[103]});
 			break;
 
 		case CHARIZARD:
-			mob = new CharizardMob(mobSprites[3]);
+			mob = new CharizardMob(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case CLOYSTER:
-			mob = new Cloyster(mobSprites[2]);
+			mob = new Cloyster(new BufferedImage[]{mobSprites[14], mobSprites[15], mobSprites[16], mobSprites[17], mobSprites[18], mobSprites[19]});
 			break;
 
 		case DEWGONG:
-			mob = new Dewgong(mobSprites[2]);
+			mob = new Dewgong(new BufferedImage[]{mobSprites[14], mobSprites[15], mobSprites[16], mobSprites[17], mobSprites[18], mobSprites[19]});
 			break;
 
 		case DIGLETT:
-			mob = new Diglett(mobSprites[3]);
+			mob = new Diglett(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case DODRIO:
-			mob = new Dodrio(mobSprites[4]);
+			mob = new Dodrio(new BufferedImage[]{mobSprites[28], (mobSprites[29]), (mobSprites[30]), (mobSprites[31]), (mobSprites[32]), (mobSprites[33])});
 			break;
 
 		case DODUO:
-			mob = new Doduo(mobSprites[4]);
+			mob = new Doduo(new BufferedImage[]{mobSprites[28], (mobSprites[29]), (mobSprites[30]), (mobSprites[31]), (mobSprites[32]), (mobSprites[33])});
 			break;
 
 		case DRAGONAIR:
-			mob = new Dragonair(mobSprites[9]);
+			mob = new Dragonair(new BufferedImage[]{mobSprites[63], mobSprites[64], mobSprites[65], mobSprites[66], mobSprites[67], mobSprites[68]});
 			break;
 
 		case DRAGONITE:
-			mob = new Dragonite(mobSprites[9]);
+			mob = new Dragonite(new BufferedImage[]{mobSprites[63], mobSprites[64], mobSprites[65], mobSprites[66], mobSprites[67], mobSprites[68]});
 			break;
 
 		case DROWZEE:
-			mob = new Drowzee(mobSprites[3]);
+			mob = new Drowzee(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case DUGTRIO:
-			mob = new Dugtrio(mobSprites[3]);
+			mob = new Dugtrio(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case EKANS:
-			mob = new Ekans(mobSprites[9]);
+			mob = new Ekans(new BufferedImage[]{mobSprites[63], mobSprites[64], mobSprites[65], mobSprites[66], mobSprites[67], mobSprites[68]});
 			break;
 
 		case ELITE_ALAKAZAM:
-			mob = new EliteAlakazam(mobSprites[3]);
+			mob = new EliteAlakazam(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case ELITE_ARBOK:
-			mob = new EliteArbok(mobSprites[9]);
+			mob = new EliteArbok(new BufferedImage[]{mobSprites[63], mobSprites[64], mobSprites[65], mobSprites[66], mobSprites[67], mobSprites[68]});
 			break;
 
 		case ELITE_EXEGGUTOR:
-			mob = new EliteExeggutor(mobSprites[8]);
+			mob = new EliteExeggutor(new BufferedImage[] {mobSprites[56], mobSprites[57], mobSprites[58], mobSprites[59], mobSprites[60], mobSprites[61]});
 			break;
 
 		case ELITE_HAUNTER:
-			mob = new EliteHaunter(mobSprites[3]);
+			mob = new EliteHaunter(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case ELITE_ONIX:
-			mob = new EliteOnix(mobSprites[9]);
+			mob = new EliteOnix(new BufferedImage[]{mobSprites[63], mobSprites[64], mobSprites[65], mobSprites[66], mobSprites[67], mobSprites[68]});
 			break;
 
 		case ELITE_RHYDON:
-			mob = new EliteRhydon(mobSprites[3]);
+			mob = new EliteRhydon(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case EXEGGCUTE:
-			mob = new Exeggcute(mobSprites[8]);
+			mob = new Exeggcute(new BufferedImage[] {mobSprites[56], mobSprites[57], mobSprites[58], mobSprites[59], mobSprites[60], mobSprites[61]});
 			break;
 
 		case FEAROW:
-			mob = new Fearow(mobSprites[4]);
+			mob = new Fearow(new BufferedImage[]{mobSprites[28], (mobSprites[29]), (mobSprites[30]), (mobSprites[31]), (mobSprites[32]), (mobSprites[33])});
 			break;
 
 		case GASTLY:
-			mob = new Gastly(mobSprites[3]);
+			mob = new Gastly(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case GENGAR:
-			mob = new Gengar(mobSprites[3]);
+			mob = new Gengar(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case GEODUDE:
-			mob = new Geodude(mobSprites[3]);
+			mob = new Geodude(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case GLOOM:
-			mob = new Gloom(mobSprites[8]);
+			mob = new Gloom(new BufferedImage[] {mobSprites[56], mobSprites[57], mobSprites[58], mobSprites[59], mobSprites[60], mobSprites[61]});
 			break;
 
 		case GOLBAT:
-			mob = new Golbat(mobSprites[3]);
+			mob = new Golbat(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case GOLDEEN:
-			mob = new Goldeen(mobSprites[2]);
+			mob = new Goldeen(new BufferedImage[] {mobSprites[14], mobSprites[15], mobSprites[16], mobSprites[17], mobSprites[18], mobSprites[19]});
 			break;
 
 		case GOLDUCK:
-			mob = new Golduck(mobSprites[3]);
+			mob = new Golduck(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case GRAVELER:
-			mob = new GravelerMob(mobSprites[3]);
+			mob = new GravelerMob(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case GROWLITHE:
-			mob = new Growlithe({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
+			mob = new Growlithe(new BufferedImage[]{mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
 			break;
 
 		case GYARADOS:
-			mob = new Gyarados(mobSprites[9]);
+			mob = new Gyarados(new BufferedImage[]{mobSprites[63], mobSprites[64], mobSprites[65], mobSprites[66], mobSprites[67], mobSprites[68]});
 			break;
 
 		case HAUNTER:
-			mob = new Haunter({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
+			mob = new Haunter(new BufferedImage[]{mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
 			break;
 
 		case HITMONCHAN:
-			mob = new Hitmonchan(mobSprites[3]);
+			mob = new Hitmonchan(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case HITMONLEE:
-			mob = new Hitmonlee(mobSprites[3]);
+			mob = new Hitmonlee(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case HORSEA:
-			mob = new Horsea(mobSprites[2]);
+			mob = new Horsea(new BufferedImage[] {mobSprites[14], mobSprites[15], mobSprites[16], mobSprites[17], mobSprites[18], mobSprites[19]});
 			break;
 
 		case HYPNO:
-			mob = new Hypno(mobSprites[3]);
+			mob = new Hypno(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case JIGGLYPUFF:
-			mob = new Jigglypuff({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
+			mob = new Jigglypuff(new BufferedImage[]{mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
 			break;
 
 		case JYNX:
-			mob = new Jynx(mobSprites[3]);
+			mob = new Jynx(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case KADABRA:
-			mob = new Kadabra(mobSprites[3]);
+			mob = new Kadabra(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case KINGLER:
-			mob = new Kingler(mobSprites[2]);
+			mob = new Kingler(new BufferedImage[] {mobSprites[14], mobSprites[15], mobSprites[16], mobSprites[17], mobSprites[18], mobSprites[19]});
 			break;
 
 		case KOFFING:
-			mob = new Koffing(mobSprites[3]);
+			mob = new Koffing(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case LAPRAS:
-			mob = new Lapras(mobSprites[2]);
+			mob = new Lapras(new BufferedImage[] {mobSprites[14], mobSprites[15], mobSprites[16], mobSprites[17], mobSprites[18], mobSprites[19]});
 			break;
 
 		case LICKITUNG:
-			mob = new Lickitung(mobSprites[3]);
+			mob = new Lickitung(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case MACHAMP:
-			mob = new Machamp(mobSprites[3]);
+			mob = new Machamp(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case MACHOKE:
-			mob = new Machoke(mobSprites[3]);
+			mob = new Machoke(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case MACHOP:
-			mob = new Machop(mobSprites[3]);
+			mob = new Machop(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case MAGNEMITE:
-			mob = new Magnemite(mobSprites[5]);
+			mob = new Magnemite(new BufferedImage[]{mobSprites[35], mobSprites[36], mobSprites[37], mobSprites[38], mobSprites[39], mobSprites[40]});
 			break;
 
 		case MANKEY:
-			mob = new Mankey(mobSprites[3]);
+			mob = new Mankey(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case MAROWAK:
-			mob = new Marowak(mobSprites[3]);
+			mob = new Marowak(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case MEOWTH:
-			mob = new Meowth(mobSprites[3]);
+			mob = new Meowth(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case MOLTRES:
-			mob = new Moltres(sprites[91]);
+			mob = new Moltres(new BufferedImage [] {sprites[91], sprites[91], sprites[91], sprites[91], sprites[91], sprites[91]});
 			break;
 
 		case MRMIME:
-			mob = new MrMime(mobSprites[3]);
+			mob = new MrMime(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case MUK:
-			mob = new Muk(mobSprites[3]);
+			mob = new Muk(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case NIDOKING:
-			mob = new Nidoking(mobSprites[3]);
+			mob = new Nidoking(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case NIDORINO:
-			mob = new Nidorino(mobSprites[3]);
+			mob = new Nidorino(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case NINETALES:
-			mob = new Ninetales({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
+			mob = new Ninetales(new BufferedImage[]{mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
 			break;
 
 		case ODDISH:
-			mob = new Oddish(mobSprites[8]);
+			mob = new Oddish(new BufferedImage[]{mobSprites[56], mobSprites[57], mobSprites[58], mobSprites[59], mobSprites[60], mobSprites[61]});
 			break;
 
 		case ONIX:
-			mob = new Onix(mobSprites[9]);
+			mob = new Onix(new BufferedImage[]{mobSprites[63], mobSprites[64], mobSprites[65], mobSprites[66], mobSprites[67], mobSprites[68]});
 			break;
 
 		case PARASECT:
-			mob = new Parasect(mobSprites[14]);
+			mob = new Parasect(new BufferedImage[] {mobSprites[98], mobSprites[99], mobSprites[100], mobSprites[101], mobSprites[102], mobSprites[103]});
 			break;
 
 		case PIDGEOT:
-			mob = new Pidgeot(mobSprites[4]);
+			mob = new Pidgeot(new BufferedImage[]{mobSprites[28], (mobSprites[29]), (mobSprites[30]), (mobSprites[31]), (mobSprites[32]), (mobSprites[33])});
 			break;
 
 		case PIDGEOTTO:
-			mob = new Pidgeotto(mobSprites[4]);
+			mob = new Pidgeotto(new BufferedImage[]{mobSprites[28], (mobSprites[29]), (mobSprites[30]), (mobSprites[31]), (mobSprites[32]), (mobSprites[33])});
 			break;
 
 		case PIDGEY:
-			mob = new Pidgey(mobSprites[4]);
+			mob = new Pidgey(new BufferedImage[]{mobSprites[28], (mobSprites[29]), (mobSprites[30]), (mobSprites[31]), (mobSprites[32]), (mobSprites[33])});
 			break;
 
 		case PIKACHU:
-			mob = new PikachuMob({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
+			mob = new PikachuMob(new BufferedImage[]{mobSprites[35], mobSprites[36], mobSprites[37], mobSprites[38], mobSprites[39], mobSprites[40]});
 			break;
 
 		case POLIWAG:
-			mob = new Poliwag(mobSprites[3]);
+			mob = new Poliwag(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case PONYTA:
-			mob = new Ponyta({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
+			mob = new Ponyta(new BufferedImage[] {mobSprites[49], mobSprites[50], mobSprites[51], mobSprites[52], mobSprites[53], mobSprites[54]});
 			break;
 
 		case PSYDUCK:
-			mob = new Psyduck(mobSprites[3]);
+			mob = new Psyduck(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case RAICHU:
-			mob = new RaichuMob({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
+			mob = new RaichuMob(new BufferedImage[]{mobSprites[35], mobSprites[36], mobSprites[37], mobSprites[38], mobSprites[39], mobSprites[40]});
 			break;
 
 		case RAPIDASH:
-			mob = new Rapidash({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
+			mob = new Rapidash(new BufferedImage[] {mobSprites[14], mobSprites[15], mobSprites[16], mobSprites[17], mobSprites[18], mobSprites[19]});
 			break;
 
 		case RATICATE:
-			mob = new Raticate({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
+			mob = new Raticate(new BufferedImage[] {mobSprites[14], mobSprites[15], mobSprites[16], mobSprites[17], mobSprites[18], mobSprites[19]});
 			break;
 
 		case RATTATA:
-			mob = new Rattata({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
+			mob = new Rattata (new BufferedImage[] {mobSprites[14], mobSprites[15], mobSprites[16], mobSprites[17], mobSprites[18], mobSprites[19]});
 			break;
 
 		case RHYDON:
-			mob = new Rhydon(mobSprites[3]);
+			mob = new Rhydon(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case RHYHORN:
-			mob = new Rhyhorn({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
+			mob = new Rhyhorn(new BufferedImage[] {mobSprites[14], mobSprites[15], mobSprites[16], mobSprites[17], mobSprites[18], mobSprites[19]});
 			break;
 
 		case SANDSHREW:
-			mob = new Sandshrew({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
+			mob = new Sandshrew(new BufferedImage[] {mobSprites[14], mobSprites[15], mobSprites[16], mobSprites[17], mobSprites[18], mobSprites[19]});
 			break;
 
 		case SEEL:
-			mob = new Seel(mobSprites[2]);
+			mob = new Seel(new BufferedImage[] {mobSprites[14], mobSprites[15], mobSprites[16], mobSprites[17], mobSprites[18], mobSprites[19]});
 			break;
 
 		case SHELLDER:
-			mob = new Shellder(mobSprites[2]);
+			mob = new Shellder(new BufferedImage[] {mobSprites[14], mobSprites[15], mobSprites[16], mobSprites[17], mobSprites[18], mobSprites[19]});
 			break;
 
 		case SLOWBRO:
-			mob = new Slowbro(mobSprites[3]);
+			mob = new Slowbro(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case SLOWPOKE:
-			mob = new Slowpoke({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
+			mob = new Slowpoke(new BufferedImage[]{mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12]});
 			break;
 
 		case SNORLAX:
-			mob = new Snorlax(sprites[88]);
+			mob = new Snorlax(new BufferedImage[] {sprites[88],sprites[88],sprites[88],sprites[88],sprites[88],sprites[88]});
 			break;
 
 		case SPEAROW:
-			mob = new Spearow(mobSprites[4]);
+			mob = new Spearow(new BufferedImage[]{mobSprites[28], (mobSprites[29]), (mobSprites[30]), (mobSprites[31]), (mobSprites[32]), (mobSprites[33])});
 			break;
 
 		case STARMIE:
-			mob = new Starmie(mobSprites[2]);
+			mob = new Starmie(new BufferedImage[] {mobSprites[14], mobSprites[15], mobSprites[16], mobSprites[17], mobSprites[18], mobSprites[19]});
 			break;
 
 		case STARYU:
-			mob = new Staryu(mobSprites[2]);
+			mob = new Staryu(new BufferedImage[] {mobSprites[14], mobSprites[15], mobSprites[16], mobSprites[17], mobSprites[18], mobSprites[19]});
 			break;
 
 		case TANGELA:
-			mob = new Tangela(mobSprites[8]);
+			mob = new Tangela(new BufferedImage[] {mobSprites[56], mobSprites[57], mobSprites[58], mobSprites[59], mobSprites[60], mobSprites[61]});
 			break;
 
 		case TAUROS:
-			mob = new Tauros({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
+			mob = new Tauros(new BufferedImage[]{mobSprites[49], mobSprites[50], mobSprites[51], mobSprites[52], mobSprites[53], mobSprites[54]});
 			break;
 
 		case TENTACOOL:
-			mob = new Tentacool(mobSprites[2]);
+			mob = new Tentacool(new BufferedImage[] {mobSprites[14], mobSprites[15], mobSprites[16], mobSprites[17], mobSprites[18], mobSprites[19]});
 			break;
 
 		case TENTACRUEL:
-			mob = new Tentacruel(mobSprites[2]);
+			mob = new Tentacruel(new BufferedImage[] {mobSprites[14], mobSprites[15], mobSprites[16], mobSprites[17], mobSprites[18], mobSprites[19]});
 			break;
 
 		case VENONAT:
-			mob = new Venonat(mobSprites[14]);
+			mob = new Venonat(new BufferedImage[] {mobSprites[98], mobSprites[99], mobSprites[100], mobSprites[101], mobSprites[102], mobSprites[103]});
 			break;
 
 		case VENOMOTH:
-			mob = new Venonat(mobSprites[14]);
+			mob = new Venonat(new BufferedImage[] {mobSprites[98], mobSprites[99], mobSprites[100], mobSprites[101], mobSprites[102], mobSprites[103]});
 			break;
 
 		case VENASAUR:
-			mob = new VenusaurMob(mobSprites[8]);
+			mob = new VenusaurMob(new BufferedImage[] {mobSprites[56], mobSprites[57], mobSprites[58], mobSprites[59], mobSprites[60], mobSprites[61]});
 			break;
 
 		case VICTREEBELL:
-			mob = new Victreebell(mobSprites[8]);
+			mob = new Victreebell(new BufferedImage[] {mobSprites[56], mobSprites[57], mobSprites[58], mobSprites[59], mobSprites[60], mobSprites[61]});
 			break;
 
 		case VILEPLUME:
-			mob = new Vileplume(mobSprites[8]);
+			mob = new Vileplume(new BufferedImage[] {mobSprites[56], mobSprites[57], mobSprites[58], mobSprites[59], mobSprites[60], mobSprites[61]});
 			break;
 
 		case VOLTORB:
-			mob = new Voltorb(mobSprites[5]);
+			mob = new Voltorb(new BufferedImage[] {mobSprites[35], mobSprites[36], mobSprites[37], mobSprites[38], mobSprites[39], mobSprites[40]});
 			break;
 
 		case VULPIX:
-			mob = new Vulpix({mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],});
+			mob = new Vulpix(new BufferedImage[]{mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12]});
 			break;
 
 		case WEEDLE:
-			mob = new Weedle(mobSprites[14]);
+			mob = new Weedle(new BufferedImage[] {mobSprites[98], mobSprites[99], mobSprites[100], mobSprites[101], mobSprites[102], mobSprites[103]});
 			break;
 
 		case WEEPINBELL:
-			mob = new Weepinbell(mobSprites[8]);
+			mob = new Weepinbell(new BufferedImage[] {mobSprites[56], mobSprites[57], mobSprites[58], mobSprites[59], mobSprites[50], mobSprites[61]});
 			break;
 
 		case WEEZING:
-			mob = new Weezing(mobSprites[3]);
+			mob = new Weezing(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		case ZAPDOS:
-			mob = new Zapdos(mobSprites[4]);
+			mob = new Zapdos(new BufferedImage[]{mobSprites[28], (mobSprites[29]), (mobSprites[30]), (mobSprites[31]), (mobSprites[32]), (mobSprites[33])});
 			break;
 
 		case ZUBAT:
-			mob = new Zubat(mobSprites[3]);
+			mob = new Zubat(new BufferedImage[]{mobSprites[21], mobSprites[22], mobSprites[23], mobSprites[24], mobSprites[25], mobSprites[26]});
 			break;
 
 		default:
