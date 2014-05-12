@@ -17,7 +17,7 @@ public class Wave37 extends Wave{
 
 	public Wave37(){
 	super();
-	MobBuilder m = super.mobBuilder
+	MobBuilder m = super.mobBuilder;
 	for(int i = 0; i < 1600; i++){
 		if(i % 5 == 0)
 			add(m.buildMob(MobID.PIDGEY));

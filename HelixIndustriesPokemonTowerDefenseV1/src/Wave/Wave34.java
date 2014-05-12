@@ -19,7 +19,7 @@ public class Wave34 extends Wave{
 	
 	public Wave34(){
 		super();
-		MobBuilder m = super.mobBuilder
+		MobBuilder m = super.mobBuilder;
 		for(int i = 0; i < 1500; i++){
 			if(i % 17 == 0)
 				add(m.buildMob(MobID.TENTACRUEL));

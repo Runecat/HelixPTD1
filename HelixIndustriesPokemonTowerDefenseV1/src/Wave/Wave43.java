@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 import Mob.GravelerMob;
 import Mob.Machop;
 import Mob.Marowak;
+import Mob.MobBuilder;
 import Mob.MobID;
 import Mob.Onix;
 import Mob.Zubat;
