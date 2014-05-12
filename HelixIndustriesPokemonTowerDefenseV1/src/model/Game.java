@@ -59,7 +59,7 @@ public class Game extends PanelObservable {
 	public Game() { // added constructor.
 		// add observers and other things.
 		Player thisPlayer = new Player("Chars");
-		thisPlayer.addMoney(1000);
+		thisPlayer.addMoney(3000);
 		this.addPlayer(thisPlayer);
 		
 		mapList = new ArrayList<Map>();
@@ -129,9 +129,9 @@ public class Game extends PanelObservable {
 	}
 	
 	public boolean canPlaceTower(int x, int y) {
-		if (isPlacingTower == false)
-			return false;
-		else if (currentMap.getTile(x, y).canPlaceTower() == false)
+		//if (isPlacingTower == false)
+		//	return false;
+		 if (currentMap.getTile(x, y).canPlaceTower() == false)
 			return false;
 		
 		return true;

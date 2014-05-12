@@ -106,12 +106,14 @@ public class TowerBuilder
 							  tower.getUpgraded().setImage(sprites[9]);
 				break;
 			case BLASTOISE: tower = new Blastoise(t,m);
-							tower.setImage(sprites[9]);
+							tower.setImage(sprites[89]);
 				break;
 			case PIKACHU: tower = new Pikachu(t,m);
 			    		  tower.setImage(sprites[11]);
-			    		  tower.setUpgrade(new Wartortle(t,m));
+			    		  tower.setUpgrade(new Raichu(t,m));
 			    		  tower.getUpgraded().setImage(sprites[12]);
+			    		  tower.getUpgraded().setUpgrade(new Blastoise(t,m));
+			    		  tower.getUpgraded().getUpgraded().setImage(sprites[98]);
 				break;
 			case RAICHU: tower = new Raichu(t,m);
 						 tower.setImage(sprites[12]);
