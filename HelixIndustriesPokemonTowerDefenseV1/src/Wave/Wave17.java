@@ -4,6 +4,8 @@ import java.awt.image.BufferedImage;
 
 import Mob.Goldeen;
 import Mob.Horsea;
+import Mob.MobBuilder;
+import Mob.MobID;
 import Mob.Poliwag;
 import Mob.Snorlax;
 import Mob.Tentacool;
@@ -13,24 +15,19 @@ public class Wave17 extends Wave{
 	private int delay = 500;
 	private int level = 17;
 	
-	private BufferedImage tentacool;
-	private BufferedImage goldeen;
-	private BufferedImage horsea;
-	private BufferedImage poliwag;
-	private BufferedImage snorlax;
-	
 	public Wave17(){
 		super();
+		MobBuilder m = super.mobBuilder;
 		for(int i = 0; i < 275; i++){
 			if(i % 4 == 0)
-				add(new Tentacool(tentacool));
+				add(m.buildMob(MobID.TENTACOOL));
 			else if(i % 3 == 0)
-				add(new Goldeen(goldeen));
+				add(m.buildMob(MobID.GOLDEEN));
 			else if(i % 2 == 0)
-				add(new Horsea(horsea));
+				add(m.buildMob(MobID.HORSEA));
 			else
-				add(new Poliwag(poliwag));
+				add(m.buildMob(MobID.POLIWAG));
 		}
-		add(new Snorlax(snorlax));
+		add(m.buildMob(MobID.SNORLAX));
 	}
 }

@@ -4,6 +4,8 @@ import java.awt.image.BufferedImage;
 
 import Mob.Goldeen;
 import Mob.Horsea;
+import Mob.MobBuilder;
+import Mob.MobID;
 import Mob.Poliwag;
 import Mob.Shellder;
 import Mob.Staryu;
@@ -14,32 +16,25 @@ public class Wave32 extends Wave{
 
 	private int delay = 500;
 	private int level = 32;
-	
-	private BufferedImage staryu;
-	private BufferedImage tentacruel;
-	private BufferedImage poliwag;
-	private BufferedImage goldeen;
-	private BufferedImage shellder;
-	private BufferedImage tentacool;
-	private BufferedImage horsea;
 
 	public Wave32(){
 		super();
+		MobBuilder m = super.mobBuilder;
 		for(int i = 0; i < 1250; i++){
 			if(i % 17 == 0)
-				add(new Tentacruel(tentacruel));
+				add(m.buildMob(MobID.TENTACRUEL));
 			else if(i % 6 == 0)
-				add(new Horsea(horsea));
+				add(m.buildMob(MobID.HORSEA));
 			else if(i % 5 == 0)
-				add(new Tentacool(tentacool));
+				add(m.buildMob(MobID.TENTACOOL));
 			else if(i % 4 == 0)
-				add(new Shellder(shellder));
+				add(m.buildMob(MobID.SHELLDER));
 			else if(i % 3 == 0)
-				add(new Goldeen(goldeen));
+				add(m.buildMob(MobID.GOLDEEN));
 			else if(i % 2 == 0)
-				add(new Poliwag(poliwag));
+				add(m.buildMob(MobID.POLIWAG));
 			else 
-				add(new Staryu(staryu));
+				add(m.buildMob(MobID.STARYU));
 		}
 	}
 	

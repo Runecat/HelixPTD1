@@ -7,6 +7,8 @@ import Mob.Drowzee;
 import Mob.Hypno;
 import Mob.Kadabra;
 import Mob.Koffing;
+import Mob.MobBuilder;
+import Mob.MobID;
 import Mob.Muk;
 import Mob.Venomoth;
 import Mob.Weezing;
@@ -16,37 +18,29 @@ public class Wave30FuchsiaGym extends Wave{
 	private int delay = 500;
 	private int level = 30;
 	
-	private BufferedImage drowzee;
-	private BufferedImage hypno;
-	private BufferedImage kadabra;
-	private BufferedImage arbok;
-	private BufferedImage koffing;
-	private BufferedImage weezing;
-	private BufferedImage muk;
-	private BufferedImage venomoth;
-	
 	public Wave30FuchsiaGym(){
 		super();
+		MobBuilder m = super.mobBuilder;
 		for(int i = 0; i < 1200; i++){
 			if(i < 900){
 				if(i % 7 == 0)
-					add(new Arbok(arbok));
+					add(m.buildMob(MobID.ARBOK));
 				else if(i % 11 == 0)
-					add(new Kadabra(kadabra));
+					add(m.buildMob(MobID.KADABRA));
 				else if(i % 3 == 0)
-					add(new Hypno(hypno));
+					add(m.buildMob(MobID.HYPNO));
 				else
-					add(new Drowzee(drowzee));
+					add(m.buildMob(MobID.DROWZEE));
 			}
 			else{
 				if (i % 5 == 0)
-					add(new Muk(muk));
+					add(m.buildMob(MobID.MUK));
 				else if(i % 4 == 0)
-					add(new Weezing(weezing));
+					add(m.buildMob(MobID.WEEZING));
 				else if(i % 3 == 0)
-					add(new Venomoth(venomoth));
+					add(m.buildMob(MobID.VENOMOTH));
 				else
-					add(new Koffing(koffing));
+					add(m.buildMob(MobID.KOFFING));
 			}	
 		}
 	}

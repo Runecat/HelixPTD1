@@ -5,6 +5,8 @@ import java.awt.image.BufferedImage;
 import Mob.Doduo;
 import Mob.Fearow;
 import Mob.Lickitung;
+import Mob.MobBuilder;
+import Mob.MobID;
 import Mob.Parasect;
 import Mob.Raticate;
 import Mob.Shellder;
@@ -16,34 +18,26 @@ public class Wave29 extends Wave{
 	private int delay = 500;
 	private int level = 29;
 	
-	private BufferedImage spearow;
-	private BufferedImage raticate;
-	private BufferedImage doduo;
-	private BufferedImage fearow;
-	private BufferedImage shellder;
-	private BufferedImage tentacool;
-	private BufferedImage lickitung;
-	private BufferedImage parasect;
-	
 	public Wave29(){
 		super();
+		MobBuilder m = super.mobBuilder;
 		for(int i = 0; i < 1050; i++){
 			if(i % 13 == 0)
-				add(new Parasect(parasect));
+				add(m.buildMob(MobID.PARASECT));
 			else if(i % 11 == 0)
-				add(new Lickitung(lickitung));
+				add(m.buildMob(MobID.LICKITUNG));
 			else if(i % 6 == 0)
-				add(new Tentacool(tentacool));
+				add(m.buildMob(MobID.TENTACOOL));
 			else if(i % 5 == 0)
-				add(new Shellder(shellder));
+				add(m.buildMob(MobID.SHELLDER));
 			else if(i % 4 == 0)
-				add(new Fearow(fearow));
+				add(m.buildMob(MobID.FEAROW));
 			else if(i % 3 == 0)
-				add(new Doduo(doduo));
+				add(m.buildMob(MobID.DODUO));
 			else if(i % 2 == 0)
-				add(new Raticate(raticate));
+				add(m.buildMob(MobID.RATICATE));
 			else
-				add(new Spearow(spearow));
+				add(m.buildMob(MobID.SPEAROW));
 		}
 	}
 	

@@ -5,6 +5,8 @@ import java.awt.image.BufferedImage;
 import Mob.Bellsprout;
 import Mob.Mankey;
 import Mob.Meowth;
+import Mob.MobBuilder;
+import Mob.MobID;
 import Mob.Oddish;
 import Mob.Vulpix;
 
@@ -13,25 +15,20 @@ public class Wave26 extends Wave{
 	private int delay = 500;
 	private int level = 26;
 	
-	private BufferedImage oddish;
-	private BufferedImage bellsprout;
-	private BufferedImage meowth;
-	private BufferedImage mankey;
-	private BufferedImage vulpix;
-	
 	public Wave26(){
 		super();
+		MobBuilder m = super.mobBuilder;
 		for(int i = 0; i < 800; i++){
 			if(i % 5 == 0)
-				add(new Oddish(oddish));
+				add(m.buildMob(MobID.ODDISH));
 			else if(i % 4 == 0)
-				add(new Bellsprout(bellsprout));
+				add(m.buildMob(MobID.BELLSPROUT));
 			else if(i % 3 == 0)
-				add(new Meowth(meowth));
+				add(m.buildMob(MobID.MEOWTH));
 			else if(i % 2 == 0)
-				add(new Mankey(mankey));
+				add(m.buildMob(MobID.MANKEY));
 			else
-				add(new Vulpix(vulpix));
+				add(m.buildMob(MobID.VULPIX));
 		}
 	}
 }

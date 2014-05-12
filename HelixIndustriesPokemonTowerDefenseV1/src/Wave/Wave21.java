@@ -4,6 +4,8 @@ import java.awt.image.BufferedImage;
 
 import Mob.Doduo;
 import Mob.Fearow;
+import Mob.MobBuilder;
+import Mob.MobID;
 import Mob.Rattata;
 import Mob.Spearow;
 
@@ -11,23 +13,18 @@ public class Wave21 extends Wave{
 
 	private int delay = 500;
 	private int level = 21;
-	
-	private BufferedImage fearow;
-	private BufferedImage doduo;
-	private BufferedImage spearow;
-	private BufferedImage rattata;
-
 	public Wave21(){
 		super();
+		MobBuilder m = super.mobBuilder;
 		for(int i = 0; i < 500; i++){
 			if(i % 4 == 0)
-				add(new Fearow(fearow));
+				add(m.buildMob(MobID.FEAROW));
 			else if(i % 3 == 0)
-				add(new Spearow(spearow));
+				add(m.buildMob(MobID.SPEAROW));
 			else if(i % 2 == 0)
-				add(new Doduo(doduo));
+				add(m.buildMob(MobID.DODUO));
 			else
-				add(new Rattata(rattata));
+				add(m.buildMob(MobID.RATTATA));
 		}
 	}
 }

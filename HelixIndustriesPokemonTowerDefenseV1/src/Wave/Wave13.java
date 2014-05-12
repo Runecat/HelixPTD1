@@ -2,6 +2,8 @@ package Wave;
 
 import java.awt.image.BufferedImage;
 
+import Mob.MobBuilder;
+import Mob.MobID;
 import Mob.Voltorb;
 import Mob.Magnemite;
 import Mob.Machop;
@@ -16,11 +18,11 @@ public class Wave13 extends Wave{
 		MobBuilder m = super.mobBuilder;
 		for(int i = 0; i < 250; i++){
 			if(i % 5 == 0)
-				add(new Machop(machop));
+				add(m.buildMob(MobID.MACHOP));
 			else if(i % 2 == 0)
-				add(new Voltorb(voltorb));
+				add(m.buildMob(MobID.VOLTORB));
 			else
-				add(new Magnemite(magnemite));
+				add(m.buildMob(MobID.MAGNEMITE));
 		}
 	}
 

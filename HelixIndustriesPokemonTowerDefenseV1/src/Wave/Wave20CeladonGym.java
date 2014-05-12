@@ -4,6 +4,8 @@ import java.awt.image.BufferedImage;
 
 import Mob.Bellsprout;
 import Mob.Exeggcute;
+import Mob.MobBuilder;
+import Mob.MobID;
 import Mob.Oddish;
 import Mob.Tangela;
 import Mob.Victreebell;
@@ -15,35 +17,27 @@ public class Wave20CeladonGym extends Wave{
 	private int delay = 500;
 	private int level = 20;
 	
-	private BufferedImage oddish;
-	private BufferedImage weepinbell;
-	private BufferedImage gloom;
-	private BufferedImage bellsprout;
-	private BufferedImage exeggcute;
-	private BufferedImage victreebell;
-	private BufferedImage tangela;
-	private BufferedImage vileplume;
-	
 	public Wave20CeladonGym(){
 		super();
+		MobBuilder m = super.mobBuilder;
 		for(int i = 0; i < 550; i++){
 			if(i < 400){
 				if(i % 19 == 0)
-					add(new Exeggcute(exeggcute));
+					add(m.buildMob(MobID.EXEGGCUTE));
 				else if(i % 11 == 0)
-					add(new Weepinbell(weepinbell));
+					add(m.buildMob(MobID.WEEPINBELL));
 				else if(i % 2 == 0)
-					add(new Oddish(oddish));
+					add(m.buildMob(MobID.ODDISH));
 				else
-					add(new Bellsprout(bellsprout));
+					add(m.buildMob(MobID.BELLSPROUT));
 			}
 			else{
 				if(i % 3 == 0)
-					add(new Victreebell(victreebell));
+					add(m.buildMob(MobID.VICTREEBELL));
 				else if(i % 2 == 0)
-					add(new Tangela(tangela));
+					add(m.buildMob(MobID.TANGELA));
 				else
-					add(new Vileplume(vileplume));
+					add(m.buildMob(MobID.VILEPLUME));
 			}
 		}
 	}

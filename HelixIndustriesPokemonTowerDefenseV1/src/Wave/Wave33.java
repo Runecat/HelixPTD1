@@ -5,6 +5,8 @@ import java.awt.image.BufferedImage;
 import Mob.Articuno;
 import Mob.Golduck;
 import Mob.Kingler;
+import Mob.MobBuilder;
+import Mob.MobID;
 import Mob.Seel;
 import Mob.Zubat;
 
@@ -12,39 +14,34 @@ public class Wave33 extends Wave{
 
 	private int delay = 500;
 	private int level = 33;
-	
-	private BufferedImage zubat;
-	private BufferedImage golduck;
-	private BufferedImage seel;
-	private BufferedImage kingler;
-	private BufferedImage articuno;
 
 	public Wave33(){
 		super();
+		MobBuilder m = super.mobBuilder;
 		for(int i = 0; i < 1999; i++){
 			if(i < 400)
-				add(new Zubat(zubat));
+				add(m.buildMob(MobID.ZUBAT));
 			else if(i >= 400 && i < 800){
 				if(i % 3 == 0)
-					add(new Kingler(kingler));
+					add(m.buildMob(MobID.KINGLER));
 				else if(i % 2 == 0)
-					add(new Seel(seel));
+					add(m.buildMob(MobID.SEEL));
 				else
-					add(new Golduck(golduck));
+					add(m.buildMob(MobID.GOLDUCK));
 			}
 			else if(i >= 800 && i < 1400)
-				add(new Zubat(zubat));
+				add(m.buildMob(MobID.ZUBAT));
 			else{
 				if(i % 4 == 0)
-					add(new Kingler(kingler));
+					add(m.buildMob(MobID.KINGLER));
 				else if(i % 3 == 0)
-					add(new Zubat(zubat));
+					add(m.buildMob(MobID.ZUBAT));
 				else if(i % 2 == 0)
-					add(new Seel(seel));
+					add(m.buildMob(MobID.SEEL));
 				else
-					add(new Golduck(golduck));
+					add(m.buildMob(MobID.GOLDUCK));
 			}
 		}
-		add(new Articuno(articuno));
+		add(m.buildMob(MobID.ARTICUNO));
 	}
 }

@@ -2,6 +2,8 @@ package Wave;
 
 import java.awt.image.BufferedImage;
 
+import Mob.MobBuilder;
+import Mob.MobID;
 import Mob.PikachuMob;
 import Mob.RaichuMob;
 import Mob.Voltorb;
@@ -18,17 +20,17 @@ public class Wave15VermillionGym extends Wave {
 		for(int i = 0; i < 275; i++){
 			if(i < 175){
 				if(i % 2 == 0)
-					add(new Voltorb(voltorb));
+					add(m.buildMob(MobID.VOLTORB));
 				else
-					add(new Magnemite(magnemite));
+					add(m.buildMob(MobID.MAGNEMITE));
 			}
 			else{
 				if(i % 7 == 0)
-					add(new RaichuMob(raichu));
+					add(m.buildMob(MobID.RAICHU));
 				else if (i % 2 == 0)
-					add(new PikachuMob(pikachu));
+					add(m.buildMob(MobID.PIKACHU));
 				else
-					add(new Magnemite(magnemite));
+					add(m.buildMob(MobID.MAGNEMITE));
 			}
 		}
 	}
