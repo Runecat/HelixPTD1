@@ -65,6 +65,8 @@ public class Game extends PanelObservable {
 		mapList = new ArrayList<Map>();
 		gameTimer = new Timer(10, new GameTimerListener());
 		towerBuilder = new TowerBuilder();
+		
+		
 	}
 	
 	public void setCurrentTowerInfo(Tower t) {
@@ -128,9 +130,13 @@ public class Game extends PanelObservable {
 		return players.get(i);
 	}
 	
+	public boolean isPaused() {
+		return !gameTimer.isRunning();
+	}
+	
 	public boolean canPlaceTower(int x, int y) {
-		//if (isPlacingTower == false)
-		//	return false;
+		if (isPaused())
+			return false;
 		 if (currentMap.getTile(x, y).canPlaceTower() == false)
 			return false;
 		

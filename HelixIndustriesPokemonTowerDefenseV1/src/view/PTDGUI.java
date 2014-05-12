@@ -10,6 +10,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.swing.JFrame;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -52,6 +53,8 @@ public class PTDGUI extends JFrame {
 		background.setLayout(new BorderLayout());
 		this.add(background);
 		
+		//background.add(new MapPanel(game));
+		
 		//MapPanel 
 		mapPanel = new MapPanel(game);
 		game.addObserver(mapPanel);
@@ -87,7 +90,7 @@ public class PTDGUI extends JFrame {
 	
 	
 	
-	private class BackgroundFrame extends JPanel {
+	private class BackgroundFrame extends JLayeredPane {
 		ImageLoader loader = new ImageLoader();
 		BufferedImage grass;
 		
@@ -110,6 +113,7 @@ public class PTDGUI extends JFrame {
 					
 				}
 			}
+			
 			
 			
 		}

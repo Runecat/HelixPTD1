@@ -116,12 +116,11 @@ public class MenuPanel extends JPanel implements PanelObserver {
 		JButton bulbasaurButton = new JButton("Bulbasaur");
 		bulbasaurButton.addActionListener(buttonListener);
 		towerSelectPanel.add(bulbasaurButton);
-		
+
 		JButton pikachuButton = new JButton("Pikachu");
 		pikachuButton.addActionListener(buttonListener);
 		towerSelectPanel.add(pikachuButton);
-		
-		
+
 	}
 
 	private void buildStartStopPanel() {
@@ -146,11 +145,9 @@ public class MenuPanel extends JPanel implements PanelObserver {
 							.getName());
 			if (theGame.getCurrentTowerInfo().getUpgraded() != null) {
 				infoPanel.add(evolveButton);
-			}
-			else
+			} else
 				infoPanel.remove(evolveButton);
-		}
-		else{
+		} else {
 			info.setText("");
 			infoPanel.remove(evolveButton);
 		}
@@ -198,7 +195,7 @@ public class MenuPanel extends JPanel implements PanelObserver {
 					JOptionPane.showMessageDialog(new Frame(),
 							"Can't Afford That!");
 			}
-			
+
 			if (buttonClicked.getText().equals("Pikachu")) {
 				if (canAfford(TowerID.PIKACHU)) {
 					theGame.setCurrentTowerSelected(TowerID.PIKACHU);
@@ -219,19 +216,22 @@ public class MenuPanel extends JPanel implements PanelObserver {
 			}
 
 			if (buttonClicked.getText().equals("Evolve!")) {
-				if (theGame.getPlayer(0).getMoney() >= theGame
-						.getCurrentTowerInfo().getUpgraded().getBuy()) {
-					theGame.getPlayer(0).addMoney(
-							-1
-									* theGame.getCurrentTowerInfo()
-											.getUpgraded().getBuy());
-					Tower temp = theGame.getCurrentTowerInfo().getUpgraded();
-					theGame.getCurrentTowerInfo().upgradeTower();
-					theGame.setCurrentTowerInfo(temp);
-					theGame.notifyObservers();
+				if (!theGame.isPaused()) {
+					if (theGame.getPlayer(0).getMoney() >= theGame
+							.getCurrentTowerInfo().getUpgraded().getBuy()) {
+						theGame.getPlayer(0).addMoney(
+								-1
+										* theGame.getCurrentTowerInfo()
+												.getUpgraded().getBuy());
+						Tower temp = theGame.getCurrentTowerInfo()
+								.getUpgraded();
+						theGame.getCurrentTowerInfo().upgradeTower();
+						theGame.setCurrentTowerInfo(temp);
+						theGame.notifyObservers();
+					} else
+						JOptionPane.showMessageDialog(new Frame(),
+								"Can't Afford That!");
 				}
-				else
-					JOptionPane.showMessageDialog(new Frame(),"Can't Afford That!");
 			}
 
 		}
