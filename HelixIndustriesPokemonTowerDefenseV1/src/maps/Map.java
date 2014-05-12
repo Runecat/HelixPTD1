@@ -83,10 +83,14 @@ public abstract class Map {
 	public void moveMobs() {
 		Tile current = spawner.getTile();
 
-		while (current != null) {
-			current.moveMobs();
-			current = current.next();
+		
+		for (int i = path.size()-1; i >= 0; i--) {
+			path.get(i).moveMobs();
 		}
+		//while (current != null) {
+		//	current.moveMobs();
+		//	current = current.next();
+		//}
 	}
 
 	// Gets a tile

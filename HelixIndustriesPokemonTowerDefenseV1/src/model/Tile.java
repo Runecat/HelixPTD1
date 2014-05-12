@@ -49,6 +49,10 @@ public class Tile {
 		return myPlayer;
 	}
 	
+	public void setNext(Tile t) {
+		this.next = t;
+	}
+	
 	public void moveMobs() {
 
 		if (next != null) {
@@ -72,8 +76,8 @@ public class Tile {
 									mobList.get(i).setHealth(mobList.get(i).getHealth() - 2);//set image to fire if health  < 0 
 								}
 								mobList.get(i).setEffect(Effect.none);
-								Mob temp = removeMob(i);
-								next.addMobs(temp);
+								//Mob temp = removeMob(i);
+								next.addMobs(removeMob(i));
 							}
 						}
 					}
@@ -184,7 +188,6 @@ public class Tile {
 	}
 
 	public void setSpawner(Spawner spawner) {
-		this.isOnPath = true;
 		this.spawner = spawner;
 	}
 

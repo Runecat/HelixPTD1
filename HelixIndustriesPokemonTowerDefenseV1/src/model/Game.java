@@ -42,6 +42,8 @@ public class Game extends PanelObservable {
 	
 	private Tower currentTowerInfo;
 	
+	private boolean midRound;
+	
 
 	private Map currentMap; // dont know if we want this for sure.
 	// Do we want the game class handling everything (main screen, map choice,
@@ -65,6 +67,7 @@ public class Game extends PanelObservable {
 		mapList = new ArrayList<Map>();
 		gameTimer = new Timer(10, new GameTimerListener());
 		towerBuilder = new TowerBuilder();
+		midRound = true;
 		
 		
 	}
@@ -134,8 +137,12 @@ public class Game extends PanelObservable {
 		return !gameTimer.isRunning();
 	}
 	
+	public void setMidRound(boolean b) {
+		midRound = b;
+	}
+	
 	public boolean canPlaceTower(int x, int y) {
-		if (isPaused())
+		if (isPaused() && midRound)
 			return false;
 		 if (currentMap.getTile(x, y).canPlaceTower() == false)
 			return false;
@@ -177,7 +184,7 @@ public class Game extends PanelObservable {
 
 			// spawning is synced~~~~~~~~~~
 			spawnerOffset++;
-			if (spawnerOffset > 500 || spawnerOffset == 0) {
+			if (spawnerOffset > 200 || spawnerOffset == 0) {
 				currentMap.sendWave();
 				spawnerOffset = 0;
 			}
