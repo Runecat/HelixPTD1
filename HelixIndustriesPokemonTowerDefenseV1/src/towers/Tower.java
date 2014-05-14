@@ -59,10 +59,10 @@ public abstract class Tower implements Clickable
 		tilesInRange = new ArrayList<Tile>();
 		Tile[][] grid = m.getGrid();
 		//grab which tiles are in range
-		int xMin = location.getY() - attacks.get(0).getHorizontalRange();
-		int xMax = location.getY() + attacks.get(0).getHorizontalRange();
-		int yMin = location.getX() - attacks.get(0).getVerticalRange();
-		int yMax = location.getX() + attacks.get(0).getVerticalRange();
+		int xMin = location.getX() - attacks.get(0).getHorizontalRange();
+		int xMax = location.getX() + attacks.get(0).getHorizontalRange();
+		int yMin = location.getY() - attacks.get(0).getVerticalRange();
+		int yMax = location.getY() + attacks.get(0).getVerticalRange();
 		int x;
 		int y;
 //		System.out.println("x: " + location.getX());
@@ -99,9 +99,9 @@ public abstract class Tower implements Clickable
 			//System.out.println("ymax after: " + yMax);
 		}
 		//Adds tiles in range to the range array
-		for(x = xMin;x<xMax;x++)
+		for(x = xMin;x<=xMax;x++)
 		{
-			for(y = yMin;y<yMax;y++)
+			for(y = yMin;y<=yMax;y++)
 			{
 					tilesInRange.add(grid[x][y]);
 					System.out.println("Tile added: " + x + ',' + y);
