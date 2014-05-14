@@ -3,6 +3,7 @@ package model;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,17 +20,14 @@ import maps.Map;
 import Mob.Mob;
 import ObserverModel.PanelObservable;
 
-public class Game extends PanelObservable {
+public class Game extends PanelObservable implements Serializable {
 
 	private final static int MAX_PLAYERS = 2; // The most we can have is 2 for
 												// multiplayer. But will usually
 												// be 1.
+	
+	private transient PersistenceHandler persistence;
 
-	// move this somewhere else
-	private final static int spriteWidth = 10;
-	private final static int spriteHeight = 10;
-	private final static int spriteRows = 5;
-	private final static int spriteColumns = 5;
 
 	public static Timer gameTimer;
 	private int timeElapsed = 0;
@@ -40,27 +38,24 @@ public class Game extends PanelObservable {
 	private boolean hasWon = false;
 
 	private TowerBuilder towerBuilder;
-	private List<Tower> towerList = new ArrayList<Tower>();
+	transient private List<Tower> towerList = new ArrayList<Tower>();
 
 	private TowerID currentTowerSelected;
 	private boolean isPlacingTower;
 
-	private List<Map> mapList;
-
-	private Tower currentTowerInfo;
-	private ArrayList<Mob> currentMobsInfo;
+	transient private Tower currentTowerInfo;
+	transient private ArrayList<Mob> currentMobsInfo;
 
 	private boolean betweenRounds;
 
-	private Map currentMap; 
+	transient private Map currentMap; 
 
 	private List<Player> players = new ArrayList<Player>(MAX_PLAYERS); // A list
 																		// of
 																		// players.
 																		// yup.
 
-	// private ArrayList<Mob> mobs;
-	// private ArrayList<Tower> towers;
+	
 
 	public Game() { // added constructor.
 		// add observers and other things.
@@ -69,11 +64,16 @@ public class Game extends PanelObservable {
 		thisPlayer.addMoney(300000);
 		this.addPlayer(thisPlayer);
 
-		mapList = new ArrayList<Map>();
 		gameTimer = new Timer(10, new GameTimerListener());
 		towerBuilder = new TowerBuilder();
 		betweenRounds = true;
+		
 
+	}
+	
+	public void saveGame() {
+		persistence = new PersistenceHandler(this);
+		persistence.write();
 	}
 	
 	public void speedUp() {
@@ -116,9 +116,6 @@ public class Game extends PanelObservable {
 		notifyObservers();
 	}
 
-	public void addMap(Map input) {
-		mapList.add(input);
-	}
 
 	public Map getCurrentMap() { // added this
 		return this.currentMap;

@@ -9,6 +9,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.io.Serializable;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -28,7 +29,7 @@ import model.Game;
 import Mob.Mob;
 import ObserverModel.PanelObserver;
 
-public class MenuPanel extends JPanel implements PanelObserver {
+public class MenuPanel extends JPanel implements PanelObserver, Serializable {
 
 	Game theGame;
 

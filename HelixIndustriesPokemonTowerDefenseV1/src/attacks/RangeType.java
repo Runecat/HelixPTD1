@@ -1,5 +1,7 @@
 package attacks;
 
+import java.io.Serializable;
+
 /*
  * Helix Industries:{
  * Daniel S. Luces
@@ -10,7 +12,7 @@ package attacks;
  * RangeType.java - Enum containing the range types for attacks
  */
 
-public enum RangeType 
+public enum RangeType implements Serializable
 {
 	NORMAL,HORIZONTAL,VERTICAL,TILE,SURROUNDING,AREA;
 

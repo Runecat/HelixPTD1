@@ -1,6 +1,8 @@
 package attacks;
 
-public enum Effect {
+import java.io.Serializable;
+
+public enum Effect implements Serializable{
 	poison, paralyze, sleep, burn, freeze, confuse,none;
 	
 	public void getStatuseffect(Effect status, double speed, int DoT, int length){

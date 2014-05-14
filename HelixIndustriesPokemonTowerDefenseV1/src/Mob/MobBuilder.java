@@ -3,18 +3,19 @@ package Mob;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 
 import javax.imageio.ImageIO;
 
-public class MobBuilder {
+public class MobBuilder implements Serializable{
 
 	private final int spriteWidth = 20;
 	private final int spriteHeight = 20;
 	private final int spriteRows = 7;
 	private final int spriteColumns = 16;
 	private final int offset = 0;
-	private BufferedImage[] mobSprites;
-	private BufferedImage[] sprites;
+	transient private BufferedImage[] mobSprites;
+	transient private BufferedImage[] sprites;
 
 	public MobBuilder() {
 		mobSprites = cutMobSheet();

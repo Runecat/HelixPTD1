@@ -2,6 +2,7 @@ package maps;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -15,7 +16,7 @@ import Mob.Mob;
 
 import towers.*;
 
-public abstract class Map {
+public abstract class Map implements Serializable {
 	protected int width;
 	protected int height;
 	protected int tileLength;

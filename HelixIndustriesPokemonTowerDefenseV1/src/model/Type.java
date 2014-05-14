@@ -1,6 +1,8 @@
 package model;
 
-public enum Type {
+import java.io.Serializable;
+
+public enum Type implements Serializable{
 	BUG, DRAGON, ELECTRIC, FIGHTING, FIRE, FLYING, 
 	GHOST, GRASS, GROUND, ICE, NORMAL, POISON,
 	PSYCHIC, ROCK, WATER;

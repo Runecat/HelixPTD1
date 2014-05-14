@@ -2,6 +2,7 @@ package model;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.swing.Timer;
@@ -11,7 +12,7 @@ import maps.Map;
 import Mob.Mob;
 import Wave.Wave;
 
-public class Spawner {
+public class Spawner implements Serializable{
 
 	private Tile tile;
 	private ArrayList<Mob> mobs = new ArrayList<Mob>();
