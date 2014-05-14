@@ -204,12 +204,21 @@ public class MapPanel extends JPanel implements PanelObserver {
 		this.revalidate();
 	}
 	
+	public void winMessage() {
+		this.remove(pausePanel);
+		this.add(winPanel);
+		this.revalidate();
+	}
+	
 
 	@Override
 	public void update() {
 		// This is where we will repaint the map and other things;
 		if (theGame.hasLost())
 			loseMessage();
+		
+		if (theGame.hasWon())
+			winMessage();
 		
 		if (theGame.isPaused() && !theGame.betweenRounds()) {
 			addPausePanel();

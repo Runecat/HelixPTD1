@@ -109,6 +109,13 @@ public abstract class Map {
 	public int getCurrentLevel() {
 		return currentLevel;
 	}
+	
+	public boolean getWon() {
+		if (currentLevel > levels)
+			return true;
+		else
+			return false;
+	}
 
 	public void nextLevel() {
 		if (currentLevel <= levels)
