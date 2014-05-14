@@ -33,10 +33,10 @@ public class Level3 extends Map{
 	ImageLoader loader;
 
 	private BufferedImage background;
-	private String backgroundImageURL = "Images/11.png";
+	private String backgroundImageURL = "Images/level3 map.png";
 
-	private final int WIDTH = 20;
-	private final int HEIGHT = 18;
+	private final int WIDTH = 33;
+	private final int HEIGHT = 26;
 	
 	public Level3(Game theGame){
 		super();
@@ -49,7 +49,7 @@ public class Level3 extends Map{
 		buildGrid(WIDTH, HEIGHT);
 
 		try {
-			this.background = loader.loadImage("Images/11.png");
+			this.background = loader.loadImage("Images/level3 map.png");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -59,13 +59,25 @@ public class Level3 extends Map{
 		waves.add(new Wave01());
 		waves.add(new Wave02());
 		waves.add(new Wave03());
+		
+		
+		Spawner spawn = new Spawner(grid[0][11], waves, this);
+		super.setSpawner(spawn);
+		
+		grid[0][11].setNextPathTile(grid[1][11]);
+		grid[1][11].setNextPathTile(grid[2][11]);
+		grid[2][11].setNextPathTile(grid[3][11]);
+		
+		super.buildPath();
+		super.setLevels(waves.size());
+
 
 	}
 
 	@Override
 	public Image getBackground() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.background;
 	}
 
 }
