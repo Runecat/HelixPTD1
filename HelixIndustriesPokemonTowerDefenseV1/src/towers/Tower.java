@@ -328,6 +328,12 @@ public abstract class Tower implements Clickable
 		damageDealt = (int) Math.ceil((type.getEffectiveness(m.getMobType()))*a.getDamage());//Calculate effectiveness, may need to change
 		//System.out.println("Damage: " + damageDealt);
 				
+		if(a.getType() == Type.FIRE)
+			m.setFire();
+		else if(a.getType()==Type.GRASS)
+			m.setGrass();
+		else if(a.getType()==Type.ELECTRIC)
+			m.setElectric();
 		if(modifier)
 		{
 			damageDealt++;
