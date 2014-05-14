@@ -2,6 +2,7 @@ package model;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.swing.Timer;
@@ -14,7 +15,7 @@ import towers.Tower;
 
 import Mob.Mob;
 
-public class Tile {
+public class Tile implements Serializable{
 
 	private int x, y;
 	private int row;

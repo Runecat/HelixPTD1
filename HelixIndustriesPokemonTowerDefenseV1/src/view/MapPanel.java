@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 
 import javax.swing.JButton;
 import javax.swing.JLayeredPane;
@@ -30,7 +31,7 @@ import model.Game;
 import model.Spawner;
 import model.Tile;
 
-public class MapPanel extends JPanel implements PanelObserver {
+public class MapPanel extends JPanel implements PanelObserver, Serializable {
 
 	private Map currentMap;
 	private Game theGame;
@@ -40,6 +41,7 @@ public class MapPanel extends JPanel implements PanelObserver {
 	
 	JPanel pausePanel = new JPanel();
 	JTextArea pause;
+	JButton saveButton;
 	
 	JPanel winPanel = new JPanel();
 	JTextArea winMessage;
@@ -72,17 +74,22 @@ public class MapPanel extends JPanel implements PanelObserver {
 	
 	public void buildPanels() {
 		
+		MenuListener menuListener = new MenuListener();
+
+		
 		pause = new JTextArea("PAUSED\n" +
 				"aasdfasdfasdfasdfasdfasdfsadfsa\n" +
 				"asdfasdfasdfasdfasdfasdfsa\n" +
 				"asdfasdfasdfasdfasdfasdfsdfsa" +
 				"asdfasdfsadfasdfsadfsadfsdf");
+		saveButton = new JButton("Save and quit");
+		saveButton.addActionListener(menuListener);
 		
 		pausePanel.add(pause);
+		pausePanel.add(saveButton);
 		pause.setOpaque(true);
 		//pausePanel.setSize(new Dimension(300,300));
 		
-		MenuListener menuListener = new MenuListener();
 		
 		winMessage = new JTextArea("You have won. You make me proud.");
 		loseMessage = new JTextArea("FAILURE.");
@@ -209,6 +216,7 @@ public class MapPanel extends JPanel implements PanelObserver {
 	public void loseMessage() {
 		this.remove(pausePanel);
 		this.add(losePanel);
+		theGame.saveGame();
 		this.revalidate();
 	}
 	
@@ -249,6 +257,11 @@ public class MapPanel extends JPanel implements PanelObserver {
 			
 			
 			if (selected.getText().equals("Quit game")){
+				System.exit(0);
+			}
+			
+			if (selected.getText().equals("Save and quit")){
+				theGame.saveGame();
 				System.exit(0);
 			}
 			

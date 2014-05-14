@@ -1,6 +1,7 @@
 package towers;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import Mob.Mob;
@@ -25,7 +26,7 @@ import java.awt.image.BufferedImage;
  * 
  * Tower.java - Abstract class that will create the base for all towers in the game
  */
-public abstract class Tower implements Clickable
+public abstract class Tower implements Clickable, Serializable
 {
 	protected String name = "";//Name of the tower
 	protected int height;//How many squares the tower takes up in the y-direction

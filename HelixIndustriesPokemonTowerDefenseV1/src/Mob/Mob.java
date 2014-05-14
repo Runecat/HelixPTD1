@@ -2,6 +2,7 @@ package Mob;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.Serializable;
 
 import attacks.Effect;
 import maps.Map;
@@ -11,7 +12,7 @@ import model.Headquarters;
 import model.Tile;
 import model.Type;
 
-public abstract class Mob implements Clickable {
+public abstract class Mob implements Clickable, Serializable{
 	
 	// May need location variables
 	

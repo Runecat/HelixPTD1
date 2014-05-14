@@ -1,6 +1,8 @@
 package attacks;
 
 import java.io.File;
+import java.io.Serializable;
+
 import model.Type;
 
 /*
@@ -13,7 +15,7 @@ import model.Type;
  * Attack.java - Abstract class that will create the base for all attacks in the game
  */
 
-public abstract class Attack
+public abstract class Attack implements Serializable
 {
 	protected String name;
 	protected int damage;//Damage attack deals to each target
