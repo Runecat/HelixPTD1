@@ -2,13 +2,21 @@ package model;
 
 import java.io.Serializable;
 
+/*
+ * Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ */
+
 public enum Type implements Serializable{
 	BUG, DRAGON, ELECTRIC, FIGHTING, FIRE, FLYING, 
 	GHOST, GRASS, GROUND, ICE, NORMAL, POISON,
 	PSYCHIC, ROCK, WATER;
 	
 	// This will be the typical method used to find effectiveness
-	// Example: ELECTRIC.getEffectiveness(FLYING);
 	public double getEffectiveness(Type defend){
 		return getEffectiveness(this, defend);
 	}

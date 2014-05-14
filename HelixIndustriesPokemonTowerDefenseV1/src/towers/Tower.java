@@ -26,7 +26,7 @@ import java.awt.image.BufferedImage;
  * 
  * Tower.java - Abstract class that will create the base for all towers in the game
  */
-public abstract class Tower implements Clickable, Serializable
+public abstract class Tower implements Serializable
 {
 	protected String name = "";//Name of the tower
 	protected int height;//How many squares the tower takes up in the y-direction
@@ -56,7 +56,6 @@ public abstract class Tower implements Clickable, Serializable
 	 */
 	public void setRange(Map m)
 	{
-		System.out.println("Setting Range: location"+location.getX()+','+location.getY());
 		tilesInRange = new ArrayList<Tile>();
 		Tile[][] grid = m.getGrid();
 		//grab which tiles are in range
@@ -66,38 +65,26 @@ public abstract class Tower implements Clickable, Serializable
 		int yMax = location.getY() + attacks.get(0).getVerticalRange();
 		int x;
 		int y;
-//		System.out.println("x: " + location.getX());
-//		System.out.println("x: " + location.getY());
-//		System.out.println("Horizontal Range: " + attacks.get(0).getHorizontalRange());
-//		System.out.println("Vertical Range: " + attacks.get(0).getVerticalRange());
 		
 		//Calculates range boundaries, based on attack range and map boundaries
 		if(xMin <0)
 		{
-			//System.out.println("xmin before: " + xMin);
 			xMin = 0;
-			//System.out.println("xmin after: " + xMin);
 		}
 		
 		if(yMin < 0)
 		{
-			//System.out.println("ymin before: " + yMin);
 			yMin = 0;
-			//System.out.println("ymin after: " + yMin);
 		}
 		
 		if(xMax > m.getWidth())
 		{
-			System.out.println("xmax before: " + xMax);
 			xMax = m.getWidth();
-			System.out.println("xmax after: " + xMax);
 		}
 		
 		if(yMax > m.getHeight())
 		{
-			//System.out.println("ymax before: " + yMax);
 			yMax = m.getHeight();
-			//System.out.println("ymax after: " + yMax);
 		}
 		//Adds tiles in range to the range array
 		for(x = xMin; x <= xMax; x++)
@@ -106,12 +93,9 @@ public abstract class Tower implements Clickable, Serializable
 			{
 				if (x < m.getWidth() && y < m.getHeight()) {
 					tilesInRange.add(grid[x][y]);
-					System.out.println("Tile added: " + x + ',' + y);
 				}
 			}
 		}
-		
-		//System.out.println("Tiles in range(size): " + tilesInRange.size());
 		
 	}
 	
@@ -203,17 +187,7 @@ public abstract class Tower implements Clickable, Serializable
 	{
 		return location.getColumn();
 	}
-	
-	//Shows the Tower's information ()
-	public void showInfo()
-	{
-		
-	}
-	
-	public void drawTower(Graphics2D g)
-	{
-		//draw image
-	}
+
 	
 	
 	public void setImage(BufferedImage b)
@@ -235,7 +209,6 @@ public abstract class Tower implements Clickable, Serializable
 		{	
 			for(Tile t: tilesInRange)
 			{	
-				System.out.print(t.hasMob());
 				if(t.hasMob() && (mobs.size()<attacks.get(0).getTargets()))
 				{
 					for(int i = 0;i<t.getMobs().size();i++)
@@ -308,7 +281,6 @@ public abstract class Tower implements Clickable, Serializable
 						}
 					}
 		}
-		System.out.println("MOBS: "+ mobs.size());
 		if(mobs.size() > 0 && attackDelay(currentDelay))
 			attackEnemy(attacks.get(0), mobs);
 			
@@ -318,19 +290,16 @@ public abstract class Tower implements Clickable, Serializable
 	 */
 	public void dealDamage(Attack a, Mob m)
 	{
-		//System.out.println("Dealing damage, sir!");
 		int damageDealt = 0;
 		boolean modifier = false;
-		//Type t = new Type();
 		
 		if(type == a.getType())
 		{
 			modifier = true;
 		}
 		
-		//damageDealt = a.getDamage();
 		damageDealt = (int) Math.ceil((type.getEffectiveness(m.getMobType()))*a.getDamage());//Calculate effectiveness, may need to change
-		//System.out.println("Damage: " + damageDealt);
+	
 				
 		if(a.getType() == Type.FIRE)
 			m.setFire();
@@ -352,14 +321,12 @@ public abstract class Tower implements Clickable, Serializable
 			case burn:
 				if(random <= 1){
 					m.setEffect(Effect.burn);
-					System.out.println("SWEET JESUS IM ON FIRE");
 				}
 				break;
 				
 			case paralyze:
 				if(random <= 2){
 					m.setEffect(Effect.paralyze);
-					System.out.println("VEGETABLE STATUS");
 				}
 				break;
 			default:break;
@@ -369,7 +336,6 @@ public abstract class Tower implements Clickable, Serializable
 	
 	public void attackEnemy(Attack a, ArrayList<Mob> inRange)
 	{
-		//System.out.println("AttackEnemy() called");
 		for(Mob m: inRange)
 		{
 			dealDamage(a,m);

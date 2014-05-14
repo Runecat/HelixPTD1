@@ -9,13 +9,21 @@ import Mob.Mob;
 import Mob.MobBuilder;
 import Mob.MobID;
 
+/*
+ * Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ */
 
 public abstract class Wave implements Serializable
 {
 	private ArrayList<Mob> wave = new ArrayList<Mob>();
 	private Mob baddie;
 	private int delay = 1;
-	Timer t;// = new Timer(delay, WaveStart).start();
+	Timer t;
 	protected MobBuilder mobBuilder;
 	
 	public Wave()

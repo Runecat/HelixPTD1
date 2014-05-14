@@ -1,9 +1,14 @@
 package networking;
 
 /**
- *	AddMessageCommand
+ * Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
  * 
- *	Adds a text message to the server's chat log
+ * 
+ * Original by Gabe Kishi
  */
 public class UpdateMessageCommand extends Command<GameServer>
 {

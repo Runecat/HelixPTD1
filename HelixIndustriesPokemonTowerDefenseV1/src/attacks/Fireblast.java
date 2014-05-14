@@ -29,8 +29,7 @@ public class Fireblast extends Attack
 		super.damageType = Type.FIRE;
 		super.effect = Effect.burn;
 		super.rangeType = RangeType.AREA;
-		super.image = null;//unimplemented
-		super.targets = 24;//unimplemented
+		super.targets = 24;
 	}
 }
 

@@ -75,6 +75,16 @@ import model.Game;
 import model.Spawner;
 import model.Tile;
 
+/*
+ * Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ *
+ */
+
 public class Level1 extends Map {
 
 	ImageLoader loader;
@@ -100,7 +110,6 @@ public class Level1 extends Map {
 		try {
 			this.background = loader.loadImage("Images/Route5.png");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -110,7 +119,7 @@ public class Level1 extends Map {
 		waves.add(new Wave03());
 		waves.add(new Wave04());
 		waves.add(new Wave05PewterGym());
-		/*waves.add(new Wave06());
+		waves.add(new Wave06());
 		waves.add(new Wave07());
 		waves.add(new Wave08());
 		waves.add(new Wave09());
@@ -154,14 +163,14 @@ public class Level1 extends Map {
 		waves.add(new Wave47EliteBruno());
 		waves.add(new Wave48EliteAgatha());
 		waves.add(new Wave49EliteLance());
-		waves.add(new Wave50ChampionBlue());*/
+		waves.add(new Wave50ChampionBlue());
 
 
 		// spawner will be declared for each map specifically.
 		Spawner spawn = new Spawner(grid[3][0], waves, this);
 		super.setSpawner(spawn);
 
-		// TRACK NIGGA (defined specifically in each map)
+		
 		grid[3][0].setNextPathTile(grid[3][1]);
 		grid[3][1].setNextPathTile(grid[3][2]);
 		grid[3][2].setNextPathTile(grid[3][3]);

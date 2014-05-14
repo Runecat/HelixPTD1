@@ -1,6 +1,8 @@
 package view;
 
 import java.awt.BorderLayout;
+
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -13,23 +15,24 @@ import java.awt.image.BufferedImage;
 import java.io.Serializable;
 
 import javax.swing.JButton;
-import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-import towers.Charmander;
 import towers.Tower;
-import towers.TowerBuilder;
-import towers.TowerID;
 import Mob.Mob;
 import ObserverModel.PanelObserver;
-import maps.Level1;
-//import maps.Level2;
-//import maps.Level3;
 import maps.Map;
 import model.Game;
-import model.Spawner;
 import model.Tile;
+
+/*
+ * Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ */
 
 public class MapPanel extends JPanel implements PanelObserver, Serializable {
 
@@ -78,17 +81,17 @@ public class MapPanel extends JPanel implements PanelObserver, Serializable {
 
 		
 		pause = new JTextArea("PAUSED\n" +
-				"aasdfasdfasdfasdfasdfasdfsadfsa\n" +
-				"asdfasdfasdfasdfasdfasdfsa\n" +
-				"asdfasdfasdfasdfasdfasdfsdfsa" +
-				"asdfasdfsadfasdfsadfsadfsdf");
+				"Welcome to Helix Industries Pokemon Tower Defense!\n" +
+				"You lose when your health hits 0, one health lost per enemy that gets there\n" +
+				"Click on the appropriate button on the right and then a blank space to build towers.\n" +
+				"Win by defeating all 50 waves.\n"+
+				"(You cannot build towers on the enemy path)  Good Luck!\n");
 		saveButton = new JButton("Save and quit");
 		saveButton.addActionListener(menuListener);
 		
 		pausePanel.add(pause);
 		pausePanel.add(saveButton);
 		pause.setOpaque(true);
-		//pausePanel.setSize(new Dimension(300,300));
 		
 		
 		winMessage = new JTextArea("You have won. You make me proud.");
@@ -113,26 +116,10 @@ public class MapPanel extends JPanel implements PanelObserver, Serializable {
 
 		g.drawImage(background, 0, 0, null);
 
-		g.setColor(Color.green);
-		for (int i = 0; i < currentMap.getWidth(); i++) {
-			g.drawLine(i * TILE_DIMENSION, 0, i * TILE_DIMENSION,
-					TILE_DIMENSION * currentMap.getHeight());
-		}
-
-		for (int j = 0; j < currentMap.getHeight(); j++) {
-			g.drawLine(0, j * TILE_DIMENSION,
-					TILE_DIMENSION * currentMap.getWidth(), j * TILE_DIMENSION);
-
-		}
-
+		//
 		for (int i = 0; i < currentMap.getWidth(); i++) {
 			for (int j = 0; j < currentMap.getHeight(); j++) {
 				String count = "" + currentMap.getGrid()[i][j].getMobs().size();
-				if (currentMap.getGrid()[i][j].isOnPath()) {
-					g.setColor(Color.yellow);
-					g.drawRect(i * TILE_DIMENSION, j * TILE_DIMENSION,
-							TILE_DIMENSION, TILE_DIMENSION);
-				}
 				if (currentMap.getGrid()[i][j].getMobs().size() != 0) {
 					for(Mob m: currentMap.getGrid()[i][j].getMobs())
 					{
@@ -141,11 +128,6 @@ public class MapPanel extends JPanel implements PanelObserver, Serializable {
 								TILE_DIMENSION, this);
 					}
 				}
-				g.setColor(Color.BLACK);
-				// g.drawString("" + count, (i)*currentMap.getGridWidth(),
-				// (j+1)*currentMap.getGridHeight());
-				g.drawString("" + count, (i) * TILE_DIMENSION + 6, (j + 1)
-						* TILE_DIMENSION - 5);
 
 			}
 		}
@@ -307,27 +289,22 @@ public class MapPanel extends JPanel implements PanelObserver, Serializable {
 			
 		}
 
-		@Override
 		public void mouseEntered(MouseEvent arg0) {
-			// TODO Auto-generated method stub
 
 		}
 
 		@Override
 		public void mouseExited(MouseEvent arg0) {
-			// TODO Auto-generated method stub
 
 		}
 
 		@Override
 		public void mousePressed(MouseEvent arg0) {
-			// TODO Auto-generated method stub
 
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent arg0) {
-			// TODO Auto-generated method stub
 
 		}
 

@@ -20,6 +20,15 @@ import maps.Map;
 import Mob.Mob;
 import ObserverModel.PanelObservable;
 
+/*
+ * Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ */
+
 public class Game extends PanelObservable implements Serializable {
 
 	private final static int MAX_PLAYERS = 2; // The most we can have is 2 for
@@ -60,8 +69,7 @@ public class Game extends PanelObservable implements Serializable {
 	public Game() { // added constructor.
 		// add observers and other things.
 		Player thisPlayer = new Player("Chars");
-		thisPlayer.removeHealth(149);
-		thisPlayer.addMoney(300000);
+		thisPlayer.addMoney(500);
 		this.addPlayer(thisPlayer);
 
 		gameTimer = new Timer(10, new GameTimerListener());
@@ -263,9 +271,6 @@ public class Game extends PanelObservable implements Serializable {
 			}
 
 			// mob deaths
-			// for (int i = 0; i < currentMap.getPath().size(); i++) {
-			// players.get(0).addMoney(currentMap.getPath().get(i).checkDeaths());
-			// }
 			notifyObservers();
 
 		}

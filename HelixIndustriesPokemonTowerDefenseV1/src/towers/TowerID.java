@@ -2,6 +2,15 @@ package towers;
 
 import java.io.Serializable;
 
+/*
+ * Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ */
+
 public enum TowerID implements Serializable
 {
 	BLANK,BULBASAUR,IVYSAUR,VENUSAUR,CHARMANDER,CHARMELEON,CHARIZARD,SQUIRTLE,WARTORTLE,BLASTOISE,

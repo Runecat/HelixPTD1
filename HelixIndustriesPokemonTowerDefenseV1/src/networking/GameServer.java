@@ -12,13 +12,15 @@ import java.util.List;
 import model.Tile;
 
 
-/**
- * NRCServer
+/*
+ * Modified by Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
  * 
- * <P> This class is the server side of NRC. The server communicates with clients, 
- * sends and receives commands, and holds the chat log <p>
+ * Original by Gabe Kishi
  * 
- * @author Gabriel Kishi
  */
 public class GameServer 
 {

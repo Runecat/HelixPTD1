@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import model.Directions;
 import model.Game;
 import model.Spawner;
 import model.Tile;
@@ -15,6 +14,16 @@ import model.Tile;
 import Mob.Mob;
 
 import towers.*;
+
+/*
+ * Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ *
+ */
 
 public abstract class Map implements Serializable {
 	protected int width;
@@ -139,10 +148,6 @@ public abstract class Map implements Serializable {
 		for (int i = path.size() - 1; i >= 0; i--) {
 			path.get(i).moveMobs();
 		}
-		// while (current != null) {
-		// current.moveMobs();
-		// current = current.next();
-		// }
 	}
 
 	// Gets a tile

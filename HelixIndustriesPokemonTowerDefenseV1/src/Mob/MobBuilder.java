@@ -7,6 +7,15 @@ import java.io.Serializable;
 
 import javax.imageio.ImageIO;
 
+/*
+ * Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ */
+
 public class MobBuilder implements Serializable{
 
 	private final int spriteWidth = 20;
@@ -93,7 +102,7 @@ public class MobBuilder implements Serializable{
 			break;
 
 		case ARTICUNO:
-			mob = new Articuno(new BufferedImage[] {sprites[88], sprites[88], sprites[88],sprites[88],sprites[88], sprites[88],mobSprites[0],mobSprites[1],mobSprites[2]});
+			mob = new Articuno(new BufferedImage[]{mobSprites[28], mobSprites[29], mobSprites[30], mobSprites[31], mobSprites[32], mobSprites[33],mobSprites[0],mobSprites[1],mobSprites[2]});
 			break;
 
 		case BELLSPROUT:
@@ -301,7 +310,7 @@ public class MobBuilder implements Serializable{
 			break;
 
 		case MOLTRES:
-			mob = new Moltres(new BufferedImage [] {sprites[91], sprites[91], sprites[91], sprites[91], sprites[91], sprites[91],mobSprites[0],mobSprites[1],mobSprites[2]});
+			mob = new Moltres(new BufferedImage[]{mobSprites[28], mobSprites[29], mobSprites[30], mobSprites[31], mobSprites[32], mobSprites[33],mobSprites[0],mobSprites[1],mobSprites[2]});
 			break;
 
 		case MRMIME:
@@ -409,7 +418,7 @@ public class MobBuilder implements Serializable{
 			break;
 
 		case SNORLAX:
-			mob = new Snorlax(new BufferedImage[] {sprites[88],sprites[88],sprites[88],sprites[88],sprites[88],sprites[88],mobSprites[0],mobSprites[1],mobSprites[2]});
+			mob = new Snorlax(new BufferedImage[] {mobSprites[7], mobSprites[8], mobSprites[9], mobSprites[10], mobSprites[11], mobSprites[12],mobSprites[0],mobSprites[1],mobSprites[2]});
 			break;
 
 		case SPEAROW:

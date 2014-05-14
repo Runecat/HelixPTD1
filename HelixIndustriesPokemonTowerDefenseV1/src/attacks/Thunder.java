@@ -14,7 +14,6 @@ import model.Type;
  * Brandon Brown
  * Gabriel Basadre
  * 
- * Ember.java - Class for the Ember attack
  */
 
 public class Thunder extends Attack
@@ -29,7 +28,6 @@ public class Thunder extends Attack
 		super.damageType = Type.ELECTRIC;
 		super.effect = Effect.paralyze;
 		super.rangeType = RangeType.AREA;
-		super.image = null;//unimplemented
-		super.targets = 1;//unimplemented
+		super.targets = 1;
 	}
 }

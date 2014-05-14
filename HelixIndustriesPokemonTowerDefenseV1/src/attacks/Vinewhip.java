@@ -15,7 +15,7 @@ import model.Type;
  * Brandon Brown
  * Gabriel Basadre
  * 
- * Vinewhip.java - Class for the Flamethrower attack
+ * Vinewhip.java - Class for the Vinewhip attack
  */
 
 public class Vinewhip extends Attack
@@ -30,7 +30,6 @@ public class Vinewhip extends Attack
 		super.damageType = Type.GRASS;
 		super.effect = Effect.none;
 		super.rangeType = RangeType.HORIZONTAL;
-		super.image = null;
 		super.targets = 12;
 	}
 }

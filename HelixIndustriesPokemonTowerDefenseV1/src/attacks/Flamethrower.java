@@ -30,7 +30,6 @@ public class Flamethrower extends Attack
 		super.damageType = Type.FIRE;
 		super.effect = Effect.burn;
 		super.rangeType = RangeType.HORIZONTAL;
-		super.image = null;
 		super.targets = 12;
 	}
 }

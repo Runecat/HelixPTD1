@@ -11,6 +11,14 @@ import maps.Map;
 
 import Mob.Mob;
 import Wave.Wave;
+/*
+ * Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ */
 
 public class Spawner implements Serializable{
 
@@ -86,10 +94,4 @@ public class Spawner implements Serializable{
 	private int getDelay(int level) {
 		return waves.get(level).getDelay();
 	}
-
-	// private int getLevel(Wave wave) {
-	// return level;
-	// }
-	// Not currently necessary
-
 }

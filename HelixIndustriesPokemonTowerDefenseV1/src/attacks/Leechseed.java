@@ -14,7 +14,6 @@ import model.Type;
  * Brandon Brown
  * Gabriel Basadre
  * 
- * Ember.java - Class for the Ember attack
  */
 
 public class Leechseed extends Attack
@@ -29,7 +28,6 @@ public class Leechseed extends Attack
 		super.damageType = Type.GRASS;
 		super.effect = Effect.poison;
 		super.rangeType = RangeType.NORMAL;
-		super.image = null;//unimplemented
-		super.targets = 1;//unimplemented
+		super.targets = 1;
 	}
 }

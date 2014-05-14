@@ -12,6 +12,15 @@ import javax.swing.JTextField;
 
 import model.Game;
 
+/*
+ * Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ */
+
 public class ChatPanel extends JPanel {
 
 	private Game theGame;
@@ -46,7 +55,6 @@ public class ChatPanel extends JPanel {
 		// set up the inputField
 		final JTextField userInputField = new JTextField(30);
 		
-		// add dat shit
 		this.add(scrollpane);
 		this.add(userInputField, BorderLayout.SOUTH);
 

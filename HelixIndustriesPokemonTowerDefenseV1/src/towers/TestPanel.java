@@ -17,6 +17,15 @@ import maps.Map;
 import model.Game;
 import model.Tile;
 
+/*
+ * Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ */
+
 public class TestPanel extends JFrame
 {
 	private static final long serialVersionUID = 1L;
@@ -102,14 +111,6 @@ public class TestPanel extends JFrame
 		  	{
 		  		//g.drawImage(sprites[k],k*20,0,20,20,this);
 		  	}
-		  	//g.drawImage(sprites[0],0,0,60,60,this);
-		  	//g.drawImage(sprites[1],60,0,60,60,this);
-		  	//g.drawImage(sprites[2],120,0,60,60,this);
-		  	//g.drawImage(sprites[3],180,0,60,60,this);
-		  	//g.drawImage(sprites[4],240,0,60,60,this);
-		  	//g.drawImage(sprites[5],300,0,60,60,this);
-		  	//g.drawImage(sprites[6],360,0,60,60,this);
-		  	//g.drawImage(sprites[7],420,0,60,60,this);
 			
 		}
 		

@@ -7,6 +7,15 @@ import java.net.URL;
 
 import javax.imageio.ImageIO;
 
+/*
+ * Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ */
+
 // This loads images, mostly for use with SpriteSheet
 
 public class ImageLoader {

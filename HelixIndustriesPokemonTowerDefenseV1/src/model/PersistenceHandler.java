@@ -7,6 +7,15 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
+/*
+ * Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ */
+
 public class PersistenceHandler implements Serializable {
 	
 	private Game theGame;
@@ -29,8 +38,7 @@ public class PersistenceHandler implements Serializable {
 (bytesToDisk);
 			outFile.writeObject(this.theGame);
 			outFile.close();
-		} catch (IOException ioe) {
-			System.out.println("Oh man, you messed up!");
+		} catch (IOException ioe) {;
 		}
 	}
 	
@@ -45,8 +53,7 @@ public class PersistenceHandler implements Serializable {
 			
 			this.theGame = (Game) anyObject;
 			
-		} catch (Exception e) {
-			System.out.println("Something is fishy...");
+		} catch (Exception e) {;
 		}
 		
 	}

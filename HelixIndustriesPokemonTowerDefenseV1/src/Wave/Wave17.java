@@ -10,6 +10,15 @@ import Mob.Poliwag;
 import Mob.Snorlax;
 import Mob.Tentacool;
 
+/*
+ * Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ */
+
 public class Wave17 extends Wave{
 
 	private int delay = 500;

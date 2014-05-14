@@ -31,6 +31,15 @@ import model.Game;
 import model.PersistenceHandler;
 import model.Player;
 
+/*
+ * Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ */
+
 public class PTDGUI extends JFrame {
 
 	/*
@@ -51,10 +60,7 @@ public class PTDGUI extends JFrame {
 
 	public static void main(String[] args) {
 		Game theGame = new Game();
-		// Player playerOne = new Player();
-		// theGame.addPlayer(playerOne);
 		PTDGUI gui = new PTDGUI();
-		// theGame.startTimer();
 	}
 
 	public PTDGUI() {
@@ -74,23 +80,7 @@ public class PTDGUI extends JFrame {
 
 		background = new BackgroundFrame();
 		background.setLayout(new BorderLayout());
-		//this.add(background);
-
-		/*
-		// MapPanel
-		currentMapPanel = new MapPanel(game);
-		game.addObserver(currentMapPanel);
-		currentMapPanel.setPreferredSize(new Dimension(800, 720));
-		background.add(currentMapPanel, BorderLayout.LINE_START);
-
-		menu = new MenuPanel(game);
-		game.addObserver(menu);
-		menu.setPreferredSize(new Dimension(184, 720));
-		background.add(menu, BorderLayout.LINE_END);
-
-		 */
 		this.setVisible(true);
-		
 
 	}
 

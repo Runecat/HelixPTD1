@@ -3,6 +3,14 @@ package networking;
 import java.util.List;
 import java.util.LinkedList;
 
+/*
+ * Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ */
 
 /**
  * UpdateClientCommand

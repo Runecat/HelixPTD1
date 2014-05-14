@@ -7,10 +7,18 @@ import java.io.Serializable;
 import attacks.Effect;
 import maps.Map;
 import model.Clickable;
-import model.Directions;
 import model.Headquarters;
 import model.Tile;
 import model.Type;
+
+/*
+ * Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ */
 
 public abstract class Mob implements Clickable, Serializable{
 	
@@ -21,7 +29,7 @@ public abstract class Mob implements Clickable, Serializable{
 	private BufferedImage currentImage;
 	protected int health;
 	protected int moveSpeed;
-	protected Type type;// Might make into enum
+	protected Type type;
 	protected int delay;
 
 	private int baseDamage = 1;
@@ -38,9 +46,6 @@ public abstract class Mob implements Clickable, Serializable{
 		image = b;
 	}
 	
-	//public void spawnMob(int spawnRow, int spawnCol){
-	//	track.setMob(spawnX, spawnY, new Mob());
-	//}
 
 	public void setCurrentTile(Tile t) {
 		currentTile = t;

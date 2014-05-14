@@ -1,5 +1,14 @@
 package Mob;
 
+/*
+ * Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ */
+
 public enum MobID {
 	AERODACTYL, ALAKAZAM, ARBOK, ARCANINE, ARTICUNO, BELLSPROUT, BLASTOISE, CATERPIE, CHARIZARD,
 	CLOYSTER, DEWGONG, DIGLETT, DODRIO, DODUO, DRAGONAIR, DRAGONITE, DROWZEE, DUGTRIO, EKANS,

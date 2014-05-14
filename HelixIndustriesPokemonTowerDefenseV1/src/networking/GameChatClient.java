@@ -26,13 +26,13 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-/**
- * NRCClient
+/*
+ * Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
  * 
- * <p> The client side of NRC. This class displays the current chat log and
- * sends AddMessageCommands to the server. <p>
- * 
- * @author Gabriel Kishi
  */
 public class GameChatClient extends JFrame {
 	private JTextArea textArea; // chat log displayed here
@@ -43,7 +43,7 @@ public class GameChatClient extends JFrame {
 	private ObjectInputStream in; // input stream
 
 	/**
-	 * Ready made GUI for a NRC client
+	 * Ready made GUI for a NRC client by Gabe Kishi
 	 */
 	private class ChatPanel extends JPanel{
 		public ChatPanel(){
@@ -172,8 +172,6 @@ public class GameChatClient extends JFrame {
 
 	/**
 	 * Updates the chat log. Called by UpdateClientCommands
-	 * 
-	 * @param messages	the current chat log
 	 */
 	public void update(List<String> messages) {
 		String s = "";

@@ -14,6 +14,15 @@ import java.io.Serializable;
 
 import javax.imageio.ImageIO;
 
+/*
+ * Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ */
+
 public class TowerBuilder implements Serializable
 {
 	//handle sprite cutting
@@ -51,15 +60,13 @@ public class TowerBuilder implements Serializable
 		  				i*spriteHeight+offset,
 		  				spriteWidth,
 		  				spriteHeight);
-	  			//System.out.println(i*spriteRows+j +","+ i*spriteWidth + "," + ((j*spriteHeight)+offset) + "," + spriteWidth + "," + spriteHeight);
 	  		}
 	  	}
 	  	
 	  	return sprites;
 	}
 	
-	public Tower buildTower(TowerID i, Tile t, Map m)//needs map, tile that is it....
-	//public Charmander(ArrayList<Attack> attacks, Tile t, BufferedImage b, Map m)
+	public Tower buildTower(TowerID i, Tile t, Map m)
 	{
 		Tower tower;
 		switch(i)

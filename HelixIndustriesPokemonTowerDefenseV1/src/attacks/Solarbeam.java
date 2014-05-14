@@ -29,8 +29,7 @@ public class Solarbeam extends Attack
 		super.damageType = Type.GRASS;
 		super.effect = Effect.none;
 		super.rangeType = RangeType.TILE;
-		super.image = null;//unimplemented
-		super.targets = 100;//unimplemented
+		super.targets = 100;
 	}
 }
 

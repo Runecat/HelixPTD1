@@ -29,7 +29,6 @@ public class Ember extends Attack
 		super.damageType = Type.FIRE;
 		super.effect = Effect.burn;
 		super.rangeType = RangeType.NORMAL;
-		super.image = null;//unimplemented
-		super.targets = 1;//unimplemented
+		super.targets = 1;
 	}
 }

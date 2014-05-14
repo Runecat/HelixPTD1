@@ -8,6 +8,15 @@ import Mob.Mob;
 
 import towers.Tower;
 
+/*
+ * Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ */
+
 public class Headquarters 
 {
 	public String name = "";

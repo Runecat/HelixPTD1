@@ -15,6 +15,15 @@ import towers.Tower;
 
 import Mob.Mob;
 
+/*
+ * Helix Industries:{
+ * Daniel S. Luces
+ * Will Clement
+ * Brandon Brown
+ * Gabriel Basadre
+ * 
+ */
+
 public class Tile implements Serializable{
 
 	private int x, y;
@@ -215,10 +224,6 @@ public class Tile implements Serializable{
 	public int getY() {
 		return y;
 	}
-
-//	public Tile next() {
-//		return next;
-//	}
 
 	public int checkDeaths() {
 		int cash = 0;
