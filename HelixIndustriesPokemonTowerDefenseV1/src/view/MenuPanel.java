@@ -39,7 +39,7 @@ public class MenuPanel extends JPanel implements PanelObserver {
 	JLabel money;
 
 	JPanel startStopPanel;
-	JButton startButton = new JButton("Start Game!");
+	JButton startButton = new JButton("Start Round!");
 	JButton pauseButton = new JButton("   Pause   ");
 	JLabel time;
 
@@ -152,6 +152,11 @@ public class MenuPanel extends JPanel implements PanelObserver {
 			info.setText("");
 			infoPanel.remove(evolveButton);
 		}
+		
+		if (theGame.betweenRounds()) {
+			switchButtons(pauseButton.getText());
+			
+		}
 	}
 
 	// good ol' paintComponent
@@ -206,20 +211,24 @@ public class MenuPanel extends JPanel implements PanelObserver {
 							"Can't Afford That!");
 			}
 
-			if (buttonClicked.getText().equals("Start Game!")) {
-				theGame.setMidRound(false);
+			if (buttonClicked.getText().equals("Start Round!")) {
+				theGame.startRound();
 				switchButtons(buttonClicked.getText());
 				theGame.startTimer();
 			}
 
 			if (buttonClicked.getText().equals("   Pause   ")) {
-				theGame.setMidRound(true);
 				switchButtons(buttonClicked.getText());
 				theGame.stopTimer();
 			}
+			
+			if (buttonClicked.getText().equals("Resume")) {
+				switchButtons(buttonClicked.getText());
+				theGame.startTimer();
+			}
 
 			if (buttonClicked.getText().equals("Evolve!")) {
-				if (!theGame.isPaused()) {
+				if (!theGame.isPaused() || theGame.betweenRounds()) {
 					if (theGame.getPlayer(0).getMoney() >= theGame
 							.getCurrentTowerInfo().getUpgraded().getBuy()) {
 						theGame.getPlayer(0).addMoney(
@@ -252,12 +261,16 @@ public class MenuPanel extends JPanel implements PanelObserver {
 	}
 
 	public void switchButtons(String button) {
-		if (button == "Start Game!") {
+		if (button == "Start Round!" || button == "Resume") {
 			startStopPanel.remove(startButton);
 			startStopPanel.remove(time);
 			startStopPanel.add(pauseButton);
 			startStopPanel.add(time);
 		} else {
+			if (theGame.betweenRounds())
+				startButton.setText("Start Round!");
+			else
+				startButton.setText("Resume");
 			startStopPanel.remove(pauseButton);
 			startStopPanel.remove(time);
 			startStopPanel.add(startButton);

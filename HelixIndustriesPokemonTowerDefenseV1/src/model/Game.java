@@ -31,19 +31,18 @@ public class Game extends PanelObservable {
 	private int timeElapsed = 0;
 	private int spawnerOffset = -1;
 	private int moveOffset;
-	
+
 	private TowerBuilder towerBuilder;
 	private List<Tower> towerList = new ArrayList<Tower>();
-	
+
 	private TowerID currentTowerSelected;
 	private boolean isPlacingTower;
-	
+
 	private List<Map> mapList;
-	
+
 	private Tower currentTowerInfo;
-	
-	private boolean midRound;
-	
+
+	private boolean betweenRounds;
 
 	private Map currentMap; // dont know if we want this for sure.
 	// Do we want the game class handling everything (main screen, map choice,
@@ -63,38 +62,45 @@ public class Game extends PanelObservable {
 		Player thisPlayer = new Player("Chars");
 		thisPlayer.addMoney(3000);
 		this.addPlayer(thisPlayer);
-		
+
 		mapList = new ArrayList<Map>();
 		gameTimer = new Timer(10, new GameTimerListener());
 		towerBuilder = new TowerBuilder();
-		midRound = true;
-		
-		
+		betweenRounds = true;
+
 	}
-	
+
 	public void setCurrentTowerInfo(Tower t) {
 		currentTowerInfo = t;
 	}
-	
+
 	public Tower getCurrentTowerInfo() {
 		return currentTowerInfo;
 	}
-	
+
 	public int getTime() {
-		return timeElapsed/100;
+		return timeElapsed / 100;
 	}
 	
-	
-	public void setCurrentMap(int i) {		// this will be changed to an ID enum system
+	public boolean mobsAreDead() {
+		for (int i = 0; i < currentMap.getPath().size(); i++) {
+			if(!currentMap.getPath().get(i).isEmpty())
+				return false;
+		}
+		return true;
+	}
+
+	public void setCurrentMap(int i) { // this will be changed to an ID enum
+										// system
 		currentMap = mapList.get(i);
 		currentMap.setGame(this);
-		
+
 	}
 
 	public void startTimer() {
 		gameTimer.start();
 	}
-	
+
 	public void stopTimer() {
 		gameTimer.stop();
 	}
@@ -103,16 +109,14 @@ public class Game extends PanelObservable {
 		mapList.add(input);
 	}
 
-	
-
 	public Map getCurrentMap() { // added this
 		return this.currentMap;
 	}
-	
+
 	public void setCurrentTowerSelected(TowerID i) {
 		currentTowerSelected = i;
 	}
-	
+
 	public TowerID getCurrentTowerSelected() {
 		return currentTowerSelected;
 	}
@@ -132,37 +136,51 @@ public class Game extends PanelObservable {
 	public Player getPlayer(int i) {
 		return players.get(i);
 	}
-	
+
 	public boolean isPaused() {
 		return !gameTimer.isRunning();
 	}
-	
-	public void setMidRound(boolean b) {
-		midRound = b;
+
+	public void setBetweenRounds(boolean b) {
+		betweenRounds = b;
 	}
 	
+	public boolean betweenRounds() {
+		return betweenRounds;
+	}
+
+	public void startRound() {
+		currentMap.buildCurrentWave();
+		currentMap.nextLevel();
+		betweenRounds = false;
+	}
+	
+	public void endRound() {
+		gameTimer.stop();
+		betweenRounds = true;
+		notifyObservers();
+	}
+
 	public boolean canPlaceTower(int x, int y) {
-		if (isPaused() && midRound)
+		if (isPaused() && !betweenRounds)
 			return false;
-		 if (currentMap.getTile(x, y).canPlaceTower() == false)
+		if (currentMap.getTile(x, y).canPlaceTower() == false)
 			return false;
-		
+
 		return true;
 	}
-	
+
 	public void setIsPlacingTower(boolean b) {
 		isPlacingTower = b;
 	}
-	
+
 	public boolean getIsPlacingTower() {
 		return isPlacingTower;
 	}
-	
-	
-	
-	
+
 	public void createTower(int x, int y, TowerID i) {
-		Tower t = towerBuilder.buildTower(i, currentMap.getTile(x, y), currentMap);
+		Tower t = towerBuilder.buildTower(i, currentMap.getTile(x, y),
+				currentMap);
 		towerList.add(t);
 		players.get(0).addMoney(-1 * t.getBuy());
 		currentMap.createTower(x, y, t);
@@ -184,8 +202,12 @@ public class Game extends PanelObservable {
 
 			// spawning is synced~~~~~~~~~~
 			spawnerOffset++;
-			if (spawnerOffset > 200 || spawnerOffset == 0) {
-				currentMap.sendWave();
+			if (spawnerOffset > 20 || spawnerOffset == 0) {
+				if (currentMap.getSpawner().getMobs().size() != 0)
+					currentMap.sendWave();
+				else if (mobsAreDead() && currentMap.getSpawner().getMobs().size() == 0)
+					endRound();
+
 				spawnerOffset = 0;
 			}
 			// spawning ~~~~~~~~~~~~~~~~~~~
@@ -194,11 +216,11 @@ public class Game extends PanelObservable {
 			for (int i = 0; i < towerList.size(); i++) {
 				towerList.get(i).attack();
 			}
-			
+
 			// mob deaths
-			//for (int i = 0; i < currentMap.getPath().size(); i++) {
-			//	players.get(0).addMoney(currentMap.getPath().get(i).checkDeaths());
-			//}
+			// for (int i = 0; i < currentMap.getPath().size(); i++) {
+			// players.get(0).addMoney(currentMap.getPath().get(i).checkDeaths());
+			// }
 			notifyObservers();
 
 		}

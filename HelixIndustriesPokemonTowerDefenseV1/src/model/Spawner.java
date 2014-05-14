@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import javax.swing.Timer;
 
+import maps.Map;
+
 import Mob.Mob;
 import Wave.Wave;
 
@@ -14,31 +16,38 @@ public class Spawner {
 	private Tile tile;
 	private ArrayList<Mob> mobs = new ArrayList<Mob>();
 	private ArrayList<Wave> waves = new ArrayList<Wave>();
-	private int level;
+	private Map currentMap;
+	
+	private boolean inWave;
 
 	// removed timer
 
-	public Spawner(Tile tile, ArrayList<Wave> waves) {
+	public Spawner(Tile tile, ArrayList<Wave> waves, Map currentMap) {
 		this.tile = tile;
 		this.waves = waves;
+		this.currentMap = currentMap;
 		tile.setSpawner(this);
+	}
+	
+	public void buildCurrentWave(int level) {
+		if (level < waves.size())
+			setMobs(level);
 	}
 
 	// Sends the wave of the level given, goes to sendMob listener
-	public void sendWave(int level) {
-		
+	public void sendWave() {
+		inWave = true;
 
-		if (level < waves.size())
-			setMobs(level);
 		if (mobs.size() != 0) {
 			sendMob();
 		}
+		
 
-		this.level++;
 	}
 	
 	public void sendMob() {
 		tile.addMobs(mobs.get(0));
+		currentMap.addMob(mobs.get(0));
 		mobs.remove(0);
 	}
 

@@ -63,7 +63,7 @@ public class Level1 extends Map {
 		waves.add(new Wave03());
 		
 		// spawner will be declared for each map specifically.
-		Spawner spawn = new Spawner(grid[3][0], waves);
+		Spawner spawn = new Spawner(grid[3][0], waves, this);
 		super.setSpawner(spawn);
 				
 		// TRACK NIGGA (defined specifically in each map)

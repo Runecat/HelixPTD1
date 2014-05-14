@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import javax.swing.Timer;
 
+import maps.Map;
+
 import attacks.Effect;
 
 import towers.Tower;
@@ -30,8 +32,11 @@ public class Tile {
 	private Object myObject = null;
 	private Spawner spawner = null;
 	private Player myPlayer;
+	private Map currentMap;
 
-	public Tile(int x, int y) {
+	
+	public Tile(int x, int y, Map currentMap) {
+		this.currentMap = currentMap;
 		this.x = x;
 		this.y = y;
 	}
@@ -76,7 +81,6 @@ public class Tile {
 									mobList.get(i).setHealth(mobList.get(i).getHealth() - 2);//set image to fire if health  < 0 
 								}
 								mobList.get(i).setEffect(Effect.none);
-								//Mob temp = removeMob(i);
 								next.addMobs(removeMob(i));
 							}
 						}
