@@ -8,7 +8,6 @@ import Mob.Mob;
 import attacks.Attack;
 import attacks.RangeType;
 import maps.Map;
-import model.Clickable;
 import model.Player;
 import model.Tile;
 import model.Type;
