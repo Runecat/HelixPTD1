@@ -22,6 +22,7 @@ public abstract class Map {
 	private int levels;
 	private int currentLevel = 0;
 
+	private int offset;
 	Tile[][] grid;
 	private List<Tile> path = new ArrayList<Tile>();
 	private ArrayList<Spawner> spawners = new ArrayList<Spawner>();
@@ -52,6 +53,14 @@ public abstract class Map {
 		if (path.size() != 0 && curr.getNextTile().size() == 0) {
 			path.add(curr);
 		}
+	}
+	
+	public int getOffset() {
+		return offset;
+	}
+	
+	public void setOffset(int offset) {
+		this.offset = offset;
 	}
 
 	public ArrayList<Mob> getMobList() {
