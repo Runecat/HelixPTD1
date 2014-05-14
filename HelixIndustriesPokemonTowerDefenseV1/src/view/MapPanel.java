@@ -17,12 +17,11 @@ import towers.Charmander;
 import towers.Tower;
 import towers.TowerBuilder;
 import towers.TowerID;
-
+import Mob.Mob;
 import ObserverModel.PanelObserver;
-
 import maps.Level1;
-import maps.Level2;
-import maps.Level3;
+//import maps.Level2;
+//import maps.Level3;
 import maps.Map;
 import model.Game;
 import model.Spawner;
@@ -46,7 +45,7 @@ public class MapPanel extends JPanel implements PanelObserver {
 		Level1 current = new Level1(theGame);
 		this.currentMap = current;
 
-		background = currentMap.getBackground().getScaledInstance(1224, -1, -1);
+		background = currentMap.getBackground().getScaledInstance(480, -1, -1);
 		
 		pause = new JTextArea("PAUSED\n" +
 				"aasdfasdfasdfasdfasdfasdfsadfsa\n" +
@@ -96,9 +95,12 @@ public class MapPanel extends JPanel implements PanelObserver {
 							TILE_DIMENSION, TILE_DIMENSION);
 				}
 				if (currentMap.getGrid()[i][j].getMobs().size() != 0) {
-					g.setColor(Color.green);
-					g.fillOval(i * TILE_DIMENSION, j * TILE_DIMENSION,
-							TILE_DIMENSION, TILE_DIMENSION);
+					for(Mob m: currentMap.getGrid()[i][j].getMobs())
+					{
+						g.drawImage(m.getImage(),i * TILE_DIMENSION, j
+								* TILE_DIMENSION, TILE_DIMENSION,
+								TILE_DIMENSION, this);
+					}
 				}
 				g.setColor(Color.BLACK);
 				// g.drawString("" + count, (i)*currentMap.getGridWidth(),

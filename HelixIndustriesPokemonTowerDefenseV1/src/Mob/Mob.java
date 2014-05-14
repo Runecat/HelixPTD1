@@ -16,7 +16,8 @@ public abstract class Mob implements Clickable {
 	// May need location variables
 	
 	protected String name;
-	private BufferedImage[] image = new BufferedImage [6];
+	private BufferedImage[] image = new BufferedImage [9];
+	private BufferedImage currentImage;
 	protected int health;
 	protected int moveSpeed;
 	protected Type type;// Might make into enum
@@ -91,12 +92,25 @@ public abstract class Mob implements Clickable {
 		this.type = mobType;
 	}
 
-	public BufferedImage[] getImage() {
-		return image;
+	public BufferedImage getImage() {
+		return currentImage;
 	}
 
 	public void setImage(BufferedImage[] image) {
 		this.image = image;
+	}
+	
+	public void setFire()
+	{
+		this.currentImage = image[6];
+	}
+	public void setGrass()
+	{
+		this.currentImage = image[7];
+	}
+	public void setElectric()
+	{
+		this.currentImage = image[8];
 	}
 
 	public String getName() {
