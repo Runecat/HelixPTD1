@@ -22,6 +22,7 @@ import ObserverModel.PanelObserver;
 
 import maps.Level1;
 import maps.Level2;
+import maps.Level3;
 import maps.Map;
 import model.Game;
 import model.Spawner;
@@ -45,7 +46,7 @@ public class MapPanel extends JPanel implements PanelObserver {
 		Level1 current = new Level1(theGame);
 		this.currentMap = current;
 
-		background = currentMap.getBackground().getScaledInstance(480, -1, -1);
+		background = currentMap.getBackground().getScaledInstance(1224, -1, -1);
 		
 		pause = new JTextArea("PAUSED\n" +
 				"aasdfasdfasdfasdfasdfasdfsadfsa\n" +
