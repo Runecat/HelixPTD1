@@ -9,7 +9,6 @@ import attacks.Ember;
 import attacks.Flamethrower;
 import attacks.Leechseed;
 import maps.Map;
-import model.Clickable;
 import model.Tile;
 import model.Type;
 

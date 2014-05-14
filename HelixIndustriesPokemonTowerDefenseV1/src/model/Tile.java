@@ -74,7 +74,6 @@ public class Tile implements Serializable{
 					mobList.get(i).setCurrentTile(this);
 
 					if (mobList.get(i).getHealth() <= 0) {
-						System.out.println("Keeled one!");
 						myPlayer.addMoney(removeMob(i).getMoney());
 					} else {
 						if (mobList.size() == 0) {
