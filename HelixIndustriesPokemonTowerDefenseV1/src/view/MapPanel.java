@@ -35,11 +35,7 @@ public class MapPanel extends JPanel implements PanelObserver {
 	private final int TILE_DIMENSION = 24;
 	
 	JPanel pausePanel = new JPanel();
-	JTextArea pause = new JTextArea("PAUSED\n" +
-			"aasdfasdfasdfasdfasdfasdfsadfsa\n" +
-			"asdfasdfasdfasdfasdfasdfsa\n" +
-			"asdfasdfasdfasdfasdfasdfsdfsa" +
-			"asdfasdfsadfasdfsadfsadfsdf");
+	JTextArea pause;
 	
 
 	public MapPanel(Game game) {
@@ -49,6 +45,12 @@ public class MapPanel extends JPanel implements PanelObserver {
 		this.currentMap = current;
 
 		background = currentMap.getBackground().getScaledInstance(480, -1, -1);
+		
+		pause = new JTextArea("PAUSED\n" +
+				"aasdfasdfasdfasdfasdfasdfsadfsa\n" +
+				"asdfasdfasdfasdfasdfasdfsa\n" +
+				"asdfasdfasdfasdfasdfasdfsdfsa" +
+				"asdfasdfsadfasdfsadfsadfsdf");
 		
 		pausePanel.add(pause);
 		pause.setOpaque(true);
@@ -132,11 +134,7 @@ public class MapPanel extends JPanel implements PanelObserver {
 		}
 		
 		
-		if (theGame.isPaused() && !theGame.betweenRounds()) {
-			this.add(pausePanel);
-		}
-		else
-			this.remove(pausePanel);
+		
 		
 
 	}
@@ -145,10 +143,33 @@ public class MapPanel extends JPanel implements PanelObserver {
 		g.drawImage(grassBackground, 5, 5, null);
 	}
 	
+	public void addPausePanel() {
+		pausePanel.add(pause);
+
+		if (this.getComponentCount() == 0)
+		this.add(pausePanel);
+	}
+	
+	public void removePausePanel() {
+		pausePanel.add(pause);
+
+		if (this.getComponentCount() != 0)
+		this.remove(pausePanel);
+	}
+	
 
 	@Override
 	public void update() {
 		// This is where we will repaint the map and other things;
+		
+		if (theGame.isPaused() && !theGame.betweenRounds()) {
+			addPausePanel();
+		}
+		else
+			removePausePanel();
+		
+		pausePanel.revalidate();
+		
 		this.repaint();
 
 	}
@@ -166,6 +187,7 @@ public class MapPanel extends JPanel implements PanelObserver {
 				theGame.createTower(x, y, theGame.getCurrentTowerSelected());
 				theGame.setCurrentTowerInfo((Tower) currentMap.getObject(x, y));
 				theGame.setIsPlacingTower(false);
+				theGame.notifyObservers();
 			}
 			else if (theGame.getIsPlacingTower() == false && theGame.canPlaceTower(x, y)){
 				theGame.setCurrentTowerInfo(null);
@@ -202,5 +224,7 @@ public class MapPanel extends JPanel implements PanelObserver {
 		}
 
 	}
+	
+	
 
 }
