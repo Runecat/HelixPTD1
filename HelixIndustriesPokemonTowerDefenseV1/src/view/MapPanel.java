@@ -21,6 +21,7 @@ import towers.TowerID;
 import ObserverModel.PanelObserver;
 
 import maps.Level1;
+import maps.Level2;
 import maps.Map;
 import model.Game;
 import model.Spawner;
@@ -41,7 +42,7 @@ public class MapPanel extends JPanel implements PanelObserver {
 	public MapPanel(Game game) {
 		this.theGame = game;
 
-		Level1 current = new Level1(theGame);
+		Level2 current = new Level2(theGame);
 		this.currentMap = current;
 
 		background = currentMap.getBackground().getScaledInstance(480, -1, -1);

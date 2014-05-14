@@ -83,7 +83,7 @@ public class Level1 extends Map {
 	private String backgroundImageURL = "Images/Route5.png";
 
 	private final int WIDTH = 20;
-	private final int HEIGHT = 26;
+	private final int HEIGHT = 28;
 
 	public Level1(Game theGame) {
 		super();
