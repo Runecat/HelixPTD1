@@ -10,6 +10,7 @@ import javax.swing.Timer;
 import towers.Tower;
 import towers.TowerBuilder;
 import towers.TowerID;
+import view.MapPanel;
 
 import maps.Map;
 
@@ -44,10 +45,7 @@ public class Game extends PanelObservable {
 
 	private boolean betweenRounds;
 
-	private Map currentMap; // dont know if we want this for sure.
-	// Do we want the game class handling everything (main screen, map choice,
-	// menus) or just the actual
-	// game at hand?
+	private Map currentMap; 
 
 	private List<Player> players = new ArrayList<Player>(MAX_PLAYERS); // A list
 																		// of
@@ -60,7 +58,7 @@ public class Game extends PanelObservable {
 	public Game() { // added constructor.
 		// add observers and other things.
 		Player thisPlayer = new Player("Chars");
-		thisPlayer.addMoney(3000);
+		thisPlayer.addMoney(300000);
 		this.addPlayer(thisPlayer);
 
 		mapList = new ArrayList<Map>();
@@ -160,6 +158,10 @@ public class Game extends PanelObservable {
 		betweenRounds = true;
 		notifyObservers();
 	}
+	
+	public void pause() {
+		
+	}
 
 	public boolean canPlaceTower(int x, int y) {
 		if (isPaused() && !betweenRounds)
@@ -195,7 +197,7 @@ public class Game extends PanelObservable {
 			timeElapsed++;
 			// moving mobs is synced with timer
 			moveOffset++;
-			if (moveOffset > 120) {
+			if (moveOffset > 75) {
 				currentMap.moveMobs();
 				moveOffset = 0;
 			}

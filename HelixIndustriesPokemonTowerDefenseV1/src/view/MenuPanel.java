@@ -30,13 +30,16 @@ import ObserverModel.PanelObserver;
 public class MenuPanel extends JPanel implements PanelObserver {
 
 	Game theGame;
+	
+	JPanel playerPanel;
+	JLabel money;
+	JLabel playerName;
 
 	JPanel infoPanel;
 	JTextArea info;
 	JButton evolveButton;
 
 	JPanel towerSelectPanel;
-	JLabel money;
 
 	JPanel startStopPanel;
 	JButton startButton = new JButton("Start Round!");
@@ -49,9 +52,13 @@ public class MenuPanel extends JPanel implements PanelObserver {
 										// to set the border and background.
 		this.theGame = theGame;
 		this.setBackground(Color.RED);
-		this.setLayout(new GridLayout(4, 1));
+		this.setLayout(new GridLayout(5, 1));
 
 		buttonListener = new TowerSelectListener();
+		
+		// playerPanel
+		buildPlayerPanel();
+		this.add(playerPanel);
 
 		// infoPanel
 		buildInfoPanel();
@@ -92,6 +99,14 @@ public class MenuPanel extends JPanel implements PanelObserver {
 		// this.setBorder(BorderFactory.createMatteBorder(0, 9, 0, 9, icon));
 		this.setBorder(BorderFactory.createMatteBorder(-1, -1, -1, -1, icon));
 	}
+	
+	public void buildPlayerPanel() {
+		playerPanel = new JPanel();
+		playerName = new JLabel(theGame.getPlayer(0).getName());
+		money = new JLabel("Moneys: $" + theGame.getPlayer(0).getMoney());
+		playerPanel.add(playerName);
+		playerPanel.add(money);
+	}
 
 	public void buildInfoPanel() {
 		infoPanel = new JPanel();
@@ -107,8 +122,7 @@ public class MenuPanel extends JPanel implements PanelObserver {
 		towerSelectPanel = new JPanel();
 		towerSelectPanel.setLayout(new FlowLayout());
 
-		money = new JLabel("Moneys: $" + theGame.getPlayer(0).getMoney());
-		towerSelectPanel.add(money);
+		
 
 		JButton charmanderButton = new JButton("Charmander");
 		charmanderButton.addActionListener(buttonListener);
