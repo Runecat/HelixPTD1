@@ -5,10 +5,13 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 
+import javax.swing.JButton;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -38,7 +41,14 @@ public class MapPanel extends JPanel implements PanelObserver {
 	JPanel pausePanel = new JPanel();
 	JTextArea pause;
 	
+	JPanel winPanel = new JPanel();
+	JTextArea winMessage;
+	
+	JPanel losePanel = new JPanel();
+	JTextArea loseMessage;
 
+	JButton quit;
+	
 	public MapPanel(Game game, Map m) {
 		this.theGame = game;
 
@@ -46,15 +56,9 @@ public class MapPanel extends JPanel implements PanelObserver {
 
 		background = currentMap.getBackground().getScaledInstance(currentMap.getOffset(), -1, -1);
 		
-		pause = new JTextArea("PAUSED\n" +
-				"aasdfasdfasdfasdfasdfasdfsadfsa\n" +
-				"asdfasdfasdfasdfasdfasdfsa\n" +
-				"asdfasdfasdfasdfasdfasdfsdfsa" +
-				"asdfasdfsadfasdfsadfsadfsdf");
+		buildPanels();
 		
-		pausePanel.add(pause);
-		pause.setOpaque(true);
-		pausePanel.setSize(new Dimension(300,300));
+		
 
 		this.setOpaque(false);
 
@@ -64,6 +68,35 @@ public class MapPanel extends JPanel implements PanelObserver {
 		ClickListener clicky = new ClickListener();
 		this.addMouseListener(clicky);
 
+	}
+	
+	public void buildPanels() {
+		
+		pause = new JTextArea("PAUSED\n" +
+				"aasdfasdfasdfasdfasdfasdfsadfsa\n" +
+				"asdfasdfasdfasdfasdfasdfsa\n" +
+				"asdfasdfasdfasdfasdfasdfsdfsa" +
+				"asdfasdfsadfasdfsadfsadfsdf");
+		
+		pausePanel.add(pause);
+		pause.setOpaque(true);
+		//pausePanel.setSize(new Dimension(300,300));
+		
+		MenuListener menuListener = new MenuListener();
+		
+		winMessage = new JTextArea("You have won. You make me proud.");
+		loseMessage = new JTextArea("FAILURE.");
+		quit = new JButton("Quit game");
+		quit.addActionListener(menuListener);
+		
+		pausePanel.add(quit);
+		
+		winPanel.add(winMessage);
+		winPanel.add(quit);
+		
+		losePanel.add(loseMessage);
+		losePanel.add(quit);
+		
 	}
 
 	@Override
@@ -165,10 +198,18 @@ public class MapPanel extends JPanel implements PanelObserver {
 		this.remove(pausePanel);
 	}
 	
+	public void loseMessage() {
+		this.remove(pausePanel);
+		this.add(losePanel);
+		this.revalidate();
+	}
+	
 
 	@Override
 	public void update() {
 		// This is where we will repaint the map and other things;
+		if (theGame.hasLost())
+			loseMessage();
 		
 		if (theGame.isPaused() && !theGame.betweenRounds()) {
 			addPausePanel();
@@ -180,6 +221,23 @@ public class MapPanel extends JPanel implements PanelObserver {
 		
 		this.repaint();
 
+	}
+	
+	private class MenuListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			JButton selected = (JButton) arg0.getSource();
+			
+			
+			
+			if (selected.getText().equals("Quit game")){
+				System.exit(0);
+			}
+			
+		}
+		
+		
 	}
 
 	private class ClickListener implements MouseListener {
