@@ -166,6 +166,14 @@ public class MapPanel extends JPanel implements PanelObserver {
 					}
 
 				}
+				
+				if (theGame.getCurrentTowerInfo() != null) {
+					for (Tile t : theGame.getCurrentTowerInfo().getRange()) {
+						g.setColor(Color.RED);
+						g.drawRect(t.getX() * TILE_DIMENSION, t.getY() * TILE_DIMENSION, TILE_DIMENSION, TILE_DIMENSION);
+					}
+					repaint();
+				}
 
 				if (currentMap.getGrid()[i][j].getSpawnerTile() != null) {
 					g.setColor(Color.yellow);

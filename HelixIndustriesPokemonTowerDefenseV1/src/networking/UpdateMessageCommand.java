@@ -5,11 +5,11 @@ package networking;
  * 
  *	Adds a text message to the server's chat log
  */
-public class AddMessageCommand extends Command<GameServer>
+public class UpdateMessageCommand extends Command<GameServer>
 {
 	private String message; // message from client
 	
-	public AddMessageCommand(String message)
+	public UpdateMessageCommand(String message)
 	{
 		this.message = message;
 	}
