@@ -37,6 +37,7 @@ public class Game extends PanelObservable {
 	private int moveOffset;
 	
 	private boolean hasLost = false;
+	private boolean hasWon = false;
 
 	private TowerBuilder towerBuilder;
 	private List<Tower> towerList = new ArrayList<Tower>();
@@ -166,6 +167,9 @@ public class Game extends PanelObservable {
 	}
 	
 	public void endRound() {
+		if (currentMap.getWon()) {
+			win();
+		}
 		gameTimer.stop();
 		betweenRounds = true;
 		notifyObservers();
@@ -177,6 +181,15 @@ public class Game extends PanelObservable {
 	
 	public boolean hasLost() {
 		return hasLost;
+	}
+	public void win() {
+		gameTimer.stop();
+		hasWon = true;
+		notifyObservers();
+	}
+	
+	public boolean hasWon() {
+		return hasWon;
 	}
 	
 	public void lose() {
