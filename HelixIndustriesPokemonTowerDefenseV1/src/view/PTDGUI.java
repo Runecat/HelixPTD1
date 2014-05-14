@@ -52,12 +52,12 @@ public class PTDGUI extends JFrame {
 		this.setSize(new Dimension(1000, 720));
 		//this.setSize(new Dimension(778, 720));
 		
-		//this.add(new IntroPanel());
+		this.add(new IntroPanel());
 
 		
 		background = new BackgroundFrame();
 		background.setLayout(new BorderLayout());
-		this.add(background);
+		//this.add(background);
 		
 		
 		
