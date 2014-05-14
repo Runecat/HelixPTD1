@@ -18,11 +18,13 @@ public class Player implements Serializable
 	private ArrayList<Tower> towers;//List of all a Player's Towers, may move to Game object
 	private int money = 0;//Amount of money Player has, may move to Game object
 	private String name;
+	private int health;
 	
 	
 	public Player(String name)
 	{
 		this.name = name;
+		this.health = 150;
 	}
 	
 	public String getName() {
@@ -53,6 +55,14 @@ public class Player implements Serializable
 	
 	public void addMoney(int money) {
 		this.money += money;
+	}
+	
+	public void removeHealth(int remove) {
+		this.health -= remove;
+	}
+	
+	public int getHealth() {
+		return this.health;
 	}
 
 }
