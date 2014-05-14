@@ -67,6 +67,14 @@ public class Game extends PanelObservable {
 		betweenRounds = true;
 
 	}
+	
+	public void speedUp() {
+		gameTimer.setDelay(2);
+	}
+	
+	public void slowDown() {
+		gameTimer.setDelay(10);
+	}
 
 	public void setCurrentTowerInfo(Tower t) {
 		currentTowerInfo = t;
