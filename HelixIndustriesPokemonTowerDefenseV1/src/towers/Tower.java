@@ -99,12 +99,14 @@ public abstract class Tower implements Clickable
 			//System.out.println("ymax after: " + yMax);
 		}
 		//Adds tiles in range to the range array
-		for(x = xMin;x<=xMax;x++)
+		for(x = xMin; x <= xMax; x++)
 		{
-			for(y = yMin;y<=yMax;y++)
+			for(y = yMin; y <= yMax; y++)
 			{
+				if (x < m.getWidth() && y < m.getHeight()) {
 					tilesInRange.add(grid[x][y]);
 					System.out.println("Tile added: " + x + ',' + y);
+				}
 			}
 		}
 		
