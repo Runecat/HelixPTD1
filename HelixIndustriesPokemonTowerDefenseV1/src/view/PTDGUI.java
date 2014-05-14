@@ -28,6 +28,7 @@ import maps.Level2;
 import maps.Level3;
 import maps.Map;
 import model.Game;
+import model.PersistenceHandler;
 import model.Player;
 
 public class PTDGUI extends JFrame {
@@ -40,6 +41,8 @@ public class PTDGUI extends JFrame {
 	IntroPanel intro;
 	JPanel mapSelection;
 	Game theGame;
+	
+	PersistenceHandler persistence;
 
 	MapPanel currentMapPanel;
 	MenuPanel menu;
@@ -59,7 +62,8 @@ public class PTDGUI extends JFrame {
 		this.setTitle("Helix PTD Pre-Alpha 0.1");
 
 		this.setSize(new Dimension(1000, 720));
-		// this.setSize(new Dimension(778, 720));
+		
+		persistence = new PersistenceHandler(null);
 
 		intro = new IntroPanel(this);
 
@@ -119,6 +123,31 @@ public class PTDGUI extends JFrame {
 		this.revalidate();
 
 	}
+	
+	private void loadGame(Game g) {
+		
+
+		this.theGame = g;
+		this.add(background);
+		Map m = null;
+		
+		m = g.getCurrentMap();
+		
+		// MapPanel
+		currentMapPanel = new MapPanel(this.theGame, m);
+		
+		this.theGame.addObserver(currentMapPanel);
+		currentMapPanel.setPreferredSize(new Dimension(800, 720));
+		background.add(currentMapPanel, BorderLayout.LINE_START);
+
+		menu = new MenuPanel(this.theGame);
+		theGame.addObserver(menu);
+		menu.setPreferredSize(new Dimension(184, 720));
+		background.add(menu, BorderLayout.LINE_END);
+		
+		this.revalidate();
+		
+	}
 
 	
 
@@ -176,6 +205,9 @@ public class PTDGUI extends JFrame {
 			single.addActionListener(introListener);
 			JButton multi = new JButton("Multi Player");
 			multi.addActionListener(introListener);
+			
+			JButton load = new JButton("Load Game");
+			load.addActionListener(introListener);
 
 			c.gridx = 1;
 			c.gridy = 1;
@@ -184,8 +216,14 @@ public class PTDGUI extends JFrame {
 			c.gridx = 2;
 			c.gridy = 2;
 			this.add(multi, c);
+			
+			c.gridx = 3;
+			c.gridy = 3;
+			this.add(load, c);
 
 		}
+		
+		
 
 		private void singlePlayerSelected() {
 			mapSelection = new JPanel();
@@ -221,6 +259,14 @@ public class PTDGUI extends JFrame {
 				
 				if (selected.getText() == "Single Player"){
 					singlePlayerSelected();
+				}
+				
+				
+				
+				if (selected.getText() == "Load Game") {
+					persistence.read();
+					Game temp = persistence.getLoaded();
+					gui.loadGame(persistence.getLoaded());
 				}
 			}
 			

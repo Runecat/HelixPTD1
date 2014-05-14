@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
+import model.Tile;
+
 
 /**
  * NRCServer
@@ -18,12 +20,15 @@ import java.util.List;
  * 
  * @author Gabriel Kishi
  */
-public class GameChatServer 
+public class GameServer 
 {
 	private ServerSocket socket; // the server socket
 	
 	private List<String> messages;	// the chat log
 	private HashMap<String, ObjectOutputStream> outputs; // map of all connected users' output streams
+	private Tile[][] grid;
+	private int money;
+	private int health;
 	
 	/**
 	 *	ClientHandler
@@ -41,8 +46,8 @@ public class GameChatServer
 			try{
 				while(true){
 					// read a command from the client, execute on the server
-					Command<GameChatServer> command = (Command<GameChatServer>)input.readObject();
-					command.execute(GameChatServer.this);
+					Command<GameServer> command = (Command<GameServer>)input.readObject();
+					command.execute(GameServer.this);
 					
 					// terminate if client is disconnecting
 					if (command instanceof DisconnectCommand){
@@ -88,7 +93,7 @@ public class GameChatServer
 		}
 	}
 	
-	public GameChatServer(){
+	public GameServer(){
 		this.messages = new ArrayList<String>(); // create the chat log
 		this.outputs = new HashMap<String, ObjectOutputStream>(); // setup the map
 		
@@ -131,7 +136,7 @@ public class GameChatServer
 	}
 	
 	public static void main(String[] args){
-		new GameChatServer();
+		new GameServer();
 	}
 
 	/**

@@ -1,5 +1,6 @@
 package Wave;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.swing.Timer;
@@ -9,7 +10,7 @@ import Mob.MobBuilder;
 import Mob.MobID;
 
 
-public abstract class Wave
+public abstract class Wave implements Serializable
 {
 	private ArrayList<Mob> wave = new ArrayList<Mob>();
 	private Mob baddie;

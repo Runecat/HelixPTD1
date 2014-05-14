@@ -72,7 +72,7 @@ public class GameChatClient extends JFrame {
 				public void actionPerformed(ActionEvent arg0) {
 					String s = textField.getText();
 					try{
-						out.writeObject(new AddMessageCommand(clientName + ":  " + s));
+						out.writeObject(new UpdateMessageCommand(clientName + ":  " + s));
 					}catch(Exception e){
 						e.printStackTrace();
 					}

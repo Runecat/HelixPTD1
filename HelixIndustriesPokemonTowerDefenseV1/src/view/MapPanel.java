@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 
 import javax.swing.JButton;
 import javax.swing.JLayeredPane;
@@ -30,7 +31,7 @@ import model.Game;
 import model.Spawner;
 import model.Tile;
 
-public class MapPanel extends JPanel implements PanelObserver {
+public class MapPanel extends JPanel implements PanelObserver, Serializable {
 
 	private Map currentMap;
 	private Game theGame;
@@ -40,6 +41,7 @@ public class MapPanel extends JPanel implements PanelObserver {
 	
 	JPanel pausePanel = new JPanel();
 	JTextArea pause;
+	JButton saveButton;
 	
 	JPanel winPanel = new JPanel();
 	JTextArea winMessage;
@@ -72,17 +74,22 @@ public class MapPanel extends JPanel implements PanelObserver {
 	
 	public void buildPanels() {
 		
+		MenuListener menuListener = new MenuListener();
+
+		
 		pause = new JTextArea("PAUSED\n" +
 				"aasdfasdfasdfasdfasdfasdfsadfsa\n" +
 				"asdfasdfasdfasdfasdfasdfsa\n" +
 				"asdfasdfasdfasdfasdfasdfsdfsa" +
 				"asdfasdfsadfasdfsadfsadfsdf");
+		saveButton = new JButton("Save and quit");
+		saveButton.addActionListener(menuListener);
 		
 		pausePanel.add(pause);
+		pausePanel.add(saveButton);
 		pause.setOpaque(true);
 		//pausePanel.setSize(new Dimension(300,300));
 		
-		MenuListener menuListener = new MenuListener();
 		
 		winMessage = new JTextArea("You have won. You make me proud.");
 		loseMessage = new JTextArea("FAILURE.");
@@ -166,6 +173,14 @@ public class MapPanel extends JPanel implements PanelObserver {
 					}
 
 				}
+				
+				if (theGame.getCurrentTowerInfo() != null) {
+					for (Tile t : theGame.getCurrentTowerInfo().getRange()) {
+						g.setColor(Color.RED);
+						g.drawRect(t.getX() * TILE_DIMENSION, t.getY() * TILE_DIMENSION, TILE_DIMENSION, TILE_DIMENSION);
+					}
+					repaint();
+				}
 
 				if (currentMap.getGrid()[i][j].getSpawnerTile() != null) {
 					g.setColor(Color.yellow);
@@ -201,6 +216,13 @@ public class MapPanel extends JPanel implements PanelObserver {
 	public void loseMessage() {
 		this.remove(pausePanel);
 		this.add(losePanel);
+		theGame.saveGame();
+		this.revalidate();
+	}
+	
+	public void winMessage() {
+		this.remove(pausePanel);
+		this.add(winPanel);
 		this.revalidate();
 	}
 	
@@ -210,6 +232,9 @@ public class MapPanel extends JPanel implements PanelObserver {
 		// This is where we will repaint the map and other things;
 		if (theGame.hasLost())
 			loseMessage();
+		
+		if (theGame.hasWon())
+			winMessage();
 		
 		if (theGame.isPaused() && !theGame.betweenRounds()) {
 			addPausePanel();
@@ -235,6 +260,11 @@ public class MapPanel extends JPanel implements PanelObserver {
 				System.exit(0);
 			}
 			
+			if (selected.getText().equals("Save and quit")){
+				theGame.saveGame();
+				System.exit(0);
+			}
+			
 		}
 		
 		
@@ -255,14 +285,26 @@ public class MapPanel extends JPanel implements PanelObserver {
 				theGame.setIsPlacingTower(false);
 				theGame.notifyObservers();
 			}
+			else if (!theGame.getIsPlacingTower() && theGame.getCurrentMap().getTile(x, y).isOnPath() && theGame.getCurrentMap().getTile(x, y).getMobs().size() != 0) {
+				theGame.setCurrentTowerInfo(null);
+				theGame.setCurrentMobsInfo(currentMap.getTile(x, y).getMobs());
+				theGame.notifyObservers();
+			}
 			else if (theGame.getIsPlacingTower() == false && theGame.canPlaceTower(x, y)){
 				theGame.setCurrentTowerInfo(null);
+				theGame.setCurrentMobsInfo(null);
+				theGame.notifyObservers();
+			}
+			else if (theGame.getIsPlacingTower() == false && theGame.getCurrentMap().getTile(x, y).isOnPath()){
+				theGame.setCurrentTowerInfo(null);
+				theGame.setCurrentMobsInfo(null);
 				theGame.notifyObservers();
 			}
 			else {
 				theGame.setCurrentTowerInfo((Tower) currentMap.getObject(x, y));
 				theGame.notifyObservers();
 			}
+			
 		}
 
 		@Override

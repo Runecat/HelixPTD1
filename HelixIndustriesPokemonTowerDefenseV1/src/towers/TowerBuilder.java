@@ -10,10 +10,11 @@ import attacks.Attack;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 
 import javax.imageio.ImageIO;
 
-public class TowerBuilder 
+public class TowerBuilder implements Serializable
 {
 	//handle sprite cutting
 	private final int spriteWidth = 60;
@@ -21,7 +22,7 @@ public class TowerBuilder
   	private final int spriteRows = 10;
   	private final int spriteColumns = 10;
   	private final int offset = 20;
-  	private BufferedImage[] sprites;
+  	transient private BufferedImage[] sprites;
   	
 	public TowerBuilder()
 	{

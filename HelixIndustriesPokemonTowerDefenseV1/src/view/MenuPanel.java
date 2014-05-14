@@ -9,6 +9,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.io.Serializable;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -25,12 +26,13 @@ import towers.TowerID;
 
 import model.Game;
 
+import Mob.Mob;
 import ObserverModel.PanelObserver;
 
-public class MenuPanel extends JPanel implements PanelObserver {
+public class MenuPanel extends JPanel implements PanelObserver, Serializable {
 
 	Game theGame;
-	
+
 	JPanel playerPanel;
 	JLabel money;
 	JLabel playerName;
@@ -59,7 +61,7 @@ public class MenuPanel extends JPanel implements PanelObserver {
 		this.setLayout(new GridLayout(5, 1));
 
 		buttonListener = new TowerSelectListener();
-		
+
 		// playerPanel
 		buildPlayerPanel();
 		this.add(playerPanel);
@@ -103,13 +105,14 @@ public class MenuPanel extends JPanel implements PanelObserver {
 		// this.setBorder(BorderFactory.createMatteBorder(0, 9, 0, 9, icon));
 		this.setBorder(BorderFactory.createMatteBorder(-1, -1, -1, -1, icon));
 	}
-	
+
 	public void buildPlayerPanel() {
 		playerPanel = new JPanel();
-		playerName = new JLabel("          " + theGame.getPlayer(0).getName() + "        '  ");
+		playerName = new JLabel("          " + theGame.getPlayer(0).getName()
+				+ "          ");
 		playerHealth = new JLabel("Health: " + theGame.getPlayer(0).getHealth());
 		money = new JLabel("Moneys: $" + theGame.getPlayer(0).getMoney());
-		
+
 		playerPanel.add(playerName);
 		playerPanel.add(playerHealth);
 		playerPanel.add(money);
@@ -128,8 +131,6 @@ public class MenuPanel extends JPanel implements PanelObserver {
 	public void buildTowerSelectPanel() {
 		towerSelectPanel = new JPanel();
 		towerSelectPanel.setLayout(new FlowLayout());
-
-		
 
 		JButton charmanderButton = new JButton("Charmander");
 		charmanderButton.addActionListener(buttonListener);
@@ -152,7 +153,7 @@ public class MenuPanel extends JPanel implements PanelObserver {
 		startStopPanel.add(startButton);
 		time = new JLabel("Time: " + theGame.getTime());
 		startStopPanel.add(time);
-		
+
 		speedUp.addActionListener(buttonListener);
 		slowDown.addActionListener(buttonListener);
 		currentSpeed = speedUp;
@@ -174,14 +175,19 @@ public class MenuPanel extends JPanel implements PanelObserver {
 				infoPanel.add(evolveButton);
 			} else
 				infoPanel.remove(evolveButton);
+		} else if (theGame.getCurrentMobsInfo() != null) {
+			for (Mob mob : theGame.getCurrentMobsInfo()) {
+				if (mob.getHealth() > 0)
+					info.setText(mob.getName() + ": " + mob.getHealth() + "\n");
+			}
 		} else {
 			info.setText("");
 			infoPanel.remove(evolveButton);
 		}
-		
+
 		if (theGame.betweenRounds()) {
 			switchButtons(pauseButton.getText());
-			
+
 		}
 	}
 
@@ -248,27 +254,25 @@ public class MenuPanel extends JPanel implements PanelObserver {
 				switchButtons(buttonClicked.getText());
 				theGame.stopTimer();
 			}
-			
+
 			if (buttonClicked.getText().equals("Resume")) {
 				switchButtons(buttonClicked.getText());
 				theGame.startTimer();
 			}
-			
+
 			if (buttonClicked.getText().equals("Speed up!")) {
 				theGame.speedUp();
 				startStopPanel.remove(currentSpeed);
 				currentSpeed = slowDown;
 				startStopPanel.add(currentSpeed);
 			}
-			
+
 			if (buttonClicked.getText().equals("Slooow it down")) {
 				theGame.slowDown();
 				startStopPanel.remove(currentSpeed);
 				currentSpeed = speedUp;
 				startStopPanel.add(currentSpeed);
 			}
-			
-			
 
 			if (buttonClicked.getText().equals("Evolve!")) {
 				if (!theGame.isPaused() || theGame.betweenRounds()) {

@@ -1,6 +1,7 @@
 package towers;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import Mob.Mob;
@@ -25,7 +26,7 @@ import java.awt.image.BufferedImage;
  * 
  * Tower.java - Abstract class that will create the base for all towers in the game
  */
-public abstract class Tower implements Clickable
+public abstract class Tower implements Clickable, Serializable
 {
 	protected String name = "";//Name of the tower
 	protected int height;//How many squares the tower takes up in the y-direction
@@ -99,12 +100,14 @@ public abstract class Tower implements Clickable
 			//System.out.println("ymax after: " + yMax);
 		}
 		//Adds tiles in range to the range array
-		for(x = xMin;x<=xMax;x++)
+		for(x = xMin; x <= xMax; x++)
 		{
-			for(y = yMin;y<=yMax;y++)
+			for(y = yMin; y <= yMax; y++)
 			{
+				if (x < m.getWidth() && y < m.getHeight()) {
 					tilesInRange.add(grid[x][y]);
 					System.out.println("Tile added: " + x + ',' + y);
+				}
 			}
 		}
 		
