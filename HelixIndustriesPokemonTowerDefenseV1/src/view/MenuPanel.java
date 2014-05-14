@@ -45,6 +45,9 @@ public class MenuPanel extends JPanel implements PanelObserver {
 	JPanel startStopPanel;
 	JButton startButton = new JButton("Start Round!");
 	JButton pauseButton = new JButton("   Pause   ");
+	JButton speedUp = new JButton("Speed up!");
+	JButton slowDown = new JButton("Slooow it down");
+	JButton currentSpeed;
 	JLabel time;
 
 	TowerSelectListener buttonListener;
@@ -149,6 +152,10 @@ public class MenuPanel extends JPanel implements PanelObserver {
 		startStopPanel.add(startButton);
 		time = new JLabel("Time: " + theGame.getTime());
 		startStopPanel.add(time);
+		
+		speedUp.addActionListener(buttonListener);
+		slowDown.addActionListener(buttonListener);
+		currentSpeed = speedUp;
 	}
 
 	public void menuPanelUpdate() {
@@ -233,6 +240,7 @@ public class MenuPanel extends JPanel implements PanelObserver {
 			if (buttonClicked.getText().equals("Start Round!")) {
 				theGame.startRound();
 				switchButtons(buttonClicked.getText());
+				startStopPanel.add(currentSpeed);
 				theGame.startTimer();
 			}
 
@@ -245,6 +253,22 @@ public class MenuPanel extends JPanel implements PanelObserver {
 				switchButtons(buttonClicked.getText());
 				theGame.startTimer();
 			}
+			
+			if (buttonClicked.getText().equals("Speed up!")) {
+				theGame.speedUp();
+				startStopPanel.remove(currentSpeed);
+				currentSpeed = slowDown;
+				startStopPanel.add(currentSpeed);
+			}
+			
+			if (buttonClicked.getText().equals("Slooow it down")) {
+				theGame.slowDown();
+				startStopPanel.remove(currentSpeed);
+				currentSpeed = speedUp;
+				startStopPanel.add(currentSpeed);
+			}
+			
+			
 
 			if (buttonClicked.getText().equals("Evolve!")) {
 				if (!theGame.isPaused() || theGame.betweenRounds()) {
@@ -283,8 +307,10 @@ public class MenuPanel extends JPanel implements PanelObserver {
 		if (button == "Start Round!" || button == "Resume") {
 			startStopPanel.remove(startButton);
 			startStopPanel.remove(time);
+			startStopPanel.remove(currentSpeed);
 			startStopPanel.add(pauseButton);
 			startStopPanel.add(time);
+			startStopPanel.add(currentSpeed);
 		} else {
 			if (theGame.betweenRounds())
 				startButton.setText("Start Round!");
@@ -292,8 +318,10 @@ public class MenuPanel extends JPanel implements PanelObserver {
 				startButton.setText("Resume");
 			startStopPanel.remove(pauseButton);
 			startStopPanel.remove(time);
+			startStopPanel.remove(currentSpeed);
 			startStopPanel.add(startButton);
 			startStopPanel.add(time);
+			startStopPanel.add(currentSpeed);
 			startStopPanel.repaint();
 		}
 

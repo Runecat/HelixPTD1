@@ -28,7 +28,6 @@ public class Tile {
 	private boolean canPlaceTower = true;
 	private boolean traversed = false;
 	private ArrayList<Tile> nextTiles = new ArrayList<Tile>();
-//	private Tile next;
 	
 	private ArrayList<Mob> mobList = new ArrayList<Mob>();
 	
@@ -57,12 +56,8 @@ public class Tile {
 		return myPlayer;
 	}
 	
-//	public void setNext(Tile t) {
-//		this.next = t;
-//	}
-	
 	public void moveMobs() {
-
+		
 		if (nextTiles.size() != 0) {
 			if (mobList.size() > 0) {
 				for (int i = 0; i < mobList.size(); i++) {
@@ -104,18 +99,18 @@ public class Tile {
 				}
 			}
 			return;
-		} else {
-			if (mobList.size() != 0)
-				removeMob(0);
+		}
+		else {
+			if (mobList.size() != 0) {
+				for (int i = 0; i < mobList.size(); i++) {
+					mobList.remove(i);
+					myPlayer.removeHealth(1);
+				}
+			}
 			else
 				return;
 		}
 	}
-
-	// After time has expired, the mob will be set to the next tile's mob list
-	// and removed from the current one
-	// If there is no more set path, the mob will only be removed from the
-	// tile's mob list
 
 	// After time has expired, the mob will be set to the next tile's mob list
 	// and removed from the current one
@@ -151,29 +146,14 @@ public class Tile {
 		return myObject instanceof Tower;
 	}
 
-	// public void setHasTower(boolean hasTower) {
-	// this.hasTower = hasTower;
-	// }
-
 	public boolean isEmpty() {
 		return !hasMob() && !hasTower();
 	}
-
-	// public void setIsEmpty(boolean isEmpty) {
-	// this.isEmpty = isEmpty;
-	// }
 
 	public boolean hasMob() {
 		return mobList.size() != 0;
 	}
 
-	// public void setHasMob(boolean hasMob) {
-	// this.hasMob = hasMob;
-	// }
-
-	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	// Currently set so that a tower can be placed on either land or water *
-	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 	public boolean canPlaceTower() {
 		// If it's not on path, it's not any object already,
 		// and canPlaceTower hasn't been overwritten to false already,
@@ -189,7 +169,6 @@ public class Tile {
 	public void setNextPathTile(Tile next) {
 		this.nextTiles.add(next);
 		next.setOnPath(true);
-		
 	}
 
 	public ArrayList<Tile> getNextTile() {
