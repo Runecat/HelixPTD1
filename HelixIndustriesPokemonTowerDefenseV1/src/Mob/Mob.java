@@ -6,7 +6,6 @@ import java.io.Serializable;
 
 import attacks.Effect;
 import maps.Map;
-import model.Clickable;
 import model.Headquarters;
 import model.Tile;
 import model.Type;
@@ -20,7 +19,7 @@ import model.Type;
  * 
  */
 
-public abstract class Mob implements Clickable, Serializable{
+public abstract class Mob implements Serializable{
 	
 	// May need location variables
 	

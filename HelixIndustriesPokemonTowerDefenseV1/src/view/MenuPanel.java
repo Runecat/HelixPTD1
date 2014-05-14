@@ -162,7 +162,7 @@ public class MenuPanel extends JPanel implements PanelObserver, Serializable {
 	public void menuPanelUpdate() {
 		playerHealth.setText("Health: " + theGame.getPlayer(0).getHealth());
 		money.setText("Moneys: $" + theGame.getPlayer(0).getMoney());
-		time.setText("Time: " + theGame.getTime());
+		time.setText("Time: " + theGame.getTime() + "\n Round: " + theGame.getCurrentMap().getCurrentLevel());
 		if (theGame.getCurrentTowerInfo() != null) {
 			info.setText("  "
 					+ theGame.getCurrentTowerInfo().getName()
