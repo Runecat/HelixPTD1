@@ -34,6 +34,7 @@ public class MenuPanel extends JPanel implements PanelObserver {
 	JPanel playerPanel;
 	JLabel money;
 	JLabel playerName;
+	JLabel playerHealth;
 
 	JPanel infoPanel;
 	JTextArea info;
@@ -102,9 +103,12 @@ public class MenuPanel extends JPanel implements PanelObserver {
 	
 	public void buildPlayerPanel() {
 		playerPanel = new JPanel();
-		playerName = new JLabel(theGame.getPlayer(0).getName());
+		playerName = new JLabel("          " + theGame.getPlayer(0).getName() + "        '  ");
+		playerHealth = new JLabel("Health: " + theGame.getPlayer(0).getHealth());
 		money = new JLabel("Moneys: $" + theGame.getPlayer(0).getMoney());
+		
 		playerPanel.add(playerName);
+		playerPanel.add(playerHealth);
 		playerPanel.add(money);
 	}
 
@@ -148,6 +152,7 @@ public class MenuPanel extends JPanel implements PanelObserver {
 	}
 
 	public void menuPanelUpdate() {
+		playerHealth.setText("Health: " + theGame.getPlayer(0).getHealth());
 		money.setText("Moneys: $" + theGame.getPlayer(0).getMoney());
 		time.setText("Time: " + theGame.getTime());
 		if (theGame.getCurrentTowerInfo() != null) {
