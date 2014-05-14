@@ -26,7 +26,9 @@ public class Tile {
 	private boolean isEmpty;
 	private boolean hasMob;
 	private boolean canPlaceTower = true;
-	private Tile next;
+	private boolean traversed = false;
+	private ArrayList<Tile> nextTiles = new ArrayList<Tile>();
+//	private Tile next;
 	
 	private ArrayList<Mob> mobList = new ArrayList<Mob>();
 	
@@ -55,16 +57,16 @@ public class Tile {
 		return myPlayer;
 	}
 	
-	public void setNext(Tile t) {
-		this.next = t;
-	}
+//	public void setNext(Tile t) {
+//		this.next = t;
+//	}
 	
 	public void moveMobs() {
 
-		if (next != null) {
+		if (nextTiles.size() != 0) {
 			if (mobList.size() > 0) {
 				for (int i = 0; i < mobList.size(); i++) {
-					mobList.get(i).setCurrentTile(next);
+					//mobList.get(i).setCurrentTile(next);
 
 					if (mobList.get(i).getHealth() <= 0) {
 						System.out.println("Keeled one!");
@@ -82,7 +84,19 @@ public class Tile {
 									mobList.get(i).setHealth(mobList.get(i).getHealth() - 2);//set image to fire if health  < 0 
 								}
 								mobList.get(i).setEffect(Effect.none);
-								next.addMobs(removeMob(i));
+								if (nextTiles.size() > 1) {
+									if (!traversed) {
+										nextTiles.get(0).addMobs(removeMob(i));
+										traversed = true;
+									}
+									else {
+										nextTiles.get(1).addMobs(removeMob(i));
+										traversed = false;
+									}
+								}
+								else {
+									nextTiles.get(0).addMobs(removeMob(i));
+								}
 							}
 						}
 					}
@@ -173,13 +187,13 @@ public class Tile {
 	}
 
 	public void setNextPathTile(Tile next) {
-		this.next = next;
+		this.nextTiles.add(next);
 		next.setOnPath(true);
 		
 	}
 
-	public Tile getNextTile() {
-		return next;
+	public ArrayList<Tile> getNextTile() {
+		return nextTiles;
 	}
 
 	public int getRow() {
@@ -220,9 +234,9 @@ public class Tile {
 		return y;
 	}
 
-	public Tile next() {
-		return next;
-	}
+//	public Tile next() {
+//		return next;
+//	}
 
 	public int checkDeaths() {
 		int cash = 0;

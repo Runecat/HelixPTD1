@@ -33,12 +33,23 @@ public abstract class Map {
 	public void setGame(Game theGame) {
 		this.theGame = theGame;
 	}
-
+	
 	public void buildPath() {
 		Tile curr = spawner.getTile();
-		while (curr != null) {
+		buildPathHelper(curr);
+	}
+
+	public void buildPathHelper(Tile curr) {
+		//Tile curr = spawner.getTile();
+		if (curr.getNextTile().size() != 0) {
 			path.add(curr);
-			curr = curr.next();
+			if (curr.getNextTile().size() > 1) {
+				for (int i = 0; i < curr.getNextTile().size(); i++) {
+					buildPathHelper(curr.getNextTile().get(i));
+				}
+			}
+			else
+				buildPathHelper(curr.getNextTile().get(0));
 		}
 	}
 	
