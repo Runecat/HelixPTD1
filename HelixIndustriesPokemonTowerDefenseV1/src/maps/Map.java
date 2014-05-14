@@ -33,34 +33,33 @@ public abstract class Map {
 	public void setGame(Game theGame) {
 		this.theGame = theGame;
 	}
-	
+
 	public void buildPath() {
 		Tile curr = spawner.getTile();
 		buildPathHelper(curr);
 	}
 
 	public void buildPathHelper(Tile curr) {
-		//Tile curr = spawner.getTile();
+		// Tile curr = spawner.getTile();
 		if (curr.getNextTile().size() != 0) {
 			path.add(curr);
 			if (curr.getNextTile().size() > 1) {
 				for (int i = 0; i < curr.getNextTile().size(); i++) {
 					buildPathHelper(curr.getNextTile().get(i));
 				}
-			}
-			else
+			} else
 				buildPathHelper(curr.getNextTile().get(0));
 		}
 	}
-	
+
 	public ArrayList<Mob> getMobList() {
 		return mobList;
 	}
-	
+
 	public void addMob(Mob m) {
 		mobList.add(m);
 	}
-	
+
 	public Spawner getSpawner() {
 		return spawner;
 	}
@@ -95,17 +94,16 @@ public abstract class Map {
 	public void createTower(int x, int y, Tower t) {
 		grid[x][y].setObject(t);
 	}
-	
+
 	public int getCurrentLevel() {
 		return currentLevel;
 	}
-	
-	
+
 	public void nextLevel() {
 		if (currentLevel <= levels)
 			currentLevel += 1;
 	}
-	
+
 	public void buildCurrentWave() {
 		spawner.buildCurrentWave(currentLevel);
 	}
@@ -118,14 +116,13 @@ public abstract class Map {
 
 	public void moveMobs() {
 
-		
-		for (int i = path.size()-1; i >= 0; i--) {
+		for (int i = path.size() - 1; i >= 0; i--) {
 			path.get(i).moveMobs();
 		}
-		//while (current != null) {
-		//	current.moveMobs();
-		//	current = current.next();
-		//}
+		// while (current != null) {
+		// current.moveMobs();
+		// current = current.next();
+		// }
 	}
 
 	// Gets a tile

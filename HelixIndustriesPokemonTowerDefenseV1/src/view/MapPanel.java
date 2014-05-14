@@ -42,7 +42,7 @@ public class MapPanel extends JPanel implements PanelObserver {
 	public MapPanel(Game game) {
 		this.theGame = game;
 
-		Level2 current = new Level2(theGame);
+		Level1 current = new Level1(theGame);
 		this.currentMap = current;
 
 		background = currentMap.getBackground().getScaledInstance(480, -1, -1);

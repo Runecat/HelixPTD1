@@ -40,7 +40,7 @@ public class TowerBuilder
 	  	
 		
 		BufferedImage[] sprites = new BufferedImage[spriteRows*spriteColumns];
-	  	System.out.println("Rows: "+ spriteRows + " Columns: " + spriteColumns);
+	  	//System.out.println("Rows: "+ spriteRows + " Columns: " + spriteColumns);
 	  	for(int i = 0; i<spriteColumns;i++)
 	  	{
 	  		for(int j = 0; j<spriteRows;j++)
@@ -50,7 +50,7 @@ public class TowerBuilder
 		  				i*spriteHeight+offset,
 		  				spriteWidth,
 		  				spriteHeight);
-	  			System.out.println(i*spriteRows+j +","+ i*spriteWidth + "," + ((j*spriteHeight)+offset) + "," + spriteWidth + "," + spriteHeight);
+	  			//System.out.println(i*spriteRows+j +","+ i*spriteWidth + "," + ((j*spriteHeight)+offset) + "," + spriteWidth + "," + spriteHeight);
 	  		}
 	  	}
 	  	

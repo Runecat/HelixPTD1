@@ -55,33 +55,34 @@ public abstract class Tower implements Clickable
 	 */
 	public void setRange(Map m)
 	{
-		System.out.println("Setting Range");
+		System.out.println("Setting Range: location"+location.getX()+','+location.getY());
 		tilesInRange = new ArrayList<Tile>();
 		Tile[][] grid = m.getGrid();
 		//grab which tiles are in range
-		int xMin = location.getX() - attacks.get(0).getHorizontalRange();
-		int xMax = location.getX() + attacks.get(0).getHorizontalRange();
-		int yMin = location.getY() - attacks.get(0).getVerticalRange();
-		int yMax = location.getY() + attacks.get(0).getVerticalRange();
+		int xMin = location.getY() - attacks.get(0).getHorizontalRange();
+		int xMax = location.getY() + attacks.get(0).getHorizontalRange();
+		int yMin = location.getX() - attacks.get(0).getVerticalRange();
+		int yMax = location.getX() + attacks.get(0).getVerticalRange();
 		int x;
 		int y;
-		System.out.println("x: " + location.getX());
-		System.out.println("x: " + location.getY());
-		System.out.println("Horizontal Range: " + attacks.get(0).getHorizontalRange());
-		System.out.println("Vertical Range: " + attacks.get(0).getVerticalRange());
+//		System.out.println("x: " + location.getX());
+//		System.out.println("x: " + location.getY());
+//		System.out.println("Horizontal Range: " + attacks.get(0).getHorizontalRange());
+//		System.out.println("Vertical Range: " + attacks.get(0).getVerticalRange());
+		
 		//Calculates range boundaries, based on attack range and map boundaries
 		if(xMin <0)
 		{
-			System.out.println("xmin before: " + xMin);
+			//System.out.println("xmin before: " + xMin);
 			xMin = 0;
-			System.out.println("xmin after: " + xMin);
+			//System.out.println("xmin after: " + xMin);
 		}
 		
 		if(yMin < 0)
 		{
-			System.out.println("ymin before: " + yMin);
+			//System.out.println("ymin before: " + yMin);
 			yMin = 0;
-			System.out.println("ymin after: " + yMin);
+			//System.out.println("ymin after: " + yMin);
 		}
 		
 		if(xMax > m.getWidth())
@@ -93,9 +94,9 @@ public abstract class Tower implements Clickable
 		
 		if(yMax > m.getHeight())
 		{
-			System.out.println("ymax before: " + yMax);
+			//System.out.println("ymax before: " + yMax);
 			yMax = m.getHeight();
-			System.out.println("ymax after: " + yMax);
+			//System.out.println("ymax after: " + yMax);
 		}
 		//Adds tiles in range to the range array
 		for(x = xMin;x<xMax;x++)
@@ -103,10 +104,11 @@ public abstract class Tower implements Clickable
 			for(y = yMin;y<yMax;y++)
 			{
 					tilesInRange.add(grid[x][y]);
+					System.out.println("Tile added: " + x + ',' + y);
 			}
 		}
 		
-		System.out.println("Tiles in range(size): " + tilesInRange.size());
+		//System.out.println("Tiles in range(size): " + tilesInRange.size());
 		
 	}
 	
@@ -226,7 +228,7 @@ public abstract class Tower implements Clickable
 		ArrayList<Mob> mobs = new ArrayList<Mob>();	
 		//calculate which mobs to grab for each type
 		
-		System.out.println("attack() called"); 
+		//System.out.println("attack() called"); 
 		if (attacks.get(0).getRangeType() == RangeType.NORMAL)
 		{	
 			for(Tile t: tilesInRange)
@@ -240,7 +242,7 @@ public abstract class Tower implements Clickable
 							break;
 						}	
 					}
-					System.out.println("mob in range of Ember"); 
+					//System.out.println("mob in range of Ember"); 
 					//currently adds one mob per tile in range
 					break;
 				}
@@ -312,7 +314,7 @@ public abstract class Tower implements Clickable
 	 */
 	public void dealDamage(Attack a, Mob m)
 	{
-		System.out.println("Dealing damage, sir!");
+		//System.out.println("Dealing damage, sir!");
 		int damageDealt = 0;
 		boolean modifier = false;
 		//Type t = new Type();
@@ -324,7 +326,7 @@ public abstract class Tower implements Clickable
 		
 		//damageDealt = a.getDamage();
 		damageDealt = (int) Math.ceil((type.getEffectiveness(m.getMobType()))*a.getDamage());//Calculate effectiveness, may need to change
-		System.out.println("Damage: " + damageDealt);
+		//System.out.println("Damage: " + damageDealt);
 				
 		if(modifier)
 		{
@@ -357,7 +359,7 @@ public abstract class Tower implements Clickable
 	
 	public void attackEnemy(Attack a, ArrayList<Mob> inRange)
 	{
-		System.out.println("AttackEnemy() called");
+		//System.out.println("AttackEnemy() called");
 		for(Mob m: inRange)
 		{
 			dealDamage(a,m);

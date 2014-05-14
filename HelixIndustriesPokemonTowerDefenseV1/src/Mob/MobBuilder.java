@@ -42,30 +42,21 @@ public class MobBuilder {
 
 		BufferedImage[] mobSprites = new BufferedImage[spriteRows
 				* spriteColumns];
-		System.out
-				.println("Rows: " + spriteRows + " Columns: " + spriteColumns);
 		for (int i = 0; i < spriteColumns; i++) {
 			for (int j = 0; j < spriteRows; j++) {
 				mobSprites[(i * spriteRows) + j] = mobSpriteSheet.getSubimage(j
 						* spriteWidth, i * spriteHeight + offset, spriteWidth,
 						spriteHeight);
-				System.out.println(i * spriteRows + j + "," + i * spriteWidth
-						+ "," + ((j * spriteHeight) + offset) + ","
-						+ spriteWidth + "," + spriteHeight);
 			}
 		}
 
 		sprites = new BufferedImage[spriteRows * spriteColumns];
-		System.out
-				.println("Rows: " + spriteRows + " Columns: " + spriteColumns);
+		
 		for (int i = 0; i < spriteColumns; i++) {
 			for (int j = 0; j < spriteRows; j++) {
 				sprites[(i * spriteRows) + j] = pokemonSpriteSheet.getSubimage(
 						j * spriteWidth, i * spriteHeight + offset,
 						spriteWidth, spriteHeight);
-				System.out.println(i * spriteRows + j + "," + i * spriteWidth
-						+ "," + ((j * spriteHeight) + offset) + ","
-						+ spriteWidth + "," + spriteHeight);
 			}
 		}
 
