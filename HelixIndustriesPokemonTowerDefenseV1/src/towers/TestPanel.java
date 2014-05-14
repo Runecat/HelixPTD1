@@ -60,39 +60,27 @@ public class TestPanel extends JFrame
 			super.paintComponent(g);
 			BufferedImage pokemonSpriteSheet = null;
 			try {
-				pokemonSpriteSheet = ImageIO.read(new File("Images/CondensedPokemonSprites.png"));
+				pokemonSpriteSheet = ImageIO.read(new File("Images/CondensedOverworldSprites.png"));
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			int spriteColumns =10;
-			int spriteRows = 10;
-			int spriteWidth = 60;
-			int spriteHeight = 60;
-			int offset = 20;
+			int spriteColumns =16;
+			int spriteRows = 7;
+			int spriteWidth = 20;
+			int spriteHeight = 20;
+			int offset = 0;
 			BufferedImage[] sprites = new BufferedImage[(spriteRows+1)*(spriteColumns+1)];
 		  	System.out.println("Rows: "+ spriteRows + " Columns: " + spriteColumns);
 		  	for(int i = 0; i<spriteColumns;i++)
 		  	{
 		  		for(int j = 0; j<spriteRows;j++)
 		  		{
-		  			/*sprites[(i*spriteRows)+j] = pokemonSpriteSheet.getSubimage(
-		  				i*spriteWidth,
-		  				j*spriteHeight,
-		  				spriteWidth,
-		  				spriteHeight);*/
 		  			sprites[(i*spriteRows)+j] = pokemonSpriteSheet.getSubimage(
 			  				j*spriteWidth,
 			  				i*spriteHeight+offset,
 			  				spriteWidth,
 			  				spriteHeight);
-		  			//System.out.println(i*spriteRows+j +","+ i*spriteWidth + "," + ((j*spriteHeight)+offset) + "," + spriteWidth + "," + spriteHeight);
-		  			//(60,60,60,60) gives me most of pikachu
-		  			//(60,120,60,60) gives me bottom of pikachu plus top of oddish
-		  			//120,60,60,60 gives bottom bulba, top rai
-		  			
-		  			//120,20,60,60  bulba
-		  			//180,20,60,60 ivy
 		  		}
 		  	}
 			//g.setColor(Color.green);
@@ -106,13 +94,13 @@ public class TestPanel extends JFrame
 		  	{
 		  		for(int j = 0;j<spriteColumns;j++)
 		  		{
-		  			g.drawImage(sprites[(i*spriteRows)+j],i*60,j*60,60,60,this);//i*spriteRows)+j
-		  			g.drawString(""+((i*spriteRows)+j),i*60 ,j*60 );
+		  			g.drawImage(sprites[(i*spriteRows)+j],i*20,j*20,20,20,this);//i*spriteRows)+j
+		  			g.drawString(""+((i*spriteRows)+j),i*20 ,j*20 );
 		  		}
 		  	}
 		  	for(int k =0;k<=spriteRows*spriteColumns;k++)
 		  	{
-		  		//g.drawImage(sprites[k],k*60,0,60,60,this);
+		  		//g.drawImage(sprites[k],k*20,0,20,20,this);
 		  	}
 		  	//g.drawImage(sprites[0],0,0,60,60,this);
 		  	//g.drawImage(sprites[1],60,0,60,60,this);

@@ -17,12 +17,11 @@ import towers.Charmander;
 import towers.Tower;
 import towers.TowerBuilder;
 import towers.TowerID;
-
+import Mob.Mob;
 import ObserverModel.PanelObserver;
-
 import maps.Level1;
-import maps.Level2;
-import maps.Level3;
+//import maps.Level2;
+//import maps.Level3;
 import maps.Map;
 import model.Game;
 import model.Spawner;
@@ -96,9 +95,12 @@ public class MapPanel extends JPanel implements PanelObserver {
 							TILE_DIMENSION, TILE_DIMENSION);
 				}
 				if (currentMap.getGrid()[i][j].getMobs().size() != 0) {
-					g.setColor(Color.green);
-					g.fillOval(i * TILE_DIMENSION, j * TILE_DIMENSION,
-							TILE_DIMENSION, TILE_DIMENSION);
+					for(Mob m: currentMap.getGrid()[i][j].getMobs())
+					{
+						g.drawImage(m.getImage(),i * TILE_DIMENSION, j
+								* TILE_DIMENSION, TILE_DIMENSION,
+								TILE_DIMENSION, this);
+					}
 				}
 				g.setColor(Color.BLACK);
 				// g.drawString("" + count, (i)*currentMap.getGridWidth(),
@@ -120,11 +122,16 @@ public class MapPanel extends JPanel implements PanelObserver {
 							TILE_DIMENSION + 20, this);
 				}
 
-				if (currentMap.getGrid()[i][j].hasMob()) {
-					if (currentMap.getGrid()[i][j].getMobs().size() > 1)
-						g.setColor(Color.cyan);
-					else
-						g.setColor(Color.blue);
+				if (currentMap.getGrid()[i][j].hasMob())
+				{
+					for(Mob mob: currentMap.getGrid()[i][j].getMobs())
+					{
+						mob.resetImage();
+						g.drawImage(mob.getImage(), i * TILE_DIMENSION, j
+								* TILE_DIMENSION, TILE_DIMENSION,
+								TILE_DIMENSION, this);
+			  			
+					}
 
 				}
 
