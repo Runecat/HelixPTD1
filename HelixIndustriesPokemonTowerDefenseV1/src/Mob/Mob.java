@@ -112,6 +112,11 @@ public abstract class Mob implements Clickable {
 	{
 		this.currentImage = image[8];
 	}
+	
+	public void resetImage()
+	{
+		this.currentImage = image[0];
+	}
 
 	public String getName() {
 		return name;

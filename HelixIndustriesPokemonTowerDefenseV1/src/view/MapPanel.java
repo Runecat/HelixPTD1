@@ -42,7 +42,7 @@ public class MapPanel extends JPanel implements PanelObserver {
 	public MapPanel(Game game) {
 		this.theGame = game;
 
-		Level3 current = new Level3(theGame);
+		Level1 current = new Level1(theGame);
 		this.currentMap = current;
 
 		background = currentMap.getBackground().getScaledInstance(480, -1, -1);
@@ -122,11 +122,16 @@ public class MapPanel extends JPanel implements PanelObserver {
 							TILE_DIMENSION + 20, this);
 				}
 
-				if (currentMap.getGrid()[i][j].hasMob()) {
-					if (currentMap.getGrid()[i][j].getMobs().size() > 1)
-						g.setColor(Color.cyan);
-					else
-						g.setColor(Color.blue);
+				if (currentMap.getGrid()[i][j].hasMob())
+				{
+					for(Mob mob: currentMap.getGrid()[i][j].getMobs())
+					{
+						mob.resetImage();
+						g.drawImage(mob.getImage(), i * TILE_DIMENSION, j
+								* TILE_DIMENSION, TILE_DIMENSION,
+								TILE_DIMENSION, this);
+			  			
+					}
 
 				}
 
