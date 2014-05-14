@@ -42,7 +42,10 @@ public abstract class Map {
 	public void buildPathHelper(Tile curr) {
 		// Tile curr = spawner.getTile();
 		if (curr.getNextTile().size() != 0) {
-			path.add(curr);
+			if (!path.contains(curr))
+				path.add(curr);
+			else
+				return;
 			if (curr.getNextTile().size() > 1) {
 				for (int i = 0; i < curr.getNextTile().size(); i++) {
 					buildPathHelper(curr.getNextTile().get(i));
