@@ -26,7 +26,6 @@ public class PTDGUI extends JFrame {
 	
 	/* The main GUI. I am trying to develop it in such a way where all we need to pass it is the game, then it will take care of the rest.
 	 * This will be an observer of the Game
-	 * 
 	 */
 	
 	MapPanel mapPanel; 

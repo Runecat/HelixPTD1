@@ -25,6 +25,7 @@ public class Tile {
 	private boolean hasTower;
 	private boolean isEmpty;
 	private boolean hasMob;
+	private boolean canPlaceTower = true;
 	private Tile next;
 	
 	private ArrayList<Mob> mobList = new ArrayList<Mob>();
@@ -160,8 +161,16 @@ public class Tile {
 	// Currently set so that a tower can be placed on either land or water *
 	// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 	public boolean canPlaceTower() {
-		return  (isOnPath == false && myObject == null && !isSpawner());
+		// If it's not on path, it's not any object already,
+		// and canPlaceTower hasn't been overwritten to false already,
+		// returns true
+		return canPlaceTower = (isOnPath == false && myObject == null && !isSpawner() && canPlaceTower);
 	}	
+	
+	// Pretty much an override method, but not really. Well kinda
+	public void setCanPlaceTower(boolean value) {
+		this.canPlaceTower = value;
+	}
 
 	public void setNextPathTile(Tile next) {
 		this.next = next;

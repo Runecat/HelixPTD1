@@ -54,6 +54,8 @@ public abstract class Wave
 	public void setDelay(int delay) {
 		this.delay = delay;
 	}
+	
+	
 
 
 }
