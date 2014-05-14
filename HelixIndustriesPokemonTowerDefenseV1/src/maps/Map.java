@@ -25,6 +25,7 @@ public abstract class Map {
 	Tile[][] grid;
 	private List<Tile> path = new ArrayList<Tile>();
 	private ArrayList<Spawner> spawners = new ArrayList<Spawner>();
+	private ArrayList<Mob> mobList = new ArrayList<Mob>();
 	private Spawner spawner;
 
 	private Game theGame;
@@ -40,6 +41,18 @@ public abstract class Map {
 			curr = curr.next();
 		}
 	}
+	
+	public ArrayList<Mob> getMobList() {
+		return mobList;
+	}
+	
+	public void addMob(Mob m) {
+		mobList.add(m);
+	}
+	
+	public Spawner getSpawner() {
+		return spawner;
+	}
 
 	public List<Tile> getPath() {
 		return path;
@@ -49,7 +62,7 @@ public abstract class Map {
 		grid = new Tile[width][height];
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < height; j++) {
-				grid[i][j] = new Tile(i, j);
+				grid[i][j] = new Tile(i, j, this);
 				grid[i][j].setPlayer(theGame.getPlayer(0));
 			}
 		}
@@ -71,17 +84,28 @@ public abstract class Map {
 	public void createTower(int x, int y, Tower t) {
 		grid[x][y].setObject(t);
 	}
+	
+	public int getCurrentLevel() {
+		return currentLevel;
+	}
+	
+	
+	public void nextLevel() {
+		if (currentLevel <= levels)
+			currentLevel += 1;
+	}
+	
+	public void buildCurrentWave() {
+		spawner.buildCurrentWave(currentLevel);
+	}
 
 	public void sendWave() {
-		spawner.sendWave(currentLevel);
+		spawner.sendWave();
 		// this way because current starts at 0, it will match the spawner's
 		// indexing.
-		if (currentLevel < levels)
-			currentLevel += 1;
 	}
 
 	public void moveMobs() {
-		Tile current = spawner.getTile();
 
 		
 		for (int i = path.size()-1; i >= 0; i--) {

@@ -132,7 +132,7 @@ public class MapPanel extends JPanel implements PanelObserver {
 		}
 		
 		
-		if (theGame.isPaused()) {
+		if (theGame.isPaused() && !theGame.betweenRounds()) {
 			this.add(pausePanel);
 		}
 		else
