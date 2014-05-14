@@ -1,10 +1,12 @@
 package model;
 
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 import towers.Tower;
@@ -32,6 +34,8 @@ public class Game extends PanelObservable {
 	private int timeElapsed = 0;
 	private int spawnerOffset = -1;
 	private int moveOffset;
+	
+	private boolean hasLost = false;
 
 	private TowerBuilder towerBuilder;
 	private List<Tower> towerList = new ArrayList<Tower>();
@@ -58,6 +62,7 @@ public class Game extends PanelObservable {
 	public Game() { // added constructor.
 		// add observers and other things.
 		Player thisPlayer = new Player("Chars");
+		thisPlayer.removeHealth(149);
 		thisPlayer.addMoney(300000);
 		this.addPlayer(thisPlayer);
 
@@ -100,10 +105,12 @@ public class Game extends PanelObservable {
 
 	public void startTimer() {
 		gameTimer.start();
+		notifyObservers();
 	}
 
 	public void stopTimer() {
 		gameTimer.stop();
+		notifyObservers();
 	}
 
 	public void addMap(Map input) {
@@ -165,6 +172,15 @@ public class Game extends PanelObservable {
 	public void pause() {
 		
 	}
+	
+	public boolean hasLost() {
+		return hasLost;
+	}
+	
+	public void lose() {
+		gameTimer.stop();
+		hasLost = true;
+	}
 
 	public boolean canPlaceTower(int x, int y) {
 		if (isPaused() && !betweenRounds)
@@ -196,6 +212,10 @@ public class Game extends PanelObservable {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
+			
+			if (players.get(0).getHealth() <= 0) {
+				lose();
+			}
 
 			timeElapsed++;
 			// moving mobs is synced with timer
