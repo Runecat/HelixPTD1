@@ -255,14 +255,26 @@ public class MapPanel extends JPanel implements PanelObserver {
 				theGame.setIsPlacingTower(false);
 				theGame.notifyObservers();
 			}
+			else if (!theGame.getIsPlacingTower() && theGame.getCurrentMap().getTile(x, y).isOnPath() && theGame.getCurrentMap().getTile(x, y).getMobs().size() != 0) {
+				theGame.setCurrentTowerInfo(null);
+				theGame.setCurrentMobsInfo(currentMap.getTile(x, y).getMobs());
+				theGame.notifyObservers();
+			}
 			else if (theGame.getIsPlacingTower() == false && theGame.canPlaceTower(x, y)){
 				theGame.setCurrentTowerInfo(null);
+				theGame.setCurrentMobsInfo(null);
+				theGame.notifyObservers();
+			}
+			else if (theGame.getIsPlacingTower() == false && theGame.getCurrentMap().getTile(x, y).isOnPath()){
+				theGame.setCurrentTowerInfo(null);
+				theGame.setCurrentMobsInfo(null);
 				theGame.notifyObservers();
 			}
 			else {
 				theGame.setCurrentTowerInfo((Tower) currentMap.getObject(x, y));
 				theGame.notifyObservers();
 			}
+			
 		}
 
 		@Override

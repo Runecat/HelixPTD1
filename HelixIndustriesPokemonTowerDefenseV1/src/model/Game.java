@@ -16,6 +16,7 @@ import view.MapPanel;
 
 import maps.Map;
 
+import Mob.Mob;
 import ObserverModel.PanelObservable;
 
 public class Game extends PanelObservable {
@@ -46,6 +47,7 @@ public class Game extends PanelObservable {
 	private List<Map> mapList;
 
 	private Tower currentTowerInfo;
+	private ArrayList<Mob> currentMobsInfo;
 
 	private boolean betweenRounds;
 
@@ -206,6 +208,14 @@ public class Game extends PanelObservable {
 		players.get(0).addMoney(-1 * t.getBuy());
 		currentMap.createTower(x, y, t);
 		notifyObservers();
+	}
+
+	public ArrayList<Mob> getCurrentMobsInfo() {
+		return currentMobsInfo;
+	}
+
+	public void setCurrentMobsInfo(ArrayList<Mob> arrayList) {
+		this.currentMobsInfo = arrayList;
 	}
 
 	private class GameTimerListener implements ActionListener {
