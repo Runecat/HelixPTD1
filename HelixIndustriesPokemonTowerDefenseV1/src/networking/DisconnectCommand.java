@@ -1,6 +1,6 @@
 package networking;
 
-public class DisconnectCommand extends Command<GameChatServer>
+public class DisconnectCommand extends Command<GameServer>
 {
 	private String clientName; // client who is disconnecting
 	
@@ -8,7 +8,7 @@ public class DisconnectCommand extends Command<GameChatServer>
 		clientName = name;
 	}
 	
-	public void execute(GameChatServer executeOn) {
+	public void execute(GameServer executeOn) {
 		// disconnect client
 		executeOn.disconnect(clientName);
 	}
