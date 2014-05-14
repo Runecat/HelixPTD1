@@ -34,6 +34,7 @@ public class Level2 extends Map{
 
 	private BufferedImage background;
 	private String backgroundImageURL = "Images/36-Gym.png";
+	public final int OFFSET = 480;
 
 	private final int WIDTH = 20;
 	private final int HEIGHT = 18;
@@ -43,6 +44,8 @@ public class Level2 extends Map{
 		super.setGame(theGame);
 		super.height = HEIGHT;
 		super.width = WIDTH;
+		super.setOffset(OFFSET);
+
 
 		theGame.setMap(this);
 		loader = new ImageLoader();

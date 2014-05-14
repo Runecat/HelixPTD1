@@ -88,12 +88,7 @@ public class Game extends PanelObservable {
 		return true;
 	}
 
-	public void setCurrentMap(int i) { // this will be changed to an ID enum
-										// system
-		currentMap = mapList.get(i);
-		currentMap.setGame(this);
-
-	}
+	
 
 	public void startTimer() {
 		gameTimer.start();

@@ -72,6 +72,7 @@ public class PTDGUI extends JFrame {
 		background.setLayout(new BorderLayout());
 		//this.add(background);
 
+		/*
 		// MapPanel
 		currentMapPanel = new MapPanel(game);
 		game.addObserver(currentMapPanel);
@@ -83,21 +84,28 @@ public class PTDGUI extends JFrame {
 		menu.setPreferredSize(new Dimension(184, 720));
 		background.add(menu, BorderLayout.LINE_END);
 
+		 */
 		this.setVisible(true);
 		
 
 	}
 
-	public void startGame(Map m) {
+	public void startGame(String s) {
 		this.remove(mapSelection);
 
 		this.theGame = new Game();
-
 		this.add(background);
+		Map m = null;
+		
+		if (s.equals("Level 1"))
+			m = new Level1(theGame);
+		else if (s.equals("Level 2"))
+			m = new Level2(theGame);
+		else if (s.equals("Level 3"))
+			m = new Level3(theGame);
 		
 		// MapPanel
-		// currentMapPanel = new MapPanel(game, m);
-		currentMapPanel = new MapPanel(this.theGame);
+		currentMapPanel = new MapPanel(this.theGame, m);
 		
 		this.theGame.addObserver(currentMapPanel);
 		currentMapPanel.setPreferredSize(new Dimension(800, 720));
@@ -227,11 +235,11 @@ public class PTDGUI extends JFrame {
 				JButton selected = (JButton) arg0.getSource();
 
 				if (selected.getText() == "Map 1")
-					startGame(new Level1(gui.theGame));
+					startGame("Level 1");
 				if (selected.getText() == "Map 2")
-					startGame(new Level2(gui.theGame));
+					startGame("Level 2");
 				if (selected.getText() == "Map 3")
-					startGame(new Level3(gui.theGame));
+					startGame("Level 3");
 			}
 
 		}
