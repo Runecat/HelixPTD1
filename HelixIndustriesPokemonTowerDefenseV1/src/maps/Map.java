@@ -40,18 +40,17 @@ public abstract class Map {
 	}
 
 	public void buildPathHelper(Tile curr) {
-		// Tile curr = spawner.getTile();
 		if (curr.getNextTile().size() != 0) {
 			if (!path.contains(curr))
 				path.add(curr);
 			else
 				return;
-			if (curr.getNextTile().size() > 1) {
-				for (int i = 0; i < curr.getNextTile().size(); i++) {
-					buildPathHelper(curr.getNextTile().get(i));
-				}
-			} else
-				buildPathHelper(curr.getNextTile().get(0));
+			for (int i = 0; i < curr.getNextTile().size(); i++) {
+				buildPathHelper(curr.getNextTile().get(i));
+			}
+		}
+		if (path.size() != 0 && curr.getNextTile().size() == 0) {
+			path.add(curr);
 		}
 	}
 
