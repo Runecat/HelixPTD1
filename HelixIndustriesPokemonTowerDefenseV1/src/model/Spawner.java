@@ -62,7 +62,7 @@ public class Spawner {
 		// problem.
 		for (int i = 0; i < waves.get(level).getWave().size(); i++) {
 			mobs.add(waves.get(level).getWave().get(i));
-			mobs.get(i).setCurrentTile(this.getTile());
+			//mobs.get(i).setCurrentTile(this.getTile());
 		}
 	}
 

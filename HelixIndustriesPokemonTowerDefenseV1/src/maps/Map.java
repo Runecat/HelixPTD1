@@ -53,6 +53,7 @@ public abstract class Map {
 		if (path.size() != 0 && curr.getNextTile().size() == 0) {
 			path.add(curr);
 		}
+		
 	}
 	
 	public int getOffset() {

@@ -158,7 +158,8 @@ public class Tile {
 		// If it's not on path, it's not any object already,
 		// and canPlaceTower hasn't been overwritten to false already,
 		// returns true
-		return canPlaceTower = (isOnPath == false && myObject == null && !isSpawner() && canPlaceTower);
+		canPlaceTower = (isOnPath == false && myObject == null && !isSpawner() && canPlaceTower);
+		return canPlaceTower;
 	}	
 	
 	// Pretty much an override method, but not really. Well kinda
@@ -195,6 +196,7 @@ public class Tile {
 
 	public void setSpawner(Spawner spawner) {
 		this.spawner = spawner;
+		this.setOnPath(true);
 	}
 
 	public Spawner getSpawnerTile() {
