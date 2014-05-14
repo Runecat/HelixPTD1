@@ -66,7 +66,7 @@ public class Tile {
 		if (nextTiles.size() != 0) {
 			if (mobList.size() > 0) {
 				for (int i = 0; i < mobList.size(); i++) {
-					//mobList.get(i).setCurrentTile(next);
+					mobList.get(i).setCurrentTile(this);
 
 					if (mobList.get(i).getHealth() <= 0) {
 						System.out.println("Keeled one!");

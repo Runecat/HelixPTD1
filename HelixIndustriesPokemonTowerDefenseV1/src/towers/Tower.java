@@ -227,12 +227,13 @@ public abstract class Tower implements Clickable
 	{
 		ArrayList<Mob> mobs = new ArrayList<Mob>();	
 		//calculate which mobs to grab for each type
-		
-		//System.out.println("attack() called"); 
+		 
 		if (attacks.get(0).getRangeType() == RangeType.NORMAL)
 		{	
 			for(Tile t: tilesInRange)
-			{	if(t.hasMob() && (mobs.size()<attacks.get(0).getTargets()))
+			{	
+				System.out.print(t.hasMob());
+				if(t.hasMob() && (mobs.size()<attacks.get(0).getTargets()))
 				{
 					for(int i = 0;i<t.getMobs().size();i++)
 					{
@@ -242,7 +243,6 @@ public abstract class Tower implements Clickable
 							break;
 						}	
 					}
-					//System.out.println("mob in range of Ember"); 
 					//currently adds one mob per tile in range
 					break;
 				}
@@ -305,6 +305,7 @@ public abstract class Tower implements Clickable
 						}
 					}
 		}
+		System.out.println("MOBS: "+ mobs.size());
 		if(mobs.size() > 0 && attackDelay(currentDelay))
 			attackEnemy(attacks.get(0), mobs);
 			
