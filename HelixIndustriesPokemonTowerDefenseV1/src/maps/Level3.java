@@ -33,7 +33,7 @@ public class Level3 extends Map{
 	ImageLoader loader;
 
 	private BufferedImage background;
-	private String backgroundImageURL = "Images/level3 map.png";
+	private String backgroundImageURL = "Images/level3_map.png";
 
 	private final int WIDTH = 33;
 	private final int HEIGHT = 26;
@@ -49,7 +49,7 @@ public class Level3 extends Map{
 		buildGrid(WIDTH, HEIGHT);
 
 		try {
-			this.background = loader.loadImage("Images/level3 map.png");
+			this.background = loader.loadImage("Images/level3_map.png");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
