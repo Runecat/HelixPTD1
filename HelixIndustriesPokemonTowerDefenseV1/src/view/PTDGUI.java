@@ -4,11 +4,14 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
@@ -28,7 +31,8 @@ public class PTDGUI extends JFrame {
 	 * This will be an observer of the Game
 	 */
 	
-	MapPanel mapPanel; 
+	
+	MapPanel currentMapPanel; 
 	MenuPanel menu;
 	
 	BackgroundFrame background;
@@ -47,6 +51,8 @@ public class PTDGUI extends JFrame {
 		
 		this.setSize(new Dimension(1000, 720));
 		//this.setSize(new Dimension(778, 720));
+		
+		//this.add(new IntroPanel());
 
 		
 		background = new BackgroundFrame();
@@ -54,11 +60,12 @@ public class PTDGUI extends JFrame {
 		this.add(background);
 		
 		
+		
 		//MapPanel 
-		mapPanel = new MapPanel(game);
-		game.addObserver(mapPanel);
-		mapPanel.setPreferredSize(new Dimension(800, 720));
-		background.add(mapPanel, BorderLayout.LINE_START);
+		currentMapPanel = new MapPanel(game);
+		game.addObserver(currentMapPanel);
+		currentMapPanel.setPreferredSize(new Dimension(800, 720));
+		background.add(currentMapPanel, BorderLayout.LINE_START);
 
 				
 		menu = new MenuPanel(game);
@@ -80,7 +87,7 @@ public class PTDGUI extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			mapPanel.update();
+			currentMapPanel.update();
 		}
 		
 		
@@ -115,6 +122,28 @@ public class PTDGUI extends JFrame {
 			
 			
 		}
+	}
+	
+	private class IntroPanel extends JPanel {
+		
+		public IntroPanel() {
+			this.setOpaque(true);
+			this.setVisible(true);
+			this.setLayout(new GridBagLayout());
+			GridBagConstraints c = new GridBagConstraints();
+			c.gridx = 0;
+			c.gridy = 1;
+			this.add(new JLabel("Helix Industries Pokemon Tower Defense Pre-Alpha"), c);
+			
+			JButton single = new JButton("Single Player");
+			JButton multi = new JButton("Multi Player");
+			
+			this.add(single, c);
+			this.add(multi, c);
+			
+		}
+		
+		
 	}
 	
 }
